@@ -51,4 +51,13 @@ public static class PeteHelper
     }
 
 
+    /// <summary>
+    /// Helper method that returns any item from a list
+    /// </summary>
+    public static T RandomItem<T>(this IList<T> list)
+    {
+        return list[Random.Range(0, list.Count)];
+    }
+
+
 }
