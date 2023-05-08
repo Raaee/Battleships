@@ -31,7 +31,7 @@ public class GridManager : MonoBehaviour
             spawnedTile.transform.parent = this.transform;
             //give the tiles a checkerboard effect
             bool isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
-            spawnedTile.GetComponent<TileColor>().Init(isOffset);
+            spawnedTile.GetComponent<TileVisual>().Init(isOffset);
 
             tiles[new Vector2(x, y)] = spawnedTile;
          }

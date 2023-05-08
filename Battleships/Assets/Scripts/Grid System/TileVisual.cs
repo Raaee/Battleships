@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileColor : MonoBehaviour
+public class TileVisual : MonoBehaviour
 {
 
     [SerializeField] private Color baseColor;
@@ -31,13 +31,13 @@ public class TileColor : MonoBehaviour
     private void OnMouseEnter()
     {
        ShowHighlight();
-       potentialShipPlacement.AssignCurrentTileColor(this);
+       potentialShipPlacement.AssignCurrentTileVisual(this);
     }
     
     private void OnMouseExit()
     {
        HideHighlight();
-       potentialShipPlacement.RemoveCurrentTileColor();
+       potentialShipPlacement.RemoveCurrentTileVisual();
     }
 
     public void ShowHighlight()

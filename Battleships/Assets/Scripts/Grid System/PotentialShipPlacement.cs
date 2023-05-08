@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class PotentialShipPlacement : MonoBehaviour
 {
-   [SerializeField] private TileColor currentHighlightedTileColor = null;
+   [SerializeField] private TileVisual currentHighlightedTileVisual = null;
    [SerializeField] private GridManager gridManager;
 
    private bool isVertical = true;
   [SerializeField][Range(1, 6)] private int sizeOfPawn = 2;
 
-  [SerializeField] private TextMeshProUGUI alignmnetText;
+  [SerializeField] private TextMeshProUGUI alignmentText;
   [SerializeField] private TextMeshProUGUI sizeText;
 
 
@@ -23,36 +23,27 @@ public class PotentialShipPlacement : MonoBehaviour
 
   private void ShowPotentialShipPlacement()
    {
-       Vector2 tileVec2 = gridManager.GetPositionAtTile(currentHighlightedTileColor.gameObject);
-       if (isVertical) //highlight to the right of the mouse tile for the size of Pawn 
-       {
-            //we know the grid is 10x10
-            //if the current hightlighted x position is ... we return 
-            //get y value if current tile 
-            float currentTileY = tileVec2.y;
 
-            if (currentTileY + sizeOfPawn > 10)
-            {
-              //cant highlight 
-                Debug.Log("Cannot highlight mf, should we remove all highlights?");
-                RemoveAllHighlights();
-                return;
-            }
-            //now we can highlight 
-            HighlightPotentialShipPlacementVert((int)tileVec2.x, (int)tileVec2.y);
+       Vector2 currTilePos = gridManager.GetPositionAtTile(currentHighlightedTileVisual.gameObject);
+       if (isVertical) 
+       {
+           if (currTilePos.y + sizeOfPawn > 10) 
+           {
+               RemoveAllHighlights();
+               return;
+           }
+           //now we can highlight 
+           HighlightPotentialShipPlacementVert((int)currTilePos.x, (int)currTilePos.y);
        }
        else //we want to do samething but horizontally 
        {
-           float currentTileX = tileVec2.x;
-           if (currentTileX + sizeOfPawn > 10)
+           if (currTilePos.x + sizeOfPawn > 10)
            {
-               //cant highlight 
-               Debug.Log("Cannot highlight mf, should we remove all highlights?");
                RemoveAllHighlights();
                return;
            }
            //now we can highlight horizontally 
-           HighlightPotentialShipPlacementHori((int)tileVec2.x, (int)tileVec2.y);
+           HighlightPotentialShipPlacementHori((int)currTilePos.x, (int)currTilePos.y);
 
        }
    }
@@ -62,11 +53,9 @@ public class PotentialShipPlacement : MonoBehaviour
        //start at current tile, and highlight the next tiles to the right for size of pawn times 
        for (int i = y; i < (y + sizeOfPawn); i++)
        {
-         
            var tileGO = gridManager.GetTileAtPosition(new Vector2(x, i));
-           
            if(tileGO)
-            tileGO.GetComponent<TileColor>().ShowHighlight();
+            tileGO.GetComponent<TileVisual>().ShowHighlight();
        }
    }
 
@@ -77,20 +66,20 @@ public class PotentialShipPlacement : MonoBehaviour
            var tileGO = gridManager.GetTileAtPosition(new Vector2(i, y));
            
            if(tileGO)
-               tileGO.GetComponent<TileColor>().ShowHighlight();
+               tileGO.GetComponent<TileVisual>().ShowHighlight();
        }
    }
    
 
-    public void AssignCurrentTileColor(TileColor tileColor)
+    public void AssignCurrentTileVisual(TileVisual tileVisual)
     {
-        currentHighlightedTileColor = tileColor;
+        currentHighlightedTileVisual = tileVisual;
         ShowPotentialShipPlacement();
     }
     
-    public void RemoveCurrentTileColor()
+    public void RemoveCurrentTileVisual()
     {
-        currentHighlightedTileColor = null;
+        currentHighlightedTileVisual = null;
         RemoveAllHighlights();
     }
 
@@ -98,7 +87,7 @@ public class PotentialShipPlacement : MonoBehaviour
     {
         foreach (var go in gridManager.GetTiles())
         {
-            var tileColor = go.Value.gameObject.GetComponent<TileColor>();
+            var tileColor = go.Value.gameObject.GetComponent<TileVisual>();
             if (tileColor != null)
             {
                 tileColor.HideHighlight();
@@ -126,6 +115,6 @@ public class PotentialShipPlacement : MonoBehaviour
     private void UpdateUI()
     {
         sizeText.text = sizeOfPawn.ToString();
-        alignmnetText.text = isVertical ? "Vertical" : "Horizontal"; 
+        alignmentText.text = isVertical ? "Vertical" : "Horizontal"; 
     }
 }

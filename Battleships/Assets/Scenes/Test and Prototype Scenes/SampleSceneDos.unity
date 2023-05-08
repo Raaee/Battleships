@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe08a67840b9c74e8cc3a45be1f268a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthOffset: 1.1
-  heightOffset: 1.1
+  widthOffset: 1.01
+  heightOffset: 1.01
   tilePrefab: {fileID: 3880102074736689347, guid: 9718dde1a6407684cb3e06bf45d72945, type: 3}
 --- !u!1 &927903463
 GameObject:
@@ -673,10 +673,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b17a833d3d08f4aa16d284fc473404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHighlightedTileColor: {fileID: 0}
+  currentHighlightedTileVisual: {fileID: 0}
   gridManager: {fileID: 157890029}
   sizeOfPawn: 3
-  alignmnetText: {fileID: 1351576981}
+  alignmentText: {fileID: 1351576981}
   sizeText: {fileID: 1717536134}
 --- !u!4 &1467854947
 Transform:
