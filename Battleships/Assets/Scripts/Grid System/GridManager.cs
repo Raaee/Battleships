@@ -14,6 +14,8 @@ public class GridManager : MonoBehaviour
    [SerializeField] private GameObject tilePrefab;
 
    private Dictionary<Vector2, GameObject> tiles;
+
+   [SerializeField] private bool drawGizmos = false;
    private void Start()
    {
       GenerateGrid();
@@ -81,4 +83,29 @@ public class GridManager : MonoBehaviour
       return tiles;
    }
    
+   
+   
+   //Gizmos 
+   private void OnDrawGizmos()
+   {
+      if (drawGizmos == false || Application.isPlaying) return;
+
+      foreach (var point in EvaluteGridPoints())
+      {
+         Gizmos.DrawWireCube(point, new Vector3(1, 1,0 ));
+      }
+      
+   }
+
+   private IEnumerable<Vector3> EvaluteGridPoints()
+   {
+      for (int i = 0; i < WIDTH; i++)
+      {
+         for (int j = 0; j < WIDTH; j++)
+         {
+            
+            yield return new Vector3(i * widthOffset, (j * heightOffset) * -1 , 0);
+         }
+      }
+   }
 }
