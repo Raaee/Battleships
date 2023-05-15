@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A grid manager script that will be set in 3d to achieve a 2.5d effect
+/// </summary>
 public class GridManager : MonoBehaviour
 {
    
