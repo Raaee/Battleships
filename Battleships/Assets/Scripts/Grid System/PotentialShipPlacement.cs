@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PotentialShipPlacement : MonoBehaviour
 {
-   [SerializeField] private TileVisual currentHighlightedTileVisual = null;
+   [SerializeField] private CubeVisual currentHighlightedCubeVisual = null;
    [SerializeField] private GridManager gridManager;
 
    private bool isVertical = true;
@@ -24,7 +24,7 @@ public class PotentialShipPlacement : MonoBehaviour
   private void ShowPotentialShipPlacement()
    {
 
-       Vector2 currTilePos = gridManager.GetPositionAtTile(currentHighlightedTileVisual.gameObject);
+       Vector2 currTilePos = gridManager.GetPositionAtTile(currentHighlightedCubeVisual.gameObject);
        if (isVertical) 
        {
            if (currTilePos.y + sizeOfPawn > 10) 
@@ -55,7 +55,7 @@ public class PotentialShipPlacement : MonoBehaviour
        {
            var tileGO = gridManager.GetTileAtPosition(new Vector2(x, i));
            if(tileGO)
-            tileGO.GetComponent<TileVisual>().ShowHighlight();
+            tileGO.GetComponent<CubeVisual>().ShowHighlight();
        }
    }
 
@@ -66,20 +66,20 @@ public class PotentialShipPlacement : MonoBehaviour
            var tileGO = gridManager.GetTileAtPosition(new Vector2(i, y));
            
            if(tileGO)
-               tileGO.GetComponent<TileVisual>().ShowHighlight();
+               tileGO.GetComponent<CubeVisual>().ShowHighlight();
        }
    }
    
 
-    public void AssignCurrentTileVisual(TileVisual tileVisual)
+    public void AssignCurrentTileVisual(CubeVisual cubeVisual)
     {
-        currentHighlightedTileVisual = tileVisual;
+        currentHighlightedCubeVisual = cubeVisual;
         ShowPotentialShipPlacement();
     }
     
     public void RemoveCurrentTileVisual()
     {
-        currentHighlightedTileVisual = null;
+        currentHighlightedCubeVisual = null;
         RemoveAllHighlights();
     }
 
@@ -87,7 +87,7 @@ public class PotentialShipPlacement : MonoBehaviour
     {
         foreach (var go in gridManager.GetTiles())
         {
-            var tileColor = go.Value.gameObject.GetComponent<TileVisual>();
+            var tileColor = go.Value.gameObject.GetComponent<CubeVisual>();
             if (tileColor != null)
             {
                 tileColor.HideHighlight();
@@ -114,6 +114,7 @@ public class PotentialShipPlacement : MonoBehaviour
 
     private void UpdateUI()
     {
+        return;
         sizeText.text = sizeOfPawn.ToString();
         alignmentText.text = isVertical ? "Vertical" : "Horizontal"; 
     }

@@ -9,11 +9,12 @@ public class GridManager : MonoBehaviour
 {
    
    private const int WIDTH = 10, HEIGHT = 10;
-   [SerializeField][Range(1f, 2f)] private float widthOffset = 1.5f;
-   [SerializeField][Range(1f, 2f)] private float heightOffset = 1.5f;
+   private float widthOffset = 1.15f;
+   private float heightOffset = 1.3f;
    
    
    [SerializeField] private GameObject tilePrefab;
+   [SerializeField] private GameObject startingTilePoint;
 
    private Dictionary<Vector2, GameObject> tiles;
 
@@ -30,17 +31,17 @@ public class GridManager : MonoBehaviour
       {
          for (int y = 0; y < HEIGHT; y++)
          {
-            GameObject spawnedTile = Instantiate(tilePrefab, new Vector3(x * widthOffset, -1 *y * heightOffset), Quaternion.identity);
+            Vector3 startingTileLoc = startingTilePoint.transform.position;
+            GameObject spawnedTile = Instantiate(tilePrefab, new Vector3(x * widthOffset  + startingTileLoc.x, 0  + startingTileLoc.y,y * heightOffset + startingTileLoc.z), Quaternion.identity);
             spawnedTile.name = $"Tile {x} {y}";
             spawnedTile.transform.parent = this.transform;
-            //give the tiles a checkerboard effect
-            bool isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
-            spawnedTile.GetComponent<TileVisual>().Init(isOffset);
+           
+            //spawnedTile.GetComponent<TileVisual>().Init(isOffset);
 
             tiles[new Vector2(x, y)] = spawnedTile;
          }
       }
-      SetCameraToMiddleOfGrid();
+      
    }
 
    public GameObject GetTileAtPosition(Vector2 pos)
@@ -72,14 +73,7 @@ public class GridManager : MonoBehaviour
       return new Vector2(-1, -1); //this is like return null
    }
    
-   /// <summary>
-   /// this is quick and dirty code, will be refactored later 
-   /// </summary>
-   private void SetCameraToMiddleOfGrid()
-   {
-      Camera.main.transform.position = new Vector3((float)WIDTH/2+ widthOffset, ((float)HEIGHT/2 +heightOffset) * -1, -10);
-   }
-
+ 
    public Dictionary<Vector2, GameObject> GetTiles()
    {
       return tiles;
@@ -94,7 +88,7 @@ public class GridManager : MonoBehaviour
 
       foreach (var point in EvaluteGridPoints())
       {
-         Gizmos.DrawWireCube(point, new Vector3(1, 1,0 ));
+         Gizmos.DrawWireCube(point, new Vector3(1, 1,1 ));
       }
       
    }
@@ -105,8 +99,7 @@ public class GridManager : MonoBehaviour
       {
          for (int j = 0; j < WIDTH; j++)
          {
-            
-            yield return new Vector3(i * widthOffset, (j * heightOffset) * -1 , 0);
+            yield return new Vector3(i * widthOffset,0 ,(j * heightOffset) );
          }
       }
    }
