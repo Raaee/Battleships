@@ -8,6 +8,7 @@ public class CubeVisual : MonoBehaviour
 
     private Material originalMaterial;
     [SerializeField] private Material hoverMaterial;
+    [SerializeField] private Transform cubeMidpoint;
 
     private PotentialShipPlacement potentialShipPlacement;
     
@@ -23,25 +24,29 @@ public class CubeVisual : MonoBehaviour
     private void OnMouseEnter()
     {
        ShowHighlight();
-      // potentialShipPlacement.AssignCurrentTileVisual(this);
+       potentialShipPlacement.AssignCurrentTileVisual(this);
     }
     
     private void OnMouseExit()
     {
        HideHighlight();
-       //potentialShipPlacement.RemoveCurrentTileVisual();
+       potentialShipPlacement.RemoveCurrentTileVisual();
     }
 
     public void ShowHighlight()
     {
-        //highlight.SetActive(true);
+
         GetComponent<Renderer>().material = hoverMaterial;
     }
 
     public void HideHighlight()
     {
-        //highlight.SetActive(false);
         GetComponent<Renderer>().material = originalMaterial;
+    }
+
+    public Vector3 GetCubeMidPosition()
+    {
+        return cubeMidpoint.transform.position;
     }
     
 }
