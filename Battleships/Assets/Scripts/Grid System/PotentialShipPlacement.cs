@@ -6,10 +6,9 @@ public class PotentialShipPlacement : MonoBehaviour
     [HideInInspector] public CubeVisual currentHighlightedCubeVisual = null;
     [SerializeField] private GridManager gridManager;
 
-    [SerializeField] private PawnOrientation pawnOrientation = PawnOrientation.VERTICAL;
+    [SerializeField] private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     [SerializeField] [Range(1, 5)] private int sizeOfPawn = 1;
 
-    private Pawn currentPawn;
     private void Update() {
         AssignPawnOrientation();
     }
@@ -100,6 +99,12 @@ public class PotentialShipPlacement : MonoBehaviour
     }
     public Vector3 GetCurrentHighlightedCenterPoint() {
         return currentHighlightedCubeVisual.GetCubeMidPosition();
+    }
+    public PawnOrientation GetPawnOrientation() {
+        return pawnOrientation;
+    }
+    public void SetPawnSize(int size) {
+        sizeOfPawn = size;
     }
 }
 

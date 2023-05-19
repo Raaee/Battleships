@@ -132,18 +132,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.083563805, y: 0.017968655}
+  m_Offset: {x: 0.96651113, y: 0.9174318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.21, y: 2.13}
+    pivot: {x: 0.15196466, y: -0.003765704}
+    oldSize: {x: 2.75, y: 1.85}
     newSize: {x: 3.21, y: 2.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7158737, y: 1.7231712}
+  m_Size: {x: 2.6686437, y: 1.7782112}
   m_EdgeRadius: 0
 --- !u!114 &6717106513724385640
 MonoBehaviour:
@@ -158,7 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawnSize: 4
-  pawnFloorPos: {fileID: 3320319102653264087}
+  horizontalSprite: {fileID: -1743294920, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+  verticalSprite: {fileID: 854673496, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
   pawnCoords: []
 --- !u!114 &83115885876501182
 MonoBehaviour:

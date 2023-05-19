@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawnSize: 2
-  pawnFloorPos: {fileID: 6534497739458612860}
+  horizontalSprite: {fileID: -871048012, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+  verticalSprite: {fileID: -2077583452, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
   pawnCoords: []
 --- !u!61 &3598599055182374084
 BoxCollider2D:
@@ -130,18 +131,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.050209045, y: -0.057955742}
+  m_Offset: {x: 0.42596877, y: 0.9401938}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.91, y: 2.09}
+    pivot: {x: 0.26192886, y: 0.0030728043}
+    oldSize: {x: 1.65, y: 2.03}
     newSize: {x: 1.91, y: 2.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5448418, y: 1.6568136}
+  m_Size: {x: 1.6108778, y: 1.7822177}
   m_EdgeRadius: 0
 --- !u!1 &5326120643155566817
 GameObject:

@@ -8,11 +8,20 @@ public class ClickAndDrag : MonoBehaviour
 
     [SerializeField] private PotentialShipPlacement potentialShipPlacement;
     private Pawn currentPawn;
+    private SpriteRenderer pawnSP;
     private Vector3 cubeCenter;
 
     private void Update() {
         if (dragging && draggable) {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            pawnSP = currentPawn.GetComponent<SpriteRenderer>();
+
+            if (potentialShipPlacement.GetPawnOrientation() == PawnOrientation.HORIZONTAL) {
+                pawnSP.sprite = currentPawn.horizontalSprite;
+            } else {
+                pawnSP.sprite = currentPawn.verticalSprite;
+            }
+            potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
         }
     }
 
@@ -31,11 +40,7 @@ public class ClickAndDrag : MonoBehaviour
     private void SnapToCube() {
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
             cubeCenter = potentialShipPlacement.GetCurrentHighlightedCenterPoint();
-            cubeCenter.x = currentPawn.GetPawnVisualOffset().x + cubeCenter.x;
-            cubeCenter.y = currentPawn.GetPawnVisualOffset().y + cubeCenter.y;
-            
             currentPawn.transform.position = cubeCenter;
-
         }
     }
     public Pawn GetCurrentPawn() {

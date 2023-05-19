@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 285998957692557041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube Midpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921837619518382855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: -0.159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6650812101981986969}
   - component: {fileID: 6650812101981986968}
   - component: {fileID: 2425426168316917071}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DarkSide_FloorCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
