@@ -1,5 +1,9 @@
 using UnityEngine;
-
+/// <summary>
+/// Pete notes: youre not using draggable yet so no need to add it to code. putting cart before the horse
+///  a lot of changes to the visuals of the pawn in this sript, make some sort of PawnVisual class to create a method that toggles the sprite chnages
+/// cubeCenter isnt needed, you can remove it 
+/// </summary>
 public class ClickAndDrag : MonoBehaviour
 {
     [SerializeField] private bool draggable = false; // to stop being able to drag after all pawn placement confirmation.
@@ -21,6 +25,7 @@ public class ClickAndDrag : MonoBehaviour
             } else {
                 pawnSP.sprite = currentPawn.verticalSprite;
             }
+            
             potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
         }
     }
