@@ -1,54 +1,56 @@
+using System;
 using UnityEngine;
 /// <summary>
-/// Pete notes: youre not using draggable yet so no need to add it to code. putting cart before the horse
-///  a lot of changes to the visuals of the pawn in this sript, make some sort of PawnVisual class to create a method that toggles the sprite chnages
-/// cubeCenter isnt needed, you can remove it 
+
+///  1. a lot of changes to the visuals of the pawn in this sript, make some sort of PawnVisual class to create a method that toggles the sprite chnages
+/// 2. when objects are placed it sends its data to placement data 
 /// </summary>
 public class ClickAndDrag : MonoBehaviour
 {
-    [SerializeField] private bool draggable = false; // to stop being able to drag after all pawn placement confirmation.
+   
     private bool dragging = false;
     private Vector3 offset;
 
-    [SerializeField] private PotentialShipPlacement potentialShipPlacement;
+     private PotentialShipPlacement potentialShipPlacement;
     private Pawn currentPawn;
     private SpriteRenderer pawnSP;
-    private Vector3 cubeCenter;
+  
+
+    private void Awake()
+    {
+        potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
+        currentPawn = GetComponent<Pawn>();
+        pawnSP = currentPawn.GetComponent<SpriteRenderer>();
+    }
+
 
     private void Update() {
-        if (dragging && draggable) {
+        if (dragging) {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
-            pawnSP = currentPawn.GetComponent<SpriteRenderer>();
-
-            if (potentialShipPlacement.GetPawnOrientation() == PawnOrientation.HORIZONTAL) {
-                pawnSP.sprite = currentPawn.horizontalSprite;
-            } else {
-                pawnSP.sprite = currentPawn.verticalSprite;
-            }
-            
-            potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
+            UpdatePawnVisual();
         }
     }
 
     private void OnMouseDown() {
-        currentPawn = GetComponent<Pawn>();
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dragging = true;
-        Debug.Log("clicked.");
-        Debug.Log("Dragging pawn: " + currentPawn.name);
+        //changing the highlightedd size for the potential ship placement 
+        potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
     }
     private void OnMouseUp() {
         dragging = false;
         SnapToCube();
-        Debug.Log("Dropped.");
     }
     private void SnapToCube() {
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
-            cubeCenter = potentialShipPlacement.GetCurrentHighlightedCenterPoint();
-            currentPawn.transform.position = cubeCenter;
+            currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
         }
     }
-    public Pawn GetCurrentPawn() {
-        return currentPawn;
+
+    //this should be in a different class 
+    private void UpdatePawnVisual()
+    {
+        pawnSP.sprite = potentialShipPlacement.GetPawnOrientation() == PawnOrientation.HORIZONTAL ? currentPawn.horizontalSprite : currentPawn.verticalSprite;
     }
+
 }

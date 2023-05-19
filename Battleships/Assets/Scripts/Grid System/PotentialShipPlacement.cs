@@ -97,9 +97,7 @@ public class PotentialShipPlacement : MonoBehaviour
     public CubeVisual GetCurrentHighlightedCubeVisual() {
         return currentHighlightedCubeVisual;
     }
-    public Vector3 GetCurrentHighlightedCenterPoint() {
-        return currentHighlightedCubeVisual.GetCubeMidPosition();
-    }
+    
     public PawnOrientation GetPawnOrientation() {
         return pawnOrientation;
     }

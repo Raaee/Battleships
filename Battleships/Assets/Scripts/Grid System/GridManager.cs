@@ -18,7 +18,6 @@ public class GridManager : MonoBehaviour
 
    private Dictionary<Vector2, GameObject> tiles;
 
-   [SerializeField] private bool drawGizmos = false;
    private void Start()
    {
       GenerateGrid();
@@ -31,13 +30,11 @@ public class GridManager : MonoBehaviour
       {
          for (int y = 0; y < HEIGHT; y++)
          {
-            Vector3 startingTileLoc = startingTilePoint.transform.position;
+            Vector3 startingTileLoc = startingTilePoint.transform.position; // this is here so we spawn the grid based on this gameobjects position
             GameObject spawnedTile = Instantiate(tilePrefab, new Vector3(x * widthOffset  + startingTileLoc.x, 0  + startingTileLoc.y,y * heightOffset + startingTileLoc.z), Quaternion.identity);
             spawnedTile.name = $"Tile {x} {y}";
             spawnedTile.transform.parent = this.transform;
            
-            //spawnedTile.GetComponent<TileVisual>().Init(isOffset);
-
             tiles[new Vector2(x, y)] = spawnedTile;
          }
       }
@@ -81,26 +78,5 @@ public class GridManager : MonoBehaviour
    
    
    
-   //Gizmos 
-   private void OnDrawGizmos()
-   {
-      if (drawGizmos == false || Application.isPlaying) return;
-
-      foreach (var point in EvaluteGridPoints())
-      {
-         Gizmos.DrawWireCube(point, new Vector3(1, 1,1 ));
-      }
-      
-   }
-
-   private IEnumerable<Vector3> EvaluteGridPoints()
-   {
-      for (int i = 0; i < WIDTH; i++)
-      {
-         for (int j = 0; j < WIDTH; j++)
-         {
-            yield return new Vector3(i * widthOffset,0 ,(j * heightOffset) );
-         }
-      }
-   }
+  
 }

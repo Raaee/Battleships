@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c25159d1-2e69-4f86-a872-34d024ca8da8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_03.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_03.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_04.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_04.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_05.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DH_05.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/D_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/D_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid System/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid System/GridManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid System/PotentialShipPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid System/PotentialShipPlacement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +95,8 @@
       <workItem from="1684286953467" duration="2289000" />
       <workItem from="1684370695946" duration="715000" />
       <workItem from="1684465886610" duration="1274000" />
-      <workItem from="1684505002358" duration="1008000" />
+      <workItem from="1684505002358" duration="1358000" />
+      <workItem from="1684520792312" duration="1005000" />
     </task>
     <servers />
   </component>
