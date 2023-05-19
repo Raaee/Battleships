@@ -31,7 +31,11 @@ public class ClickAndDrag : MonoBehaviour
     private void SnapToCube() {
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
             cubeCenter = potentialShipPlacement.GetCurrentHighlightedCenterPoint();
+            cubeCenter.x = currentPawn.GetPawnVisualOffset().x + cubeCenter.x;
+            cubeCenter.y = currentPawn.GetPawnVisualOffset().y + cubeCenter.y;
+            
             currentPawn.transform.position = cubeCenter;
+
         }
     }
     public Pawn GetCurrentPawn() {

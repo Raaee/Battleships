@@ -10,9 +10,15 @@ public class Pawn : MonoBehaviour
     [SerializeField] [Range(1, 5)] private int pawnSize = 1;
     [SerializeField] Transform pawnFloorPos;
 
+    [SerializeField] private Vector3 pawnVisualOffset;
     //position - list of PawnCoordinates 
     public List<Vector2Int> pawnCoords;
     public Vector3 GetPawnFloorPos() {
         return pawnFloorPos.transform.position;
+    }
+
+    public Vector3 GetPawnVisualOffset()
+    {
+        return pawnVisualOffset;
     }
 }

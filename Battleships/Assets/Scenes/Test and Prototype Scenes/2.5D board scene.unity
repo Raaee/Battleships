@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43820035, g: 0.48621404, b: 0.566493, a: 1}
+  m_IndirectSpecularColor: {r: 0.43820003, g: 0.48621327, b: 0.5664924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -697,6 +697,14 @@ PrefabInstance:
       propertyPath: potentialShipPlacement
       value: 
       objectReference: {fileID: 1412156056}
+    - target: {fileID: 8103618715327252636, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
+      propertyPath: pawnVisualOffset.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103618715327252636, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
+      propertyPath: pawnVisualOffset.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8631479788407772348, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
       propertyPath: m_Name
       value: DH_05
@@ -12771,6 +12779,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6717106513724385640, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
+      propertyPath: pawnVisualOffset.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8625315985585692286, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
       propertyPath: m_Name
       value: DH_04
@@ -20287,6 +20299,10 @@ PrefabInstance:
       propertyPath: pawnSize
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 760394357032460913, guid: a4ceb3ee181e1b94a8eb03a239bb4085, type: 3}
+      propertyPath: pawnVisualOffset.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 760394357032460915, guid: a4ceb3ee181e1b94a8eb03a239bb4085, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -20344,6 +20360,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 938732799220850464, guid: 41e87a217d282604c99c79982371ab90, type: 3}
+      propertyPath: pawnVisualOffset.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3934531308918711708, guid: 41e87a217d282604c99c79982371ab90, type: 3}
       propertyPath: m_Name
       value: DH_03
@@ -20408,6 +20428,14 @@ PrefabInstance:
     - target: {fileID: 613227228020368687, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
       propertyPath: m_Name
       value: DH_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989772869691096333, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
+      propertyPath: pawnVisualOffset.x
+      value: -0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989772869691096333, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
+      propertyPath: pawnVisualOffset.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5448183471663728285, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
       propertyPath: m_RootOrder
