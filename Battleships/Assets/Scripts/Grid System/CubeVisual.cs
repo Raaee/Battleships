@@ -17,9 +17,7 @@ public class CubeVisual : MonoBehaviour
        
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         originalMaterial = GetComponent<Renderer>().material;
-    }
-
-    
+    }   
 
     private void OnMouseEnter()
     {

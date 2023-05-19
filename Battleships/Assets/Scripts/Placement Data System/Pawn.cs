@@ -7,14 +7,12 @@ using UnityEngine;
 public class Pawn : MonoBehaviour
 {
     //size 
-    [SerializeField] private int size = 1;
-    
+    [SerializeField] [Range(1, 5)] private int pawnSize = 1;
+    [SerializeField] Transform pawnFloorPos;
+
     //position - list of PawnCoordinates 
     public List<Vector2Int> pawnCoords;
-
-
-   
-
-
-
+    public Vector3 GetPawnFloorPos() {
+        return pawnFloorPos.transform.position;
+    }
 }

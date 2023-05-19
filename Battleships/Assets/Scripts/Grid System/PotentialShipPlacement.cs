@@ -1,23 +1,30 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class PotentialShipPlacement : MonoBehaviour
 {
-     private CubeVisual currentHighlightedCubeVisual = null;
+    [HideInInspector] public CubeVisual currentHighlightedCubeVisual = null;
     [SerializeField] private GridManager gridManager;
 
-    [SerializeField] private ShipOrientation shipOrientation = ShipOrientation.VERTICAL;
-    [SerializeField] [Range(1, 6)] private int sizeOfPawn = 2;
-    
-  
-    private void ShowPotentialShipPlacement()
-    {
+    [SerializeField] private PawnOrientation pawnOrientation = PawnOrientation.VERTICAL;
+    [SerializeField] [Range(1, 5)] private int sizeOfPawn = 1;
+
+    private Pawn currentPawn;
+    private void Update() {
+        AssignPawnOrientation();
+    }
+    private void AssignPawnOrientation() {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) { //forward
+            pawnOrientation = PawnOrientation.VERTICAL;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) { //backwards
+            pawnOrientation = PawnOrientation.HORIZONTAL;
+        }
+    }
+    private void ShowPotentialShipPlacement() {
 
         Vector2 currTilePos = gridManager.GetPositionAtTile(currentHighlightedCubeVisual.gameObject);
-        if (shipOrientation == ShipOrientation.VERTICAL)
+        if (pawnOrientation == PawnOrientation.VERTICAL)
         {
             if (currTilePos.y + sizeOfPawn > 10)
             {
@@ -88,11 +95,15 @@ public class PotentialShipPlacement : MonoBehaviour
             }
         }
     }
-
-
+    public CubeVisual GetCurrentHighlightedCubeVisual() {
+        return currentHighlightedCubeVisual;
+    }
+    public Vector3 GetCurrentHighlightedCenterPoint() {
+        return currentHighlightedCubeVisual.GetCubeMidPosition();
+    }
 }
 
-public enum ShipOrientation
+public enum PawnOrientation
 {
     VERTICAL,
     HORIZONTAL
