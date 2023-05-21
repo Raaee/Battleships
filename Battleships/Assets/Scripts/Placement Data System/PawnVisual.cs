@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// TODO: change box collider as well when the sprite changes (pair program?)
+/// </summary>
 public class PawnVisual : MonoBehaviour
 {
    private SpriteRenderer sr;
@@ -19,6 +21,8 @@ public class PawnVisual : MonoBehaviour
       potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
       potentialShipPlacement.OnMouseScrolled.AddListener(ChangePawnVisual);
    }
+
+   
 
    private void ChangePawnVisual()
    {

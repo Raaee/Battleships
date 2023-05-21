@@ -115,6 +115,7 @@ public class PotentialShipPlacement : MonoBehaviour
     public PawnOrientation GetPawnOrientation() {
         return pawnOrientation;
     }
+    
     public void SetPawnSize(int size) {
         sizeOfPawn = size;
     }
