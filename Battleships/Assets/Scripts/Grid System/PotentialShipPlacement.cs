@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PotentialShipPlacement : MonoBehaviour
 {
@@ -9,20 +10,33 @@ public class PotentialShipPlacement : MonoBehaviour
     [SerializeField] private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     [SerializeField] [Range(1, 5)] private int sizeOfPawn = 1;
 
+    public UnityEvent OnMouseScrolled; 
+    
     private void Update() {
         AssignPawnOrientation();
     }
     private void AssignPawnOrientation() {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) { //forward
             pawnOrientation = PawnOrientation.VERTICAL;
+            OnMouseScrolled.Invoke();
+            ShowPotentialShipPlacement();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f) { //backwards
             pawnOrientation = PawnOrientation.HORIZONTAL;
+            OnMouseScrolled.Invoke();
+            ShowPotentialShipPlacement();
+
         }
     }
-    private void ShowPotentialShipPlacement() {
-
+    private void ShowPotentialShipPlacement()
+    {
+        RemoveAllHighlights();
+        if (currentHighlightedCubeVisual == null) return;
+        
         Vector2 currTilePos = gridManager.GetPositionAtTile(currentHighlightedCubeVisual.gameObject);
+
+       
+        
         if (pawnOrientation == PawnOrientation.VERTICAL)
         {
             if (currTilePos.y + sizeOfPawn > 10)

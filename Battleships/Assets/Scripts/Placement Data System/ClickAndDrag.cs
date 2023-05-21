@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
 /// <summary>
-
-///  1. a lot of changes to the visuals of the pawn in this sript, make some sort of PawnVisual class to create a method that toggles the sprite chnages
 /// 2. when objects are placed it sends its data to placement data 
 /// </summary>
 public class ClickAndDrag : MonoBehaviour
@@ -13,21 +11,18 @@ public class ClickAndDrag : MonoBehaviour
 
      private PotentialShipPlacement potentialShipPlacement;
     private Pawn currentPawn;
-    private SpriteRenderer pawnSP;
   
 
     private void Awake()
     {
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         currentPawn = GetComponent<Pawn>();
-        pawnSP = currentPawn.GetComponent<SpriteRenderer>();
     }
 
 
     private void Update() {
         if (dragging) {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
-            UpdatePawnVisual();
         }
     }
 
@@ -47,10 +42,10 @@ public class ClickAndDrag : MonoBehaviour
         }
     }
 
-    //this should be in a different class 
-    private void UpdatePawnVisual()
+    public bool GetIsDragging()
     {
-        pawnSP.sprite = potentialShipPlacement.GetPawnOrientation() == PawnOrientation.HORIZONTAL ? currentPawn.horizontalSprite : currentPawn.verticalSprite;
+        return dragging;
     }
 
+   
 }

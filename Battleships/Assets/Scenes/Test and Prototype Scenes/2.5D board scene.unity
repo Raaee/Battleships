@@ -190,8 +190,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: DH_05
       objectReference: {fileID: 0}
+    - target: {fileID: 8631479788407772348, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
+--- !u!1 &145828894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 613227228020368687, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
+  m_PrefabInstance: {fileID: 7190753036090859722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &350759524
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,18 +247,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6650812101981986975, guid: 38a35d05152b9784a80ddae4dfd06b3c, type: 3}
   startingTilePoint: {fileID: 1075988219}
-  drawGizmos: 0
 --- !u!114 &403059049 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4989772869691096333, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
   m_PrefabInstance: {fileID: 7190753036090859722}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 145828894}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35319b299baa2904fb947fef79b44ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &403059054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145828894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28008cb763948e544b544ac0d9d9a9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSprite: {fileID: -871048012, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+  verticalSprite: {fileID: -2077583452, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +392,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 760394357032460913, guid: a4ceb3ee181e1b94a8eb03a239bb4085, type: 3}
   m_PrefabInstance: {fileID: 760394357652987636}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2015740631}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35319b299baa2904fb947fef79b44ace, type: 3}
@@ -470,6 +492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DH_04
       objectReference: {fileID: 0}
+    - target: {fileID: 8625315985585692286, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
 --- !u!114 &1362451043 stripped
@@ -517,6 +543,9 @@ MonoBehaviour:
   gridManager: {fileID: 350759526}
   pawnOrientation: 0
   sizeOfPawn: 2
+  OnMouseScrolled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1412156057
 Transform:
   m_ObjectHideFlags: 0
@@ -691,7 +720,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 289099439711976875, guid: e2b3ab359585d8a4a90741cdc6bd6f7a, type: 3}
   startingTilePoint: {fileID: 650412505}
-  drawGizmos: 0
+--- !u!1 &2015740631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 760394357032460912, guid: a4ceb3ee181e1b94a8eb03a239bb4085, type: 3}
+  m_PrefabInstance: {fileID: 760394357652987636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2015740636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015740631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28008cb763948e544b544ac0d9d9a9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSprite: {fileID: 1061031396, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+  verticalSprite: {fileID: 1061031396, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
 --- !u!1001 &760394357652987636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -707,6 +754,10 @@ PrefabInstance:
       propertyPath: pawnSize
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 760394357032460913, guid: a4ceb3ee181e1b94a8eb03a239bb4085, type: 3}
+      propertyPath: verticalSprite
+      value: 
+      objectReference: {fileID: -871048012, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
     - target: {fileID: 760394357032460913, guid: a4ceb3ee181e1b94a8eb03a239bb4085, type: 3}
       propertyPath: pawnVisualOffset.y
       value: 0.5
@@ -776,6 +827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DH_03
       objectReference: {fileID: 0}
+    - target: {fileID: 3934531308918711708, guid: 41e87a217d282604c99c79982371ab90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4211358712135043553, guid: 41e87a217d282604c99c79982371ab90, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -836,6 +891,10 @@ PrefabInstance:
     - target: {fileID: 613227228020368687, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
       propertyPath: m_Name
       value: DH_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 613227228020368687, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4989772869691096333, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
       propertyPath: pawnVisualOffset.x
