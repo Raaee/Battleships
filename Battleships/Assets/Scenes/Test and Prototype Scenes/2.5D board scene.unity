@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 3894739443364127018, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1410213215, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+      objectReference: {fileID: -1228274760, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
     - target: {fileID: 6608263342778902766, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -295,6 +295,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSprite: {fileID: -1228274760, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
   verticalSprite: {fileID: 1410213215, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+--- !u!114 &516500759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8103618715327252636, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
+  m_PrefabInstance: {fileID: 82033583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516500751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35319b299baa2904fb947fef79b44ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +521,7 @@ PrefabInstance:
     - target: {fileID: 6503774666718060289, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 854673496, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+      objectReference: {fileID: -1743294920, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
     - target: {fileID: 6717106513724385640, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
       propertyPath: pawnVisualOffset.y
       value: 1
@@ -566,10 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b17a833d3d08f4aa16d284fc473404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHighlightedCubeVisual: {fileID: 0}
   gridManager: {fileID: 350759526}
-  pawnOrientation: 0
-  sizeOfPawn: 2
   OnMouseScrolled:
     m_PersistentCalls:
       m_Calls: []
@@ -604,8 +612,8 @@ MonoBehaviour:
   - {fileID: 759151749}
   - {fileID: 403059049}
   - {fileID: 1362451043}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1453213608}
+  - {fileID: 516500759}
   team: 1
 --- !u!1 &1453213600 stripped
 GameObject:
@@ -626,6 +634,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSprite: {fileID: -1743294920, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
   verticalSprite: {fileID: 854673496, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+--- !u!114 &1453213608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6717106513724385640, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
+  m_PrefabInstance: {fileID: 1333732415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453213600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35319b299baa2904fb947fef79b44ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1749354511
 GameObject:
   m_ObjectHideFlags: 0

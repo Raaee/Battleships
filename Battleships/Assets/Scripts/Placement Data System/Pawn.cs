@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,22 @@ public class Pawn : MonoBehaviour
 
     //position - list of PawnCoordinates 
     public List<Vector2Int> pawnCoords;
+
+    private ClickAndDrag cd;
+    private PotentialShipPlacement potentialShipPlacement;
+    private void Awake()
+    {
+        cd = GetComponent<ClickAndDrag>();
+        cd.OnPawnPlaced.AddListener(SetPawnCoordinates);
+        potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
+    }
+
+    public void SetPawnCoordinates()
+    {
+        List<GameObject> lastHighlightedGameobjects = potentialShipPlacement.GetLastHighlightedObjects();
+        //TODO: convert the gameobjects into the specific pawncords 
+        
+    }
     
     public int GetPawnSize() {
         return pawnSize;

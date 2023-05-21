@@ -1,17 +1,25 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PotentialShipPlacement : MonoBehaviour
 {
-    [HideInInspector] public CubeVisual currentHighlightedCubeVisual = null;
+    private CubeVisual currentHighlightedCubeVisual = null;
     [SerializeField] private GridManager gridManager;
 
-    [SerializeField] private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
-    [SerializeField] [Range(1, 5)] private int sizeOfPawn = 1;
+    private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
+    private int sizeOfPawn = 1;
 
-    public UnityEvent OnMouseScrolled; 
-    
+    public UnityEvent OnMouseScrolled;
+
+    private List<GameObject> lastHighlightedGameObjects; //making a temp list, if pawn is placed then this is what is sent to the pawn data 
+
+    private void Start()
+    {
+        lastHighlightedGameObjects = new List<GameObject>();
+    }
+
     private void Update() {
         AssignPawnOrientation();
     }
@@ -64,23 +72,35 @@ public class PotentialShipPlacement : MonoBehaviour
 
     private void HighlightPotentialShipPlacementVert(int x, int y)
     {
+        ResetLastHighlightedGameObjects();
+        
         //start at current tile, and highlight the next tiles to the right for size of pawn times 
         for (int i = y; i < (y + sizeOfPawn); i++)
         {
+            
             var tileGO = gridManager.GetTileAtPosition(new Vector2(x, i));
             if (tileGO)
+            {
                 tileGO.GetComponent<CubeVisual>().ShowHighlight();
+                lastHighlightedGameObjects.Add(tileGO);
+            }
+              
         }
     }
 
     private void HighlightPotentialShipPlacementHori(int x, int y)
     {
+        ResetLastHighlightedGameObjects();
         for (int i = x; i < (x + sizeOfPawn); i++)
         {
             var tileGO = gridManager.GetTileAtPosition(new Vector2(i, y));
 
             if (tileGO)
+            {
+                lastHighlightedGameObjects.Add(tileGO);
                 tileGO.GetComponent<CubeVisual>().ShowHighlight();
+            }
+                
         }
     }
 
@@ -97,6 +117,17 @@ public class PotentialShipPlacement : MonoBehaviour
         RemoveAllHighlights();
     }
 
+    private void ResetLastHighlightedGameObjects()
+    {
+        lastHighlightedGameObjects = new List<GameObject>();
+    }
+
+    public List<GameObject> GetLastHighlightedObjects()
+    {
+        if (lastHighlightedGameObjects.Count == 0) return null;
+
+        return lastHighlightedGameObjects;
+    }
     private void RemoveAllHighlights()
     {
         foreach (var go in gridManager.GetTiles())

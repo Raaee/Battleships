@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class PlacementData : MonoBehaviour
 {
-   //an array of pawns, (garanteed 5)
+   //an array of pawns
    public List<Pawn> pawns;
    
    //enum of player or enemy 

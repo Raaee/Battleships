@@ -3,7 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// TODO: change box collider as well when the sprite changes (pair program?)
+/// TODO: change box collider as well when the sprite changes (pair program)
+/// https://forum.unity.com/threads/changing-boxcollider2d-size-to-match-sprite-bounds-at-runtime.267964/
+/// https://www.sunnyvalleystudio.com/blog/how-to-auto-adjust-sprite-collider
+///
+///  TODO: when objects are placed it sends its data to the pawn data (pair program)
+///      //look at todo in pawn script 
+///
+///  TODO: stop coloring when all characters are placed. Create a "confirm" that does nothing for now
 /// </summary>
 public class PawnVisual : MonoBehaviour
 {
@@ -21,17 +28,12 @@ public class PawnVisual : MonoBehaviour
       potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
       potentialShipPlacement.OnMouseScrolled.AddListener(ChangePawnVisual);
    }
-
    
 
    private void ChangePawnVisual()
    {
       if (!clickAndDrag.GetIsDragging()) return;
-
-      Debug.Log("changin pawn visual");
       sr.sprite = potentialShipPlacement.GetPawnOrientation() == PawnOrientation.HORIZONTAL ? horizontalSprite : verticalSprite;
-
-    
-     
+      
    }
 }

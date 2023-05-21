@@ -1,17 +1,21 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
+
 /// <summary>
-/// 2. when objects are placed it sends its data to placement data 
+/// 
 /// </summary>
 public class ClickAndDrag : MonoBehaviour
 {
-   
     private bool dragging = false;
     private Vector3 offset;
 
-     private PotentialShipPlacement potentialShipPlacement;
+    private PotentialShipPlacement potentialShipPlacement;
     private Pawn currentPawn;
-  
+
+    private bool isPlaced = false;
+
+    public UnityEvent OnPawnPlaced;
 
     private void Awake()
     {
@@ -21,6 +25,8 @@ public class ClickAndDrag : MonoBehaviour
 
 
     private void Update() {
+        if (isPlaced) return;
+        
         if (dragging) {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
         }
@@ -33,12 +39,22 @@ public class ClickAndDrag : MonoBehaviour
         potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
     }
     private void OnMouseUp() {
+        if (isPlaced) return;
+        
         dragging = false;
         SnapToCube();
+        isPlaced = true;
+        OnPawnPlaced?.Invoke();
     }
     private void SnapToCube() {
+        if (isPlaced) return;
+        
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
             currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
+        }
+        else
+        {
+            Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
         }
     }
 
