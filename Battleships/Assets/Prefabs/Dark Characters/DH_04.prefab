@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1743294920, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+  m_Sprite: {fileID: -107093690, guid: 7343929e39fd23b43a425b227a60d13c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,8 +135,8 @@ BoxCollider2D:
   m_Offset: {x: 0.96651113, y: 0.9174318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.15196466, y: -0.003765704}
-    oldSize: {x: 2.75, y: 1.85}
+    pivot: {x: 0.17690182, y: -0.0076833325}
+    oldSize: {x: 3.95, y: 1.72}
     newSize: {x: 3.21, y: 2.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -158,8 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawnSize: 4
-  horizontalSprite: {fileID: -1743294920, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
-  verticalSprite: {fileID: 854673496, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
   pawnCoords: []
 --- !u!114 &83115885876501182
 MonoBehaviour:
@@ -173,5 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a573b70080258f4c9ab19c18d755c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggable: 1
-  potentialShipPlacement: {fileID: 0}
+  OnPawnPlaced:
+    m_PersistentCalls:
+      m_Calls: []

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &613227228020368687
+--- !u!1 &2775456899319177962
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,73 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5448183471663728285}
-  - component: {fileID: 8017097610317568534}
-  - component: {fileID: 6573061993142864615}
-  - component: {fileID: 4989772869691096333}
-  - component: {fileID: 3598599055182374084}
+  - component: {fileID: 8399621328780997588}
   m_Layer: 0
-  m_Name: DH_02
+  m_Name: Pawn FloorCoords
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5448183471663728285
+--- !u!4 &8399621328780997588
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613227228020368687}
+  m_GameObject: {fileID: 2775456899319177962}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.559, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7356754283694892423}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7356754283694892420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7356754283694892423}
+  - component: {fileID: 7356754283694892422}
+  - component: {fileID: 7356754283694892421}
+  - component: {fileID: 7356754283694892424}
+  - component: {fileID: 7356754283694892426}
+  - component: {fileID: 180980093058453595}
+  m_Layer: 0
+  m_Name: L_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7356754283694892423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356754283694892420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 20.17, y: 0.15, z: -6.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6534497739458612860}
+  - {fileID: 8399621328780997588}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8017097610317568534
+--- !u!212 &7356754283694892422
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613227228020368687}
+  m_GameObject: {fileID: 7356754283694892420}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,24 +109,38 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1803247590, guid: 7343929e39fd23b43a425b227a60d13c, type: 3}
+  m_Sprite: {fileID: -1828329637, guid: 7343929e39fd23b43a425b227a60d13c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.91, y: 2.09}
+  m_Size: {x: 1.8, y: 1.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6573061993142864615
+--- !u!114 &7356754283694892421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613227228020368687}
+  m_GameObject: {fileID: 7356754283694892420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35319b299baa2904fb947fef79b44ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pawnSize: 1
+  pawnCoords: []
+--- !u!114 &7356754283694892424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356754283694892420}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a573b70080258f4c9ab19c18d755c33, type: 3}
@@ -103,74 +149,43 @@ MonoBehaviour:
   OnPawnPlaced:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4989772869691096333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613227228020368687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35319b299baa2904fb947fef79b44ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pawnSize: 2
-  pawnCoords: []
---- !u!61 &3598599055182374084
+--- !u!61 &7356754283694892426
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613227228020368687}
+  m_GameObject: {fileID: 7356754283694892420}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.42596877, y: 0.9401938}
+  m_Offset: {x: 0.014926195, y: 0.5667803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.22996804, y: -0.0024963845}
-    oldSize: {x: 1.99, y: 1.31}
-    newSize: {x: 1.91, y: 2.09}
+    pivot: {x: 0.7868741, y: 0.0011813007}
+    oldSize: {x: 1.92, y: 2.37}
+    newSize: {x: 1.8, y: 1.73}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6108778, y: 1.7822177}
+  m_Size: {x: 1.2073855, y: 1.1641059}
   m_EdgeRadius: 0
---- !u!1 &5326120643155566817
-GameObject:
+--- !u!114 &180980093058453595
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6534497739458612860}
-  m_Layer: 0
-  m_Name: Pawn FloorCoords
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6534497739458612860
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5326120643155566817}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.577, y: -0.949, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5448183471663728285}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 7356754283694892420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28008cb763948e544b544ac0d9d9a9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSprite: {fileID: -1828329637, guid: 7343929e39fd23b43a425b227a60d13c, type: 3}
+  verticalSprite: {fileID: -766581268, guid: 7343929e39fd23b43a425b227a60d13c, type: 3}
