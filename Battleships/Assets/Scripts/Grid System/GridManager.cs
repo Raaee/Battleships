@@ -9,8 +9,8 @@ public class GridManager : MonoBehaviour
 {
    
    private const int WIDTH = 10, HEIGHT = 10;
-   private float widthOffset = 1.15f;
-   private float heightOffset = 1.3f;
+   [SerializeField] private float widthOffset = 1.15f;
+   [SerializeField] private float heightOffset = 1.3f;
    
    
    [SerializeField] private GameObject tilePrefab;

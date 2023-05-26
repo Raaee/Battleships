@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 760394357032460913}
   - component: {fileID: 760394357032460924}
   - component: {fileID: 760394357032460926}
+  - component: {fileID: 7079036366741385192}
   m_Layer: 0
   m_Name: D_01
   m_TagString: Untagged
@@ -101,8 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawnSize: 1
-  horizontalSprite: {fileID: 1061031396, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
-  verticalSprite: {fileID: 1061031396, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
   pawnCoords: []
 --- !u!114 &760394357032460924
 MonoBehaviour:
@@ -116,8 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a573b70080258f4c9ab19c18d755c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggable: 1
-  potentialShipPlacement: {fileID: 0}
+  OnPawnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &760394357032460926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,6 +144,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2073855, y: 1.1641059}
   m_EdgeRadius: 0
+--- !u!114 &7079036366741385192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760394357032460912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28008cb763948e544b544ac0d9d9a9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSprite: {fileID: 1061031396, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
+  verticalSprite: {fileID: 1061031396, guid: 7d99cf7866b2ffa44937490d1179c989, type: 3}
 --- !u!1 &5337153620708533534
 GameObject:
   m_ObjectHideFlags: 0
