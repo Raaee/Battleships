@@ -959,6 +959,26 @@ PrefabInstance:
       propertyPath: potentialShipPlacement
       value: 
       objectReference: {fileID: 1412156056}
+    - target: {fileID: 8989882111231392230, guid: 41e87a217d282604c99c79982371ab90, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.17617884
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989882111231392230, guid: 41e87a217d282604c99c79982371ab90, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: -0.0016980623
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989882111231392230, guid: 41e87a217d282604c99c79982371ab90, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989882111231392230, guid: 41e87a217d282604c99c79982371ab90, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109533666054448782, guid: 41e87a217d282604c99c79982371ab90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1181426550, guid: c87c5ea3e1b167a47951cfae89391ad0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41e87a217d282604c99c79982371ab90, type: 3}
 --- !u!1001 &7082515494339096793

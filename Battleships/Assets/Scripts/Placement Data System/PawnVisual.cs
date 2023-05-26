@@ -18,22 +18,30 @@ public class PawnVisual : MonoBehaviour
    [SerializeField] private Sprite horizontalSprite;
    [SerializeField] private Sprite verticalSprite;
    private PotentialShipPlacement potentialShipPlacement;
+    private BoxCollider2D bc2D;
 
    private ClickAndDrag clickAndDrag;
    
    private void Awake()
    {
-      sr = GetComponent<SpriteRenderer>();
-      clickAndDrag = GetComponent<ClickAndDrag>();
-      potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
-      potentialShipPlacement.OnMouseScrolled.AddListener(ChangePawnVisual);
-   }
-   
-
+        bc2D = GetComponent<BoxCollider2D>();
+        sr = GetComponent<SpriteRenderer>();
+        clickAndDrag = GetComponent<ClickAndDrag>();
+        potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
+        potentialShipPlacement.OnMouseScrolled.AddListener(ChangePawnVisual);
+    }
    private void ChangePawnVisual()
    {
       if (!clickAndDrag.GetIsDragging()) return;
       sr.sprite = potentialShipPlacement.GetPawnOrientation() == PawnOrientation.HORIZONTAL ? horizontalSprite : verticalSprite;
-      
+        RefreshBoxCollider();
    }
+    private void RefreshBoxCollider() {
+       // bc2D.size = new Vector2(sr.size.x, sr.size.y);
+
+        // try double collision box enable disable, depending on the sprite that is active (bc this offset and size changing doesnt work):
+        bc2D.offset = new Vector2(0, 0);
+        bc2D.size = new Vector2(sr.bounds.size.x / transform.lossyScale.x, sr.bounds.size.y / transform.lossyScale.y);
+    }
+    
 }
