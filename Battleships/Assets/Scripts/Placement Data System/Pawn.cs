@@ -5,11 +5,9 @@ using UnityEngine;
 /// <summary>
 /// 
 /// </summary>
-public class Pawn : MonoBehaviour
-{
+public class Pawn : MonoBehaviour {
     //size 
     [SerializeField] [Range(1, 5)] private int pawnSize = 1;
-    
 
     //position - list of PawnCoordinates 
     public List<Vector2> pawnCoords;
@@ -17,6 +15,8 @@ public class Pawn : MonoBehaviour
     private ClickAndDrag cd;
     private PotentialShipPlacement potentialShipPlacement;
     private GridManager gridMan;
+    private bool placed;
+
     private void Awake()
     {
         cd = GetComponent<ClickAndDrag>();
@@ -38,5 +38,11 @@ public class Pawn : MonoBehaviour
     
     public int GetPawnSize() {
         return pawnSize;
+    }
+    public void SetPlacedStatus(bool isPlaced) {
+        placed = isPlaced;
+    }
+    public bool GetPlacedStatus() {
+        return placed;
     }
 }

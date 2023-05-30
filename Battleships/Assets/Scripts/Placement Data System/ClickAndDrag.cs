@@ -51,10 +51,12 @@ public class ClickAndDrag : MonoBehaviour
         
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
             currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
+            currentPawn.SetPlacedStatus(true);
         }
         else
         {
             Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
+            currentPawn.SetPlacedStatus(false);
         }
     }
 
