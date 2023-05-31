@@ -21,13 +21,13 @@ public class CubeVisual : MonoBehaviour
 
     private void OnMouseEnter()
     {
-       ShowHighlight();
+      // ShowHighlight();
        potentialShipPlacement.AssignCurrentTileVisual(this);
     }
     
     private void OnMouseExit()
     {
-       HideHighlight();
+      // HideHighlight();
        potentialShipPlacement.RemoveCurrentTileVisual();
     }
 

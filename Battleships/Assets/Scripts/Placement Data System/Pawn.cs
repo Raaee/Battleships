@@ -28,7 +28,13 @@ public class Pawn : MonoBehaviour {
     public void SetPawnCoordinates()
     {
         List<GameObject> lastHighlightedGameobjects = potentialShipPlacement.GetLastHighlightedObjects();
-;
+
+        if (lastHighlightedGameobjects == null)
+        {
+            Debug.Log("theres no highlighted gameobjects dummy. most likely on the wrong grid");
+            return;
+        }
+        
         //TODO: convert the gameobjects into the specific pawncords
         pawnCoords.Clear();
         for (int i = 0; i < lastHighlightedGameobjects.Count; i++) {

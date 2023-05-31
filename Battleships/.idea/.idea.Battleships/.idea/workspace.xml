@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c25159d1-2e69-4f86-a872-34d024ca8da8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid System/PotentialShipPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid System/PotentialShipPlacement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PawnVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PawnVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlacementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlacementData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +100,7 @@
       <workItem from="1684545603088" duration="12000" />
       <workItem from="1684635671279" duration="3855000" />
       <workItem from="1684676278807" duration="3048000" />
+      <workItem from="1685538194413" duration="1244000" />
     </task>
     <servers />
   </component>
