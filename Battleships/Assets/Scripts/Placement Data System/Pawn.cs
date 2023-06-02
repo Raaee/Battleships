@@ -15,7 +15,7 @@ public class Pawn : MonoBehaviour {
     private ClickAndDrag cd;
     private PotentialShipPlacement potentialShipPlacement;
     private GridManager gridMan;
-    private bool placed;
+    public bool placed;
 
     private void Awake()
     {
@@ -46,6 +46,7 @@ public class Pawn : MonoBehaviour {
         return pawnSize;
     }
     public void SetPlacedStatus(bool isPlaced) {
+        Debug.Log("getting placed is " + isPlaced);
         placed = isPlaced;
     }
     public bool GetPlacedStatus() {

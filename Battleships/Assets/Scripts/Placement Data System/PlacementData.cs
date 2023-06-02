@@ -17,10 +17,11 @@ public class PlacementData : MonoBehaviour
 
     private int ranNum;
 
-    private bool allPawnsPlaced;
+    public bool allPawnsPlaced;
     [SerializeField] Button confirmButton;
 
     void Start() {
+        
         ChooseRandomPawns(5);
     }
 
