@@ -15,9 +15,12 @@ public class PotentialShipPlacement : MonoBehaviour
 
     private List<GameObject> lastHighlightedGameObjects; //making a temp list, if pawn is placed then this is what is sent to the pawn data 
 
+    [SerializeField] GameObject prefab;
+    public Vector3 location;
     private void Start()
     {
         lastHighlightedGameObjects = new List<GameObject>();
+      //  GameObject.Instantiate(prefab, location, Quaternion.identity);
     }
 
     private void Update() {

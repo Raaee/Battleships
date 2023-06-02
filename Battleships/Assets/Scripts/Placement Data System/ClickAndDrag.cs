@@ -24,9 +24,7 @@ public class ClickAndDrag : MonoBehaviour
     }
 
 
-    private void Update() {
-      //  if (isPlaced) return;
-        
+    private void Update() {        
         if (dragging) {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
         }
@@ -38,17 +36,13 @@ public class ClickAndDrag : MonoBehaviour
         //changing the highlightedd size for the potential ship placement 
         potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
     }
-    private void OnMouseUp() {
-       // if (isPlaced) return;
-        
+    private void OnMouseUp() {        
         dragging = false;
         SnapToCube();
         isPlaced = true;
         OnPawnPlaced?.Invoke();
     }
     private void SnapToCube() {
-       // if (isPlaced) return;
-        
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
             currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
             currentPawn.SetPlacedStatus(true);
