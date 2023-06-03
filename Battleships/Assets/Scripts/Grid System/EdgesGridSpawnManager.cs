@@ -10,7 +10,7 @@ public class EdgesGridSpawnManager : MonoBehaviour
 
    
 
-   
+   //eureka moment: when you first start dragging pawns, the angle that is goinf is the correct one, how do you make it apply forever?
    
   
 }
