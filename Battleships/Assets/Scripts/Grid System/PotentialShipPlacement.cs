@@ -15,7 +15,7 @@ public class PotentialShipPlacement : MonoBehaviour
 
     private List<GameObject> lastHighlightedGameObjects; //making a temp list, if pawn is placed then this is what is sent to the pawn data 
 
-    [SerializeField] GameObject prefab;
+    [SerializeField] private PlacementData playerPlacementData;
     public Vector3 location;
     private void Start()
     {
@@ -82,14 +82,28 @@ public class PotentialShipPlacement : MonoBehaviour
         {
             
             var tileGO = gridManager.GetTileAtPosition(new Vector2(x, i));
+            
+            
+            
+            
+            
             if (tileGO)
             {
+                if (CheckIfAlreadyPlaced(x, i))
+                {
+
+                    RemoveCurrentTileVisual();
+                    RemoveAllHighlights();
+                    return;
+                }
                 tileGO.GetComponent<CubeVisual>().ShowHighlight();
                 lastHighlightedGameObjects.Add(tileGO);
             }
               
         }
     }
+
+   
 
     private void HighlightPotentialShipPlacementHori(int x, int y)
     {
@@ -100,6 +114,12 @@ public class PotentialShipPlacement : MonoBehaviour
 
             if (tileGO)
             {
+                if (CheckIfAlreadyPlaced(i, y))
+                {
+                    RemoveCurrentTileVisual();
+                    RemoveAllHighlights();
+                    return;
+                }
                 lastHighlightedGameObjects.Add(tileGO);
                 tileGO.GetComponent<CubeVisual>().ShowHighlight();
             }
@@ -107,6 +127,31 @@ public class PotentialShipPlacement : MonoBehaviour
         }
     }
 
+    
+    private bool CheckIfAlreadyPlaced(int x, int y)
+    {
+        //this is the vector we are checking against
+        Vector2 checkingVector2 = new Vector2(x, y);
+        
+        //go through all pawns in battle
+        foreach (GameObject pawnGO in playerPlacementData.pawnsInBattle)
+        {
+           List<Vector2> pawnCoordinates =  pawnGO.GetComponent<Pawn>().pawnCoords;
+           if (pawnCoordinates.Count <= 0) continue; 
+           
+           //go through their pawn coordinates
+           foreach (Vector2 pawnCoord in pawnCoordinates)
+           {
+               //if one of their pawn coordinate matches with the checking vector2, then return true cuz that means its already placed
+               if (pawnCoord.Equals(checkingVector2))
+               {
+                 
+                   return true;
+               }
+           }
+        }
+        return false;
+    }
 
     public void AssignCurrentTileVisual(CubeVisual cubeVisual)
     {

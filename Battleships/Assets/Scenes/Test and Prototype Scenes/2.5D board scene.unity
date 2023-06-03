@@ -821,7 +821,7 @@ MonoBehaviour:
   OnMouseScrolled:
     m_PersistentCalls:
       m_Calls: []
-  prefab: {fileID: 7587360257208355890, guid: a9e0f79c97cdede438201b4ae71753cc, type: 3}
+  playerPlacementData: {fileID: 1412156058}
   location: {x: 15.56, y: 0.15, z: -6.64}
 --- !u!4 &1412156057
 Transform:

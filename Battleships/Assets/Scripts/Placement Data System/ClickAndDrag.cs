@@ -53,18 +53,21 @@ public class ClickAndDrag : MonoBehaviour
         if(!IsActive) return;
         dragging = false;
         SnapToCube();
-        OnPawnPlaced?.Invoke();
     }
     private void SnapToCube() {
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
             currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
             currentPawn.SetPlacedStatus(true);
+            OnPawnPlaced?.Invoke();
         }
         else
         {
             Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
             currentPawn.SetPlacedStatus(false);
         }
+        
+       
+
     }
 
     public bool GetIsDragging()
