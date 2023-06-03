@@ -15,8 +15,9 @@ public class PlacementData : MonoBehaviour
     //enum of player or enemy 
     [SerializeField] private Team team;
 
-    [SerializeField] GameObject initialCoords, pawnSpawn1, pawnSpawn2, pawnSpawn3, pawnSpawn4, pawnSpawn5;
-
+  /*  [SerializeField] GameObject initialCoords, pawnSpawn1, pawnSpawn2, pawnSpawn3, pawnSpawn4, pawnSpawn5;*/
+    public List<GameObject> pawnSpawnLocations;
+    
     private int ranNum;
     private bool allPawnsPlaced;
     [SerializeField] Button confirmButton;
@@ -28,15 +29,28 @@ public class PlacementData : MonoBehaviour
     void Update() {
         ConfirmPlacement();
     }
+    
     public void CheckPawnList() {
         if (pawnPrefabs.Count < 5) {
             Debug.Log("pawn prefab list must have 5 elements.");
             return;
         } else {
-            ChooseRandomPawns(5);
-            Debug.Log("choosing random pawns.");
+            //ChooseRandomPawns(5);
+            Pete_SpawnInitialPawns(5);
         }
     }
+
+    private void Pete_SpawnInitialPawns(int amountOfPawns)
+    {
+        for (int i = 0; i < amountOfPawns; i++)
+        {
+            ranNum = Random.Range(0, 5); 
+            GameObject pawn = Instantiate(pawnPrefabs[ranNum], pawnSpawnLocations[i].transform.position, Quaternion.identity);
+            pawnsInBattle.Add(pawn);
+        }
+        
+    }
+    /*
     public void ChooseRandomPawns(int numPawns) {
         for (int i = 0; i < numPawns; i++) {
             ranNum = Random.Range(1, 6); // random number 1, 2, 3, 4, or 5
@@ -45,6 +59,9 @@ public class PlacementData : MonoBehaviour
         }
         SpawnInitialPawns();
     }
+    */
+    
+    
     private GameObject PawnPrefabOfSize(int size) {
         for (int i = 0; i < pawnPrefabs.Count; i++) {
             if (pawnPrefabs[i].GetComponent<Pawn>().GetPawnSize() == size) {
@@ -79,6 +96,8 @@ public class PlacementData : MonoBehaviour
             confirmButton.gameObject.SetActive(false);
         }
     }
+    
+    /*
     public void SpawnInitialPawns() {
         foreach (GameObject p in pawnsInBattle) {
             switch (p.GetComponent<Pawn>().GetPawnSize()) {
@@ -100,6 +119,7 @@ public class PlacementData : MonoBehaviour
             }
         }
     }
+    */
 }
 
 public enum Team {

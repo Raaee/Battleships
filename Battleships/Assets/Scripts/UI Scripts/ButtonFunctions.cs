@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ButtonFunctions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public UnityEvent OnPlayerConfirmPlacement;
+    private bool playerConfirmedPlacement = false;
     public void PlacementConfirmation() {
-        Debug.Log("All Pawns Placed.");
+        Debug.Log("All Pawns Placed. Your decision is now locked, prepare to face dire consequences.");
+
+        if (playerConfirmedPlacement == false)
+        {
+            OnPlayerConfirmPlacement?.Invoke();
+            playerConfirmedPlacement = true;
+        }
+        
     }
 }

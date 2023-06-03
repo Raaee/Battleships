@@ -15,26 +15,42 @@ public class ClickAndDrag : MonoBehaviour
 
     public UnityEvent OnPawnPlaced;
 
+    private bool IsActive = true;
+    private ButtonFunctions buttonsFunctions; 
+
     private void Awake()
     {
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         currentPawn = GetComponent<Pawn>();
+        buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
+        buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DisableSelf);
+    }
+
+    private void DisableSelf()
+    {
+        IsActive = false;
+        
     }
 
 
-    private void Update() {        
+    private void Update() {
+        if(!IsActive) return;
+        
+        
         if (dragging) {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
         }
     }
 
     private void OnMouseDown() {
+        if(!IsActive) return;
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dragging = true;
         //changing the highlightedd size for the potential ship placement 
         potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
     }
-    private void OnMouseUp() {        
+    private void OnMouseUp() {   
+        if(!IsActive) return;
         dragging = false;
         SnapToCube();
         OnPawnPlaced?.Invoke();
