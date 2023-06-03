@@ -5,8 +5,8 @@ using UnityEngine;
 public class EdgesGridSpawnManager : MonoBehaviour
 {
    
-   //dont allow pawns to be near each other
-   //make rae system easier 
+   //find another approach to making sure pawns always stay above
+   //make rae code easier 
 
    
 

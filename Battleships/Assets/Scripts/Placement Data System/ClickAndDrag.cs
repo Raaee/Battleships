@@ -16,7 +16,8 @@ public class ClickAndDrag : MonoBehaviour
     public UnityEvent OnPawnPlaced;
 
     private bool IsActive = true;
-    private ButtonFunctions buttonsFunctions; 
+    private ButtonFunctions buttonsFunctions;
+
 
     private void Awake()
     {
@@ -38,7 +39,8 @@ public class ClickAndDrag : MonoBehaviour
         
         
         if (dragging) {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            transform.position = newPos;
         }
     }
 
