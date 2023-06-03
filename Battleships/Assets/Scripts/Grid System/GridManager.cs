@@ -18,6 +18,8 @@ public class GridManager : MonoBehaviour
 
    private Dictionary<Vector2, GameObject> tiles;
 
+   [SerializeField] private EdgesGridSpawnManager egsm;
+   
    private void Start()
    {
       GenerateGrid();
@@ -30,8 +32,10 @@ public class GridManager : MonoBehaviour
       {
          for (int y = 0; y < HEIGHT; y++)
          {
+            //if x is this and y is that, do a differnt logic to make spawn edges 
+            
             Vector3 startingTileLoc = startingTilePoint.transform.position; // this is here so we spawn the grid based on this gameobjects position
-            GameObject spawnedTile = Instantiate(tilePrefab, new Vector3(x * widthOffset  + startingTileLoc.x, 0  + startingTileLoc.y,y * heightOffset + startingTileLoc.z), Quaternion.identity);
+            GameObject spawnedTile = Instantiate(egsm.GetCorrectCube(x, y), new Vector3(x * widthOffset  + startingTileLoc.x, 0  + startingTileLoc.y,y * heightOffset + startingTileLoc.z), Quaternion.identity); 
             spawnedTile.name = $"Tile {x} {y}";
             spawnedTile.transform.parent = this.transform;
            

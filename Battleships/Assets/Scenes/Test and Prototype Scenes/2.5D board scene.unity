@@ -232,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 350759525}
   - component: {fileID: 350759526}
+  - component: {fileID: 350759527}
   m_Layer: 0
   m_Name: Left Grid Manager
   m_TagString: Untagged
@@ -270,6 +271,21 @@ MonoBehaviour:
   heightOffset: 1.3
   tilePrefab: {fileID: 6650812101981986975, guid: 38a35d05152b9784a80ddae4dfd06b3c, type: 3}
   startingTilePoint: {fileID: 1075988219}
+  egsm: {fileID: 350759527}
+--- !u!114 &350759527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350759524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5244a78bc0042374789421e9d2a20448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomEdgeCube: {fileID: 6650812101981986975, guid: ba8e5902104d6ac4abaf2979df46715c, type: 3}
+  regularCube: {fileID: 289099439711976875, guid: e2b3ab359585d8a4a90741cdc6bd6f7a, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,11 +469,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!1 &968951130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7855558513646778809, guid: 38250ca6626852043bdafda762d993c2, type: 3}
-  m_PrefabInstance: {fileID: 6460605946156038847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &969810148
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,12 +874,6 @@ MonoBehaviour:
   - {fileID: 8631479788407772348, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
   pawnsInBattle: []
   team: 1
-  initialCoords: {fileID: 968951130}
-  pawnSpawn1: {fileID: 2006395424}
-  pawnSpawn2: {fileID: 1756012415}
-  pawnSpawn3: {fileID: 1538425000}
-  pawnSpawn4: {fileID: 1201086043}
-  pawnSpawn5: {fileID: 2130279750}
   pawnSpawnLocations:
   - {fileID: 2006395424}
   - {fileID: 1756012415}
@@ -1024,6 +1029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c97679c7233ef347ac96bc906d63d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPlayerConfirmPlacement:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1538425000 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605944938805783, guid: 38250ca6626852043bdafda762d993c2, type: 3}
@@ -1580,6 +1588,7 @@ MonoBehaviour:
   heightOffset: 1.3
   tilePrefab: {fileID: 289099439711976875, guid: e2b3ab359585d8a4a90741cdc6bd6f7a, type: 3}
   startingTilePoint: {fileID: 650412505}
+  egsm: {fileID: 0}
 --- !u!1 &2130279750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605945386977273, guid: 38250ca6626852043bdafda762d993c2, type: 3}
