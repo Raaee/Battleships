@@ -13,8 +13,6 @@ public class ClickAndDrag : MonoBehaviour
     private PotentialShipPlacement potentialShipPlacement;
     private Pawn currentPawn;
 
-    private bool isPlaced = false;
-
     public UnityEvent OnPawnPlaced;
 
     private void Awake()
@@ -39,7 +37,6 @@ public class ClickAndDrag : MonoBehaviour
     private void OnMouseUp() {        
         dragging = false;
         SnapToCube();
-        isPlaced = true;
         OnPawnPlaced?.Invoke();
     }
     private void SnapToCube() {

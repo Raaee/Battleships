@@ -12,12 +12,13 @@ public class PlacementData : MonoBehaviour
     public List<GameObject> pawnPrefabs; // this is the default pawn prefabs used to assign the player's army
     public List<GameObject> pawnsInBattle; // this will be the player's pawns
 
-   //enum of player or enemy 
-   [SerializeField] private Team team;
+    //enum of player or enemy 
+    [SerializeField] private Team team;
+
+    [SerializeField] GameObject initialCoords, pawnSpawn1, pawnSpawn2, pawnSpawn3, pawnSpawn4, pawnSpawn5;
 
     private int ranNum;
-
-    public bool allPawnsPlaced;
+    private bool allPawnsPlaced;
     [SerializeField] Button confirmButton;
 
     void Start() {
@@ -28,8 +29,8 @@ public class PlacementData : MonoBehaviour
         ConfirmPlacement();
     }
     public void CheckPawnList() {
-        if (pawnPrefabs.Count == 0) {
-            Debug.Log("pawn prefab list is empty.");
+        if (pawnPrefabs.Count < 5) {
+            Debug.Log("pawn prefab list must have 5 elements.");
             return;
         } else {
             ChooseRandomPawns(5);
@@ -39,9 +40,10 @@ public class PlacementData : MonoBehaviour
     public void ChooseRandomPawns(int numPawns) {
         for (int i = 0; i < numPawns; i++) {
             ranNum = Random.Range(1, 6); // random number 1, 2, 3, 4, or 5
-            pawnsInBattle.Add(PawnPrefabOfSize(ranNum));
-          //  Debug.Log("Size: " + pawnsInBattle[i].GetPawnSize() + " / " + pawnsInBattle[i].name);
+            var pawn = Instantiate(PawnPrefabOfSize(ranNum), initialCoords.transform.position, Quaternion.identity);
+            pawnsInBattle.Add(pawn);
         }
+        SpawnInitialPawns();
     }
     private GameObject PawnPrefabOfSize(int size) {
         for (int i = 0; i < pawnPrefabs.Count; i++) {
@@ -51,13 +53,8 @@ public class PlacementData : MonoBehaviour
         }
         return null;
     }
-    public void GetPawnAmount() {
-        
-    }
-
-    // checks if there is a boolean in the Pawn that is false:
+    // checks if there is a false place status in each pawn:
     public void CheckPawnPlacement() {
-        // ****** MUST CHANGE FOR LOOP VARIABLE AFTER ADDING PLAYER PAWNS IN THE SCENE *****
         foreach (GameObject p in pawnsInBattle) {
             if (p.GetComponent<Pawn>().GetPlacedStatus() == false) {
                 allPawnsPlaced = false;
@@ -65,9 +62,11 @@ public class PlacementData : MonoBehaviour
             }
         }
         if (pawnsInBattle.Count == 0) {
+            Debug.Log("Nu UH");
             allPawnsPlaced = false;
         }
         else {
+            Debug.Log("all placed: " + allPawnsPlaced);
             allPawnsPlaced = true;
         }        
     }
@@ -78,6 +77,27 @@ public class PlacementData : MonoBehaviour
             confirmButton.gameObject.SetActive(true);
         } else {
             confirmButton.gameObject.SetActive(false);
+        }
+    }
+    public void SpawnInitialPawns() {
+        foreach (GameObject p in pawnsInBattle) {
+            switch (p.GetComponent<Pawn>().GetPawnSize()) {
+                case 1:
+                    p.transform.position = pawnSpawn1.transform.position;
+                    break;
+                case 2:
+                    p.transform.position = pawnSpawn2.transform.position;
+                    break;
+                case 3:
+                    p.transform.position = pawnSpawn3.transform.position;
+                    break;
+                case 4:
+                    p.transform.position = pawnSpawn4.transform.position;
+                    break;
+                case 5:
+                    p.transform.position = pawnSpawn5.transform.position;
+                    break;
+            }
         }
     }
 }

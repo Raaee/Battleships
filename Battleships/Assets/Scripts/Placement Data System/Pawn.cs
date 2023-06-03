@@ -46,7 +46,7 @@ public class Pawn : MonoBehaviour {
         return pawnSize;
     }
     public void SetPlacedStatus(bool isPlaced) {
-        Debug.Log("getting placed is " + isPlaced);
+        Debug.Log("placed: " + isPlaced);
         placed = isPlaced;
     }
     public bool GetPlacedStatus() {
