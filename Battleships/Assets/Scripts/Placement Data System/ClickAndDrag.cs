@@ -18,6 +18,7 @@ public class ClickAndDrag : MonoBehaviour
     private bool IsActive = true;
     private ButtonFunctions buttonsFunctions;
 
+    private Vector3 originalSpawnLocation;
 
     private void Awake()
     {
@@ -25,6 +26,12 @@ public class ClickAndDrag : MonoBehaviour
         currentPawn = GetComponent<Pawn>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DisableSelf);
+    }
+
+
+    private void Start()
+    {
+        originalSpawnLocation = transform.position;
     }
 
     private void DisableSelf()
@@ -41,6 +48,7 @@ public class ClickAndDrag : MonoBehaviour
         if (dragging) {
             Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             transform.position = newPos;
+            if(potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null)  currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
         }
     }
 
@@ -66,12 +74,14 @@ public class ClickAndDrag : MonoBehaviour
         {
             Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
             currentPawn.SetPlacedStatus(false);
+            ResetToOriginalSpawnPosition();
         }
-        
-       
-
     }
 
+    private void ResetToOriginalSpawnPosition()
+    {
+        transform.position = originalSpawnLocation;
+    }
     public bool GetIsDragging()
     {
         return dragging;
