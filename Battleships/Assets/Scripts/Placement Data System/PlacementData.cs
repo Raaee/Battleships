@@ -11,10 +11,7 @@ public class PlacementData : MonoBehaviour
     //an array of pawns
     public List<GameObject> pawnPrefabs; // this is the default pawn prefabs used to assign the player's army
     public List<GameObject> pawnsInBattle; // this will be the player's pawns
-
-    //enum of player or enemy 
-    [SerializeField] private Team team;
-
+    
   /*  [SerializeField] GameObject initialCoords, pawnSpawn1, pawnSpawn2, pawnSpawn3, pawnSpawn4, pawnSpawn5;*/
     public List<GameObject> pawnSpawnLocations;
     

@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 1412156056}
   - component: {fileID: 1412156058}
   m_Layer: 0
-  m_Name: Ship placment - left grid
+  m_Name: Ship placment and Data - left grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -857,7 +857,6 @@ MonoBehaviour:
   - {fileID: 8625315985585692286, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
   - {fileID: 8631479788407772348, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
   pawnsInBattle: []
-  team: 1
   pawnSpawnLocations:
   - {fileID: 2006395424}
   - {fileID: 1756012415}
@@ -1483,6 +1482,37 @@ Transform:
   - {fileID: 297409046}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1998845029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1998845030}
+  m_Layer: 0
+  m_Name: Enemy Placement Data
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1998845030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998845029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000926588
 GameObject:
