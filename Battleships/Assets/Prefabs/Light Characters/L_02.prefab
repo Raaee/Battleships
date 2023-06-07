@@ -132,8 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35319b299baa2904fb947fef79b44ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawnSize: 1
+  pawnSize: 2
   pawnCoords: []
+  placed: 0
 --- !u!114 &7356754283694892424
 MonoBehaviour:
   m_ObjectHideFlags: 0

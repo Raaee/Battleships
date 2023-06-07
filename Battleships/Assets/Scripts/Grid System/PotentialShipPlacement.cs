@@ -7,16 +7,15 @@ public class PotentialShipPlacement : MonoBehaviour
 {
     private CubeVisual currentHighlightedCubeVisual = null;
     [SerializeField] private GridManager gridManager;
+    [SerializeField] private PlacementData playerPlacementData;
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
-    private int sizeOfPawn = 1;
+    private int sizeOfPawn = 1; // this changes when a pawn is selected
 
-    public UnityEvent OnMouseScrolled;
+    [HideInInspector] public UnityEvent OnMouseScrolled;
 
     private List<GameObject> lastHighlightedGameObjects; //making a temp list, if pawn is placed then this is what is sent to the pawn data 
 
-    [SerializeField] private PlacementData playerPlacementData;
-    public Vector3 location;
     private void Start()
     {
         lastHighlightedGameObjects = new List<GameObject>();
@@ -36,7 +35,6 @@ public class PotentialShipPlacement : MonoBehaviour
             pawnOrientation = PawnOrientation.HORIZONTAL;
             OnMouseScrolled.Invoke();
             ShowPotentialShipPlacement();
-
         }
     }
     private void ShowPotentialShipPlacement()
@@ -45,8 +43,6 @@ public class PotentialShipPlacement : MonoBehaviour
         if (currentHighlightedCubeVisual == null) return;
         
         Vector2 currTilePos = gridManager.GetPositionAtTile(currentHighlightedCubeVisual.gameObject);
-
-       
         
         if (pawnOrientation == PawnOrientation.VERTICAL)
         {
@@ -78,14 +74,9 @@ public class PotentialShipPlacement : MonoBehaviour
         ResetLastHighlightedGameObjects();
         
         //start at current tile, and highlight the next tiles to the right for size of pawn times 
-        for (int i = y; i < (y + sizeOfPawn); i++)
-        {
+        for (int i = y; i < (y + sizeOfPawn); i++) {
             
             var tileGO = gridManager.GetTileAtPosition(new Vector2(x, i));
-            
-            
-            
-            
             
             if (tileGO)
             {
@@ -98,13 +89,9 @@ public class PotentialShipPlacement : MonoBehaviour
                 }
                 tileGO.GetComponent<CubeVisual>().ShowHighlight();
                 lastHighlightedGameObjects.Add(tileGO);
-            }
-              
+            }              
         }
     }
-
-   
-
     private void HighlightPotentialShipPlacementHori(int x, int y)
     {
         ResetLastHighlightedGameObjects();
@@ -125,9 +112,7 @@ public class PotentialShipPlacement : MonoBehaviour
             }
                 
         }
-    }
-
-    
+    }    
     private bool CheckIfAlreadyPlaced(int x, int y)
     {
         //this is the vector we are checking against
@@ -152,7 +137,6 @@ public class PotentialShipPlacement : MonoBehaviour
         }
         return false;
     }
-
     public void AssignCurrentTileVisual(CubeVisual cubeVisual)
     {
         currentHighlightedCubeVisual = cubeVisual;

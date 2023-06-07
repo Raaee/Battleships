@@ -43,4 +43,11 @@ public class PawnVisual : MonoBehaviour
         bc2D.offset = new Vector2(0, 0);
         bc2D.size = new Vector2(sr.bounds.size.x / transform.lossyScale.x, sr.bounds.size.y / transform.lossyScale.y);
     }
+    public void ChangePawnVisual(PawnOrientation pawnOrientation) {
+        if (pawnOrientation == PawnOrientation.VERTICAL) {
+            sr.sprite = verticalSprite;
+        } else {
+            sr.sprite = horizontalSprite;
+        }
+    }
 }

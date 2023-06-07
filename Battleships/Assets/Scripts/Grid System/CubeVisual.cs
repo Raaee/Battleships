@@ -9,6 +9,7 @@ public class CubeVisual : MonoBehaviour
     private Material originalMaterial;
     [SerializeField] private Material hoverMaterial;
     [SerializeField] private Transform cubeMidpoint;
+    private bool occupied;
 
     private PotentialShipPlacement potentialShipPlacement;
     
@@ -45,6 +46,12 @@ public class CubeVisual : MonoBehaviour
     public Vector3 GetCubeMidPosition()
     {
         return cubeMidpoint.transform.position;
+    }
+    public bool GetOccupied() {
+        return occupied;
+    }
+    public void SetOccupied(bool o) {
+        occupied = o;
     }
     
 }
