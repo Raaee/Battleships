@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 1412156056}
   - component: {fileID: 1412156058}
   m_Layer: 0
-  m_Name: Ship placment and Data - left grid
+  m_Name: Player Placment Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

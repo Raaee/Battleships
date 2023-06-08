@@ -64,6 +64,7 @@ public class EnemyPlacementData : MonoBehaviour
 
         // Instantiate(pawn, location, Quaternion.Identity);
         // Set pawn coords to Pawn class
+        // also set CubeVisual.occupied = true for each cube the pawn occupies
 
         if (orientation == PawnOrientation.VERTICAL) {
             if (direction == 1) {
@@ -83,6 +84,9 @@ public class EnemyPlacementData : MonoBehaviour
                 Debug.Log("placed hori right");
             }
         }
+    }
+    private void SetCubeOccupied(Vector2 intialV2, int pawnSize) {
+
     }
     //TODO: logic to make enemy prefabs be assigned to a place on a board
     private void CheckPosition() {
@@ -132,7 +136,6 @@ public class EnemyPlacementData : MonoBehaviour
 
         for (int n = (int)randomV2.x; n < ((int)randomV2.x + pawnSize); n++) { // checking every position ABOVE the initial coordinate
 
-            Debug.Log(n);
             GameObject tileGO = enemyGridManager.GetTileAtPosition(new Vector2(n, randomV2.y));
            
             if ((int)randomV2.x + pawnSize > 10) {
