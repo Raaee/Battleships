@@ -27,8 +27,6 @@ public class ClickAndDrag : MonoBehaviour
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DisableSelf);
     }
-
-
     private void Start()
     {
         originalSpawnLocation = transform.position;
@@ -44,11 +42,10 @@ public class ClickAndDrag : MonoBehaviour
     private void Update() {
         if(!IsActive) return;
         
-        
         if (dragging) {
             Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             transform.position = newPos;
-            if(potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null)  currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
+            if(potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null)  currentPawn.transform.position = potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
         }
     }
 

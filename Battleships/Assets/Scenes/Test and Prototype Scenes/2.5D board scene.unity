@@ -642,8 +642,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025509071}
   m_LocalRotation: {x: -0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: -517.6539, y: 6.842799, z: 1617.3353}
-  m_LocalScale: {x: 86.30144, y: 74.18369, z: 98.10399}
+  m_LocalPosition: {x: -514, y: 3, z: 1610}
+  m_LocalScale: {x: 85.43842, y: 74.18369, z: 98.10399}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1343984741}
@@ -1115,7 +1115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582055528}
   m_LocalRotation: {x: -0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 523.88525, y: 6.842799, z: 1617.3353}
+  m_LocalPosition: {x: 523.88525, y: 0, z: 1606}
   m_LocalScale: {x: 85.46514, y: 74.18369, z: 98.10399}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1218,8 +1218,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676188721}
   m_LocalRotation: {x: -0.61237246, y: -0.35355335, z: 0.61237246, w: 0.35355335}
-  m_LocalPosition: {x: -517.6539, y: -319.40186, z: 1254.0427}
-  m_LocalScale: {x: 19.46187, y: 74.18369, z: 86.275635}
+  m_LocalPosition: {x: -515, y: -319.40186, z: 1254.0427}
+  m_LocalScale: {x: 19.46187, y: 74.18369, z: 85.41288}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1343984741}
@@ -1546,6 +1546,7 @@ MonoBehaviour:
   enemyGridManager: {fileID: 2015051422}
   enemiesShown: 0
   allPawnsPlaced: 0
+  initialCoords: {fileID: 1656425414}
 --- !u!1 &2000926588
 GameObject:
   m_ObjectHideFlags: 0

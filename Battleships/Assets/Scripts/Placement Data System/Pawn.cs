@@ -41,6 +41,10 @@ public class Pawn : MonoBehaviour {
             pawnCoords.Add(gridMan.GetPositionAtTile(lastHighlightedGameobjects[i]));
         }
     }
+    public void SetPawnCoordinates(List<Vector2> newPawnCoords) {
+        pawnCoords.Clear();
+        pawnCoords = newPawnCoords;
+    }
     
     public int GetPawnSize() {
         return pawnSize;

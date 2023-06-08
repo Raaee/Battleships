@@ -44,11 +44,13 @@ public class GridManager : MonoBehaviour
 
    public GameObject GetTileAtPosition(Vector2 pos)
    {
-      if (tiles.TryGetValue(pos, out var tile))
-      {
-         return tile;
-      }
-      return null;
+        if (tiles == null) {
+            GenerateGrid();
+        }
+        if (tiles.TryGetValue(pos, out var tile)) {
+            return tile;
+        }
+        return null;
    }
 
    public Vector2 GetPositionAtTile(GameObject go)
