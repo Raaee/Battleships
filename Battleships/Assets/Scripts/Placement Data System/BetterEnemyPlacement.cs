@@ -60,7 +60,13 @@ public class BetterEnemyPlacement : MonoBehaviour {
                     break;
             }
             PlacePawn(pos, pawnsInBattle[i]);
+            
+            //disable pawns 
+            
+            pawnsInBattle[i].gameObject.SetActive(false);
         }
+        
+        
     }
     // chooses random vector position for pawn placement AND calls CheckOccupy. returns the valid position:
     private Vector2 PawnPosition(int pawnSize) { 
@@ -99,10 +105,10 @@ public class BetterEnemyPlacement : MonoBehaviour {
         for (int i = (int)n; i < n + pawnSize; i++) {
             if (pawnOrientation == PawnOrientation.HORIZONTAL) {
                 tile = enemyGridManager.GetTileAtPosition(new Vector2(o, i));
-                Debug.Log("**** Hori: " + tile);
+                //Debug.Log("**** Hori: " + tile);
             } else { // Vertical
                 tile = enemyGridManager.GetTileAtPosition(new Vector2(i, o));
-                Debug.Log("**** Vert: " + tile);
+                //Debug.Log("**** Vert: " + tile);
             }
             
             if (tile.GetComponent<CubeVisual>().GetOccupied() == true) {
