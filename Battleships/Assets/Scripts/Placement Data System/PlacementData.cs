@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 /// <summary>
 /// This shows the status of the player/enemy placement positions of pawns 
@@ -20,6 +22,7 @@ public class PlacementData : MonoBehaviour
     private bool allPawnsPlaced;
     [SerializeField] Button confirmButton;
 
+    public UnityEvent OnAllPawnsSpawned;
     void Start() {
         CheckPawnList();
     }
@@ -78,7 +81,6 @@ public class PlacementData : MonoBehaviour
             allPawnsPlaced = false;
         }
         else {
-            Debug.Log("all placed: " + allPawnsPlaced);
             allPawnsPlaced = true;
         }        
     }
@@ -111,8 +113,12 @@ public class PlacementData : MonoBehaviour
                     break;
             }
         }
+        OnAllPawnsSpawned?.Invoke();
     }
+    
 }
+
+
 
 public enum Team {
    NONE,

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BetterEnemyPlacement : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     public GameObject initialCoords;
+
 
     private void Start() {
         CheckPawnList();
@@ -48,7 +50,6 @@ public class BetterEnemyPlacement : MonoBehaviour {
             switch(pawnSize) {
                 case 1:
                     pos = GetRandomVector2(0, 10, 0, 10);
-                    Debug.Log("One pawn");
                     break;
                 case 2: pos = PawnPosition(pawnSize);
                     break;
@@ -62,7 +63,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             PlacePawn(pos, pawnsInBattle[i]);
             
             //disable pawns 
-            
+            pawnsInBattle[i].gameObject.GetComponent<ClickAndDrag>().DisableSelf();
             pawnsInBattle[i].gameObject.SetActive(false);
         }
         
@@ -77,13 +78,13 @@ public class BetterEnemyPlacement : MonoBehaviour {
             validPos = true;
             if (pawnOrientation == PawnOrientation.HORIZONTAL) {
                 pos = GetRandomVector2(0, (10 - pawnSize) + 1, 0, 10);
-                Debug.Log("Hori: " + pos + " / Size: " + pawnSize);
+                //Debug.Log("Hori: " + pos + " / Size: " + pawnSize);
 
                 validPos = CheckOccupy(pos.x, pos.y, pawnSize);
             }
             else { // Vertical
                 pos = GetRandomVector2(0, 10, 0, (10 - pawnSize) + 1);
-                Debug.Log("Vert: " + pos + " / Size: " + pawnSize);
+               // Debug.Log("Vert: " + pos + " / Size: " + pawnSize);
 
                 validPos = CheckOccupy(pos.y, pos.x, pawnSize);
             }          
@@ -112,7 +113,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             }
             
             if (tile.GetComponent<CubeVisual>().GetOccupied() == true) {
-                Debug.Log("------- No work: " + new Vector2(n, o) + " ----------");
+              //  Debug.Log("------- No work: " + new Vector2(n, o) + " ----------");
                 return false;
             }
         }
@@ -155,7 +156,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             ranNum = Random.Range(0, 5)+1; // random number 1, 2, 3, 4, or 5
             GameObject pawn = Instantiate(PawnPrefabOfSize(ranNum), initialCoords.transform.position, Quaternion.identity);
             pawnsInBattle.Add(pawn);
-        }
+        } 
     }
     // Returns the pawn gameobject according to the size you pass it:
     private GameObject PawnPrefabOfSize(int size) {

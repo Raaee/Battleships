@@ -12,8 +12,10 @@ public class ClickAndDrag : MonoBehaviour
 
     private PotentialShipPlacement potentialShipPlacement;
     private Pawn currentPawn;
+    private AmountOfPlayerPawnsUI playerPawnsUI;
 
     public UnityEvent OnPawnPlaced;
+    public UnityEvent<int> OnPawnPlacedWithInt;
 
     private bool IsActive = true;
     private ButtonFunctions buttonsFunctions;
@@ -26,13 +28,14 @@ public class ClickAndDrag : MonoBehaviour
         currentPawn = GetComponent<Pawn>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DisableSelf);
+        playerPawnsUI = FindObjectOfType<AmountOfPlayerPawnsUI>(); 
     }
     private void Start()
     {
         originalSpawnLocation = transform.position;
     }
 
-    private void DisableSelf()
+    public void DisableSelf()
     {
         IsActive = false;
         
@@ -66,6 +69,7 @@ public class ClickAndDrag : MonoBehaviour
             currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
             currentPawn.SetPlacedStatus(true);
             OnPawnPlaced?.Invoke();
+            playerPawnsUI.UpdateUI(currentPawn.GetPawnSize());
         }
         else
         {
