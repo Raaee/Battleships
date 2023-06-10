@@ -15,7 +15,7 @@ public class Pawn : MonoBehaviour {
     private ClickAndDrag cd;
     private PotentialShipPlacement potentialShipPlacement;
     private GridManager gridMan;
-    public bool placed;
+    private bool placed = false;
 
     private void Awake()
     {

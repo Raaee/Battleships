@@ -10,27 +10,74 @@ public class DevMode
 {
 
     //MenuItem means it now shows up as a button on the top left of the unity editor
-    [MenuItem("Dev Mode/Get Power Up 1")]
-    public static void GetPowerUp1()
-    {
-        Debug.Log("Player now has a free powerup 1");
-    }
+  //  [MenuItem("Dev Mode/Get Power Up 1")]
+   // public static void GetPowerUp1()
+    //{
+    //    Debug.Log("Player now has a free powerup 1");
+   // }
     
-    [MenuItem("Dev Mode/Get Power Up 2")]
-    public static void GetPowerUp2()
-    {
-        Debug.Log("Player now has a free powerup 2");
-    }
-    
-    [MenuItem("Dev Mode/Show Enemy Pawn Positions")]
-    public static void ShowEnemyPositions()
+  
+    [MenuItem("Dev Mode/Toggle Enemy Pawn Positions")]
+    public static void ToggleEnemyPositions()
     {
         Debug.Log("Showing Enemy Positions");
+        var enemies = GameObject.FindObjectOfType<BetterEnemyPlacement>().pawnsInBattle;
+        if (enemies == null)
+        {
+            Debug.Log("cant find anythign bruv");
+            return;
+        }
+
+        if (enemies.Count <= 0)
+        {
+            Debug.Log("theres no enemies bruv");
+            return;
+        }
+        
+        foreach (var i in enemies)
+        {
+            if(i.activeInHierarchy == false)
+                i.SetActive(true);
+            else
+            {
+                i.SetActive(false);
+            }
+        }
+        
     }
+    
+    [MenuItem("Dev Mode/Chat G-PTY intrusive thoughts on Raeus")]
+    public static void IntrusiveThoughts()
+    {
+        int rand = Random.Range(0, 1000);
+        string noun = getRandomNoun();
+        string noun2 = getRandomNoun();
+        string adjective = getRandomAdjective();
+        string verb = getRandomVerb();
+        
+        Debug.Log("Chat G-PTY: Raeus is a " + adjective + " " + noun + " who " + verb + " " + noun2 + "s.");
+    }
+
+    private static string getRandomNoun()
+    {
+        string[] randomNouns = new[] { "bug", "worm", "gerbil", "human", "alien", "pasta" }; 
+        return randomNouns[Random.Range(0, randomNouns.Length)];
+    }
+    private static string getRandomAdjective()
+    {
+        string[] randomNouns = new[] { "vigorous", "beautiful", "disgusting", "parasitic", "venomous", "mid", "disturbed"}; 
+        return randomNouns[Random.Range(0, randomNouns.Length)];
+    }
+    private static string getRandomVerb()
+    {
+        string[] randomNouns = new[] { "defends", "eats", "flirts with", "talks to", "games with", "decorates", "stalks"}; 
+        return randomNouns[Random.Range(0, randomNouns.Length)];
+    }
+    
     
     [MenuItem("Dev Mode/Speedy Gameplay")]
     public static void RaeusSpeedMode()
     {
-        Debug.Log("Moving at the speed of raeus");
+        Debug.Log("Moving at the speed of raeus.");
     }
 }

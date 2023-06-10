@@ -14,9 +14,10 @@ public class GridManager : MonoBehaviour
 
    [SerializeField] private GameObject startingTilePoint;
 
-   private Dictionary<Vector2, GameObject> tiles;
+   public Dictionary<Vector2, GameObject> tiles;
 
    [SerializeField] private GridSystemCubeSO cubePalette;
+
    private void Start()
    {
       GenerateGrid();
@@ -35,22 +36,33 @@ public class GridManager : MonoBehaviour
             GameObject spawnedTile = Instantiate(GetCorrectCube(x, y), new Vector3(x * widthOffset  + startingTileLoc.x, 0  + startingTileLoc.y,y * heightOffset + startingTileLoc.z), Quaternion.identity); 
             spawnedTile.name = $"Tile {x} {y} - " + spawnedTile.name;
             spawnedTile.transform.parent = this.transform;
-           
+            
             tiles[new Vector2(x, y)] = spawnedTile;
          }
       }
       
    }
 
+   private void Update()
+   {
+      if(tiles == null)
+         Debug.Break();
+   }
+
    public GameObject GetTileAtPosition(Vector2 pos)
    {
         if (tiles == null) {
-            GenerateGrid();
+            ReGenerateGrid();
         }
         if (tiles.TryGetValue(pos, out var tile)) {
             return tile;
         }
         return null;
+   }
+
+   private void ReGenerateGrid()
+   {
+      GenerateGrid();
    }
 
    public Vector2 GetPositionAtTile(GameObject go)
