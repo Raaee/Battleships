@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1998845029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa04e5b9dbb7d843b32a06426740030, type: 3}
+  m_Script: {fileID: 11500000, guid: a4cc0a9a50412614a97a6987b330fc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pawnPrefabs:
@@ -1545,7 +1545,6 @@ MonoBehaviour:
   pawnsInBattle: []
   enemyGridManager: {fileID: 2015051422}
   enemiesShown: 0
-  allPawnsPlaced: 0
   initialCoords: {fileID: 1656425414}
 --- !u!1 &2000926588
 GameObject:
