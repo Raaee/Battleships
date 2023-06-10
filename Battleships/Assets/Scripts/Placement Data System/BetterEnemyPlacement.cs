@@ -87,6 +87,13 @@ public class BetterEnemyPlacement : MonoBehaviour {
     }
     // checks if all tiles within the given pawn place location are occupied or not. returns valid:
     private bool CheckOccupy(float n, float o, int pawnSize) {
+        // n is the variable that changes, o is the variable that stays the same
+        
+        // The correct way the coords should work:
+        // [row][col] = [x][y]
+        // vertical changes x/row
+        // horizontal changes y/col
+
         tile = null;
 
         for (int i = (int)n; i < n + pawnSize; i++) {
