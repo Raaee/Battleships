@@ -15,7 +15,8 @@ public class ButtonFunctions : MonoBehaviour
         {
             OnPlayerConfirmPlacement?.Invoke();
             playerConfirmedPlacement = true;
+            FindObjectOfType<SetupState>().GoToPlayer1State();
         }
-        
+
     }
 }

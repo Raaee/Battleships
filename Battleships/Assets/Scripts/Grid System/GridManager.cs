@@ -18,12 +18,7 @@ public class GridManager : MonoBehaviour
 
    [SerializeField] private GridSystemCubeSO cubePalette;
 
-   private void Start()
-   {
-      GenerateGrid();
-   }
-
-   private void GenerateGrid()
+   public void GenerateGrid()
    {
       tiles = new Dictionary<Vector2, GameObject>();
       for (int x = 0; x < WIDTH; x++)

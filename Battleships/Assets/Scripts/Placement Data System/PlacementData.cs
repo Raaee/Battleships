@@ -23,15 +23,11 @@ public class PlacementData : MonoBehaviour
     [SerializeField] Button confirmButton;
 
     public UnityEvent OnAllPawnsSpawned;
-    void Start() {
-        CheckPawnList();
-    }
-
     void Update() {
         ConfirmPlacement();
     }
     
-    public void CheckPawnList() {
+    public void StartPlacement() {
         if (pawnPrefabs.Count < 5) {
             Debug.Log("pawn prefab list (Player) must have 5 elements.");
             return;

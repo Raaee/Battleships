@@ -16,8 +16,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     public GameObject initialCoords;
 
-
-    private void Start() {
+    public void StartPlacement() {
         CheckPawnList();
         PawnPlacement();
     }
