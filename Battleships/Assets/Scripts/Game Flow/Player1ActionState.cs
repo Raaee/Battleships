@@ -4,6 +4,8 @@ using UnityEngine;
 public class Player1ActionState : GameState {
    // [SerializeField] private IActions playerActions;
    private AttackHighlightSystem attackHighlightSystem;
+    public CubeVisual currentCube;
+    public Vector2 attackLocation;
 
    void Awake()
    {
@@ -23,7 +25,13 @@ public class Player1ActionState : GameState {
     public void SelectPowerUp() {
         Debug.Log("You selected a power-up.");
     }
-    
+    public void GetAttackLocation() {
+        currentCube = attackHighlightSystem.GetCurrentlyHighlighted();
+        attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
+    }
+    void OnMouseDown() {
+        GetAttackLocation();
+    }
     
 
     /* player 1
