@@ -1611,6 +1611,7 @@ MonoBehaviour:
   playerPD: {fileID: 1412156058}
   enemyPD: {fileID: 1998845031}
   player1AS: {fileID: 1328846346}
+  player2AS: {fileID: 2046379443}
 --- !u!4 &1170482555
 Transform:
   m_ObjectHideFlags: 0
@@ -2998,6 +2999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046379442}
+  - component: {fileID: 2046379443}
   m_Layer: 0
   m_Name: Player 2 Action State
   m_TagString: Untagged
@@ -3020,6 +3022,19 @@ Transform:
   m_Father: {fileID: 1382943595}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2046379443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046379441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee21658f3e2bb8a4b888c8fe1114386f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placementData: {fileID: 1412156058}
 --- !u!1 &2130279750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605945386977273, guid: 38250ca6626852043bdafda762d993c2, type: 3}
