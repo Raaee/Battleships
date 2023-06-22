@@ -61,9 +61,9 @@ public class Player1ActionState : GameState {
     public void CheckIfPawnHit() {
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
         if (pawnHit)
-            Debug.Log("Hit!");
+            Debug.Log("You Hit!");
         else
-            Debug.Log("Missed.");
+            Debug.Log("You Missed.");
     }
 
     /* player 1
@@ -77,20 +77,5 @@ public class Player1ActionState : GameState {
      *       -> button triggers visual feedback **** <<<<<<
      * - close highlight system (DONE)
      * - go to player 2 turn or other branch
-     */
-
-    /* player 2 (enemy)
-     * - if PU available -> use, else -> nothing
-     * - choose random location
-     * - save location chosen
-     * - checks if pawn hit -> remove pawn coord that was hit, else -> missed:
-     *     -> button triggers visual feedback
-     * - go to player 1 turn or other branch
-     */
-    
-    /*
-     *  On mouse down (cube visual)-> get the current highlighted cube in attack Highlight systme, get the tile position using the gridmanager in the attackHighlight
-     *  use setter to save the position in Player1Action
-     *   
      */
 }

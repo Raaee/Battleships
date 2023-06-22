@@ -177,7 +177,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     public int GetRandomNumber(int min, int maxExclusive) {
         return Random.Range(min, maxExclusive);
     }
-    private Vector2 GetRandomVector2(int minX, int maxExclusiveX, int minY, int maxExclusiveY) {
+    public Vector2 GetRandomVector2(int minX, int maxExclusiveX, int minY, int maxExclusiveY) {
         return new Vector2(Random.Range(minX, maxExclusiveX), Random.Range(minY, maxExclusiveY));
     }
     public bool CheckIfHit(Vector2 attackLoc) {

@@ -9,6 +9,7 @@ public class SetupState : GameState {
     [SerializeField] private BetterEnemyPlacement enemyPD;
 
     [SerializeField] private GameState player1AS;
+    [SerializeField] private GameState player2AS;
 
     public override void OnStateEnter() {
         playerGM.GenerateGrid();
@@ -24,5 +25,8 @@ public class SetupState : GameState {
 
     public void GoToPlayer1State() {
         gameManager.ChangeState(player1AS);
+    }
+    public void GoToPlayer2State() {
+        gameManager.ChangeState(player2AS);
     }
 }
