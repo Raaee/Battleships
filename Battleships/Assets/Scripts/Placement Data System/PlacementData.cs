@@ -111,7 +111,6 @@ public class PlacementData : MonoBehaviour
             }
         }
         OnAllPawnsSpawned?.Invoke();
-        Debug.Log("All pawny spawny!");
     }
     public void Placed() {
         placementConfirmed = true;
