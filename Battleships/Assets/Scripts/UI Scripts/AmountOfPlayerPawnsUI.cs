@@ -14,11 +14,13 @@ public class AmountOfPlayerPawnsUI : MonoBehaviour
     private void Awake()
     {
         placementData.OnAllPawnsSpawned.AddListener(StartingAmountInUI);
+        Debug.Log("connected event woooo");
     }
 
     //key is pawnsize, value is the amount
     private void StartingAmountInUI()
     {
+        Debug.Log("I should be called bruh");
         sizeAmtDictionary = new Dictionary<int, int>();
         foreach (var pawns in placementData.pawnsInBattle)
         {
