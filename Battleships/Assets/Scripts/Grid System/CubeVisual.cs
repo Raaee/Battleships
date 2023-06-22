@@ -14,6 +14,7 @@ public class CubeVisual : MonoBehaviour
 
     private PotentialShipPlacement potentialShipPlacement;
     private AttackHighlightSystem attackHighlightSystem;
+
     private void Awake()
     {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
@@ -63,8 +64,11 @@ public class CubeVisual : MonoBehaviour
         occupied = o;
     }
 
-    private void OnMouseDown()
-    {
-        
+    private void OnMouseDown()  {
+        attackHighlightSystem.SetCurrentlyHighlighted(this);
+    }
+    private void OnMouseUp() {
+        if (attackHighlightSystem.isEnabled)
+            FindObjectOfType<Player1ActionState>().GetAttackLocation();
     }
 }

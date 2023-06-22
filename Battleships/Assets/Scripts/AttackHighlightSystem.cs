@@ -7,7 +7,7 @@ public class AttackHighlightSystem : MonoBehaviour
 {
     [SerializeField] private GridManager gridManager;
     public Material hoverAttackMat;
-    [SerializeField] public bool isEnabled = false;
+    public bool isEnabled = false;
     private CubeVisual currentHighlightedVisual = null;
 
     public void EnableSystem()
@@ -50,7 +50,7 @@ public class AttackHighlightSystem : MonoBehaviour
     public Vector2 GetCurrentAttackLocation() {
         return gridManager.GetPositionAtTile(currentHighlightedVisual.gameObject);
     }
-    
-   
-    
+    public void SetCurrentlyHighlighted(CubeVisual cv) {
+        currentHighlightedVisual = cv;
+    }    
 }

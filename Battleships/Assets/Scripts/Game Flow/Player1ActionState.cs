@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player1ActionState : GameState {
    // [SerializeField] private IActions playerActions;
-   private AttackHighlightSystem attackHighlightSystem;
-    public CubeVisual currentCube;
-    public Vector2 attackLocation;
+    private AttackHighlightSystem attackHighlightSystem;
+    private CubeVisual currentCube;
+    private Vector2 attackLocation;
 
-   void Awake()
-   {
-       attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
+    private ButtonFunctions buttonsFunctions;
+    private bool attackSelected = false;
+    private bool attackConfirmed = false;
+    [SerializeField] private Button attackConfirmBtn;
+
+    [SerializeField] private BetterEnemyPlacement enemyPlacementData;
+
+    void Awake() {
+        attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
+        buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
+        buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);
    }
     public override void OnStateEnter() {
        // playerActions.DetermineLocation();
@@ -17,8 +26,11 @@ public class Player1ActionState : GameState {
        attackHighlightSystem.EnableSystem();
     }
     public override void OnStateUpdate() {
-    }
 
+    }
+    void Update() {
+        EndAttackSelection();
+    }
     public override void OnStateExit() {
 
     }
@@ -28,18 +40,29 @@ public class Player1ActionState : GameState {
     public void GetAttackLocation() {
         currentCube = attackHighlightSystem.GetCurrentlyHighlighted();
         attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
+        attackSelected = true;
+        Debug.Log(attackLocation);
     }
-    void OnMouseDown() {
-        GetAttackLocation();
+    public void EndAttackSelection() {
+        if (attackSelected && !attackConfirmed) {
+            attackConfirmBtn.gameObject.SetActive(true);
+        } else {
+            attackConfirmBtn.gameObject.SetActive(false);
+        }
     }
-    
+    public void ConfirmAttack() {
+        attackConfirmed = true;
+    }
+    public void CheckIfPawnHit() {
+
+    }
 
     /* player 1
      * - if PU available && player choose -> use powerup , else -> nothing
      *    - show PU available (UI)
      * - use highlight system (DONE)
-     * - save location clicked
-     * - show button for hit location once chosen
+     * - save location clicked (DONE)
+     * - show button for hit location once chosen (DONE)
      * if button pressed:
      *    - checks if pawn hit -> remove pawn coord that was hit, else -> missed: USE DEBUG
      *       -> button triggers visual feedback

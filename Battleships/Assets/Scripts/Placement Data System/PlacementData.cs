@@ -21,6 +21,7 @@ public class PlacementData : MonoBehaviour
     private int ranNum;
     private bool allPawnsPlaced;
     [SerializeField] Button confirmButton;
+    private bool placementConfirmed = false;
 
     public UnityEvent OnAllPawnsSpawned;
     void Update() {
@@ -83,7 +84,7 @@ public class PlacementData : MonoBehaviour
     // activates and deactivates the confirmation button depending on whether all pawns are placed:
     public void ConfirmPlacement() {
         CheckPawnPlacement();
-        if (allPawnsPlaced) {
+        if (allPawnsPlaced && !placementConfirmed) {
             confirmButton.gameObject.SetActive(true);
         } else {
             confirmButton.gameObject.SetActive(false);
@@ -110,6 +111,9 @@ public class PlacementData : MonoBehaviour
             }
         }
         OnAllPawnsSpawned?.Invoke();
+    }
+    public void Placed() {
+        placementConfirmed = true;
     }
     
 }
