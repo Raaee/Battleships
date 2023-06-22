@@ -33,10 +33,10 @@ public class Player2ActionState : GameState {
 
     /* player 2 (enemy)
      * - if PU available -> use, else -> nothing
-     * - choose random location
-     * - save location chosen
+     * - choose random location (DONE)
+     * - save location chosen (DONE)
      * - checks if pawn hit -> remove pawn coord that was hit, else -> missed:
-     *     -> button triggers visual feedback
+     *     -> button triggers visual feedback (DONE)
      * - go to player 1 turn or other branch
      */
 
