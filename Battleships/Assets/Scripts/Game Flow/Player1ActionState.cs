@@ -14,6 +14,7 @@ public class Player1ActionState : GameState {
     [SerializeField] private Button attackConfirmBtn;
 
     [SerializeField] private BetterEnemyPlacement enemyPlacementData;
+    private bool pawnHit = false;
 
     void Awake() {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
@@ -29,7 +30,7 @@ public class Player1ActionState : GameState {
 
     }
     void Update() {
-        EndAttackSelection();
+        AttackConfirmBtn();
     }
     public override void OnStateExit() {
 
@@ -43,18 +44,26 @@ public class Player1ActionState : GameState {
         attackSelected = true;
         Debug.Log(attackLocation);
     }
-    public void EndAttackSelection() {
+    public void AttackConfirmBtn() {
         if (attackSelected && !attackConfirmed) {
             attackConfirmBtn.gameObject.SetActive(true);
         } else {
             attackConfirmBtn.gameObject.SetActive(false);
         }
     }
+    public void EndAttackConfirm() {
+        attackHighlightSystem.DisableSystem();
+        CheckIfPawnHit();
+    }
     public void ConfirmAttack() {
         attackConfirmed = true;
     }
     public void CheckIfPawnHit() {
-
+        pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
+        if (pawnHit)
+            Debug.Log("Hit!");
+        else
+            Debug.Log("Missed.");
     }
 
     /* player 1
@@ -64,9 +73,9 @@ public class Player1ActionState : GameState {
      * - save location clicked (DONE)
      * - show button for hit location once chosen (DONE)
      * if button pressed:
-     *    - checks if pawn hit -> remove pawn coord that was hit, else -> missed: USE DEBUG
-     *       -> button triggers visual feedback
-     * - close highlight system
+     *    - checks if pawn hit -> remove pawn coord that was hit, else -> missed: USE DEBUG (DONE)
+     *       -> button triggers visual feedback **** <<<<<<
+     * - close highlight system (DONE)
      * - go to player 2 turn or other branch
      */
 

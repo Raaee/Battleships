@@ -180,4 +180,22 @@ public class BetterEnemyPlacement : MonoBehaviour {
     private Vector2 GetRandomVector2(int minX, int maxExclusiveX, int minY, int maxExclusiveY) {
         return new Vector2(Random.Range(minX, maxExclusiveX), Random.Range(minY, maxExclusiveY));
     }
+    public bool CheckIfHit(Vector2 attackLoc) {
+        bool hit = false;
+        Vector2 correctLoc = new Vector2(attackLoc.y, attackLoc.x);
+
+        for (int i = 0; i < pawnsInBattle.Count; i++) {
+            Pawn pawn = pawnsInBattle[i].GetComponent<Pawn>();
+            for (int n = 0; n < pawn.pawnCoords.Count; n++) {
+                Vector2 pawnCoord = pawn.pawnCoords[n];
+                if (pawnCoord == correctLoc) {
+                    hit = true;
+                }
+            }
+        }
+        if (hit)
+            return true;
+        else
+            return false;
+    }
 }

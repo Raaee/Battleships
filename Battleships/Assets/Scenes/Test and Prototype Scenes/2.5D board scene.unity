@@ -1676,6 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackConfirmBtn: {fileID: 318741120}
+  enemyPlacementData: {fileID: 1998845031}
 --- !u!1 &1343984737
 GameObject:
   m_ObjectHideFlags: 0

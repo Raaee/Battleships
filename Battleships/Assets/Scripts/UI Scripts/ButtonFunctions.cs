@@ -26,7 +26,7 @@ public class ButtonFunctions : MonoBehaviour {
         if (playerConfirmedAttack == false) {
             OnPlayerConfirmAttack?.Invoke();
             playerConfirmedAttack = true;
-           // FindObjectOfType<Player1ActionState>().ConfirmAttack();
+            FindObjectOfType<Player1ActionState>().EndAttackConfirm();
         }
     }
 }
