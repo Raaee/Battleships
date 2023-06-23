@@ -20,11 +20,14 @@ public class Player1ActionState : GameState {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);
-   }
+    }
     public override void OnStateEnter() {
        // playerActions.DetermineLocation();
        //Open Highlight System
-       attackHighlightSystem.EnableSystem();
+        attackHighlightSystem.EnableSystem();
+        attackSelected = false;
+        attackConfirmed = false;
+        pawnHit = false;
     }
     public override void OnStateUpdate() {
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,26 @@ public class Player2ActionState : GameState {
     [SerializeField] GridManager playerGridMan;
     private bool hit = false;
 
+    [SerializeField] private GameState player1AS;
+
     public override void OnStateEnter() {
         ChooseAttackLoc();
         CheckIfHit();
+        StartCoroutine(EndTurnAfterTime(2.5f));
     }
+    private IEnumerator EndTurnAfterTime(float time) {
+        Debug.Log("Waiting...");
+        yield return PeteHelper.GetWait(time);
+        gameManager.ChangeState(player1AS);
+    }
+
     public override void OnStateUpdate() {
 
     }
     public override void OnStateExit() {
 
     }
+
 
     public void ChooseAttackLoc() {
         randomLocation = FindObjectOfType<BetterEnemyPlacement>().GetRandomVector2(0, 10, 0, 10);

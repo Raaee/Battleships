@@ -7,8 +7,6 @@ public class ButtonFunctions : MonoBehaviour {
     public UnityEvent OnPlayerConfirmPlacement;
     public UnityEvent OnPlayerConfirmAttack;
     private bool playerConfirmedPlacement = false;
-    private bool playerConfirmedAttack = false;
-
 
     public void PlacementConfirmation() {
         Debug.Log("All Pawns Placed. Your decision is now locked, prepare to face dire consequences.");
@@ -23,11 +21,8 @@ public class ButtonFunctions : MonoBehaviour {
     public void AttackConfirmation() {
         Debug.Log("You have confirmed your attack location.");
 
-        if (playerConfirmedAttack == false) {
             OnPlayerConfirmAttack?.Invoke();
-            playerConfirmedAttack = true;
             FindObjectOfType<Player1ActionState>().EndAttackConfirm();
             FindObjectOfType<SetupState>().GoToPlayer2State();
-        }
     }
 }
