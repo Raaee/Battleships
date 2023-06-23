@@ -12,7 +12,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     public List<GameObject> pawnsInBattle; // this will be the enemy's pawns
 
     [SerializeField] private GridManager enemyGridManager;
-   // [SerializeField] private bool enemiesShown = false;  // this is for hiding the pawns on the battlefield
+   
     private GameObject tile = null;
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
@@ -31,15 +31,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             ChooseRandomPawns(5);
         }
     }
-    //TODO: spawn enemy prefabs, disactivate them so player cant see them
-    //TODO: logic to make enemy prefabs be assigned to a place on a board
-    /*
-        Pete Planning for enemy placement: very simplified approach first
-        "initialize" the pawns and pawns in the battle. (already done)
-        get a pawn, choose an orientation and get its size
-        instead of potentially placing it on a wrong place, we garantee its on a right place. IE: if horizontal and size 3, we try to place it anywhere on 7x7 grid
-    */
-
+   
     // assigns orientation and calls all other placement and checking methods:
     private void PawnPlacement() {
         Vector2 pos = new Vector2(-1,-1);

@@ -21,7 +21,6 @@ public class PotentialShipPlacement : MonoBehaviour
     private void Start()
     {
         lastHighlightedGameObjects = new List<GameObject>();
-      //  GameObject.Instantiate(prefab, location, Quaternion.identity);
     }
 
     private void Update() {
@@ -71,6 +70,8 @@ public class PotentialShipPlacement : MonoBehaviour
         }
     }
 
+    
+    //Pete potentially issue here: notice that you have x and y as parameter and also initialized in the for loop
     private void HighlightPotentialShipPlacementVert(int x, int y)
     {
         ResetLastHighlightedGameObjects();

@@ -14,6 +14,14 @@ public class SetupState : GameState
     [SerializeField] private GameState player1AS;
     [SerializeField] private GameState player2AS;
 
+    [SerializeField] private ButtonFunctions buttonFunctions;
+
+
+    private void Awake()
+    {
+        base.Awake();
+        buttonFunctions.OnPlayerConfirmPlacement.AddListener(GoToPlayer1State);
+    }
     public override void OnStateEnter() {
         playerGM.GenerateGrid();
         EnemyGM.GenerateGrid();
@@ -27,6 +35,8 @@ public class SetupState : GameState
     }
 
     public void GoToPlayer1State() {
+       
+        
         gameManager.ChangeState(player1AS);
     }
     public void GoToPlayer2State() {

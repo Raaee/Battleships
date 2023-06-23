@@ -1035,7 +1035,6 @@ GameObject:
   - component: {fileID: 992496998}
   - component: {fileID: 992496997}
   - component: {fileID: 992496995}
-  - component: {fileID: 992496996}
   m_Layer: 5
   m_Name: Attack Confirm Btn
   m_TagString: Untagged
@@ -1087,7 +1086,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 992496996}
+      - m_Target: {fileID: 1343984742}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: AttackConfirmation
         m_Mode: 1
@@ -1099,24 +1098,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &992496996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992496994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c97679c7233ef347ac96bc906d63d07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPlayerConfirmPlacement:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPlayerConfirmAttack:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &992496997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1475,6 +1456,7 @@ MonoBehaviour:
   enemyPD: {fileID: 1998845031}
   player1AS: {fileID: 1328846346}
   player2AS: {fileID: 2046379443}
+  buttonFunctions: {fileID: 1343984742}
 --- !u!4 &1170482555
 Transform:
   m_ObjectHideFlags: 0
@@ -1553,6 +1535,7 @@ GameObject:
   - component: {fileID: 1343984740}
   - component: {fileID: 1343984739}
   - component: {fileID: 1343984738}
+  - component: {fileID: 1343984742}
   m_Layer: 5
   m_Name: Scene BG and Canvas
   m_TagString: Untagged
@@ -1648,6 +1631,26 @@ RectTransform:
   m_AnchoredPosition: {x: 12.218, y: 11.411}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1343984742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343984737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c97679c7233ef347ac96bc906d63d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerConfirmPlacement:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerConfirmAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  placementConfirmedButton: {fileID: 1522653123}
+  playerPlacementData: {fileID: 1412156058}
 --- !u!1 &1345378523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,10 +1911,10 @@ MonoBehaviour:
   - {fileID: 1538425000}
   - {fileID: 1201086043}
   - {fileID: 2130279750}
-  confirmButton: {fileID: 1522653125}
   OnAllPawnsSpawned:
     m_PersistentCalls:
       m_Calls: []
+  buttonFunctions: {fileID: 1343984742}
 --- !u!1 &1522653123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,7 +1927,6 @@ GameObject:
   - component: {fileID: 1522653127}
   - component: {fileID: 1522653126}
   - component: {fileID: 1522653125}
-  - component: {fileID: 1522653128}
   m_Layer: 5
   m_Name: Place Confirm Btn
   m_TagString: Untagged
@@ -1997,7 +1999,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1522653128}
+      - m_Target: {fileID: 1343984742}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: PlacementConfirmation
         m_Mode: 1
@@ -2047,24 +2049,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522653123}
   m_CullTransparentMesh: 1
---- !u!114 &1522653128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522653123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c97679c7233ef347ac96bc906d63d07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPlayerConfirmPlacement:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPlayerConfirmAttack:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1538425000 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605944938805783, guid: 38250ca6626852043bdafda762d993c2, type: 3}

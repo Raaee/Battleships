@@ -6,8 +6,8 @@ using UnityEngine;
 /// </summary>
 public abstract class GameState : MonoBehaviour
 {
-    protected GameManager gameManager;
-    private void Awake() {
+    [SerializeField]protected GameManager gameManager;
+    protected virtual void Awake() {
         gameManager = FindObjectOfType<GameManager>();
     }
     public abstract void OnStateEnter();

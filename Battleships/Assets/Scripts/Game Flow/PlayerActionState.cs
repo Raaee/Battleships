@@ -19,6 +19,7 @@ public class PlayerActionState : GameState {
     private bool pawnHit = false;
 
     void Awake() {
+        base.Awake();
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);

@@ -15,7 +15,6 @@ public class ClickAndDrag : MonoBehaviour
     private AmountOfPlayerPawnsUI playerPawnsUI;
 
     public UnityEvent OnPawnPlaced;
-    public UnityEvent<int> OnPawnPlacedWithInt;
 
     private bool IsActive = true;
     private ButtonFunctions buttonsFunctions;

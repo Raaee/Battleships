@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -5,6 +6,8 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
+
 /// <summary>
 /// This shows the status of the player/enemy placement positions of pawns 
 /// </summary>
@@ -18,22 +21,25 @@ public class PlayerPlacementData : MonoBehaviour
     public List<GameObject> pawnSpawnLocations;
     
     private int ranNum;
-    private bool allPawnsPlaced;
-    [SerializeField] Button confirmButton;
+    private bool allPawnsPlaced = false;
     private bool placementConfirmed = false;
 
     public UnityEvent OnAllPawnsSpawned;
-    void Update() {
-        ConfirmPlacement();
+    [SerializeField] private ButtonFunctions buttonFunctions;
+
+    private void Awake()
+    {
+        if(buttonFunctions == null)
+            Debug.Log("didnt assign button funcitont in inspector dummy");
+        buttonFunctions.OnPlayerConfirmPlacement.AddListener(Placed);
     }
-    
+
     public void StartPlacement() {
         if (pawnPrefabs.Count < 5) {
             Debug.Log("pawn prefab list (Player) must have 5 elements.");
             return;
         } else {
             ChooseRandomPawns(5);
-            //Pete_SpawnInitialPawns(5);
         }
     }
 
@@ -55,10 +61,17 @@ public class PlayerPlacementData : MonoBehaviour
         }
         return null;
     }
+
+    private void Update()
+    {
+        CheckPawnPlacement();
+    }
+
     // checks if there is a false place status in each pawn:
     public void CheckPawnPlacement() {
         foreach (GameObject p in pawnsInBattle) {
             if (p.GetComponent<Pawn>().GetPlacedStatus() == false) {
+                
                 allPawnsPlaced = false;
                 return;
             }
@@ -71,15 +84,7 @@ public class PlayerPlacementData : MonoBehaviour
             allPawnsPlaced = true;
         }        
     }
-    // activates and deactivates the confirmation button depending on whether all pawns are placed:
-    public void ConfirmPlacement() {
-        CheckPawnPlacement();
-        if (allPawnsPlaced && !placementConfirmed) {
-            confirmButton.gameObject.SetActive(true);
-        } else {
-            confirmButton.gameObject.SetActive(false);
-        }
-    }
+ 
     public void SpawnInitialPawns() {
         foreach (GameObject p in pawnsInBattle) {
             switch (p.GetComponent<Pawn>().GetPawnSize()) {
@@ -102,9 +107,22 @@ public class PlayerPlacementData : MonoBehaviour
         }
         OnAllPawnsSpawned?.Invoke();
     }
-    public void Placed() {
+    private void Placed() {
+        
+        
         placementConfirmed = true;
     }
+
+    public bool GetIsAllPawnsPlaced()
+    {
+        return allPawnsPlaced;
+    }
+
+    public bool GetIsPlacementConfirmed()
+    {
+        return placementConfirmed;
+    }
+    
     public bool CheckIfHit(Vector2 attackLoc) {
         bool hit = false;
         Vector2 correctLoc = new Vector2(attackLoc.y, attackLoc.x);

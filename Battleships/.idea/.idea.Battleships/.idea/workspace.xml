@@ -6,23 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c25159d1-2e69-4f86-a872-34d024ca8da8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Deviously Devilish Scripts/DevMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Deviously Devilish Scripts/DevMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/GameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/IActions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/IActions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/Player1ActionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/PlayerActionState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/Player1ActionState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/PlayerActionState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/Player2ActionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/CPUActionState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/Player2ActionState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/CPUActionState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/PlayerActionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/PlayerActionState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/SetupState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/SetupState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Highlighting System/PotentialShipPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Highlighting System/PotentialShipPlacement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/BetterEnemyPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/BetterEnemyPlacement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PawnVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PawnVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/trash/EnemyPlacementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/trash/EnemyPlacementData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlayerPlacementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlayerPlacementData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI Scripts/ButtonFunctions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI Scripts/ButtonFunctions.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +113,7 @@
       <workItem from="1686402759983" duration="9953000" />
       <workItem from="1686958417566" duration="2446000" />
       <workItem from="1687448883822" duration="643000" />
-      <workItem from="1687553972094" duration="3359000" />
+      <workItem from="1687553972094" duration="9780000" />
     </task>
     <servers />
   </component>
