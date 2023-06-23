@@ -8,12 +8,16 @@ public class CubeVisual : MonoBehaviour
 
     private Material originalMaterial;
     [SerializeField] private Material hoverMaterial;
+    [SerializeField] private Material hitMaterial;
+    [SerializeField] private Material missMaterial;
+
     [SerializeField] private Transform cubeMidpoint;
     
     private bool occupied;
 
     private PotentialShipPlacement potentialShipPlacement;
     private AttackHighlightSystem attackHighlightSystem;
+
     private void Awake()
     {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
@@ -51,6 +55,12 @@ public class CubeVisual : MonoBehaviour
     {
         GetComponent<Renderer>().material = originalMaterial;
     }
+    public void CubeHit() {
+        GetComponent<Renderer>().material = hitMaterial;
+    }
+    public void CubeMiss() {
+        GetComponent<Renderer>().material = missMaterial;
+    }
 
     public Vector3 GetCubeMidPosition()
     {
@@ -63,8 +73,11 @@ public class CubeVisual : MonoBehaviour
         occupied = o;
     }
 
-    private void OnMouseDown()
-    {
-        
+    private void OnMouseDown()  {
+        attackHighlightSystem.SetCurrentlyHighlighted(this);
+    }
+    private void OnMouseUp() {
+        if (attackHighlightSystem.isEnabled)
+            FindObjectOfType<Player1ActionState>().GetAttackLocation();
     }
 }

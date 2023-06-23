@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake() {
         currentState = initialState;
+    }
+
+    private void Start()
+    {
         initialState.OnStateEnter();
+
     }
 
     private void Update() {

@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class AttackHighlightSystem : MonoBehaviour
 {
-    [SerializeField] private bool isEnabled = false;
-    private CubeVisual currentHighlightedVisual = null;
-    public Material hoverAttackMat;
     [SerializeField] private GridManager gridManager;
+    public Material hoverAttackMat;
+    public bool isEnabled = false;
+    private CubeVisual currentHighlightedVisual = null;
+
     public void EnableSystem()
     {
         isEnabled = true;
@@ -42,7 +43,14 @@ public class AttackHighlightSystem : MonoBehaviour
         
         return true; 
     }
-    
-   
-    
+
+    public CubeVisual GetCurrentlyHighlighted() {
+        return currentHighlightedVisual;
+    }
+    public Vector2 GetCurrentAttackLocation() {
+        return gridManager.GetPositionAtTile(currentHighlightedVisual.gameObject);
+    }
+    public void SetCurrentlyHighlighted(CubeVisual cv) {
+        currentHighlightedVisual = cv;
+    }    
 }
