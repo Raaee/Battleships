@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// The visual functions of the cube.
+/// </summary>
 public class CubeVisual : MonoBehaviour
 {
 
@@ -13,7 +15,7 @@ public class CubeVisual : MonoBehaviour
 
     [SerializeField] private Transform cubeMidpoint;
     
-    private bool occupied;
+    private bool isOccupied;
 
     private PotentialShipPlacement potentialShipPlacement;
     private AttackHighlightSystem attackHighlightSystem;
@@ -55,10 +57,10 @@ public class CubeVisual : MonoBehaviour
     {
         GetComponent<Renderer>().material = originalMaterial;
     }
-    public void CubeHit() {
+    public void ShowCubeHitVisul() {
         GetComponent<Renderer>().material = hitMaterial;
     }
-    public void CubeMiss() {
+    public void ShowCubeMissVisual() {
         GetComponent<Renderer>().material = missMaterial;
     }
 
@@ -66,11 +68,11 @@ public class CubeVisual : MonoBehaviour
     {
         return cubeMidpoint.transform.position;
     }
-    public bool GetOccupied() {
-        return occupied;
+    public bool GetIsOccupied() {
+        return isOccupied;
     }
-    public void SetOccupied(bool o) {
-        occupied = o;
+    public void SetIsOccupied(bool o) {
+        isOccupied = o;
     }
 
     private void OnMouseDown()  {
@@ -78,6 +80,6 @@ public class CubeVisual : MonoBehaviour
     }
     private void OnMouseUp() {
         if (attackHighlightSystem.isEnabled)
-            FindObjectOfType<Player1ActionState>().GetAttackLocation();
+            FindObjectOfType<PlayerActionState>().SetAttackLocation();
     }
 }

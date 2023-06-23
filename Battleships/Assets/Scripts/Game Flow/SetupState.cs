@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
-
-public class SetupState : GameState {
+/// <summary>
+/// The initialization state, when the game starts.
+/// </summary>
+public class SetupState : GameState 
+{
 
     [SerializeField] private GridManager playerGM;
     [SerializeField] private GridManager EnemyGM;
@@ -20,7 +23,7 @@ public class SetupState : GameState {
     public override void OnStateUpdate() {
     }
     public override void OnStateExit() {
-        Debug.Log("Exit State");
+        Debug.Log("Exiting Setup State");
     }
 
     public void GoToPlayer1State() {

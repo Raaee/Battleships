@@ -14,7 +14,6 @@ public class PlayerPlacementData : MonoBehaviour
     public List<GameObject> pawnPrefabs; // this is the default pawn prefabs used to assign the player's army
     public List<GameObject> pawnsInBattle; // this will be the player's pawns
 
-    /*  [SerializeField] GameObject initialCoords, pawnSpawn1, pawnSpawn2, pawnSpawn3, pawnSpawn4, pawnSpawn5;*/
     public GameObject initialCoords;
     public List<GameObject> pawnSpawnLocations;
     
@@ -38,16 +37,7 @@ public class PlayerPlacementData : MonoBehaviour
         }
     }
 
-    private void Pete_SpawnInitialPawns(int amountOfPawns)
-    {
-        for (int i = 0; i < amountOfPawns; i++)
-        {
-            ranNum = Random.Range(0, 5); 
-            GameObject pawn = Instantiate(pawnPrefabs[ranNum], pawnSpawnLocations[i].transform.position, Quaternion.identity);
-            pawnsInBattle.Add(pawn);
-        }
-        
-    }
+    
     public void ChooseRandomPawns(int numPawns) {
         for (int i = 0; i < numPawns; i++) {
             ranNum = Random.Range(1, 6); // random number 1, 2, 3, 4, or 5
@@ -136,11 +126,4 @@ public class PlayerPlacementData : MonoBehaviour
 
 }
 
-
-
-public enum Team {
-   NONE,
-   PLAYER,
-   ENEMY
-}
 

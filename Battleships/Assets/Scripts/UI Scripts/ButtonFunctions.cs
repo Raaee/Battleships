@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// the functions for the confirm attack and confirming placement 
+/// </summary>
 public class ButtonFunctions : MonoBehaviour { 
     public UnityEvent OnPlayerConfirmPlacement;
     public UnityEvent OnPlayerConfirmAttack;
@@ -22,7 +25,7 @@ public class ButtonFunctions : MonoBehaviour {
         Debug.Log("You have confirmed your attack location.");
 
             OnPlayerConfirmAttack?.Invoke();
-            FindObjectOfType<Player1ActionState>().EndAttackConfirm();
+            FindObjectOfType<PlayerActionState>().EndAttackConfirm();
             FindObjectOfType<SetupState>().GoToPlayer2State();
     }
 }

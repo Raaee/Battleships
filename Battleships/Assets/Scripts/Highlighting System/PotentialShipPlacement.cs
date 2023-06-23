@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/// <summary>
+/// The DATA and VISUAL class for the user placements of pawns. 
+/// </summary>
 public class PotentialShipPlacement : MonoBehaviour
 {
     private CubeVisual currentHighlightedCubeVisual = null;

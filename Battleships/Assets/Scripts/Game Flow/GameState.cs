@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// an abstract class which we will use to run the states of our games
+/// </summary>
 public abstract class GameState : MonoBehaviour
 {
     protected GameManager gameManager;

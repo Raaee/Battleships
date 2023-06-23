@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+/// <summary>
+/// during the set up state. tells the player how many of each pawn they have.
+/// </summary>
 public class AmountOfPlayerPawnsUI : MonoBehaviour
 {
     public List<TextMeshProUGUI> uiGameObjects;

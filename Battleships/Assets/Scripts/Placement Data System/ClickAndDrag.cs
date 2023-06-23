@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 
+/// The dragging script for the pawns.
 /// </summary>
 public class ClickAndDrag : MonoBehaviour
 {

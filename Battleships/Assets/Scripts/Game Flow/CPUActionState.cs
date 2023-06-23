@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Player2ActionState : GameState {
+/// <summary>
+/// The computer's turn and decision state.  
+/// </summary>
+public class CPUActionState : GameState {
 
     private Vector2 randomLocation;
     private CubeVisual currentCube;
@@ -41,11 +43,11 @@ public class Player2ActionState : GameState {
 
         if (hit) {
             Debug.Log("Enemy Hit! " + randomLocation);
-            currentCube.CubeHit();
+            currentCube.ShowCubeHitVisul();
         }
         else {
             Debug.Log("Enemy Missed.");
-            currentCube.CubeMiss();
+            currentCube.ShowCubeMissVisual();
         }
 
         ShowHitFeedback(hit);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 
+/// The base pawn script, for data purposes and visually when seeting their spawn positions 
 /// </summary>
 public class Pawn : MonoBehaviour {
     //size 
