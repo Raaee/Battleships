@@ -7,7 +7,7 @@ public class PotentialShipPlacement : MonoBehaviour
 {
     private CubeVisual currentHighlightedCubeVisual = null;
     [SerializeField] private GridManager gridManager;
-    [SerializeField] private PlacementData playerPlacementData;
+    [SerializeField] private PlayerPlacementData playerPlacementData;
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     private int sizeOfPawn = 1; // this changes when a pawn is selected

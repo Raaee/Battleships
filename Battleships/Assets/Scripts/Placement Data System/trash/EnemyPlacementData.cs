@@ -9,7 +9,7 @@ public class EnemyPlacementData : MonoBehaviour
     public List<GameObject> pawnsInBattle; // this will be the enemy's pawns
 
     [SerializeField] private GridManager enemyGridManager;
-    [SerializeField] private bool enemiesShown = false;
+  // [SerializeField] private bool enemiesShown = false;
     public bool allPawnsPlaced = false;
     private bool vertUpValid, vertDownValid, horiLeftValid, horiRightValid;
 

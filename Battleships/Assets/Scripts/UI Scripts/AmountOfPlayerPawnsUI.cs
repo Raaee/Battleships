@@ -7,20 +7,20 @@ using TMPro;
 public class AmountOfPlayerPawnsUI : MonoBehaviour
 {
     public List<TextMeshProUGUI> uiGameObjects;
-    [SerializeField] private PlacementData placementData;
+    [SerializeField] private PlayerPlacementData playerPlacementData;
     
     private Dictionary<int, int> sizeAmtDictionary;
 
     private void Awake()
     {
-        placementData.OnAllPawnsSpawned.AddListener(StartingAmountInUI);
+        playerPlacementData.OnAllPawnsSpawned.AddListener(StartingAmountInUI);
     }
 
     //key is pawnsize, value is the amount
     private void StartingAmountInUI()
     {
         sizeAmtDictionary = new Dictionary<int, int>();
-        foreach (var pawns in placementData.pawnsInBattle)
+        foreach (var pawns in playerPlacementData.pawnsInBattle)
         {
             int pawnSize = pawns.GetComponent<Pawn>().GetPawnSize();
             if (!sizeAmtDictionary.ContainsKey(pawnSize)) //if doesnt exist yet, add it to the dictionary

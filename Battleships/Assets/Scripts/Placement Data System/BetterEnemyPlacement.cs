@@ -10,7 +10,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     public List<GameObject> pawnsInBattle; // this will be the enemy's pawns
 
     [SerializeField] private GridManager enemyGridManager;
-    [SerializeField] private bool enemiesShown = false;  // this is for hiding the pawns on the battlefield
+   // [SerializeField] private bool enemiesShown = false;  // this is for hiding the pawns on the battlefield
     private GameObject tile = null;
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;

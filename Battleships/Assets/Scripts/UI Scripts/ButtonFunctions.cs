@@ -15,7 +15,7 @@ public class ButtonFunctions : MonoBehaviour {
             OnPlayerConfirmPlacement?.Invoke();
             playerConfirmedPlacement = true;
             FindObjectOfType<SetupState>().GoToPlayer1State();
-            FindObjectOfType<PlacementData>().Placed();
+            FindObjectOfType<PlayerPlacementData>().Placed();
         }
     }
     public void AttackConfirmation() {

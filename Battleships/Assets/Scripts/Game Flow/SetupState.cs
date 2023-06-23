@@ -5,7 +5,7 @@ public class SetupState : GameState {
 
     [SerializeField] private GridManager playerGM;
     [SerializeField] private GridManager EnemyGM;
-    [SerializeField] private PlacementData playerPD;
+    [SerializeField] private PlayerPlacementData playerPD;
     [SerializeField] private BetterEnemyPlacement enemyPD;
 
     [SerializeField] private GameState player1AS;

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// This shows the status of the player/enemy placement positions of pawns 
 /// </summary>
-public class PlacementData : MonoBehaviour
+public class PlayerPlacementData : MonoBehaviour
 {
     //an array of pawns
     public List<GameObject> pawnPrefabs; // this is the default pawn prefabs used to assign the player's army

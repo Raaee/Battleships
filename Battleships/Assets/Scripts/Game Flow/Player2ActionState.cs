@@ -7,7 +7,7 @@ public class Player2ActionState : GameState {
 
     private Vector2 randomLocation;
     private CubeVisual currentCube;
-    [SerializeField] PlacementData placementData;
+    [SerializeField] PlayerPlacementData playerPlacementData;
     [SerializeField] GridManager playerGridMan;
     private bool hit = false;
 
@@ -37,7 +37,7 @@ public class Player2ActionState : GameState {
         currentCube = playerGridMan.GetTileAtPosition(randomLocation).GetComponent<CubeVisual>();
     }
     public void CheckIfHit() {
-        hit = placementData.CheckIfHit(randomLocation);
+        hit = playerPlacementData.CheckIfHit(randomLocation);
 
         if (hit) {
             Debug.Log("Enemy Hit! " + randomLocation);
