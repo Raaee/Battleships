@@ -8,6 +8,9 @@ public class CubeVisual : MonoBehaviour
 
     private Material originalMaterial;
     [SerializeField] private Material hoverMaterial;
+    [SerializeField] private Material hitMaterial;
+    [SerializeField] private Material missMaterial;
+
     [SerializeField] private Transform cubeMidpoint;
     
     private bool occupied;
@@ -51,6 +54,12 @@ public class CubeVisual : MonoBehaviour
     public void HideHighlight()
     {
         GetComponent<Renderer>().material = originalMaterial;
+    }
+    public void CubeHit() {
+        GetComponent<Renderer>().material = hitMaterial;
+    }
+    public void CubeMiss() {
+        GetComponent<Renderer>().material = missMaterial;
     }
 
     public Vector3 GetCubeMidPosition()

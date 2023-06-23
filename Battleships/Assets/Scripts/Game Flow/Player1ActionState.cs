@@ -60,10 +60,31 @@ public class Player1ActionState : GameState {
     }
     public void CheckIfPawnHit() {
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
-        if (pawnHit)
+
+        if (pawnHit) {
             Debug.Log("You Hit!");
-        else
+            currentCube.CubeHit();
+        }
+        else {
             Debug.Log("You Missed.");
+            currentCube.CubeMiss();
+        }
+
+        ShowHitFeedback(pawnHit);
+    }
+
+
+    public void ShowHitFeedback(bool hit) {
+        Debug.Log("***** Hit feedback goes here. *****");
+        // shows hit feedback after attacking.
+
+        // flow of feedback:
+        // dragon static --> spit out anim
+        // VFX + anim emitted near dragon mouth going up
+        // SCREEN SHAKE
+        // after few seconds, anim of projectile going down from above, ON the cube that was selected
+        // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
+        // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
     }
 
     /* player 1
