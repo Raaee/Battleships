@@ -21,6 +21,7 @@ public class SetupState : GameState
     {
         base.Awake();
         buttonFunctions.OnPlayerConfirmPlacement.AddListener(GoToPlayer1State);
+        buttonFunctions.OnPlayerConfirmAttack.AddListener(GoToPlayer2State);
     }
     public override void OnStateEnter() {
         playerGM.GenerateGrid();
@@ -35,8 +36,6 @@ public class SetupState : GameState
     }
 
     public void GoToPlayer1State() {
-       
-        
         gameManager.ChangeState(player1AS);
     }
     public void GoToPlayer2State() {

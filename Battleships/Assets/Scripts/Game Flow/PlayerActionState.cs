@@ -23,6 +23,7 @@ public class PlayerActionState : GameState {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);
+        buttonsFunctions.OnPlayerConfirmAttack.AddListener(EndAttackConfirm);
     }
     public override void OnStateEnter() {
        // playerActions.DetermineLocation();

@@ -24,7 +24,6 @@ public class ButtonFunctions : MonoBehaviour {
     {
         if(placementConfirmedButton != null)
             placementConfirmedButton.SetActive(playerPlacementData.GetIsAllPawnsPlaced());
-
     }
 
     public void PlacementConfirmation() {
@@ -37,9 +36,6 @@ public class ButtonFunctions : MonoBehaviour {
     }
     public void AttackConfirmation() {
         Debug.Log("You have confirmed your attack location.");
-
-            OnPlayerConfirmAttack?.Invoke();
-            FindObjectOfType<PlayerActionState>().EndAttackConfirm();
-            FindObjectOfType<SetupState>().GoToPlayer2State();
+        OnPlayerConfirmAttack?.Invoke(); //it will confirm attack in player action state, end the attack confirm, do feeddback, and then go to the cpu (2) player sttate 
     }
 }
