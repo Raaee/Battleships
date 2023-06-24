@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/// <summary>
+/// The DATA and VISUAL class for the user placements of pawns. 
+/// </summary>
 public class PotentialShipPlacement : MonoBehaviour
 {
     private CubeVisual currentHighlightedCubeVisual = null;
     [SerializeField] private GridManager gridManager;
-    [SerializeField] private PlacementData playerPlacementData;
+    [SerializeField] private PlayerPlacementData playerPlacementData;
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     private int sizeOfPawn = 1; // this changes when a pawn is selected
@@ -19,7 +21,6 @@ public class PotentialShipPlacement : MonoBehaviour
     private void Start()
     {
         lastHighlightedGameObjects = new List<GameObject>();
-      //  GameObject.Instantiate(prefab, location, Quaternion.identity);
     }
 
     private void Update() {
@@ -69,6 +70,8 @@ public class PotentialShipPlacement : MonoBehaviour
         }
     }
 
+    
+    //Pete potentially issue here: notice that you have x and y as parameter and also initialized in the for loop
     private void HighlightPotentialShipPlacementVert(int x, int y)
     {
         ResetLastHighlightedGameObjects();

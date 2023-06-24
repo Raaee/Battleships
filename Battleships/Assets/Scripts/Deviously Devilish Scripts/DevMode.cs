@@ -9,13 +9,7 @@ using UnityEngine;
 public class DevMode 
 {
 
-    //MenuItem means it now shows up as a button on the top left of the unity editor
-  //  [MenuItem("Dev Mode/Get Power Up 1")]
-   // public static void GetPowerUp1()
-    //{
-    //    Debug.Log("Player now has a free powerup 1");
-   // }
-    
+   
   
     [MenuItem("Dev Mode/Toggle Enemy Pawn Positions")]
     public static void ToggleEnemyPositions()

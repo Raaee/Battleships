@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Player2ActionState : GameState {
+/// <summary>
+/// The computer's turn and decision state.  
+/// </summary>
+public class CPUActionState : GameState {
 
     private Vector2 randomLocation;
     private CubeVisual currentCube;
-    [SerializeField] PlacementData placementData;
+    [SerializeField] PlayerPlacementData playerPlacementData;
     [SerializeField] GridManager playerGridMan;
     private bool hit = false;
 
@@ -37,15 +39,15 @@ public class Player2ActionState : GameState {
         currentCube = playerGridMan.GetTileAtPosition(randomLocation).GetComponent<CubeVisual>();
     }
     public void CheckIfHit() {
-        hit = placementData.CheckIfHit(randomLocation);
+        hit = playerPlacementData.CheckIfHit(randomLocation);
 
         if (hit) {
             Debug.Log("Enemy Hit! " + randomLocation);
-            currentCube.CubeHit();
+            currentCube.ShowCubeHitVisul();
         }
         else {
             Debug.Log("Enemy Missed.");
-            currentCube.CubeMiss();
+            currentCube.ShowCubeMissVisual();
         }
 
         ShowHitFeedback(hit);

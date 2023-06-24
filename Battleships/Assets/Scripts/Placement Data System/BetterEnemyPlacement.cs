@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/// <summary>
+/// The official enemy placement spawn system
+/// </summary>
 public class BetterEnemyPlacement : MonoBehaviour {
 
     //an array of pawns
@@ -10,7 +12,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     public List<GameObject> pawnsInBattle; // this will be the enemy's pawns
 
     [SerializeField] private GridManager enemyGridManager;
-    [SerializeField] private bool enemiesShown = false;  // this is for hiding the pawns on the battlefield
+   
     private GameObject tile = null;
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
@@ -29,15 +31,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             ChooseRandomPawns(5);
         }
     }
-    //TODO: spawn enemy prefabs, disactivate them so player cant see them
-    //TODO: logic to make enemy prefabs be assigned to a place on a board
-    /*
-        Pete Planning for enemy placement: very simplified approach first
-        "initialize" the pawns and pawns in the battle. (already done)
-        get a pawn, choose an orientation and get its size
-        instead of potentially placing it on a wrong place, we garantee its on a right place. IE: if horizontal and size 3, we try to place it anywhere on 7x7 grid
-    */
-
+   
     // assigns orientation and calls all other placement and checking methods:
     private void PawnPlacement() {
         Vector2 pos = new Vector2(-1,-1);
@@ -79,20 +73,20 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 pos = GetRandomVector2(0, (10 - pawnSize) + 1, 0, 10);
                 //Debug.Log("Hori: " + pos + " / Size: " + pawnSize);
 
-                validPos = CheckOccupy(pos.x, pos.y, pawnSize);
+                validPos = CheckIfOccupy(pos.x, pos.y, pawnSize);
             }
             else { // Vertical
                 pos = GetRandomVector2(0, 10, 0, (10 - pawnSize) + 1);
                // Debug.Log("Vert: " + pos + " / Size: " + pawnSize);
 
-                validPos = CheckOccupy(pos.y, pos.x, pawnSize);
+                validPos = CheckIfOccupy(pos.y, pos.x, pawnSize);
             }          
         } while (!validPos);
 
         return pos;
     }
     // checks if all tiles within the given pawn place location are occupied or not. returns valid:
-    private bool CheckOccupy(float n, float o, int pawnSize) {
+    private bool CheckIfOccupy(float n, float o, int pawnSize) {
         // n is the variable that changes, o is the variable that stays the same
         
         // The correct way the coords should work:
@@ -111,7 +105,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 //Debug.Log("**** Vert: " + tile);
             }
             
-            if (tile.GetComponent<CubeVisual>().GetOccupied() == true) {
+            if (tile.GetComponent<CubeVisual>().GetIsOccupied() == true) {
               //  Debug.Log("------- No work: " + new Vector2(n, o) + " ----------");
                 return false;
             }
@@ -123,16 +117,16 @@ public class BetterEnemyPlacement : MonoBehaviour {
         pawn.GetComponent<PawnVisual>().ChangePawnVisual(pawnOrientation);
         
         if (pawnOrientation == PawnOrientation.HORIZONTAL) {
-            OccupyCoords(pos.x, pos.y, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
+            SetOccupyCoords(pos.x, pos.y, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
         } else {
-            OccupyCoords(pos.y, pos.x, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
+            SetOccupyCoords(pos.y, pos.x, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
         }
 
         tile = enemyGridManager.GetTileAtPosition(pos);
         pawn.transform.position = tile.GetComponent<CubeVisual>().GetCubeMidPosition();
     }
     // sets occupy variable of tile = true AND assigns the pawns' coords to their list:
-    private void OccupyCoords(float n, float o, int pawnSize, GameObject pawn) {
+    private void SetOccupyCoords(float n, float o, int pawnSize, GameObject pawn) {
         List<Vector2> pCoords = new List<Vector2>();
 
         for (int i = (int)n; i < n + pawnSize; i++) {
@@ -143,7 +137,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 tile = enemyGridManager.GetTileAtPosition(new Vector2(i, o));
             }
 
-            tile.GetComponent<CubeVisual>().SetOccupied(true);
+            tile.GetComponent<CubeVisual>().SetIsOccupied(true);
             pCoords.Add(enemyGridManager.GetPositionAtTile(tile));
         }
         pawn.GetComponent<Pawn>().SetPawnCoordinates(pCoords);

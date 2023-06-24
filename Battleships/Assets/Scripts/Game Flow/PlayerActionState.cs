@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Player1ActionState : GameState {
-   // [SerializeField] private IActions playerActions;
+/// <summary>
+/// The state for the player's turn
+/// </summary>
+public class PlayerActionState : GameState {
+   
     private AttackHighlightSystem attackHighlightSystem;
     private CubeVisual currentCube;
     private Vector2 attackLocation;
@@ -17,9 +19,11 @@ public class Player1ActionState : GameState {
     private bool pawnHit = false;
 
     void Awake() {
+        base.Awake();
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);
+        buttonsFunctions.OnPlayerConfirmAttack.AddListener(EndAttackConfirm);
     }
     public override void OnStateEnter() {
        // playerActions.DetermineLocation();
@@ -33,7 +37,7 @@ public class Player1ActionState : GameState {
 
     }
     void Update() {
-        AttackConfirmBtn();
+        SetAttackConfirmBtn();
     }
     public override void OnStateExit() {
 
@@ -41,13 +45,13 @@ public class Player1ActionState : GameState {
     public void SelectPowerUp() {
         Debug.Log("You selected a power-up.");
     }
-    public void GetAttackLocation() {
+    public void SetAttackLocation() {
         currentCube = attackHighlightSystem.GetCurrentlyHighlighted();
         attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
         attackSelected = true;
         Debug.Log(attackLocation);
     }
-    public void AttackConfirmBtn() {
+    public void SetAttackConfirmBtn() {
         if (attackSelected && !attackConfirmed) {
             attackConfirmBtn.gameObject.SetActive(true);
         } else {
@@ -66,11 +70,11 @@ public class Player1ActionState : GameState {
 
         if (pawnHit) {
             Debug.Log("You Hit!");
-            currentCube.CubeHit();
+            currentCube.ShowCubeHitVisul();
         }
         else {
             Debug.Log("You Missed.");
-            currentCube.CubeMiss();
+            currentCube.ShowCubeMissVisual();
         }
 
         ShowHitFeedback(pawnHit);

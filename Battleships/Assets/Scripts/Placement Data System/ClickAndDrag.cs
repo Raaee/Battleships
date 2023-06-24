@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 
+/// The dragging script for the pawns.
 /// </summary>
 public class ClickAndDrag : MonoBehaviour
 {
@@ -15,7 +15,6 @@ public class ClickAndDrag : MonoBehaviour
     private AmountOfPlayerPawnsUI playerPawnsUI;
 
     public UnityEvent OnPawnPlaced;
-    public UnityEvent<int> OnPawnPlacedWithInt;
 
     private bool IsActive = true;
     private ButtonFunctions buttonsFunctions;
