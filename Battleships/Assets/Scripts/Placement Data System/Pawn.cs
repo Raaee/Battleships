@@ -44,6 +44,9 @@ public class Pawn : MonoBehaviour {
     public void SetPawnCoordinates(List<Vector2> newPawnCoords) {
         pawnCoords.Clear();
         pawnCoords = newPawnCoords;
+        
+        //TODO: Go through all the cubes with these pawn coords, and set them to occupied 
+        //next: if hit/miss set their state like that too 
     }
     
     public int GetPawnSize() {
