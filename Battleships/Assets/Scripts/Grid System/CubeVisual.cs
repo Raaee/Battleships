@@ -20,6 +20,8 @@ public class CubeVisual : MonoBehaviour
     private PotentialShipPlacement potentialShipPlacement;
     private AttackHighlightSystem attackHighlightSystem;
 
+    [SerializeField] private CubeHitStateEnum cubeHitState = CubeHitStateEnum.CHILLING;
+
     private void Awake()
     {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
@@ -30,6 +32,9 @@ public class CubeVisual : MonoBehaviour
     private void OnMouseEnter()
     {
       // ShowHighlight();
+      if (cubeHitState != CubeHitStateEnum.CHILLING) return;
+
+      
        potentialShipPlacement.AssignCurrentTileVisual(this);
        attackHighlightSystem.AssignCurrentVisual(this);
        
@@ -38,6 +43,8 @@ public class CubeVisual : MonoBehaviour
     private void OnMouseExit()
     {
       // HideHighlight();
+      if (cubeHitState != CubeHitStateEnum.CHILLING) return;
+
        potentialShipPlacement.RemoveCurrentTileVisual();
        attackHighlightSystem.RemoveCurrentVisual(this);
     }
@@ -55,12 +62,16 @@ public class CubeVisual : MonoBehaviour
     
     public void HideHighlight()
     {
+        Debug.Log("back to normal dummy ");
         GetComponent<Renderer>().material = originalMaterial;
     }
-    public void ShowCubeHitVisul() {
+    public void ShowCubeHitVisul()
+    {
+        cubeHitState = CubeHitStateEnum.HIT;
         GetComponent<Renderer>().material = hitMaterial;
     }
     public void ShowCubeMissVisual() {
+        cubeHitState = CubeHitStateEnum.MISS;
         GetComponent<Renderer>().material = missMaterial;
     }
 
@@ -82,4 +93,11 @@ public class CubeVisual : MonoBehaviour
         if (attackHighlightSystem.isEnabled)
             FindObjectOfType<PlayerActionState>().SetAttackLocation();
     }
+    
+    
+    
+    
 }
+
+
+
