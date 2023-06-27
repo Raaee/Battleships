@@ -45,6 +45,7 @@ public class ClickAndDrag : MonoBehaviour
         if(!IsActive) return;
         
         if (dragging) {
+            potentialShipPlacement.AssignPawnOrientation();
             Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             transform.position = newPos;
             if(potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null)  currentPawn.transform.position = potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();

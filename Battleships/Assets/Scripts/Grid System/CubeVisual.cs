@@ -62,7 +62,7 @@ public class CubeVisual : MonoBehaviour
     
     public void HideHighlight()
     {
-        Debug.Log("back to normal dummy ");
+       // Debug.Log("back to normal dummy ");
         GetComponent<Renderer>().material = originalMaterial;
     }
     public void ShowCubeHitVisul()

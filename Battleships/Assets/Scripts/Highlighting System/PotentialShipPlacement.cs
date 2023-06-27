@@ -23,16 +23,15 @@ public class PotentialShipPlacement : MonoBehaviour
         lastHighlightedGameObjects = new List<GameObject>();
     }
 
-    private void Update() {
-        AssignPawnOrientation();
-    }
-    private void AssignPawnOrientation() {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f) { //forward
+    public void AssignPawnOrientation() {
+        if ((Input.GetAxis("Mouse ScrollWheel") > 0f) || (Input.GetKeyDown(KeyCode.Space) && pawnOrientation == PawnOrientation.HORIZONTAL)) { //forward; Vert
+            Debug.Log("Vert");
             pawnOrientation = PawnOrientation.VERTICAL;
             OnMouseScrolled.Invoke();
             ShowPotentialShipPlacement();
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) { //backwards
+        else if ((Input.GetAxis("Mouse ScrollWheel") < 0f) || (Input.GetKeyDown(KeyCode.Space) && pawnOrientation == PawnOrientation.VERTICAL)) { //backwards: Horiz
+            Debug.Log("Horiz");
             pawnOrientation = PawnOrientation.HORIZONTAL;
             OnMouseScrolled.Invoke();
             ShowPotentialShipPlacement();
