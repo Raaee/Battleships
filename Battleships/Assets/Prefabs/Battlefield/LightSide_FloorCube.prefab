@@ -114,7 +114,9 @@ MonoBehaviour:
   hoverMaterial: {fileID: 2100000, guid: f31c827579ad10c478eac9987a35ba73, type: 2}
   hitMaterial: {fileID: 2100000, guid: 1e2a66b7bfa90fe42a6c1475313c30e3, type: 2}
   missMaterial: {fileID: 2100000, guid: e11313b682d25514c8ccb31de415fd19, type: 2}
+  occupiedMaterial: {fileID: 2100000, guid: 50f431e14140f6a488fae26e5a1e34c1, type: 2}
   cubeMidpoint: {fileID: 1211792317406168509}
+  cubeHitState: 5
 --- !u!1 &6481444101838883691
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,6 @@ public class GridManager : MonoBehaviour
             tiles[new Vector2(x, y)] = spawnedTile;
          }
       }
-      
    }
 
    private void Update()
@@ -116,7 +115,5 @@ public class GridManager : MonoBehaviour
       //finally, all other cubes will be the default cube
       return cubePalette.defaultCube;
    }
-   
-   
   
 }

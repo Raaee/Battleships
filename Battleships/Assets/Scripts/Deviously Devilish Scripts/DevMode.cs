@@ -39,6 +39,14 @@ public class DevMode
         }
         
     }
+
+    [MenuItem("Toggle Enemy Occupied Highlights")]
+    public static void ToggleEnemyOccupied() {
+        Debug.Log("Showing Enemy's Occupied Highlights");
+
+        Debug.Log("*** Must implment***");
+
+    }
     
     [MenuItem("Dev Mode/Chat G-PTY intrusive thoughts on Raeus")]
     public static void IntrusiveThoughts()

@@ -12,6 +12,10 @@ public class CubeVisual : MonoBehaviour
     [SerializeField] private Material hoverMaterial;
     [SerializeField] private Material hitMaterial;
     [SerializeField] private Material missMaterial;
+    [SerializeField] private Material occupiedMaterial;
+
+    private Material currentMat;
+
 
     [SerializeField] private Transform cubeMidpoint;
     
@@ -27,6 +31,7 @@ public class CubeVisual : MonoBehaviour
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         originalMaterial = GetComponent<Renderer>().material;
+        currentMat = originalMaterial;
     }   
 
     private void OnMouseEnter()
@@ -37,7 +42,18 @@ public class CubeVisual : MonoBehaviour
       
        potentialShipPlacement.AssignCurrentTileVisual(this);
        attackHighlightSystem.AssignCurrentVisual(this);
-       
+    }
+    public void ChangeOccupied(bool occupied) {
+        Material prevMat = currentMat;
+
+        if (occupied) {
+            GetComponent<Renderer>().material = occupiedMaterial;
+            currentMat = occupiedMaterial;
+        }
+        else {
+            currentMat = prevMat;
+            GetComponent<Renderer>().material = prevMat;
+        }
     }
     
     private void OnMouseExit()
@@ -63,16 +79,18 @@ public class CubeVisual : MonoBehaviour
     public void HideHighlight()
     {
        // Debug.Log("back to normal dummy ");
-        GetComponent<Renderer>().material = originalMaterial;
+        GetComponent<Renderer>().material = currentMat;
     }
     public void ShowCubeHitVisul()
     {
         cubeHitState = CubeHitStateEnum.HIT;
         GetComponent<Renderer>().material = hitMaterial;
+        currentMat = hitMaterial;
     }
     public void ShowCubeMissVisual() {
         cubeHitState = CubeHitStateEnum.MISS;
         GetComponent<Renderer>().material = missMaterial;
+        currentMat = missMaterial;
     }
 
     public Vector3 GetCubeMidPosition()
@@ -84,6 +102,7 @@ public class CubeVisual : MonoBehaviour
     }
     public void SetIsOccupied(bool o) {
         isOccupied = o;
+        ChangeOccupied(o);
     }
 
     private void OnMouseDown()  {
