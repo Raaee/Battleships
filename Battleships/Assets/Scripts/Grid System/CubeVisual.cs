@@ -26,18 +26,21 @@ public class CubeVisual : MonoBehaviour
 
     [SerializeField] private CubeHitStateEnum cubeHitState = CubeHitStateEnum.CHILLING;
 
+    private InputData inputData;
+
     private void Awake()
     {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         originalMaterial = GetComponent<Renderer>().material;
+        inputData = FindObjectOfType<InputData>();
         currentMat = originalMaterial;
     }   
 
     private void OnMouseEnter()
     {
-      // ShowHighlight();
-      if (cubeHitState != CubeHitStateEnum.CHILLING) return;
+        inputData.SetCubeVisual(this);
+        if (cubeHitState != CubeHitStateEnum.CHILLING) return;
 
       
        potentialShipPlacement.AssignCurrentTileVisual(this);
@@ -58,8 +61,8 @@ public class CubeVisual : MonoBehaviour
     
     private void OnMouseExit()
     {
-      // HideHighlight();
-      if (cubeHitState != CubeHitStateEnum.CHILLING) return;
+        inputData.ResetCubeVisual();
+        if (cubeHitState != CubeHitStateEnum.CHILLING) return;
 
        potentialShipPlacement.RemoveCurrentTileVisual();
        attackHighlightSystem.RemoveCurrentVisual(this);

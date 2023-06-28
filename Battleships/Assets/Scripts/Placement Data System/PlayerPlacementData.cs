@@ -27,11 +27,13 @@ public class PlayerPlacementData : MonoBehaviour
     public UnityEvent OnAllPawnsSpawned;
     [SerializeField] private ButtonFunctions buttonFunctions;
 
+    private InputData inputData; 
     private void Awake()
     {
         if(buttonFunctions == null)
             Debug.Log("didnt assign button funcitont in inspector dummy");
         buttonFunctions.OnPlayerConfirmPlacement.AddListener(Placed);
+        inputData = FindObjectOfType<InputData>();
     }
 
     public void StartPlacement() {
@@ -49,6 +51,8 @@ public class PlayerPlacementData : MonoBehaviour
             ranNum = Random.Range(1, 6); // random number 1, 2, 3, 4, or 5
             var pawn = Instantiate(PawnPrefabOfSize(ranNum), initialCoords.transform.position, Quaternion.identity);
             pawnsInBattle.Add(pawn);
+            
+            inputData.AddSelfToClickDragList(pawn.gameObject.GetComponent<ClickAndDrag>());
         }
         SpawnInitialPawns();
     }

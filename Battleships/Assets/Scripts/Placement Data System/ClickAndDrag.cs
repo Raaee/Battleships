@@ -27,7 +27,8 @@ public class ClickAndDrag : MonoBehaviour
         currentPawn = GetComponent<Pawn>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DisableSelf);
-        playerPawnsUI = FindObjectOfType<AmountOfPlayerPawnsUI>(); 
+        playerPawnsUI = FindObjectOfType<AmountOfPlayerPawnsUI>();
+       
     }
     private void Start()
     {
