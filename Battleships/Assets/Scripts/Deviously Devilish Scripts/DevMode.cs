@@ -40,7 +40,7 @@ public class DevMode
         
     }
 
-    [MenuItem("Toggle Enemy Occupied Highlights")]
+    [MenuItem("Dev Mode/Toggle Enemy Occupied Highlights")]
     public static void ToggleEnemyOccupied() {
         Debug.Log("Showing Enemy's Occupied Highlights");
 

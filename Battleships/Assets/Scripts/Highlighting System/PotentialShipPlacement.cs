@@ -76,7 +76,8 @@ public class PotentialShipPlacement : MonoBehaviour
         ResetLastHighlightedGameObjects();
         
         //start at current tile, and highlight the next tiles to the right for size of pawn times 
-        for (int i = y; i < (y + sizeOfPawn); i++) {
+        for (int i = y; i < (y + sizeOfPawn); i++) 
+        {
             
             var tileGO = gridManager.GetTileAtPosition(new Vector2(x, i));
             
@@ -84,7 +85,7 @@ public class PotentialShipPlacement : MonoBehaviour
             {
                 if (CheckIfAlreadyPlaced(x, i))
                 {
-
+                   
                     RemoveCurrentTileVisual();
                     RemoveAllHighlights();
                     return;
@@ -105,6 +106,7 @@ public class PotentialShipPlacement : MonoBehaviour
             {
                 if (CheckIfAlreadyPlaced(i, y))
                 {
+                    
                     RemoveCurrentTileVisual();
                     RemoveAllHighlights();
                     return;
