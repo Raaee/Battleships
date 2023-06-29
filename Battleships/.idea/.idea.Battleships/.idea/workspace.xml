@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c25159d1-2e69-4f86-a872-34d024ca8da8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlayerPlacementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlayerPlacementData.cs" afterDir="false" />
-    </list>
+    <list default="true" id="c25159d1-2e69-4f86-a872-34d024ca8da8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +105,7 @@
       <workItem from="1687448883822" duration="643000" />
       <workItem from="1687553972094" duration="9780000" />
       <workItem from="1687648700098" duration="2611000" />
-      <workItem from="1687975086564" duration="2573000" />
+      <workItem from="1687975086564" duration="2596000" />
     </task>
     <servers />
   </component>
