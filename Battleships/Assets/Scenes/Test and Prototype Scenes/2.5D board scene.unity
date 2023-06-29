@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b52ed0c525b5c94ab844da40c95a661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerGridmanager: {fileID: 350759526}
   currentCubeVisual: {fileID: 0}
   isDraggingPawn: 0
   clickAndDrags: []
