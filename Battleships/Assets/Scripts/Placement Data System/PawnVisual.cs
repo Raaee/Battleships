@@ -52,4 +52,16 @@ public class PawnVisual : MonoBehaviour
     {
         return pawnOrientation;
     }
+
+    public void SetPawnOrientation(PawnOrientation po)
+    {
+        if (po == PawnOrientation.VERTICAL)
+        {
+            this.pawnOrientation = po;
+            sr.sprite = verticalSprite;
+        } else {
+            this.pawnOrientation = po;
+            sr.sprite = horizontalSprite;
+        }
+    }
 }

@@ -25,6 +25,7 @@ public class CubeVisual : MonoBehaviour
 
     private PotentialShipPlacement potentialShipPlacement;
     private AttackHighlightSystem attackHighlightSystem;
+    private InputData inputData;
 
     private void Awake()
     {
@@ -32,19 +33,21 @@ public class CubeVisual : MonoBehaviour
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         GetComponent<Renderer>().material = originalMaterial;
         currentMat = originalMaterial;
-        
+        inputData = FindObjectOfType<InputData>();
     }   
 
     private void OnMouseEnter()
     {
       // ShowHighlight();      
-       potentialShipPlacement.AssignCurrentTileVisual(this);
+      // potentialShipPlacement.AssignCurrentTileVisual(this);
+      inputData.SetCubeVisual(this);
        attackHighlightSystem.AssignCurrentVisual(this);
     }
     private void OnMouseExit()
     {
       // HideHighlight();
-       potentialShipPlacement.RemoveCurrentTileVisual();
+     //  potentialShipPlacement.RemoveCurrentTileVisual();
+     inputData.ResetCubeVisual();
        attackHighlightSystem.RemoveCurrentVisual(this);
     }
 

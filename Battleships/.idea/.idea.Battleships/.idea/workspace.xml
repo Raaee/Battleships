@@ -7,7 +7,10 @@
     <list default="true" id="c25159d1-2e69-4f86-a872-34d024ca8da8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid System/CubeVisual.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Highlighting System/InputData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Highlighting System/InputData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Highlighting System/PotentialShipPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Highlighting System/PotentialShipPlacement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/ClickAndDrag.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PawnVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PawnVisual.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +114,8 @@
       <workItem from="1687553972094" duration="9780000" />
       <workItem from="1687648700098" duration="2611000" />
       <workItem from="1687975086564" duration="2596000" />
-      <workItem from="1688056878139" duration="1518000" />
+      <workItem from="1688056878139" duration="2308000" />
+      <workItem from="1688068789220" duration="10747000" />
     </task>
     <servers />
   </component>
