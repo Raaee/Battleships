@@ -186,6 +186,10 @@ public class PotentialShipPlacement : MonoBehaviour
     public void SetPawnSize(int size) {
         sizeOfPawn = size;
     }
+
+    public List<GameObject> GetLastHighlightedCubes() {
+        return lastHighlightedGameObjects;
+    }
 }
 
 public enum PawnOrientation

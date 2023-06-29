@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.Events;
 
 /// <summary>
@@ -20,6 +21,9 @@ public class ClickAndDrag : MonoBehaviour
     private ButtonFunctions buttonsFunctions;
 
     private Vector3 originalSpawnLocation;
+
+    private CubeVisual currentCV;
+    private Vector3 lastChosenLoc;
 
     private void Awake()
     {
@@ -66,17 +70,33 @@ public class ClickAndDrag : MonoBehaviour
     }
     private void SnapToCube() {
         if (potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null) {
+            lastChosenLoc = currentPawn.transform.position;
             currentPawn.transform.position =  potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();
             currentPawn.SetPlacedStatus(true);
             OnPawnPlaced?.Invoke();
             playerPawnsUI.UpdateUI(currentPawn.GetPawnSize());
+
+            // gotta fix this. doesnt remove occupy when changing pawn position. only changes when dropping out of grid
+            OccupyCubes(true);
         }
         else
         {
             Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
             currentPawn.SetPlacedStatus(false);
             ResetToOriginalSpawnPosition();
+            OccupyCubes(false);
         }
+    }
+    private void OccupyCubes(bool occupied) {
+        List<GameObject> lastHighlightedGameObjects = potentialShipPlacement.GetLastHighlightedCubes();
+
+        for (int i = 0; i < currentPawn.GetPawnSize(); i++) {
+            if (occupied)
+                lastHighlightedGameObjects[i].GetComponent<CubeVisual>().ChangeMaterialOnHitState(CubeHitState.OCCUPIED);
+            else
+                lastHighlightedGameObjects[i].GetComponent<CubeVisual>().ChangeMaterialOnHitState(CubeHitState.NONE);
+        }
+
     }
 
     private void ResetToOriginalSpawnPosition()

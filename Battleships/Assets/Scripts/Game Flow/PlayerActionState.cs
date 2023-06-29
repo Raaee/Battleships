@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerActionState : GameState {
    
     private AttackHighlightSystem attackHighlightSystem;
-    private CubeVisual currentCube;
+    private CubeVisual currentCubeCV;
     private Vector2 attackLocation;
 
     private ButtonFunctions buttonsFunctions;
@@ -46,7 +46,7 @@ public class PlayerActionState : GameState {
         Debug.Log("You selected a power-up.");
     }
     public void SetAttackLocation() {
-        currentCube = attackHighlightSystem.GetCurrentlyHighlighted();
+        currentCubeCV = attackHighlightSystem.GetCurrentlyHighlighted();
         attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
         attackSelected = true;
         Debug.Log(attackLocation);
@@ -70,11 +70,11 @@ public class PlayerActionState : GameState {
 
         if (pawnHit) {
             Debug.Log("You Hit!");
-            currentCube.ShowCubeHitVisul();
+            currentCubeCV.ChangeMaterialOnHitState(CubeHitState.HIT);
         }
         else {
             Debug.Log("You Missed.");
-            currentCube.ShowCubeMissVisual();
+            currentCubeCV.ChangeMaterialOnHitState(CubeHitState.MISS);
         }
 
         ShowHitFeedback(pawnHit);
