@@ -112,8 +112,6 @@ public class PlayerPlacementData : MonoBehaviour
         OnAllPawnsSpawned?.Invoke();
     }
     private void Placed() {
-        
-        
         placementConfirmed = true;
     }
 
