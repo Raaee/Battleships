@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 
+/// The base pawn script, for data purposes and visually when seeting their spawn positions 
 /// </summary>
 public class Pawn : MonoBehaviour {
     //size 
@@ -12,15 +12,15 @@ public class Pawn : MonoBehaviour {
     //position - list of PawnCoordinates 
     public List<Vector2> pawnCoords;
 
-    private ClickAndDrag cd;
+   // private ClickAndDrag cd;
     private PotentialShipPlacement potentialShipPlacement;
     private GridManager gridMan;
     private bool placed = false;
 
     private void Awake()
     {
-        cd = GetComponent<ClickAndDrag>();
-        cd.OnPawnPlaced.AddListener(SetPawnCoordinates);
+        //cd = GetComponent<ClickAndDrag>();
+       // cd.OnPawnPlaced.AddListener(SetPawnCoordinates);
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         gridMan = FindObjectOfType<GridManager>();
     }
@@ -44,6 +44,9 @@ public class Pawn : MonoBehaviour {
     public void SetPawnCoordinates(List<Vector2> newPawnCoords) {
         pawnCoords.Clear();
         pawnCoords = newPawnCoords;
+        
+        //TODO: Go through all the cubes with these pawn coords, and set them to occupied 
+        //next: if hit/miss set their state like that too 
     }
     
     public int GetPawnSize() {

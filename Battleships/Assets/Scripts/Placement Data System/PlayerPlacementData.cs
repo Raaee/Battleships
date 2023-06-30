@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -5,48 +6,44 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
+
 /// <summary>
 /// This shows the status of the player/enemy placement positions of pawns 
 /// </summary>
-public class PlacementData : MonoBehaviour
+public class PlayerPlacementData : MonoBehaviour
 {
     //an array of pawns
     public List<GameObject> pawnPrefabs; // this is the default pawn prefabs used to assign the player's army
     public List<GameObject> pawnsInBattle; // this will be the player's pawns
 
-    /*  [SerializeField] GameObject initialCoords, pawnSpawn1, pawnSpawn2, pawnSpawn3, pawnSpawn4, pawnSpawn5;*/
     public GameObject initialCoords;
     public List<GameObject> pawnSpawnLocations;
     
     private int ranNum;
-    private bool allPawnsPlaced;
-    [SerializeField] Button confirmButton;
+    private bool allPawnsPlaced = false;
+    private bool placementConfirmed = false;
 
     public UnityEvent OnAllPawnsSpawned;
-    void Update() {
-        ConfirmPlacement();
+    [SerializeField] private ButtonFunctions buttonFunctions;
+
+    private void Awake()
+    {
+        if(buttonFunctions == null)
+            Debug.Log("didnt assign button funcitont in inspector dummy");
+        buttonFunctions.OnPlayerConfirmPlacement.AddListener(Placed);
     }
-    
+
     public void StartPlacement() {
         if (pawnPrefabs.Count < 5) {
             Debug.Log("pawn prefab list (Player) must have 5 elements.");
             return;
         } else {
             ChooseRandomPawns(5);
-            //Pete_SpawnInitialPawns(5);
         }
     }
 
-    private void Pete_SpawnInitialPawns(int amountOfPawns)
-    {
-        for (int i = 0; i < amountOfPawns; i++)
-        {
-            ranNum = Random.Range(0, 5); 
-            GameObject pawn = Instantiate(pawnPrefabs[ranNum], pawnSpawnLocations[i].transform.position, Quaternion.identity);
-            pawnsInBattle.Add(pawn);
-        }
-        
-    }
+    
     public void ChooseRandomPawns(int numPawns) {
         for (int i = 0; i < numPawns; i++) {
             ranNum = Random.Range(1, 6); // random number 1, 2, 3, 4, or 5
@@ -64,10 +61,17 @@ public class PlacementData : MonoBehaviour
         }
         return null;
     }
+
+    private void Update()
+    {
+        CheckPawnPlacement();
+    }
+
     // checks if there is a false place status in each pawn:
     public void CheckPawnPlacement() {
         foreach (GameObject p in pawnsInBattle) {
             if (p.GetComponent<Pawn>().GetPlacedStatus() == false) {
+                
                 allPawnsPlaced = false;
                 return;
             }
@@ -80,15 +84,7 @@ public class PlacementData : MonoBehaviour
             allPawnsPlaced = true;
         }        
     }
-    // activates and deactivates the confirmation button depending on whether all pawns are placed:
-    public void ConfirmPlacement() {
-        CheckPawnPlacement();
-        if (allPawnsPlaced) {
-            confirmButton.gameObject.SetActive(true);
-        } else {
-            confirmButton.gameObject.SetActive(false);
-        }
-    }
+ 
     public void SpawnInitialPawns() {
         foreach (GameObject p in pawnsInBattle) {
             switch (p.GetComponent<Pawn>().GetPawnSize()) {
@@ -111,14 +107,41 @@ public class PlacementData : MonoBehaviour
         }
         OnAllPawnsSpawned?.Invoke();
     }
+    private void Placed() {
+        
+        
+        placementConfirmed = true;
+    }
+
+    public bool GetIsAllPawnsPlaced()
+    {
+        return allPawnsPlaced;
+    }
+
+    public bool GetIsPlacementConfirmed()
+    {
+        return placementConfirmed;
+    }
     
+    public bool CheckIfHit(Vector2 attackLoc) {
+        bool hit = false;
+        Vector2 correctLoc = new Vector2(attackLoc.y, attackLoc.x);
+
+        for (int i = 0; i < pawnsInBattle.Count; i++) {
+            Pawn pawn = pawnsInBattle[i].GetComponent<Pawn>();
+            for (int n = 0; n < pawn.pawnCoords.Count; n++) {
+                Vector2 pawnCoord = pawn.pawnCoords[n];
+                if (pawnCoord == correctLoc) {
+                    hit = true;
+                }
+            }
+        }
+        if (hit)
+            return true;
+        else
+            return false;
+    }
+
 }
 
-
-
-public enum Team {
-   NONE,
-   PLAYER,
-   ENEMY
-}
 

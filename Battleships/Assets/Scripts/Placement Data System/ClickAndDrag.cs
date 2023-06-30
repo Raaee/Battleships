@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 
+/// The dragging script for the pawns.
 /// </summary>
 public class ClickAndDrag : MonoBehaviour
 {
@@ -15,7 +15,6 @@ public class ClickAndDrag : MonoBehaviour
     private AmountOfPlayerPawnsUI playerPawnsUI;
 
     public UnityEvent OnPawnPlaced;
-    public UnityEvent<int> OnPawnPlacedWithInt;
 
     private bool IsActive = true;
     private ButtonFunctions buttonsFunctions;
@@ -46,6 +45,7 @@ public class ClickAndDrag : MonoBehaviour
         if(!IsActive) return;
         
         if (dragging) {
+            potentialShipPlacement.AssignPawnOrientation();
             Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             transform.position = newPos;
             if(potentialShipPlacement.GetCurrentHighlightedCubeVisual() != null)  currentPawn.transform.position = potentialShipPlacement.GetCurrentHighlightedCubeVisual().GetCubeMidPosition();

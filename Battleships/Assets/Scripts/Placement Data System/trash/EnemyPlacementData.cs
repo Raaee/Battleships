@@ -9,7 +9,7 @@ public class EnemyPlacementData : MonoBehaviour
     public List<GameObject> pawnsInBattle; // this will be the enemy's pawns
 
     [SerializeField] private GridManager enemyGridManager;
-    [SerializeField] private bool enemiesShown = false;
+  // [SerializeField] private bool enemiesShown = false;
     public bool allPawnsPlaced = false;
     private bool vertUpValid, vertDownValid, horiLeftValid, horiRightValid;
 
@@ -78,7 +78,7 @@ public class EnemyPlacementData : MonoBehaviour
                 Debug.Log("placed vert up");
                 for (int i = (int) selectedPos.x; i < (selectedPos.x + pawnSize); i++) {
                     tile = enemyGridManager.GetTileAtPosition(new Vector2(i, selectedPos.y));
-                    tile.GetComponent<CubeVisual>().SetOccupied(true);
+                    tile.GetComponent<CubeVisual>().SetIsOccupied(true);
                     pawnCoords.Add(new Vector2(i, selectedPos.y));
                 }
                 SetPawnCoordsAndVisual(pawn, pawnCoords, PawnOrientation.VERTICAL, pawnGO, tile);
@@ -87,7 +87,7 @@ public class EnemyPlacementData : MonoBehaviour
                 Debug.Log("placed vert down");
                 for (int i = (int)selectedPos.x; i > (selectedPos.x - pawnSize); i--) {
                     tile = enemyGridManager.GetTileAtPosition(new Vector2(i, selectedPos.y));
-                    tile.GetComponent<CubeVisual>().SetOccupied(true);
+                    tile.GetComponent<CubeVisual>().SetIsOccupied(true);
                     pawnCoords.Add(new Vector2(i, selectedPos.y));
                 }
                 SetPawnCoordsAndVisual(pawn, pawnCoords, PawnOrientation.VERTICAL, pawnGO, tile);
@@ -98,7 +98,7 @@ public class EnemyPlacementData : MonoBehaviour
                 Debug.Log("placed hori left");
                 for (int i = (int)selectedPos.y; i < (selectedPos.y + pawnSize); i++) {
                     tile = enemyGridManager.GetTileAtPosition(new Vector2(selectedPos.x, i));
-                    tile.GetComponent<CubeVisual>().SetOccupied(true);
+                    tile.GetComponent<CubeVisual>().SetIsOccupied(true);
                     pawnCoords.Add(new Vector2(selectedPos.x, i));
                 }
                 SetPawnCoordsAndVisual(pawn, pawnCoords, PawnOrientation.HORIZONTAL, pawnGO, tile);
@@ -108,7 +108,7 @@ public class EnemyPlacementData : MonoBehaviour
                 Debug.Log("placed hori right");
                 for (int i = (int)selectedPos.y; i > (selectedPos.y - pawnSize); i--) {
                     tile = enemyGridManager.GetTileAtPosition(new Vector2(selectedPos.x, i));
-                    tile.GetComponent<CubeVisual>().SetOccupied(true);
+                    tile.GetComponent<CubeVisual>().SetIsOccupied(true);
                     pawnCoords.Add(new Vector2(selectedPos.x, i));
                 }
                 SetPawnCoordsAndVisual(pawn, pawnCoords, PawnOrientation.HORIZONTAL, pawnGO, tile);
@@ -183,7 +183,7 @@ public class EnemyPlacementData : MonoBehaviour
                 vertUpValid = false;
                 return;
             }
-            if (tileGO.GetComponent<CubeVisual>().GetOccupied() == false) {
+            if (tileGO.GetComponent<CubeVisual>().GetIsOccupied() == false) {
                 vertUpValid = true;
             }
             else {
@@ -199,7 +199,7 @@ public class EnemyPlacementData : MonoBehaviour
                 vertDownValid = false;
                 return;
             }
-            if (tileGO.GetComponent<CubeVisual>().GetOccupied() == false) {
+            if (tileGO.GetComponent<CubeVisual>().GetIsOccupied() == false) {
                 vertDownValid = true;
             }
             else {
@@ -219,7 +219,7 @@ public class EnemyPlacementData : MonoBehaviour
                 horiRightValid = false;
                 return;
             }
-            if (tileGO.GetComponent<CubeVisual>().GetOccupied() == false) {
+            if (tileGO.GetComponent<CubeVisual>().GetIsOccupied() == false) {
                 horiRightValid = true;
             }
             else {
@@ -235,7 +235,7 @@ public class EnemyPlacementData : MonoBehaviour
                 horiLeftValid = false;
                 return;
             }
-            if (tileGO.GetComponent<CubeVisual>().GetOccupied() == false) {
+            if (tileGO.GetComponent<CubeVisual>().GetIsOccupied() == false) {
                 horiLeftValid = true;
             }
             else {
