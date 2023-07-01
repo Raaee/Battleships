@@ -17,18 +17,19 @@ public class BetterEnemyPlacement : MonoBehaviour {
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     public GameObject initialCoords;
+    [SerializeField] private int numPawnsInBattle = 5;
 
     public void StartPlacement() {
         CheckPawnList();
         PawnPlacement();
     }
     public void CheckPawnList() {
-        if (pawnPrefabs.Count < 5) {
-            Debug.Log("pawn prefab list (Enemy) must have 5 elements.");
+        if (pawnPrefabs.Count < 4) {
+            Debug.Log("pawn prefab list (Enemy) must have 4 elements.");
             return;
         }
         else {
-            ChooseRandomPawns(5);
+            ChooseRandomPawns(numPawnsInBattle);
         }
     }
    
@@ -49,8 +50,6 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 case 3: pos = PawnPosition(pawnSize);
                     break;
                 case 4: pos = PawnPosition(pawnSize);
-                    break;
-                case 5: pos = PawnPosition(pawnSize);
                     break;
             }
             PlacePawn(pos, pawnsInBattle[i]);
@@ -146,7 +145,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     private void ChooseRandomPawns(int numPawns) {
         int ranNum;
         for (int i = 0; i < numPawns; i++) {
-            ranNum = Random.Range(0, 5)+1; // random number 1, 2, 3, 4, or 5
+            ranNum = Random.Range(0, 4)+1; // random number 1, 2, 3, or 4
             GameObject pawn = Instantiate(PawnPrefabOfSize(ranNum), initialCoords.transform.position, Quaternion.identity);
             pawnsInBattle.Add(pawn);
         } 
