@@ -103,7 +103,7 @@ public class PotentialShipPlacement : MonoBehaviour
             {
                 if (CheckIfAlreadyPlaced(x, i))
                 {
-                    Debug.Log("already placed");
+                   // Debug.Log("already placed");
                     RemoveCurrentTileVisual();
                     RemoveAllHighlights();
                     return;
@@ -124,7 +124,7 @@ public class PotentialShipPlacement : MonoBehaviour
             {
                 if (CheckIfAlreadyPlaced(i, y))
                 {
-                    Debug.Log("already placed");
+                   // Debug.Log("already placed");
                     
                     RemoveCurrentTileVisual();
                     RemoveAllHighlights();
@@ -142,8 +142,7 @@ public class PotentialShipPlacement : MonoBehaviour
         //this is the vector we are checking against
         Vector2 checkingVector2 = new Vector2(x, y);
 
-       //todo: Ghost grid squares that are not being highlighted even tho everythign else is suppposed to be working
-        //todo: highlighting shows up even when mouse isnt active, also shows up on last pawn placed
+      
         
         //go through all pawns in battle
         foreach (GameObject pawnGO in playerPlacementData.pawnsInBattle)

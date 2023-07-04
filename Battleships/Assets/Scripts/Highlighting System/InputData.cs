@@ -68,7 +68,6 @@ public class InputData : MonoBehaviour
         int pawnSize = currentPawnVisual.gameObject.GetComponent<Pawn>().GetPawnSize();
         
         //and then we just make the highlight system work its magic
-        //TODO: refactor part of the highlight so that we can call it from here
         potentialShipPlacement.PotentialShipPlacementSetter(pawnSize, pawnOrientation, currentCubeVisual);
     }
 

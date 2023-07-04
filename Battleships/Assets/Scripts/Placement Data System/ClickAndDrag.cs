@@ -74,7 +74,6 @@ public class ClickAndDrag : MonoBehaviour
     private void SnapToCube() {
         if (inputData.GetCubeVisual() != null)
         {
-            Debug.Log("yo?");
             if (potentialShipPlacement.GetIsPawnOverPawn())
             {
                 Debug.Log("GET IVER HERE");
@@ -98,6 +97,7 @@ public class ClickAndDrag : MonoBehaviour
             ResetToOriginalSpawnPosition();
             OccupyCubes(false);
         }
+        potentialShipPlacement.RemoveCurrentTileVisual();
     }
     private void OccupyCubes(bool occupied) {
         List<GameObject> lastHighlightedGameObjects = potentialShipPlacement.GetLastHighlightedCubes();
