@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 881988833, guid: 70b6e17d37fba4d49b47690d9a821c89, type: 3}
+  m_Sprite: {fileID: -1616941424, guid: 0f856f9590f2cdd44b64978f74be4550, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +134,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pawnSize: 3
   pawnCoords: []
-  placed: 0
 --- !u!114 &7706689248681686259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,8 +165,8 @@ BoxCollider2D:
   m_Offset: {x: -0.65437126, y: 1.2744079}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.84931386, y: -0.0008439902}
-    oldSize: {x: 2.02, y: 2.47}
+    pivot: {x: 0.112977155, y: 0.0011956028}
+    oldSize: {x: 3.39, y: 1.69}
     newSize: {x: 2.02, y: 2.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -188,5 +187,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28008cb763948e544b544ac0d9d9a9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSprite: {fileID: 881988833, guid: 70b6e17d37fba4d49b47690d9a821c89, type: 3}
-  verticalSprite: {fileID: 229099485, guid: 70b6e17d37fba4d49b47690d9a821c89, type: 3}
+  horizontalSprite: {fileID: -1616941424, guid: 0f856f9590f2cdd44b64978f74be4550, type: 3}
+  verticalSprite: {fileID: 382082567, guid: 0f856f9590f2cdd44b64978f74be4550, type: 3}

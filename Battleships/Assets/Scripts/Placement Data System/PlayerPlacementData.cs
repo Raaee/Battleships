@@ -23,6 +23,7 @@ public class PlayerPlacementData : MonoBehaviour
     private int ranNum;
     private bool allPawnsPlaced = false;
     private bool placementConfirmed = false;
+    [SerializeField] private int numPawnsInBattle = 5;
 
     public UnityEvent OnAllPawnsSpawned;
     [SerializeField] private ButtonFunctions buttonFunctions;
@@ -37,18 +38,18 @@ public class PlayerPlacementData : MonoBehaviour
     }
 
     public void StartPlacement() {
-        if (pawnPrefabs.Count < 5) {
-            Debug.Log("pawn prefab list (Player) must have 5 elements.");
+        if (pawnPrefabs.Count < 4) {
+            Debug.Log("pawn prefab list (Player) must have 4 elements.");
             return;
         } else {
-            ChooseRandomPawns(5);
+            ChooseRandomPawns(numPawnsInBattle);
         }
     }
 
     
     public void ChooseRandomPawns(int numPawns) {
         for (int i = 0; i < numPawns; i++) {
-            ranNum = Random.Range(1, 6); // random number 1, 2, 3, 4, or 5
+            ranNum = Random.Range(1, 5); // random number 1, 2, 3, or 4
             var pawn = Instantiate(PawnPrefabOfSize(ranNum), initialCoords.transform.position, Quaternion.identity);
             pawnsInBattle.Add(pawn);
             
@@ -103,9 +104,6 @@ public class PlayerPlacementData : MonoBehaviour
                     break;
                 case 4:
                     p.transform.position = pawnSpawnLocations[3].transform.position;
-                    break;
-                case 5:
-                    p.transform.position = pawnSpawnLocations[4].transform.position;
                     break;
             }
         }

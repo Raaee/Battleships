@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f9eadf55d34048a066bed51575818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1382943594}
+  gameManager: {fileID: 0}
   attackConfirmBtn: {fileID: 992496995}
   enemyPlacementData: {fileID: 1998845031}
 --- !u!1 &1343984737
@@ -1954,7 +1954,6 @@ MonoBehaviour:
   - {fileID: 613227228020368687, guid: 34c242617535684498ba53f113b6cf0e, type: 3}
   - {fileID: 3934531308918711708, guid: 41e87a217d282604c99c79982371ab90, type: 3}
   - {fileID: 8625315985585692286, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
-  - {fileID: 8631479788407772348, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
   pawnsInBattle: []
   initialCoords: {fileID: 1656425414}
   pawnSpawnLocations:
@@ -2815,8 +2814,7 @@ MonoBehaviour:
   - {fileID: 7587360257208355890, guid: a9e0f79c97cdede438201b4ae71753cc, type: 3}
   - {fileID: 7356754283694892420, guid: 3952f1d3555a3934aae75e72814e2661, type: 3}
   - {fileID: 7706689248681686271, guid: 1b3900140bd497440b7e7313cd24ef98, type: 3}
-  - {fileID: 8625315985585692286, guid: 01e59f15127c73042abb4a8443eb6efd, type: 3}
-  - {fileID: 8631479788407772348, guid: 0bf0c9df07ff5304d97523a2b1e6f21d, type: 3}
+  - {fileID: 8625315985585692286, guid: 1a264b65d90e12045a737af3629eea3e, type: 3}
   pawnsInBattle: []
   enemyGridManager: {fileID: 2015051422}
   initialCoords: {fileID: 1656425414}
@@ -2999,7 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee21658f3e2bb8a4b888c8fe1114386f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1382943594}
+  gameManager: {fileID: 0}
   playerPlacementData: {fileID: 1412156058}
   playerGridMan: {fileID: 350759526}
   player1AS: {fileID: 1328846346}
