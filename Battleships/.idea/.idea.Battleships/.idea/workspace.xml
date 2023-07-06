@@ -7,10 +7,6 @@
     <list default="true" id="c25159d1-2e69-4f86-a872-34d024ca8da8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test and Prototype Scenes/2.5D board scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Deviously Devilish Scripts/DevMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Deviously Devilish Scripts/DevMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Flow/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Flow/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlayerPlacementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement Data System/PlayerPlacementData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI Scripts/AmountOfPlayerPawnsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI Scripts/AmountOfPlayerPawnsUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +112,7 @@
       <workItem from="1688056878139" duration="2308000" />
       <workItem from="1688068789220" duration="10747000" />
       <workItem from="1688480093179" duration="982000" />
-      <workItem from="1688674722074" duration="966000" />
+      <workItem from="1688674722074" duration="1694000" />
     </task>
     <servers />
   </component>
