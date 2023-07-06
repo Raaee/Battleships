@@ -76,7 +76,6 @@ public class ClickAndDrag : MonoBehaviour
         {
             if (potentialShipPlacement.GetIsPawnOverPawn())
             {
-                Debug.Log("GET IVER HERE");
                 currentPawn.SetPlacedStatus(false);
                 ResetToOriginalSpawnPosition();
                 return;

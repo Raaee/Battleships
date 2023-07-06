@@ -15,6 +15,7 @@ public class AmountOfPlayerPawnsUI : MonoBehaviour
 
     private void Awake()
     {
+        
         playerPlacementData.OnAllPawnsSpawned.AddListener(StartingAmountInUI);
     }
 

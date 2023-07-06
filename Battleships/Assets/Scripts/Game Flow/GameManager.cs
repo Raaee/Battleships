@@ -30,4 +30,14 @@ public class GameManager : MonoBehaviour
         currentState = newState;
         currentState.OnStateEnter();
     }
+
+    public GameState GetInitialState()
+    {
+        return initialState;
+    }
+    
+    public GameState GetCurrentState()
+    {
+        return currentState;
+    }
 }

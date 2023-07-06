@@ -82,4 +82,17 @@ public class DevMode
     {
         Debug.Log("Moving at the speed of raeus.");
     }
+    
+    [MenuItem("Dev Mode/Reset Player Pawns (during beginning state)")]
+    public static void ResetDaPawns()
+    {
+        var ppd = GameObject.FindObjectOfType<PlayerPlacementData>();
+        if (ppd == null)
+        {
+            Debug.Log("yo no player placement data in this scene");
+            return;
+            
+        }
+        ppd.ResetPlayerPawnPlacement();
+    }
 }
