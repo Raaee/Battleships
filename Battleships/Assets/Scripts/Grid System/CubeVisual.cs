@@ -8,10 +8,16 @@ using UnityEngine;
 public class CubeVisual : MonoBehaviour
 {
 
-    private Material originalMaterial;
+    [SerializeField] private Material originalMaterial;
     [SerializeField] private Material hoverMaterial;
     [SerializeField] private Material hitMaterial;
     [SerializeField] private Material missMaterial;
+    [SerializeField] private Material occupiedMaterial;
+
+   // private Material currentMat;
+
+    private CubeHitState cubeHitState = CubeHitState.NONE;
+    [SerializeField] private Material currentMat;
 
     [SerializeField] private Transform cubeMidpoint;
     
@@ -19,60 +25,43 @@ public class CubeVisual : MonoBehaviour
 
     private PotentialShipPlacement potentialShipPlacement;
     private AttackHighlightSystem attackHighlightSystem;
-
-    [SerializeField] private CubeHitStateEnum cubeHitState = CubeHitStateEnum.CHILLING;
+    private InputData inputData;
 
     private void Awake()
     {
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
-        originalMaterial = GetComponent<Renderer>().material;
+        GetComponent<Renderer>().material = originalMaterial;
+        currentMat = originalMaterial;
+        inputData = FindObjectOfType<InputData>();
     }   
 
     private void OnMouseEnter()
     {
-      // ShowHighlight();
-      if (cubeHitState != CubeHitStateEnum.CHILLING) return;
-
-      
-       potentialShipPlacement.AssignCurrentTileVisual(this);
+      // ShowHighlight();      
+      // potentialShipPlacement.AssignCurrentTileVisual(this);
+      inputData.SetCubeVisual(this);
        attackHighlightSystem.AssignCurrentVisual(this);
-       
     }
-    
     private void OnMouseExit()
     {
       // HideHighlight();
-      if (cubeHitState != CubeHitStateEnum.CHILLING) return;
-
-       potentialShipPlacement.RemoveCurrentTileVisual();
+     //  potentialShipPlacement.RemoveCurrentTileVisual();
+     inputData.ResetCubeVisual();
        attackHighlightSystem.RemoveCurrentVisual(this);
     }
 
-    public void ShowHighlight()
-    {
-
+    public void ShowHighlight() {
         GetComponent<Renderer>().material = hoverMaterial;
     }
 
-    public void ShowHighlight(Material newMaterial)
-    {
+    public void ShowHighlight(Material newMaterial) {
         GetComponent<Renderer>().material = newMaterial;
     }
     
-    public void HideHighlight()
-    {
+    public void HideHighlight() {
        // Debug.Log("back to normal dummy ");
-        GetComponent<Renderer>().material = originalMaterial;
-    }
-    public void ShowCubeHitVisul()
-    {
-        cubeHitState = CubeHitStateEnum.HIT;
-        GetComponent<Renderer>().material = hitMaterial;
-    }
-    public void ShowCubeMissVisual() {
-        cubeHitState = CubeHitStateEnum.MISS;
-        GetComponent<Renderer>().material = missMaterial;
+        GetComponent<Renderer>().material = currentMat;
     }
 
     public Vector3 GetCubeMidPosition()
@@ -86,6 +75,7 @@ public class CubeVisual : MonoBehaviour
         isOccupied = o;
     }
 
+    // This is for the attack selection stuff:
     private void OnMouseDown()  {
         attackHighlightSystem.SetCurrentlyHighlighted(this);
     }
@@ -93,10 +83,26 @@ public class CubeVisual : MonoBehaviour
         if (attackHighlightSystem.isEnabled)
             FindObjectOfType<PlayerActionState>().SetAttackLocation();
     }
-    
-    
-    
-    
+    public void ChangeMaterialOnHitState(CubeHitState hitState) {
+        switch (hitState) {
+            case CubeHitState.NONE: currentMat = originalMaterial;
+                break;
+            case CubeHitState.HIT: currentMat = hitMaterial;
+                break;
+            case CubeHitState.MISS: currentMat = missMaterial;
+                break;
+            case CubeHitState.OCCUPIED: currentMat = occupiedMaterial;
+                break;
+        }
+        GetComponent<Renderer>().material = currentMat;
+    }
+}
+
+public enum CubeHitState {
+    NONE,
+    HIT,
+    MISS,
+    OCCUPIED
 }
 
 

@@ -39,6 +39,14 @@ public class DevMode
         }
         
     }
+
+    [MenuItem("Dev Mode/Toggle Enemy Occupied Highlights")]
+    public static void ToggleEnemyOccupied() {
+        Debug.Log("Showing Enemy's Occupied Highlights");
+
+        Debug.Log("*** Must implment***");
+
+    }
     
     [MenuItem("Dev Mode/Chat G-PTY intrusive thoughts on Raeus")]
     public static void IntrusiveThoughts()
@@ -73,5 +81,18 @@ public class DevMode
     public static void RaeusSpeedMode()
     {
         Debug.Log("Moving at the speed of raeus.");
+    }
+    
+    [MenuItem("Dev Mode/Reset Player Pawns (during beginning state)")]
+    public static void ResetDaPawns()
+    {
+        var ppd = GameObject.FindObjectOfType<PlayerPlacementData>();
+        if (ppd == null)
+        {
+            Debug.Log("yo no player placement data in this scene");
+            return;
+            
+        }
+        ppd.ResetPlayerPawnPlacement();
     }
 }

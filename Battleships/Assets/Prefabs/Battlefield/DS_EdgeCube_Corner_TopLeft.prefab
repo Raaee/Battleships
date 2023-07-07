@@ -227,7 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1052e6f1e5d68445b3e29b47c086c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 2100000, guid: 90086a3558724014fa832aa9cdb0589a, type: 2}
   hoverMaterial: {fileID: 2100000, guid: f31c827579ad10c478eac9987a35ba73, type: 2}
   hitMaterial: {fileID: 2100000, guid: 1e2a66b7bfa90fe42a6c1475313c30e3, type: 2}
   missMaterial: {fileID: 2100000, guid: e11313b682d25514c8ccb31de415fd19, type: 2}
+  occupiedMaterial: {fileID: 2100000, guid: 50f431e14140f6a488fae26e5a1e34c1, type: 2}
+  currentMat: {fileID: 0}
   cubeMidpoint: {fileID: 285998957692557041}

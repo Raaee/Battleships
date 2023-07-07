@@ -14,7 +14,7 @@ public class PawnVisual : MonoBehaviour
     private BoxCollider2D bc2D;
 
     private ClickAndDrag clickAndDrag;
-   
+    private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     private void Awake()
     {
         bc2D = GetComponent<BoxCollider2D>();
@@ -38,9 +38,29 @@ public class PawnVisual : MonoBehaviour
         bc2D.size = new Vector2(sr.bounds.size.x / transform.lossyScale.x, sr.bounds.size.y / transform.lossyScale.y);
     }
     public void ChangePawnVisual(PawnOrientation pawnOrientation) {
-        if (pawnOrientation == PawnOrientation.VERTICAL) {
+        if (pawnOrientation == PawnOrientation.VERTICAL)
+        {
+            this.pawnOrientation = pawnOrientation;
             sr.sprite = verticalSprite;
         } else {
+            this.pawnOrientation = pawnOrientation;
+            sr.sprite = horizontalSprite;
+        }
+    }
+
+    public PawnOrientation GetPawnOrientation()
+    {
+        return pawnOrientation;
+    }
+
+    public void SetPawnOrientation(PawnOrientation po)
+    {
+        if (po == PawnOrientation.VERTICAL)
+        {
+            this.pawnOrientation = po;
+            sr.sprite = verticalSprite;
+        } else {
+            this.pawnOrientation = po;
             sr.sprite = horizontalSprite;
         }
     }

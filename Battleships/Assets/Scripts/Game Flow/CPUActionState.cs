@@ -43,11 +43,11 @@ public class CPUActionState : GameState {
 
         if (hit) {
             Debug.Log("Enemy Hit! " + randomLocation);
-            currentCube.ShowCubeHitVisul();
+            currentCube.ChangeMaterialOnHitState(CubeHitState.HIT);
         }
         else {
             Debug.Log("Enemy Missed.");
-            currentCube.ShowCubeMissVisual();
+            currentCube.ChangeMaterialOnHitState(CubeHitState.MISS);
         }
 
         ShowHitFeedback(hit);

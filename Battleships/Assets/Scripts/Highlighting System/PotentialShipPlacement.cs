@@ -18,6 +18,8 @@ public class PotentialShipPlacement : MonoBehaviour
 
     private List<GameObject> lastHighlightedGameObjects; //making a temp list, if pawn is placed then this is what is sent to the pawn data 
 
+    [SerializeField] private bool pawnIsOverPawn = false;
+
     private void Start()
     {
         lastHighlightedGameObjects = new List<GameObject>();
@@ -28,19 +30,34 @@ public class PotentialShipPlacement : MonoBehaviour
             Debug.Log("Vert");
             pawnOrientation = PawnOrientation.VERTICAL;
             OnMouseScrolled.Invoke();
-            ShowPotentialShipPlacement();
+           // ShowPotentialShipPlacement();
         }
         else if ((Input.GetAxis("Mouse ScrollWheel") < 0f) || (Input.GetKeyDown(KeyCode.Space) && pawnOrientation == PawnOrientation.VERTICAL)) { //backwards: Horiz
             Debug.Log("Horiz");
             pawnOrientation = PawnOrientation.HORIZONTAL;
             OnMouseScrolled.Invoke();
-            ShowPotentialShipPlacement();
+          //  ShowPotentialShipPlacement();
         }
     }
-    private void ShowPotentialShipPlacement()
+
+    public void PotentialShipPlacementSetter(int pawnSize, PawnOrientation pawnOrientation,  CubeVisual cubeVisual)
+    {
+        currentHighlightedCubeVisual = cubeVisual;
+        sizeOfPawn = pawnSize;
+        this.pawnOrientation = pawnOrientation;
+        ShowPotentialShipPlacement();
+    }
+    
+   
+    
+    private void ShowPotentialShipPlacement() //line 31, 37, and 146
     {
         RemoveAllHighlights();
-        if (currentHighlightedCubeVisual == null) return;
+        if (currentHighlightedCubeVisual == null)
+        {
+            Debug.Log("current highlighted was null");
+            return;
+        }
         
         Vector2 currTilePos = gridManager.GetPositionAtTile(currentHighlightedCubeVisual.gameObject);
         
@@ -48,6 +65,7 @@ public class PotentialShipPlacement : MonoBehaviour
         {
             if (currTilePos.y + sizeOfPawn > 10)
             {
+
                 RemoveAllHighlights();
                 return;
             }
@@ -76,7 +94,8 @@ public class PotentialShipPlacement : MonoBehaviour
         ResetLastHighlightedGameObjects();
         
         //start at current tile, and highlight the next tiles to the right for size of pawn times 
-        for (int i = y; i < (y + sizeOfPawn); i++) {
+        for (int i = y; i < (y + sizeOfPawn); i++) 
+        {
             
             var tileGO = gridManager.GetTileAtPosition(new Vector2(x, i));
             
@@ -84,7 +103,7 @@ public class PotentialShipPlacement : MonoBehaviour
             {
                 if (CheckIfAlreadyPlaced(x, i))
                 {
-
+                   // Debug.Log("already placed");
                     RemoveCurrentTileVisual();
                     RemoveAllHighlights();
                     return;
@@ -105,6 +124,8 @@ public class PotentialShipPlacement : MonoBehaviour
             {
                 if (CheckIfAlreadyPlaced(i, y))
                 {
+                   // Debug.Log("already placed");
+                    
                     RemoveCurrentTileVisual();
                     RemoveAllHighlights();
                     return;
@@ -117,14 +138,17 @@ public class PotentialShipPlacement : MonoBehaviour
     }    
     private bool CheckIfAlreadyPlaced(int x, int y)
     {
+       
         //this is the vector we are checking against
         Vector2 checkingVector2 = new Vector2(x, y);
+
+      
         
         //go through all pawns in battle
         foreach (GameObject pawnGO in playerPlacementData.pawnsInBattle)
         {
            List<Vector2> pawnCoordinates =  pawnGO.GetComponent<Pawn>().pawnCoords;
-           if (pawnCoordinates.Count <= 0) continue; 
+           
            
            //go through their pawn coordinates
            foreach (Vector2 pawnCoord in pawnCoordinates)
@@ -132,17 +156,24 @@ public class PotentialShipPlacement : MonoBehaviour
                //if one of their pawn coordinate matches with the checking vector2, then return true cuz that means its already placed
                if (pawnCoord.Equals(checkingVector2))
                {
-                 
+                   pawnIsOverPawn = true;
                    return true;
                }
            }
         }
+
+        pawnIsOverPawn = false;
         return false;
+    }
+
+    public bool GetIsPawnOverPawn()
+    {
+        return pawnIsOverPawn;
     }
     public void AssignCurrentTileVisual(CubeVisual cubeVisual)
     {
         currentHighlightedCubeVisual = cubeVisual;
-        ShowPotentialShipPlacement();
+        //ShowPotentialShipPlacement();
     }
 
     public void RemoveCurrentTileVisual()
@@ -183,6 +214,10 @@ public class PotentialShipPlacement : MonoBehaviour
     
     public void SetPawnSize(int size) {
         sizeOfPawn = size;
+    }
+
+    public List<GameObject> GetLastHighlightedCubes() {
+        return lastHighlightedGameObjects;
     }
 }
 

@@ -23,16 +23,18 @@ public class PlayerPlacementData : MonoBehaviour
     private int ranNum;
     private bool allPawnsPlaced = false;
     private bool placementConfirmed = false;
-    [SerializeField] private int numPawnsInBattle = 5;
+     private int numPawnsInBattle = 4;
 
     public UnityEvent OnAllPawnsSpawned;
     [SerializeField] private ButtonFunctions buttonFunctions;
 
+    private InputData inputData; 
     private void Awake()
     {
         if(buttonFunctions == null)
             Debug.Log("didnt assign button funcitont in inspector dummy");
         buttonFunctions.OnPlayerConfirmPlacement.AddListener(Placed);
+        inputData = FindObjectOfType<InputData>();
     }
 
     public void StartPlacement() {
@@ -50,6 +52,8 @@ public class PlayerPlacementData : MonoBehaviour
             ranNum = Random.Range(1, 5); // random number 1, 2, 3, or 4
             var pawn = Instantiate(PawnPrefabOfSize(ranNum), initialCoords.transform.position, Quaternion.identity);
             pawnsInBattle.Add(pawn);
+            
+            inputData.AddSelfToClickDragList(pawn.gameObject.GetComponent<ClickAndDrag>());
         }
         SpawnInitialPawns();
     }
@@ -66,6 +70,7 @@ public class PlayerPlacementData : MonoBehaviour
     private void Update()
     {
         CheckPawnPlacement();
+       
     }
 
     // checks if there is a false place status in each pawn:
@@ -106,8 +111,6 @@ public class PlayerPlacementData : MonoBehaviour
         OnAllPawnsSpawned?.Invoke();
     }
     private void Placed() {
-        
-        
         placementConfirmed = true;
     }
 
@@ -138,6 +141,30 @@ public class PlayerPlacementData : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void ResetPlayerPawnPlacement()
+    {
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (gm == null)
+        {
+            Debug.Log("no game manager in scene dummy");
+            return;
+        }
+
+        if (gm.GetCurrentState() != gm.GetInitialState())
+        {
+            Debug.Log("bruh we cannot reset pawns, if youve already started the game");
+            return;
+        }
+
+        foreach (GameObject pawn in pawnsInBattle)
+        {
+            Destroy(pawn.gameObject);
+        }
+
+        pawnsInBattle = new List<GameObject>();
+        StartPlacement();
     }
 
 }

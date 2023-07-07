@@ -12,9 +12,17 @@ public class AmountOfPlayerPawnsUI : MonoBehaviour
     [SerializeField] private PlayerPlacementData playerPlacementData;
     
     private Dictionary<int, int> sizeAmtDictionary;
+    private ButtonFunctions buttonFunctions;
 
     private void Awake()
     {
+        buttonFunctions = FindObjectOfType<ButtonFunctions>();
+        if (buttonFunctions == null)
+        {
+            Debug.Log("no button functions script in scene dummy");
+            return;
+        }
+        buttonFunctions.OnPlayerConfirmPlacement.AddListener(RemoveAllButtons);
         playerPlacementData.OnAllPawnsSpawned.AddListener(StartingAmountInUI);
     }
 
@@ -62,5 +70,13 @@ public class AmountOfPlayerPawnsUI : MonoBehaviour
 
         uiGameObjects[pawnSize - 1].text = "x " + sizeAmtDictionary[pawnSize];
 
+    }
+
+    private void RemoveAllButtons()
+    {
+        foreach (var uiElement in uiGameObjects)
+        {
+            uiElement.gameObject.SetActive(false);
+        }
     }
 }
