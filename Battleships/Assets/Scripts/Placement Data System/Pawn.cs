@@ -48,7 +48,16 @@ public class Pawn : MonoBehaviour {
         //TODO: Go through all the cubes with these pawn coords, and set them to occupied 
         //next: if hit/miss set their state like that too 
     }
-    
+    public void RemovePawnCoord(Vector2 coordToRemove) {
+        coordToRemove = new Vector2(coordToRemove.y, coordToRemove.x);
+
+        if (pawnCoords.Contains(coordToRemove)) {
+            pawnCoords.Remove(coordToRemove);
+        } else {
+            Debug.Log("Pawn coord not found: " + coordToRemove);
+        }
+    }
+
     public int GetPawnSize() {
         return pawnSize;
     }

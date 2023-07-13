@@ -20,6 +20,7 @@ public class PlayerActionState : GameState {
 
     void Awake() {
         base.Awake();
+        stateTeam = StateTeam.PLAYER;
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);
@@ -71,6 +72,7 @@ public class PlayerActionState : GameState {
         if (pawnHit) {
             Debug.Log("You Hit!");
             currentCubeCV.ChangeMaterialOnHitState(CubeHitState.HIT);
+            enemyPlacementData.RemovePawnCoord(attackLocation);
         }
         else {
             Debug.Log("You Missed.");

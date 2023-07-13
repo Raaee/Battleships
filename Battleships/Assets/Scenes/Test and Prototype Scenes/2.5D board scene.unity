@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.5645232, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 323021781}
   - component: {fileID: 323021780}
   m_Layer: 5
-  m_Name: Current Turn
+  m_Name: Current Round
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ROUND 5 / 50
+  m_text: Placement Round
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1520,6 +1520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1041694487}
+  - component: {fileID: 1041694488}
   m_Layer: 5
   m_Name: Gameplay Round UI
   m_TagString: Untagged
@@ -1551,6 +1552,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1041694488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041694486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b0d230e8468aa43b653b444d48e2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRoundTxt: {fileID: 323021780}
+  whosTurnTxt: {fileID: 1520760640}
+  shipsRemainingTxt: {fileID: 1138822234}
 --- !u!1 &1044395080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,7 +1913,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5 Enemy Shits Remaining
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2003,6 +2019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7305a42a464cfe143b3603c08c1c3e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateTeam: 0
   gameManager: {fileID: 1382943594}
   playerGM: {fileID: 350759526}
   EnemyGM: {fileID: 2015051422}
@@ -2134,6 +2151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f9eadf55d34048a066bed51575818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateTeam: 0
   gameManager: {fileID: 0}
   attackConfirmBtn: {fileID: 992496995}
   enemyPlacementData: {fileID: 1998845031}
@@ -2432,8 +2450,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ced70a3c6532b448acd0d51ef944f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPD: {fileID: 1998845031}
   initialState: {fileID: 1170482554}
+  gameplayUI: {fileID: 1041694488}
+  maximumRounds: 50
   currentState: {fileID: 0}
+  currentRound: 0
 --- !u!4 &1382943595
 Transform:
   m_ObjectHideFlags: 0
@@ -2590,7 +2612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player's Turn
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3611,6 +3633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee21658f3e2bb8a4b888c8fe1114386f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateTeam: 0
   gameManager: {fileID: 0}
   playerPlacementData: {fileID: 1412156058}
   playerGridMan: {fileID: 350759526}

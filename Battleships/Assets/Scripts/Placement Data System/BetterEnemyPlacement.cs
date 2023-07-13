@@ -14,6 +14,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     [SerializeField] private GridManager enemyGridManager;
    
     private GameObject tile = null;
+    private Pawn pawnHit;
 
     private PawnOrientation pawnOrientation = PawnOrientation.HORIZONTAL;
     public GameObject initialCoords;
@@ -167,12 +168,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             pawnOrientation = PawnOrientation.HORIZONTAL;
         }
     }  
-    public int GetRandomNumber(int min, int maxExclusive) {
-        return Random.Range(min, maxExclusive);
-    }
-    public Vector2 GetRandomVector2(int minX, int maxExclusiveX, int minY, int maxExclusiveY) {
-        return new Vector2(Random.Range(minX, maxExclusiveX), Random.Range(minY, maxExclusiveY));
-    }
+    
     public bool CheckIfHit(Vector2 attackLoc) {
         bool hit = false;
         Vector2 correctLoc = new Vector2(attackLoc.y, attackLoc.x);
@@ -183,6 +179,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 Vector2 pawnCoord = pawn.pawnCoords[n];
                 if (pawnCoord == correctLoc) {
                     hit = true;
+                    pawnHit = pawn;
                 }
             }
         }
@@ -190,5 +187,23 @@ public class BetterEnemyPlacement : MonoBehaviour {
             return true;
         else
             return false;
+    }
+    public void RemovePawnCoord(Vector2 coordToRemove) {
+        Debug.Log("PAWN HIT: " + pawnHit);
+        if (pawnHit == null) {
+            Debug.Log("Pawn hit null");
+            return;
+        } else {
+            pawnHit.RemovePawnCoord(coordToRemove);
+            if (pawnHit.pawnCoords.Count <= 0) {
+                pawnsInBattle.Remove(pawnHit.gameObject);
+            }
+        }
+    }
+    public int GetRandomNumber(int min, int maxExclusive) {
+        return Random.Range(min, maxExclusive);
+    }
+    public Vector2 GetRandomVector2(int minX, int maxExclusiveX, int minY, int maxExclusiveY) {
+        return new Vector2(Random.Range(minX, maxExclusiveX), Random.Range(minY, maxExclusiveY));
     }
 }

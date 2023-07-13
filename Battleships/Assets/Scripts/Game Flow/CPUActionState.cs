@@ -13,8 +13,13 @@ public class CPUActionState : GameState {
     [SerializeField] GridManager playerGridMan;
     private bool hit = false;
 
-    [SerializeField] private GameState player1AS;
+    [SerializeField] private GameState player1AS; 
 
+    void Awake() {
+        base.Awake();
+        stateTeam = StateTeam.ENEMY;
+    }
+   
     public override void OnStateEnter() {
         ChooseAttackLoc();
         CheckIfHit();
