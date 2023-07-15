@@ -32,7 +32,7 @@ public class SetupState : GameState
     public override void OnStateUpdate() {
     }
     public override void OnStateExit() {
-        Debug.Log("Exiting Setup State");
+       // Debug.Log("Exiting Setup State");
     }
 
     public void GoToPlayer1State() {

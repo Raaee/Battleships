@@ -50,7 +50,6 @@ public class PlayerActionState : GameState {
         currentCubeCV = attackHighlightSystem.GetCurrentlyHighlighted();
         attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
         attackSelected = true;
-        Debug.Log(attackLocation);
     }
     public void SetAttackConfirmBtn() {
         if (attackSelected && !attackConfirmed) {
@@ -61,6 +60,7 @@ public class PlayerActionState : GameState {
     }
     public void EndAttackConfirm() {
         attackHighlightSystem.DisableSystem();
+        Debug.Log("before chcekc if pawn hit" + attackLocation);
         CheckIfPawnHit();
     }
     public void ConfirmAttack() {
@@ -84,7 +84,7 @@ public class PlayerActionState : GameState {
 
 
     public void ShowHitFeedback(bool hit) {
-        Debug.Log("***** Hit feedback goes here. *****");
+      //  Debug.Log("***** Hit feedback goes here. *****");
         // shows hit feedback after attacking.
 
         // flow of feedback:

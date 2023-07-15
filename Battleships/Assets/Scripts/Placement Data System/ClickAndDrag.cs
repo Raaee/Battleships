@@ -91,7 +91,7 @@ public class ClickAndDrag : MonoBehaviour
         }
         else
         {
-            Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
+          //  Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
             currentPawn.SetPlacedStatus(false);
             ResetToOriginalSpawnPosition();
             OccupyCubes(false);

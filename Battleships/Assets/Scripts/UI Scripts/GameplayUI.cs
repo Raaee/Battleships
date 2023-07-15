@@ -17,7 +17,7 @@ public class GameplayUI : MonoBehaviour {
     }
 
     public void UpdateTurnTxt() {
-        Debug.Log(currentState);
+       // Debug.Log(currentState);
         if (currentState.stateTeam == StateTeam.PLAYER) {
             whosTurnTxt.text = "Player's Turn";
         } else {

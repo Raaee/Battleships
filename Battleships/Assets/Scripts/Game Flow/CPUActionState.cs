@@ -23,10 +23,10 @@ public class CPUActionState : GameState {
     public override void OnStateEnter() {
         ChooseAttackLoc();
         CheckIfHit();
-        StartCoroutine(EndTurnAfterTime(2.5f));
+        StartCoroutine(EndTurnAfterTime(1.25f));
     }
     private IEnumerator EndTurnAfterTime(float time) {
-        Debug.Log("Waiting...");
+        //Debug.Log("Waiting...");
         yield return PeteHelper.GetWait(time);
         gameManager.ChangeState(player1AS);
     }
@@ -47,11 +47,11 @@ public class CPUActionState : GameState {
         hit = playerPlacementData.CheckIfHit(randomLocation);
 
         if (hit) {
-            Debug.Log("Enemy Hit! " + randomLocation);
+           // Debug.Log("Enemy Hit! " + randomLocation);
             currentCube.ChangeMaterialOnHitState(CubeHitState.HIT);
         }
         else {
-            Debug.Log("Enemy Missed.");
+            //Debug.Log("Enemy Missed.");
             currentCube.ChangeMaterialOnHitState(CubeHitState.MISS);
         }
 

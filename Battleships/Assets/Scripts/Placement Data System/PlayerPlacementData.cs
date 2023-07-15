@@ -125,14 +125,16 @@ public class PlayerPlacementData : MonoBehaviour
     }
     
     public bool CheckIfHit(Vector2 attackLoc) {
+        Debug.Log("The enemy chose " + attackLoc);
         bool hit = false;
-        Vector2 correctLoc = new Vector2(attackLoc.y, attackLoc.x);
+        Vector2 correctLoc = new Vector2(attackLoc.x, attackLoc.y);
 
         for (int i = 0; i < pawnsInBattle.Count; i++) {
             Pawn pawn = pawnsInBattle[i].GetComponent<Pawn>();
             for (int n = 0; n < pawn.pawnCoords.Count; n++) {
                 Vector2 pawnCoord = pawn.pawnCoords[n];
                 if (pawnCoord == correctLoc) {
+                    Debug.Log("this pawn is " + pawn.gameObject.name, pawn.gameObject);
                     hit = true;
                 }
             }

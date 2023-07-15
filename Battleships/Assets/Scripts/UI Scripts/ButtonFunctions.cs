@@ -35,7 +35,7 @@ public class ButtonFunctions : MonoBehaviour {
         
     }
     public void AttackConfirmation() {
-        Debug.Log("You have confirmed your attack location.");
+        
         OnPlayerConfirmAttack?.Invoke(); //it will confirm attack in player action state, end the attack confirm, do feeddback, and then go to the cpu (2) player sttate 
     }
 }

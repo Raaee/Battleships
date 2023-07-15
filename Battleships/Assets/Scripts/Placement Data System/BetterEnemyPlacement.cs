@@ -189,7 +189,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             return false;
     }
     public void RemovePawnCoord(Vector2 coordToRemove) {
-        Debug.Log("PAWN HIT: " + pawnHit);
+        Debug.Log("PAWN HIT the pawn coord is : " + coordToRemove);
         if (pawnHit == null) {
             Debug.Log("Pawn hit null");
             return;
