@@ -189,15 +189,20 @@ public class BetterEnemyPlacement : MonoBehaviour {
             return false;
     }
     public void RemovePawnCoord(Vector2 coordToRemove) {
-        Debug.Log("PAWN HIT the pawn coord is : " + coordToRemove);
+        
         if (pawnHit == null) {
-            Debug.Log("Pawn hit null");
             return;
         } else {
+            
             pawnHit.RemovePawnCoord(coordToRemove);
             if (pawnHit.pawnCoords.Count <= 0) {
-                pawnsInBattle.Remove(pawnHit.gameObject);
+
+                if (pawnsInBattle.Remove(pawnHit.gameObject) == false)
+                {
+                    Debug.Log("tried to remove a gameobject that doesnmt exist");
+                }
             }
+           
         }
     }
     public int GetRandomNumber(int min, int maxExclusive) {

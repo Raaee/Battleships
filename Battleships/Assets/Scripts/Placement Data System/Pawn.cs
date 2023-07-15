@@ -25,14 +25,14 @@ public class Pawn : MonoBehaviour {
         gridMan = FindObjectOfType<GridManager>();
     }
 
-    public void SetPawnCoordinates()
+    public bool SetPawnCoordinates()
     {
         List<GameObject> lastHighlightedGameobjects = potentialShipPlacement.GetLastHighlightedObjects();
 
         if (lastHighlightedGameobjects == null)
         {
             Debug.Log("theres no highlighted gameobjects dummy. most likely on the wrong grid");
-            return;
+            return false;
         }
         
         //TODO: convert the gameobjects into the specific pawncords
@@ -40,6 +40,7 @@ public class Pawn : MonoBehaviour {
         for (int i = 0; i < lastHighlightedGameobjects.Count; i++) {
             pawnCoords.Add(gridMan.GetPositionAtTile(lastHighlightedGameobjects[i]));
         }
+        return true;
     }
     public void SetPawnCoordinates(List<Vector2> newPawnCoords) {
         pawnCoords.Clear();
@@ -52,6 +53,7 @@ public class Pawn : MonoBehaviour {
         coordToRemove = new Vector2(coordToRemove.y, coordToRemove.x);
 
         if (pawnCoords.Contains(coordToRemove)) {
+            Debug.Log("actual removal of pawn");
             pawnCoords.Remove(coordToRemove);
         } else {
             Debug.Log("Pawn coord not found: " + coordToRemove);

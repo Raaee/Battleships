@@ -59,7 +59,7 @@ public class CPUActionState : GameState {
     }
 
     public void ShowHitFeedback(bool hit) {
-        Debug.Log("***** Hit feedback goes here. *****");
+       // Debug.Log("***** Hit feedback goes here. *****");
         // shows hit feedback after attacking.
 
         // flow of feedback:

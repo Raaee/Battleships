@@ -85,7 +85,11 @@ public class ClickAndDrag : MonoBehaviour
             currentPawn.SetPlacedStatus(true);
             OnPawnPlaced?.Invoke();
             playerPawnsUI.UpdateUI(currentPawn.GetPawnSize());
-            currentPawn.SetPawnCoordinates();
+            if(!currentPawn.SetPawnCoordinates())
+            {
+                ResetToOriginalSpawnPosition();
+                return;
+            }
             // gotta fix this. doesnt remove occupy when changing pawn position. only changes when dropping out of grid
             OccupyCubes(true);
         }

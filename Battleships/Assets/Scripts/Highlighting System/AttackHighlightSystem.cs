@@ -45,7 +45,10 @@ public class AttackHighlightSystem : MonoBehaviour
     }
 
     public CubeVisual GetCurrentlyHighlighted() {
-        return currentHighlightedVisual;
+        if (IsCubeInGridManager(currentHighlightedVisual))
+            return currentHighlightedVisual;
+        else
+            return null;
     }
     public Vector2 GetCurrentAttackLocation() {
         return gridManager.GetPositionAtTile(currentHighlightedVisual.gameObject);

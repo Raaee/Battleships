@@ -48,6 +48,7 @@ public class PlayerActionState : GameState {
     }
     public void SetAttackLocation() {
         currentCubeCV = attackHighlightSystem.GetCurrentlyHighlighted();
+        if (currentCubeCV == null) return; //this should happen if it tries to attack wrong gruid
         attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
         attackSelected = true;
     }
@@ -60,7 +61,7 @@ public class PlayerActionState : GameState {
     }
     public void EndAttackConfirm() {
         attackHighlightSystem.DisableSystem();
-        Debug.Log("before chcekc if pawn hit" + attackLocation);
+       // Debug.Log("before chcekc if pawn hit" + attackLocation);
         CheckIfPawnHit();
     }
     public void ConfirmAttack() {
@@ -70,12 +71,12 @@ public class PlayerActionState : GameState {
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
 
         if (pawnHit) {
-            Debug.Log("You Hit!");
+            //Debug.Log("You Hit! pete");
             currentCubeCV.ChangeMaterialOnHitState(CubeHitState.HIT);
             enemyPlacementData.RemovePawnCoord(attackLocation);
         }
         else {
-            Debug.Log("You Missed.");
+           // Debug.Log("You Missed. pete");
             currentCubeCV.ChangeMaterialOnHitState(CubeHitState.MISS);
         }
 

@@ -134,7 +134,6 @@ public class PlayerPlacementData : MonoBehaviour
             for (int n = 0; n < pawn.pawnCoords.Count; n++) {
                 Vector2 pawnCoord = pawn.pawnCoords[n];
                 if (pawnCoord == correctLoc) {
-                    Debug.Log("this pawn is " + pawn.gameObject.name, pawn.gameObject);
                     hit = true;
                 }
             }
