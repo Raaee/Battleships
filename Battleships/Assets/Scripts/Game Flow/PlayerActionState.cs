@@ -49,6 +49,7 @@ public class PlayerActionState : GameState {
     public void SetAttackLocation() {
         currentCubeCV = attackHighlightSystem.GetCurrentlyHighlighted();
         if (currentCubeCV == null) return; //this should happen if it tries to attack wrong gruid
+        currentCubeCV.ShowHitMarkerIcon();
         attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
         attackSelected = true;
     }

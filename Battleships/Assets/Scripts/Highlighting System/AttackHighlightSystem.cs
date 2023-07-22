@@ -56,4 +56,9 @@ public class AttackHighlightSystem : MonoBehaviour
     public void SetCurrentlyHighlighted(CubeVisual cv) {
         currentHighlightedVisual = cv;
     }    
+
+    public GridManager GetGridManager()
+    {
+        return gridManager;
+    }
 }
