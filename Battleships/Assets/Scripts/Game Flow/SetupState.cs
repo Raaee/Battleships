@@ -14,6 +14,8 @@ public class SetupState : GameState
     [SerializeField] private GameState player1AS;
     [SerializeField] private GameState player2AS;
 
+    [SerializeField] private GameState gameOverState;
+
     [SerializeField] private ButtonFunctions buttonFunctions;
 
 
@@ -36,9 +38,25 @@ public class SetupState : GameState
     }
 
     public void GoToPlayer1State() {
+        if(gameManager.CheckRoundForGameOver())
+        {
+            //go to game over state 
+            gameManager.ChangeState(gameOverState);
+            return;
+        }
+        
+
         gameManager.ChangeState(player1AS);
     }
     public void GoToPlayer2State() {
+
+
+        if (gameManager.CheckRoundForGameOver())
+        {
+            //go to game over state 
+            gameManager.ChangeState(gameOverState);
+            return;
+        }
         gameManager.ChangeState(player2AS);
     }
 }

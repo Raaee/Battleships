@@ -168,6 +168,11 @@ public class PlayerPlacementData : MonoBehaviour
         StartPlacement();
     }
 
+    public int GetNumOfPawnsInBattle()
+    {
+        return numPawnsInBattle;
+    }
+
 }
 
 
