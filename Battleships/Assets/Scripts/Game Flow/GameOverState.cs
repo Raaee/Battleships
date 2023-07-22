@@ -15,23 +15,22 @@ public class GameOverState : GameState
     [SerializeField] private TextMeshProUGUI gameoverText;
 
     private WinningTeam winningTeam = WinningTeam.NONE;
-    public override void OnStateEnter()
-    {
+    public override void OnStateEnter() {
         CheckWhoWon();
         ShowGameOverDisplay();
     }
 
-    public override void OnStateExit()
-    {
+    public override void OnStateExit()  {
     }
 
-    public override void OnStateUpdate()
-    {
-
+    public override void OnStateUpdate() {
 
     }
     public override void TurnComplete() {
     
+    }
+    public override IEnumerator WaitForSec(float time) {
+        yield return PeteHelper.GetWait(time);
     }
     public void CheckWhoWon()
     {

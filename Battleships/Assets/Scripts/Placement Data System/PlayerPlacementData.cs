@@ -120,7 +120,6 @@ public class PlayerPlacementData : MonoBehaviour
     }
     
     public bool CheckIfHit(Vector2 attackLoc) {
-        Debug.Log("The enemy chose " + attackLoc);
         bool hit = false;
         Vector2 correctLoc = new Vector2(attackLoc.x, attackLoc.y);
 

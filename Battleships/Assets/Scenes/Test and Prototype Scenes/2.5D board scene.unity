@@ -288,13 +288,49 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187493070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.19, y: 2.04, z: 14.98}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.914249, y: -7.260277, z: 32.812992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 231487186}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &231487185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 231487186}
+  m_Layer: 0
+  m_Name: Animation Controls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &231487186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231487185}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9158058, y: -0.640995, z: 15.18557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1254787854}
+  - {fileID: 1841981603}
+  - {fileID: 187493071}
+  - {fileID: 1567178707}
+  - {fileID: 1998250303}
+  m_Father: {fileID: 1382943595}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &234251834
 GameObject:
@@ -2596,6 +2632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateTeam: 0
+  teamSide: 0
   onTurnCompletion:
     m_PersistentCalls:
       m_Calls: []
@@ -2858,7 +2895,7 @@ GameObject:
   - component: {fileID: 1254787854}
   - component: {fileID: 1254787853}
   m_Layer: 0
-  m_Name: Anim Control
+  m_Name: P_Anim Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2882,7 +2919,9 @@ MonoBehaviour:
   DMattackSpawnLoc: {fileID: 187493070}
   LMattackSpawnLoc: {fileID: 1567178706}
   explosionSpawnLoc: {fileID: 1998250302}
+  attack: {fileID: 0}
   isAttacking: 0
+  teamSide: 0
   attackSpeed: 20
 --- !u!4 &1254787854
 Transform:
@@ -2891,13 +2930,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254787852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.11, y: 12.51, z: 9.33}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.005750656, y: 3.2097235, z: 27.162992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 231487186}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1328846344
 GameObject:
@@ -2944,6 +2983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateTeam: 0
+  teamSide: 0
   onTurnCompletion:
     m_PersistentCalls:
       m_Calls: []
@@ -3269,6 +3309,7 @@ Transform:
   - {fileID: 1170482555}
   - {fileID: 1328846345}
   - {fileID: 2046379442}
+  - {fileID: 231487186}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3725,13 +3766,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567178706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.37, y: 2.46, z: 8.6}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.265752, y: -6.8402767, z: 26.432993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 231487186}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582055528
 GameObject:
@@ -4236,6 +4277,60 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605945759311296, guid: 38250ca6626852043bdafda762d993c2, type: 3}
   m_PrefabInstance: {fileID: 6460605946156038847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1841981602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841981603}
+  - component: {fileID: 1841981604}
+  m_Layer: 0
+  m_Name: E_Anim Control
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1841981603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841981602}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.005750656, y: 3.2097235, z: 27.162992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 231487186}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841981604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841981602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a630ca0f946d2e4bb4ae80263770829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duskmareAttackPrefab: {fileID: 6388404951595145290, guid: 44d515f3a8088284eaca188657ef5226, type: 3}
+  luminidAttackPrefab: {fileID: 3640216759280618659, guid: 7ca889b46e3aed541b42e68d6a0e25ae, type: 3}
+  explosionPrefab: {fileID: 8414494400594675645, guid: 525a8bae9551ca849af1136236b89d20, type: 3}
+  DMattackSpawnLoc: {fileID: 187493070}
+  LMattackSpawnLoc: {fileID: 1567178706}
+  explosionSpawnLoc: {fileID: 1998250302}
+  attack: {fileID: 0}
+  isAttacking: 0
+  teamSide: 0
+  attackSpeed: 20
 --- !u!1 &1910607952
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,13 +4387,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998250302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.22, y: 14.65, z: 14.98}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11575127, y: 5.349723, z: 32.812992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 231487186}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998845029
 GameObject:
@@ -4646,6 +4741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateTeam: 0
+  teamSide: 0
   onTurnCompletion:
     m_PersistentCalls:
       m_Calls: []
@@ -4653,7 +4749,7 @@ MonoBehaviour:
   playerPlacementData: {fileID: 1412156058}
   playerGridMan: {fileID: 350759526}
   player1AS: {fileID: 1328846346}
-  animControl: {fileID: 1254787853}
+  animControl: {fileID: 1841981604}
 --- !u!1 &2130279750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605945386977273, guid: 38250ca6626852043bdafda762d993c2, type: 3}

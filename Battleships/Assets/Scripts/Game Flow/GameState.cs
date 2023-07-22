@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public abstract class GameState : MonoBehaviour {
 
     [HideInInspector] public StateTeam stateTeam;
+    [HideInInspector] public TeamSide teamSide;
     [HideInInspector] public UnityEvent onTurnCompletion;
 
     [SerializeField] protected GameManager gameManager;
@@ -18,10 +19,15 @@ public abstract class GameState : MonoBehaviour {
     public abstract void OnStateUpdate();
     public abstract void OnStateExit();
     public abstract void TurnComplete();
-
+    public abstract IEnumerator WaitForSec(float time);
 }
 public enum StateTeam {
     NONE,
     PLAYER,
     ENEMY
+}
+public enum TeamSide {
+    NONE,
+    DUSKMARE,
+    LUMINID
 }

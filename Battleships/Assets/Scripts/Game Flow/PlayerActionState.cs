@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
 /// The state for the player's turn
@@ -16,11 +17,12 @@ public class PlayerActionState : GameState {
 
     [SerializeField] private BetterEnemyPlacement enemyPlacementData;
     [SerializeField] PlayerPlacementData playerPlacementData;
-    [SerializeField] private AnimationControl animControl;
+    [SerializeField] private PlayerAnimationControl animControl;
     private bool pawnHit = false;
     void Awake() {
         base.Awake();
         stateTeam = StateTeam.PLAYER;
+        teamSide = TeamSide.DUSKMARE; // DEFAULT: (change this value depending on what the player chooses in main menu)
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);
@@ -96,12 +98,17 @@ public class PlayerActionState : GameState {
         // after few seconds, anim of projectile going down from above, ON the cube that was selected
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
-        Debug.Log("HIT FEEDBACK");
-        animControl.StartAttack(currentCubeCV.gameObject, StateTeam.PLAYER);
-      //  TurnComplete();
+        animControl.StartAttack(currentCubeCV.gameObject);
+        StartCoroutine(WaitForSec(3.5f));
     }
+   
     public override void TurnComplete() {
         onTurnCompletion?.Invoke();
+    }
+
+    public override IEnumerator WaitForSec(float time) {
+        yield return PeteHelper.GetWait(time);
+        TurnComplete();
     }
 
     /* player 1

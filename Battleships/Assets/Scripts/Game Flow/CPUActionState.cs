@@ -14,22 +14,26 @@ public class CPUActionState : GameState {
     private bool hit = false;
 
     [SerializeField] private GameState player1AS;
-    [SerializeField] private AnimationControl animControl;
+    [SerializeField] private EnemyAnimationControl animControl;
 
     void Awake() {
         base.Awake();
         stateTeam = StateTeam.ENEMY;
+        teamSide = TeamSide.LUMINID; // DEFAULT: (change this value depending on what the player DOESN'T choose in main menu)
     }
-   
+
     public override void OnStateEnter() {
         ChooseAttackLoc();
         CheckIfHit();
-        StartCoroutine(EndTurnAfterTime(1.25f));
+        EndTurnAfterTime(1.25f);
     }
-    private IEnumerator EndTurnAfterTime(float time) {
+    public override IEnumerator WaitForSec(float time) {
         Debug.Log("Waiting...");
         yield return PeteHelper.GetWait(time);
         gameManager.ChangeState(player1AS);
+    }
+    public void EndTurnAfterTime(float time) {
+        StartCoroutine(WaitForSec(time));
     }
 
     public override void OnStateUpdate() {
@@ -72,8 +76,8 @@ public class CPUActionState : GameState {
         // after few seconds, anim of projectile going down from above, ON the cube that was selected
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
-        
-        animControl.StartAttack(currentCube.gameObject, StateTeam.ENEMY);
+        Debug.Log("*********** Current Cube: " + currentCube);
+        animControl.StartAttack(currentCube.gameObject);
     }
 
 

@@ -23,8 +23,8 @@ public class SetupState : GameState
     {
         base.Awake();
         buttonFunctions.OnPlayerConfirmPlacement.AddListener(GoToPlayer1State);
-       // player1AS.onTurnCompletion.AddListener(GoToPlayer2State);
-        buttonFunctions.OnPlayerConfirmAttack.AddListener(GoToPlayer2State);
+        player1AS.onTurnCompletion.AddListener(GoToPlayer2State);
+       // buttonFunctions.OnPlayerConfirmAttack.AddListener(GoToPlayer2State);
     }
     public override void OnStateEnter() {
         playerGM.GenerateGrid();
@@ -40,6 +40,9 @@ public class SetupState : GameState
     public override void TurnComplete() {
     
     }
+    public override IEnumerator WaitForSec(float time) {
+        yield return PeteHelper.GetWait(time);
+    }
 
     public void GoToPlayer1State() {
         if(gameManager.CheckRoundForGameOver())
@@ -53,8 +56,6 @@ public class SetupState : GameState
         gameManager.ChangeState(player1AS);
     }
     public void GoToPlayer2State() {
-
-
         if (gameManager.CheckRoundForGameOver())
         {
             //go to game over state 
