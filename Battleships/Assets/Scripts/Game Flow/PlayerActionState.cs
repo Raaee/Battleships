@@ -16,6 +16,7 @@ public class PlayerActionState : GameState {
     [SerializeField] private Button attackConfirmBtn;
 
     [SerializeField] private BetterEnemyPlacement enemyPlacementData;
+    [SerializeField] private AnimationControl animControl;
     private bool pawnHit = false;
 
     void Awake() {
@@ -67,6 +68,7 @@ public class PlayerActionState : GameState {
     }
     public void ConfirmAttack() {
         attackConfirmed = true;
+        animControl.StartAttack(currentCubeCV.gameObject, StateTeam.PLAYER);
     }
     public void CheckIfPawnHit() {
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
