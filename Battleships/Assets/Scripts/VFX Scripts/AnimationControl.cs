@@ -3,43 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationControl : MonoBehaviour   {
-    [SerializeField] GameObject duskmareAttack;
-    [SerializeField] GameObject luminidAttack;
+    [SerializeField] GameObject duskmareAttackPrefab;
+    [SerializeField] GameObject luminidAttackPrefab;
     [SerializeField] GameObject attackSpawnLoc;
     private GameObject attack;
-    public GameObject at;
+    public GameObject randomDebugObj;
 
     [SerializeField] private Transform target;
-    [SerializeField] private float speed = 1;
+    [SerializeField] private float speed = 110;
     private bool isAttacking = false;
 
+    private GameObject duskmareSpawn;
+
     private void Start() {
-        Instantiate(duskmareAttack, attackSpawnLoc.transform.position, Quaternion.identity);
-      //  Instantiate(luminidAttack, attackSpawnLoc.transform.position, Quaternion.identity);
+        duskmareSpawn = Instantiate(duskmareAttackPrefab, attackSpawnLoc.transform.position, Quaternion.identity);
     }
     void Update() {
+     
        // if (isAttacking) {
             float step = speed * Time.deltaTime;
-        Debug.Log(step);
-        duskmareAttack.transform.position = Vector3.MoveTowards(attackSpawnLoc.transform.position, at.transform.position, step);
-        Debug.Log(duskmareAttack.transform.position);
-       // }
-      /*  if (attack.transform.position == target.transform.position) {
-            isAttacking = false;
-            attack.transform.position = attackSpawnLoc.transform.position;
-            Debug.Log("EXPLOSION!!!!!");
-       }*/
+        duskmareSpawn.transform.position = Vector3.MoveTowards(duskmareSpawn.transform.position, randomDebugObj.transform.position, step);
+       
+        // }
+        /*  if (attack.transform.position == target.transform.position) {
+              isAttacking = false;
+              attack.transform.position = attackSpawnLoc.transform.position;
+              Debug.Log("EXPLOSION!!!!!");
+         }*/
     }
 
     public void StartAttack(GameObject attackLoc, StateTeam team) {
-        Debug.Log("Starting Attack!");
-        target = at.transform;
+        target = randomDebugObj.transform;
         if (team == StateTeam.PLAYER) {
-            attack = duskmareAttack;
+            attack = duskmareAttackPrefab;
         } else if (team == StateTeam.ENEMY) {
-            attack = luminidAttack;
+            attack = luminidAttackPrefab;
         }
         isAttacking = true;
     }
    
 }
+//Pete waS HERE 

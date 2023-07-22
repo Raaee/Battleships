@@ -68,7 +68,7 @@ public class PlayerActionState : GameState {
     }
     public void ConfirmAttack() {
         attackConfirmed = true;
-        animControl.StartAttack(currentCubeCV.gameObject, StateTeam.PLAYER);
+        //animControl.StartAttack(currentCubeCV.gameObject, StateTeam.PLAYER);
     }
     public void CheckIfPawnHit() {
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
