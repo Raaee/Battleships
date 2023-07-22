@@ -20,6 +20,8 @@ public class CubeVisual : MonoBehaviour
     [SerializeField] private Material currentMat;
 
     [SerializeField] private Transform cubeMidpoint;
+    [SerializeField] private GameObject hitmarkerIcon;
+
     
     private bool isOccupied;
 
@@ -34,6 +36,7 @@ public class CubeVisual : MonoBehaviour
         GetComponent<Renderer>().material = originalMaterial;
         currentMat = originalMaterial;
         inputData = FindObjectOfType<InputData>();
+        HideHitMarkerIcon();
     }   
 
     private void OnMouseEnter()
@@ -58,7 +61,25 @@ public class CubeVisual : MonoBehaviour
     public void ShowHighlight(Material newMaterial) {
         GetComponent<Renderer>().material = newMaterial;
     }
-    
+
+    public void ShowHitMarkerIcon()
+    {
+        Debug.Log("showy time!");
+        if (hitmarkerIcon == null) return;
+        var allTiles = attackHighlightSystem.GetGridManager().GetTiles();
+        foreach (var cv in allTiles)
+        {
+            cv.Value.gameObject.GetComponent<CubeVisual>().HideHitMarkerIcon();
+        }
+        hitmarkerIcon.gameObject.SetActive(true);
+    }
+    public void HideHitMarkerIcon()
+    {
+        if (hitmarkerIcon == null) return;
+
+        hitmarkerIcon?.gameObject.SetActive(false);
+    }
+
     public void HideHighlight() {
        // Debug.Log("back to normal dummy ");
         GetComponent<Renderer>().material = currentMat;
