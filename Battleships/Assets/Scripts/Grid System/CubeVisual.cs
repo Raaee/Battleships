@@ -64,7 +64,6 @@ public class CubeVisual : MonoBehaviour
 
     public void ShowHitMarkerIcon()
     {
-        Debug.Log("showy time!");
         if (hitmarkerIcon == null) return;
         var allTiles = attackHighlightSystem.GetGridManager().GetTiles();
         foreach (var cv in allTiles)

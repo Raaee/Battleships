@@ -205,6 +205,11 @@ public class BetterEnemyPlacement : MonoBehaviour {
            
         }
     }
+
+    public int GetNumOfPawnsInBattle()
+    {
+        return numPawnsInBattle;
+    }
     public int GetRandomNumber(int min, int maxExclusive) {
         return Random.Range(min, maxExclusive);
     }
