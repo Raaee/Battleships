@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 187493071}
   m_Layer: 0
-  m_Name: Attack Spawn Loc
+  m_Name: Duskmare Attk Spawn Loc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,14 +288,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187493070}
-  m_LocalRotation: {x: 0.16532923, y: 0.12078166, z: -0.0063239103, w: 0.9787943}
-  m_LocalPosition: {x: 25.43, y: 4.01, z: 9.33}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.19, y: 2.04, z: 14.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 18.976, y: 14.348, z: 1.67}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &234251834
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 573}
+  m_AnchoredPosition: {x: -244, y: 644}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323021780
@@ -1155,37 +1155,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2000926589}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &698302728
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 698302729}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &698302729
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698302728}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.72, y: 124, z: -65.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718991131
 GameObject:
@@ -2497,7 +2466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -97, y: 294}
+  m_AnchoredPosition: {x: -340, y: 294}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138822234
@@ -2627,6 +2596,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateTeam: 0
+  onTurnCompletion:
+    m_PersistentCalls:
+      m_Calls: []
   gameManager: {fileID: 1382943594}
   playerGM: {fileID: 350759526}
   EnemyGM: {fileID: 2015051422}
@@ -2906,10 +2878,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duskmareAttackPrefab: {fileID: 6388404951595145290, guid: 44d515f3a8088284eaca188657ef5226, type: 3}
   luminidAttackPrefab: {fileID: 3640216759280618659, guid: 7ca889b46e3aed541b42e68d6a0e25ae, type: 3}
-  attackSpawnLoc: {fileID: 187493070}
-  randomDebugObj: {fileID: 698302728}
-  target: {fileID: 0}
-  speed: 2
+  explosionPrefab: {fileID: 8414494400594675645, guid: 525a8bae9551ca849af1136236b89d20, type: 3}
+  DMattackSpawnLoc: {fileID: 187493070}
+  LMattackSpawnLoc: {fileID: 1567178706}
+  explosionSpawnLoc: {fileID: 1998250302}
+  isAttacking: 0
+  attackSpeed: 20
 --- !u!4 &1254787854
 Transform:
   m_ObjectHideFlags: 0
@@ -2918,7 +2892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254787852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.43, y: 4.01, z: 9.33}
+  m_LocalPosition: {x: 12.11, y: 12.51, z: 9.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2970,10 +2944,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateTeam: 0
+  onTurnCompletion:
+    m_PersistentCalls:
+      m_Calls: []
   gameManager: {fileID: 0}
   attackConfirmBtn: {fileID: 992496995}
   enemyPlacementData: {fileID: 1998845031}
-  animControl: {fileID: 0}
+  playerPlacementData: {fileID: 1412156058}
+  animControl: {fileID: 1254787853}
 --- !u!1 &1343984737
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,7 +3387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 347}
+  m_AnchoredPosition: {x: -270, y: 399}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1520760640
@@ -3724,6 +3702,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605944938805783, guid: 38250ca6626852043bdafda762d993c2, type: 3}
   m_PrefabInstance: {fileID: 6460605946156038847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1567178706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567178707}
+  m_Layer: 0
+  m_Name: Luminid Attk Spawn Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1567178707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567178706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.37, y: 2.46, z: 8.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582055528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4260,6 +4269,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1998250302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1998250303}
+  m_Layer: 0
+  m_Name: Explosion Spawn Loc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1998250303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998250302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.22, y: 14.65, z: 14.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998845029
 GameObject:
   m_ObjectHideFlags: 0
@@ -4606,10 +4646,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateTeam: 0
+  onTurnCompletion:
+    m_PersistentCalls:
+      m_Calls: []
   gameManager: {fileID: 0}
   playerPlacementData: {fileID: 1412156058}
   playerGridMan: {fileID: 350759526}
   player1AS: {fileID: 1328846346}
+  animControl: {fileID: 1254787853}
 --- !u!1 &2130279750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6460605945386977273, guid: 38250ca6626852043bdafda762d993c2, type: 3}

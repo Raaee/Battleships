@@ -13,7 +13,8 @@ public class CPUActionState : GameState {
     [SerializeField] GridManager playerGridMan;
     private bool hit = false;
 
-    [SerializeField] private GameState player1AS; 
+    [SerializeField] private GameState player1AS;
+    [SerializeField] private AnimationControl animControl;
 
     void Awake() {
         base.Awake();
@@ -26,7 +27,7 @@ public class CPUActionState : GameState {
         StartCoroutine(EndTurnAfterTime(1.25f));
     }
     private IEnumerator EndTurnAfterTime(float time) {
-        //Debug.Log("Waiting...");
+        Debug.Log("Waiting...");
         yield return PeteHelper.GetWait(time);
         gameManager.ChangeState(player1AS);
     }
@@ -37,7 +38,9 @@ public class CPUActionState : GameState {
     public override void OnStateExit() {
 
     }
-
+    public override void TurnComplete() {
+    
+    }
 
     public void ChooseAttackLoc() {
         randomLocation = FindObjectOfType<BetterEnemyPlacement>().GetRandomVector2(0, 10, 0, 10);
@@ -59,7 +62,7 @@ public class CPUActionState : GameState {
     }
 
     public void ShowHitFeedback(bool hit) {
-       // Debug.Log("***** Hit feedback goes here. *****");
+        // Debug.Log("***** Hit feedback goes here. *****");
         // shows hit feedback after attacking.
 
         // flow of feedback:
@@ -69,6 +72,8 @@ public class CPUActionState : GameState {
         // after few seconds, anim of projectile going down from above, ON the cube that was selected
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
+        
+        animControl.StartAttack(currentCube.gameObject, StateTeam.ENEMY);
     }
 
 

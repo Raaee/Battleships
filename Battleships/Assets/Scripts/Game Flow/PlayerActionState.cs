@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
 /// The state for the player's turn
@@ -16,9 +15,9 @@ public class PlayerActionState : GameState {
     [SerializeField] private Button attackConfirmBtn;
 
     [SerializeField] private BetterEnemyPlacement enemyPlacementData;
+    [SerializeField] PlayerPlacementData playerPlacementData;
     [SerializeField] private AnimationControl animControl;
     private bool pawnHit = false;
-
     void Awake() {
         base.Awake();
         stateTeam = StateTeam.PLAYER;
@@ -61,14 +60,13 @@ public class PlayerActionState : GameState {
             attackConfirmBtn.gameObject.SetActive(false);
         }
     }
-    public void EndAttackConfirm() {
-        attackHighlightSystem.DisableSystem();
-       // Debug.Log("before chcekc if pawn hit" + attackLocation);
-        CheckIfPawnHit();
-    }
     public void ConfirmAttack() {
         attackConfirmed = true;
-        //animControl.StartAttack(currentCubeCV.gameObject, StateTeam.PLAYER);
+    }
+    public void EndAttackConfirm() {
+        attackHighlightSystem.DisableSystem();
+        // Debug.Log("before chcekc if pawn hit" + attackLocation);
+        CheckIfPawnHit();
     }
     public void CheckIfPawnHit() {
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
@@ -88,7 +86,7 @@ public class PlayerActionState : GameState {
 
 
     public void ShowHitFeedback(bool hit) {
-      //  Debug.Log("***** Hit feedback goes here. *****");
+        //  Debug.Log("***** Hit feedback goes here. *****");
         // shows hit feedback after attacking.
 
         // flow of feedback:
@@ -98,6 +96,12 @@ public class PlayerActionState : GameState {
         // after few seconds, anim of projectile going down from above, ON the cube that was selected
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
+        Debug.Log("HIT FEEDBACK");
+        animControl.StartAttack(currentCubeCV.gameObject, StateTeam.PLAYER);
+      //  TurnComplete();
+    }
+    public override void TurnComplete() {
+        onTurnCompletion?.Invoke();
     }
 
     /* player 1

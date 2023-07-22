@@ -30,6 +30,9 @@ public class GameOverState : GameState
 
 
     }
+    public override void TurnComplete() {
+    
+    }
     public void CheckWhoWon()
     {
         if (enemyPD.GetNumOfPawnsInBattle() <= 0)

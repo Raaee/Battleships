@@ -34,6 +34,7 @@ public class ButtonFunctions : MonoBehaviour {
             Destroy(placementConfirmedButton);
         
     }
+    // This method is attached to the attack button:
     public void AttackConfirmation() {
         
         OnPlayerConfirmAttack?.Invoke(); //it will confirm attack in player action state, end the attack confirm, do feeddback, and then go to the cpu (2) player sttate 

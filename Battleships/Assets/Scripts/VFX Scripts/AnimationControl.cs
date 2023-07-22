@@ -5,42 +5,60 @@ using UnityEngine;
 public class AnimationControl : MonoBehaviour   {
     [SerializeField] GameObject duskmareAttackPrefab;
     [SerializeField] GameObject luminidAttackPrefab;
-    [SerializeField] GameObject attackSpawnLoc;
+    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] GameObject DMattackSpawnLoc;
+    [SerializeField] GameObject LMattackSpawnLoc;
+    [SerializeField] GameObject explosionSpawnLoc;
     private GameObject attack;
-    public GameObject randomDebugObj;
+    private GameObject attackSpawnLoc;
 
-    [SerializeField] private Transform target;
-    [SerializeField] private float speed = 110;
-    private bool isAttacking = false;
+    private Transform target;
+    [HideInInspector] public bool isAttacking = false;
 
-    private GameObject duskmareSpawn;
+    private GameObject duskmareAttack;
+    private GameObject luminidAttack;
+    private GameObject explosion;
+
+    [SerializeField] private float attackSpeed = 20;
+
 
     private void Start() {
-        duskmareSpawn = Instantiate(duskmareAttackPrefab, attackSpawnLoc.transform.position, Quaternion.identity);
+        duskmareAttack = Instantiate(duskmareAttackPrefab, DMattackSpawnLoc.transform.position, Quaternion.identity);
+        luminidAttack = Instantiate(luminidAttackPrefab, LMattackSpawnLoc.transform.position, Quaternion.identity);
+        explosion = Instantiate(explosionPrefab, explosionSpawnLoc.transform.position, Quaternion.identity);
     }
     void Update() {
-     
-       // if (isAttacking) {
-            float step = speed * Time.deltaTime;
-        duskmareSpawn.transform.position = Vector3.MoveTowards(duskmareSpawn.transform.position, randomDebugObj.transform.position, step);
-       
-        // }
-        /*  if (attack.transform.position == target.transform.position) {
-              isAttacking = false;
-              attack.transform.position = attackSpawnLoc.transform.position;
-              Debug.Log("EXPLOSION!!!!!");
-         }*/
+       if (isAttacking) {
+            float step = attackSpeed * Time.deltaTime;
+            attack.transform.position = Vector3.MoveTowards(attack.transform.position, target.transform.position, step);
+           
+            if (attack.transform.position == target.transform.position) {
+                isAttacking = false;
+                attack.transform.position = attackSpawnLoc.transform.position;
+                explosion.transform.position = target.position;
+                Debug.Log("EXPLOSION!!!!!");
+                StartCoroutine(RemoveExplosionAfterTime(1.5f));
+            }
+       }       
     }
 
     public void StartAttack(GameObject attackLoc, StateTeam team) {
-        target = randomDebugObj.transform;
+        target = attackLoc.transform;
+        Debug.Log(team);
         if (team == StateTeam.PLAYER) {
-            attack = duskmareAttackPrefab;
+            attack = duskmareAttack;
+            attackSpawnLoc = DMattackSpawnLoc;
         } else if (team == StateTeam.ENEMY) {
-            attack = luminidAttackPrefab;
+            attack = luminidAttack;
+            attackSpawnLoc = LMattackSpawnLoc;
         }
         isAttacking = true;
     }
-   
+    private IEnumerator RemoveExplosionAfterTime(float time) {
+        yield return PeteHelper.GetWait(time); 
+        explosion.transform.position = explosionSpawnLoc.transform.position;
+        Debug.Log("RESTING EXPLOSION");
+    }
+
 }
 //Pete waS HERE 
