@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class AnimationControl : MonoBehaviour {
 
+    [Header("Generals' Animation Stuff:")]
     [SerializeField] protected GameObject duskmareAttackPrefab;
     [SerializeField] protected GameObject luminidAttackPrefab;
     [SerializeField] protected GameObject explosionPrefab;

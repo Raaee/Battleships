@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0040951446, g: 0.00022411313, b: 0.00000005751383, a: 1}
+  m_IndirectSpecularColor: {r: 0.0040951404, g: 0.00022411294, b: 0.00000005751383, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 245135487}
   - component: {fileID: 245135486}
   - component: {fileID: 245135485}
+  - component: {fileID: 245135489}
   m_Layer: 5
   m_Name: teamSelect Canvas
   m_TagString: Untagged
@@ -859,6 +860,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &245135489
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245135484}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &262608715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,6 +3856,7 @@ GameObject:
   - component: {fileID: 1948961295}
   - component: {fileID: 1948961294}
   - component: {fileID: 1948961293}
+  - component: {fileID: 1948961297}
   m_Layer: 5
   m_Name: MM canvas
   m_TagString: Untagged
@@ -3936,6 +3950,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1948961297
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948961292}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2069156100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,6 +4146,7 @@ MonoBehaviour:
   sceneControl: {fileID: 562565699}
   title: {fileID: 1530946433}
   pressPlayText: {fileID: 1779479471}
+  mainMenuGroup: {fileID: 1948961297}
   buttonsPanel: {fileID: 550882355}
   settingsPanel: {fileID: 619276251}
   teamSelectPanel: {fileID: 245135484}

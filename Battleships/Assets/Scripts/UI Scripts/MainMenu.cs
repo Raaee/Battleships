@@ -9,10 +9,12 @@ public class MainMenu : MonoBehaviour   {
 
     [SerializeField] TMP_Text title;
     [SerializeField] TMP_Text pressPlayText;
+    [SerializeField] CanvasGroup mainMenuGroup;
     [SerializeField] GameObject buttonsPanel;
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject teamSelectPanel;
 
+    private bool fading = false;
 
     private void Start() {
         StartMainMenu();
@@ -34,6 +36,15 @@ public class MainMenu : MonoBehaviour   {
                 OpenButtonsMenu();
             }
         }
+        if (fading) {
+            if (mainMenuGroup.alpha > 0) {
+                mainMenuGroup.alpha -= Time.deltaTime;
+                if (mainMenuGroup.alpha == 0) {
+                    fading = false;
+                    sceneControl.ChangeScene(Scene.GAME);
+                }
+            }
+        }
     }
     public void DisablePressPlay() {
         pressPlayText.enabled = false;
@@ -46,9 +57,7 @@ public class MainMenu : MonoBehaviour   {
         buttonsPanel.SetActive(true);
     }
     public void StartGame() {
-        title.enabled = false;
-        CloseButtonsMenu();
-        teamSelectPanel.SetActive(true);
+        fading = true;
         // this starts the game. going to the team selection first
     }
     public void QuitGame() {
@@ -68,6 +77,5 @@ public class MainMenu : MonoBehaviour   {
 }
 public enum OnPanel {
     MAIN_MENU,
-    BUTTONS,
-    SETTINGS
+    BUTTONS
 }
