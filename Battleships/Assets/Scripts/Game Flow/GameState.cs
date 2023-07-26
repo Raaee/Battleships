@@ -7,6 +7,9 @@ using UnityEngine.Events;
 /// </summary>
 public abstract class GameState : MonoBehaviour {
 
+    //why hide in inspector? 
+    //does every state have a reason to use these variables?  if not then only use it for specific states
+    //who the fk has access to the game camera?
     [HideInInspector] public StateTeam stateTeam;
     [HideInInspector] public TeamSide teamSide;
     [HideInInspector] public UnityEvent onTurnCompletion;

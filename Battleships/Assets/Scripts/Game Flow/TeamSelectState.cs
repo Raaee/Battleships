@@ -5,7 +5,7 @@ using UnityEngine;
 public class TeamSelectState : GameState    {
 
     [SerializeField] CanvasGroup teamSelectPanel;
-    private TeamSide teamSide;
+    //private TeamSide teamSide;
     private bool fading = false;
     private bool teamSelected = false;
 

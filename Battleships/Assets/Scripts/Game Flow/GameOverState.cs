@@ -69,10 +69,10 @@ public class GameOverState : GameState
         switch (winningTeam)
         {
             case WinningTeam.PLAYERWON:
-                gameoverText.text = "YEAAAA DUSKMARES BIG WWWWWWWWWWWWWWWWW";
+                gameoverText.text += "\n YEAAAA DUSKMARES BIG W";
                 break;
             case WinningTeam.ENEMYWON:
-                gameoverText.text = "dang... duskmares kinda mid. go luminids";
+                gameoverText.text += "\n  go luminids";
                 break;
         }
 

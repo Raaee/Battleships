@@ -7,9 +7,7 @@ using UnityEngine;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    [Header("Cameras")]
-    [SerializeField] private Camera startingCamera;
-    [SerializeField] private Camera gameCamera;
+   
 
     [Header("Game Components")]
     [SerializeField] private BetterEnemyPlacement enemyPD;
@@ -24,19 +22,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake() {
         currentState = initialState;
-        gameCamera.enabled = false;
     }
-    public void MoveToCam(Camera cam) {
-        if (cam == startingCamera) {
-            gameCamera.enabled = false;
-            startingCamera.enabled = true;
-        }
-        else if (cam == gameCamera) {
-            startingCamera.enabled = false;
-            gameCamera.enabled = true;
-        }
-    }
-
+   
     private void Start()
     {
         initialState.OnStateEnter();
