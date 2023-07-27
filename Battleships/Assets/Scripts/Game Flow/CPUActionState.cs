@@ -16,6 +16,8 @@ public class CPUActionState : GameState {
     [SerializeField] private GameState player1AS;
     [SerializeField] private EnemyAnimationControl animControl;
 
+    [SerializeReference] private IEnemyAI enemyAI;
+
     void Awake() {
         base.Awake();
         stateTeam = StateTeam.ENEMY;
@@ -25,7 +27,7 @@ public class CPUActionState : GameState {
     public override void OnStateEnter() {
         ChooseAttackLoc();
         CheckIfHit();
-        EndTurnAfterTime(1.25f);
+        EndTurnAfterTime(0.625f);
     }
     public override IEnumerator WaitForSec(float time) {
         Debug.Log("Waiting...");
@@ -47,18 +49,23 @@ public class CPUActionState : GameState {
     }
 
     public void ChooseAttackLoc() {
-        randomLocation = FindObjectOfType<BetterEnemyPlacement>().GetRandomVector2(0, 10, 0, 10);
+        // randomLocation = FindObjectOfType<BetterEnemyPlacement>().GetRandomVector2(0, 10, 0, 10);
+        randomLocation = enemyAI.DetermineNextLocation();
         currentCube = playerGridMan.GetTileAtPosition(randomLocation).GetComponent<CubeVisual>();
     }
     public void CheckIfHit() {
         hit = playerPlacementData.CheckIfHit(randomLocation);
 
         if (hit) {
-           // Debug.Log("Enemy Hit! " + randomLocation);
+            // Debug.Log("Enemy Hit! " + randomLocation);
+            Debug.Log("big hit bruv ");
+
             currentCube.ChangeMaterialOnHitState(CubeHitState.HIT);
         }
-        else {
+        else
+        {
             //Debug.Log("Enemy Missed.");
+
             currentCube.ChangeMaterialOnHitState(CubeHitState.MISS);
         }
 

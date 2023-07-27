@@ -116,6 +116,11 @@ public class CubeVisual : MonoBehaviour
         }
         GetComponent<Renderer>().material = currentMat;
     }
+
+    public CubeHitState GetCubeHitState()
+    {
+        return cubeHitState;
+    }
 }
 
 public enum CubeHitState {

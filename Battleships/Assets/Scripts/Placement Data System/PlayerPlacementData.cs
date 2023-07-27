@@ -119,6 +119,7 @@ public class PlayerPlacementData : MonoBehaviour
         return placementConfirmed;
     }
     
+    //we are checking if the attack locattion matches up with a currently alive pawn coordinate
     public bool CheckIfHit(Vector2 attackLoc) {
         bool hit = false;
         Vector2 correctLoc = new Vector2(attackLoc.x, attackLoc.y);
