@@ -18,7 +18,7 @@ public class EnemyAnimationControl : AnimationControl   {
                 attack.transform.position = attackSpawnLoc.transform.position;
                 explosion.transform.position = target.position;
                 Debug.Log("EXPLOSION!!!!!");
-                FindObjectOfType<CameraShake>().shakeDuration = 0.5f;
+                FindObjectOfType<CameraShake>().shakeDuration = cameraShakeDuration;
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
        }       

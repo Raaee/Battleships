@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerPlacementData playerPD;
     [SerializeField] private GameState initialState;
     [SerializeField] private GameplayUI gameplayUI;
-    [SerializeField] int maximumRounds = 50;
+    [SerializeField] int maximumRounds = 29;
  
     [Header("Debug")]
     [SerializeField] private GameState currentState;
@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
         currentState.OnStateExit();
         currentState = newState;
         currentState.OnStateEnter();
-       
         UpdateUI();
     }
 

@@ -11,6 +11,7 @@ public abstract class AnimationControl : MonoBehaviour {
     [SerializeField] protected GameObject DMattackSpawnLoc;
     [SerializeField] protected GameObject LMattackSpawnLoc;
     [SerializeField] protected GameObject explosionSpawnLoc;
+    [SerializeField] protected float cameraShakeDuration = 0.25f;
 
     public GameObject attack;
     protected GameObject attackSpawnLoc;

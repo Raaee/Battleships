@@ -25,7 +25,7 @@ public class GameplayUI : MonoBehaviour {
         }
     }
     public void UpdateRoundNum(int roundNum, int maxRounds) {
-        currentRoundTxt.text = "Round " + roundNum + " / " + maxRounds;
+        currentRoundTxt.text = "Round " + roundNum + " / " + (maxRounds+1);
     }
 
     public void UpdateShipsRemainTxt(int amtShips) {
