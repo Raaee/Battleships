@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0040951404, g: 0.00022411294, b: 0.00000005751383, a: 1}
+  m_IndirectSpecularColor: {r: 0.0040951446, g: 0.00022411313, b: 0.00000005751383, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2785,7 +2785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Darknlyte
+  m_text: DaRkNlytE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
   m_sharedMaterial: {fileID: 9175482970496519690, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
@@ -4004,7 +4004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Darknlyte
+  m_text: DaRkNlytE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
   m_sharedMaterial: {fileID: 9175482970496519690, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
