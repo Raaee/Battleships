@@ -45,6 +45,7 @@ public abstract class AnimationControl : MonoBehaviour {
     }
     public IEnumerator RemoveExplosionAfterTime(float time) {
         yield return PeteHelper.GetWait(time);
+       
         explosion.transform.position = explosionSpawnLoc.transform.position;
         Debug.Log("RESTING EXPLOSION");
     }

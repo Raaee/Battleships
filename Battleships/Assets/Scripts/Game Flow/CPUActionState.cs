@@ -16,7 +16,7 @@ public class CPUActionState : GameState {
     [SerializeField] private GameState player1AS;
     [SerializeField] private EnemyAnimationControl animControl;
 
-    [SerializeReference] private IEnemyAI enemyAI;
+    [SerializeField] private IEnemyAI enemyAI;
 
     void Awake() {
         base.Awake();

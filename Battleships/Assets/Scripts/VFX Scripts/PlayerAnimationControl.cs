@@ -18,6 +18,7 @@ public class PlayerAnimationControl : AnimationControl   {
                 isAttacking = false;
                 attack.transform.position = attackSpawnLoc.transform.position;
                 explosion.transform.position = target.position;
+                FindObjectOfType<CameraShake>().shakeDuration = 0.5f;
                 Debug.Log("EXPLOSION!!!!!");
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
