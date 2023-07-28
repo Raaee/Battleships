@@ -141,7 +141,6 @@ public class BetterEnemyPlacement : MonoBehaviour {
     // method that calls OccupyCoords AND places the pawns in the correct spots:
     private void PlacePawn(Vector2 pos, GameObject pawn) {
         pawn.GetComponent<PawnVisual>().ChangePawnVisual(pawnOrientation);
-        Debug.Log("pawn orientatoin is " + pawnOrientation + ". and pos is " + pos);
         if (pawnOrientation == PawnOrientation.HORIZONTAL) {
             SetOccupyCoords(pos.x, pos.y, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
         } else {
@@ -162,7 +161,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 tile = enemyGridManager.GetTileAtPosition(new Vector2(n, i));
                 tile.GetComponent<CubeVisual>().SetIsOccupied(true);
                 pCoords.Add(enemyGridManager.GetPositionAtTile(tile));
-                Debug.Log(n + ", " + i + " is the vector 2 that will be set to occupied");
+               // Debug.Log(n + ", " + i + " is the vector 2 that will be set to occupied");
             }
         }
         else
@@ -172,10 +171,12 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 tile = enemyGridManager.GetTileAtPosition(new Vector2(i, o));
                 tile.GetComponent<CubeVisual>().SetIsOccupied(true);
                 pCoords.Add(enemyGridManager.GetPositionAtTile(tile));
-                Debug.Log(i + ", " + o + " is the vector 2 that will be set to occupied");
+               // Debug.Log(i + ", " + o + " is the vector 2 that will be set to occupied");
             }
         }
         pawn.GetComponent<Pawn>().SetPawnCoordinates(pCoords);
+      
+
         /*
                 for (int i = (int)n; i < n + pawnSize; i++) {
                     if (pawnOrientation == PawnOrientation.HORIZONTAL) {
@@ -221,12 +222,13 @@ public class BetterEnemyPlacement : MonoBehaviour {
     
     public bool CheckIfHit(Vector2 attackLoc) {
         bool hit = false;
-        Vector2 correctLoc = new Vector2(attackLoc.y, attackLoc.x);
+        Vector2 correctLoc = new Vector2(attackLoc.x, attackLoc.y);
 
         for (int i = 0; i < pawnsInBattle.Count; i++) {
             Pawn pawn = pawnsInBattle[i].GetComponent<Pawn>();
             for (int n = 0; n < pawn.pawnCoords.Count; n++) {
                 Vector2 pawnCoord = pawn.pawnCoords[n];
+                Debug.Log("correct Loc is " + correctLoc + ". pawn coords is " + pawnCoord);
                 if (pawnCoord == correctLoc) {
                     hit = true;
                     pawnHit = pawn;
@@ -243,7 +245,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
         if (pawnHit == null) {
             return;
         } else {
-            pawnsInBattle.Remove(pawnHit.gameObject);
+          //  pawnsInBattle.Remove(pawnHit.gameObject);
             pawnHit.RemovePawnCoord(coordToRemove);
             if (pawnHit.pawnCoords.Count <= 0) {
 

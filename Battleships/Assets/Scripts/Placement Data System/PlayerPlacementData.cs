@@ -78,7 +78,7 @@ public class PlayerPlacementData : MonoBehaviour
             }
         }
         if (pawnsInBattle.Count == 0) {
-            Debug.Log("Nu UH");
+          //  Debug.Log("Nu UH");
             allPawnsPlaced = false;
         }
         else {

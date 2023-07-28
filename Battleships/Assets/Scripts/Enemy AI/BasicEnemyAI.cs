@@ -25,7 +25,6 @@ public class BasicEnemyAI : IEnemyAI
         }
 
         int amtOfPawnPieces = allPotentialCoordsToHit.Count;
-        Debug.Log("amt of pawnm" + amtOfPawnPieces);
         if (amtOfPawnPieces <= 0)
         {
             Debug.Log("nothing left to hit bruv");

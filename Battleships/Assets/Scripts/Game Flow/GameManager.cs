@@ -65,8 +65,8 @@ public class GameManager : MonoBehaviour
         if (currentRound > maximumRounds)
             return true;
 
-        Debug.Log("enemy pawns left " + enemyPD.GetNumOfPawnsInBattle());
-        Debug.Log("player pawns left " + playerPD.GetNumOfPawnsInBattle());
+      //  Debug.Log("enemy pawns left " + enemyPD.GetNumOfPawnsInBattle());
+        //Debug.Log("player pawns left " + playerPD.GetNumOfPawnsInBattle());
         //now we check if any of the teams have no ships
         if (playerPD.GetNumOfPawnsInBattle() <= 0)
         {

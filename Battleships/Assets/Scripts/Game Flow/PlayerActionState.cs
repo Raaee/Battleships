@@ -71,6 +71,7 @@ public class PlayerActionState : GameState {
         CheckIfPawnHit();
     }
     public void CheckIfPawnHit() {
+        Debug.Log("attk Loc" + attackLocation);
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
 
         if (pawnHit) {
