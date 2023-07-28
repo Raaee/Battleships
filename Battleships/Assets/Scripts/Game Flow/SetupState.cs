@@ -19,7 +19,7 @@ public class SetupState : GameState
    
 
 
-    private void Awake()
+    public override void Awake()
     {
         base.Awake();
        

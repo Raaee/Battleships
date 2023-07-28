@@ -24,7 +24,7 @@ public class EnemyAnimationControl : AnimationControl   {
        }       
     }
     public override void StartAttack(GameObject attackLoc) {
-        Debug.Log("Enemy Start Attack");
+        //Debug.Log("Enemy Start Attack");
         target = attackLoc.transform;
         isAttacking = true;
     }

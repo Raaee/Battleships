@@ -19,7 +19,7 @@ public class PlayerActionState : GameState {
     [SerializeField] PlayerPlacementData playerPlacementData;
     [SerializeField] private PlayerAnimationControl animControl;
     private bool pawnHit = false;
-    void Awake() {
+    public override void Awake() {
         base.Awake();
         stateTeam = StateTeam.PLAYER;
         teamSide = TeamSide.DUSKMARE; // DEFAULT: (change this value depending on what the player chooses in main menu)
@@ -71,7 +71,7 @@ public class PlayerActionState : GameState {
         CheckIfPawnHit();
     }
     public void CheckIfPawnHit() {
-        Debug.Log("attk Loc" + attackLocation);
+       // Debug.Log("attk Loc" + attackLocation);
         pawnHit = enemyPlacementData.CheckIfHit(attackLocation);
 
         if (pawnHit) {

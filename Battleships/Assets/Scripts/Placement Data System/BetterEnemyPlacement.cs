@@ -228,7 +228,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             Pawn pawn = pawnsInBattle[i].GetComponent<Pawn>();
             for (int n = 0; n < pawn.pawnCoords.Count; n++) {
                 Vector2 pawnCoord = pawn.pawnCoords[n];
-                Debug.Log("correct Loc is " + correctLoc + ". pawn coords is " + pawnCoord);
+                //Debug.Log("correct Loc is " + correctLoc + ". pawn coords is " + pawnCoord);
                 if (pawnCoord == correctLoc) {
                     hit = true;
                     pawnHit = pawn;

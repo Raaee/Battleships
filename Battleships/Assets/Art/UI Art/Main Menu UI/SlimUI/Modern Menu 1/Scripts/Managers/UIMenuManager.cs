@@ -286,5 +286,13 @@ namespace SlimUI.ModernMenu{
 				yield return null;
 			}
 		}
-	}
+
+      public void dummy()
+        {
+			if (themeIndex == 4)
+            {
+				themeIndex = 3 + 1;
+            }
+        }
+    }
 }

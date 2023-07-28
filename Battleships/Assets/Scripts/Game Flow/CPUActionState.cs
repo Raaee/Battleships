@@ -18,7 +18,7 @@ public class CPUActionState : GameState {
 
     [SerializeField] private IEnemyAI enemyAI;
 
-    void Awake() {
+    public override void Awake() {
         base.Awake();
         stateTeam = StateTeam.ENEMY;
         teamSide = TeamSide.LUMINID; // DEFAULT: (change this value depending on what the player DOESN'T choose in main menu)

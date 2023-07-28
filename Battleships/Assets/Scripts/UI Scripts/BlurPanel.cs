@@ -13,7 +13,7 @@ public class BlurPanel : Image
     public float delay = 0f;
     private float currentValue = 0f;
 
-    CanvasGroup canvas;
+    new CanvasGroup canvas;
 
 
     protected override void Awake()

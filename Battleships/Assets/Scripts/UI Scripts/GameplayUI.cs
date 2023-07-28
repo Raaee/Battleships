@@ -9,7 +9,7 @@ public class GameplayUI : MonoBehaviour {
     [SerializeField] TMP_Text whosTurnTxt;
     [SerializeField] TMP_Text shipsRemainingTxt;
 
-    private int currentTurn = 0;
+    //private int currentTurn = 0;
     private GameState currentState;
     
     public void SetCurrentState(GameState currState) {

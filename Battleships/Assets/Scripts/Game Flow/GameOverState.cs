@@ -65,9 +65,7 @@ public class GameOverState : GameState
             return;
         }
 
-        //finally we just let enemy won cause a draw is still a Loss 
-        Debug.Log("LOST BECAUSE OF A DRAW");
-        winningTeam = WinningTeam.ENEMYWON;
+     
 
     }
     public void ShowGameOverDisplay()

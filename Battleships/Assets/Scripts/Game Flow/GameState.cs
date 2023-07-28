@@ -15,7 +15,7 @@ public abstract class GameState : MonoBehaviour {
     [HideInInspector] public UnityEvent onTurnCompletion;
 
     [SerializeField] protected GameManager gameManager;
-    protected virtual void Awake() {
+    public virtual void Awake() {
         gameManager = FindObjectOfType<GameManager>();
     }
     public abstract void OnStateEnter();

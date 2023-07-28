@@ -428,5 +428,10 @@ namespace SlimUI.ModernMenu{
 			texturemedtextLINE.gameObject.SetActive(false);
 			texturehightextLINE.gameObject.SetActive(true);
 		}
+
+		public float GetSliderValue()
+        {
+			return sliderValue;
+        }
 	}
 }
