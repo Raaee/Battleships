@@ -65,7 +65,6 @@ public class MainMenu : MonoBehaviour   {
         Debug.Log("You will be back.");
     }
     public void OpenSettings() {
-        title.enabled = false;
         CloseButtonsMenu();
         settingsPanel.SetActive(true);
     }
