@@ -104,6 +104,11 @@ public class InputData : MonoBehaviour
         clickAndDrags.Add(cd);
     }
 
+    public GridManager GetPlayerGridManager()
+    {
+        return playerGridmanager;
+    }
+
     public CubeVisual GetCubeVisual()
     {
         return currentCubeVisual;

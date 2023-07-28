@@ -74,8 +74,20 @@ public class ClickAndDrag : MonoBehaviour
     private void SnapToCube() {
         if (inputData.GetCubeVisual() != null)
         {
+            //check if the cube is part of the player cube
+            if (inputData.GetPlayerGridManager().GetPositionAtTile(inputData.GetCubeVisual().gameObject).x < 0 )
+            {
+               
+                currentPawn.SetPlacedStatus(false);
+                ResetToOriginalSpawnPosition();
+                return;
+            }
+         
+
+
             if (potentialShipPlacement.GetIsPawnOverPawn())
             {
+                Debug.Log("theres already pawn here");
                 currentPawn.SetPlacedStatus(false);
                 ResetToOriginalSpawnPosition();
                 return;
@@ -95,7 +107,7 @@ public class ClickAndDrag : MonoBehaviour
         }
         else
         {
-          //  Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
+            Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
             currentPawn.SetPlacedStatus(false);
             ResetToOriginalSpawnPosition();
             OccupyCubes(false);
