@@ -19,14 +19,14 @@ public class PlayerAnimationControl : AnimationControl   {
                 attack.transform.position = attackSpawnLoc.transform.position;
                 explosion.transform.position = target.position;
                 FindObjectOfType<CameraShake>().shakeDuration = cameraShakeDuration;
-                Debug.Log("EXPLOSION!!!!!");
+                //Debug.Log("EXPLOSION!!!!!");
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
        }       
     }    
 
     public override void StartAttack(GameObject attackLoc) {
-        Debug.Log("Player Start Attack");
+       // Debug.Log("Player Start Attack");
         target = attackLoc.transform;
         isAttacking = true;
     }

@@ -119,7 +119,7 @@ public class PlayerPlacementData : MonoBehaviour
         return placementConfirmed;
     }
     
-    //we are checking if the attack locattion matches up with a currently alive pawn coordinate
+    //we are checking if the attack locattion matches up with a currently alive pawn coordinate, it will also remove the coordinate at the same time 
     public bool CheckIfHit(Vector2 attackLoc) {
         bool hit = false;
         Vector2 correctLoc = new Vector2(attackLoc.x, attackLoc.y);
@@ -130,6 +130,15 @@ public class PlayerPlacementData : MonoBehaviour
                 Vector2 pawnCoord = pawn.pawnCoords[n];
                 if (pawnCoord == correctLoc) {
                     hit = true;
+                    pawn.pawnCoords.Remove(pawnCoord);
+                    if (pawn.pawnCoords.Count <= 0)
+                    {
+                        Debug.Log("other pawn: YOLO" );
+                       
+                        pawnsInBattle.Remove(pawn.gameObject);
+                        pawn.gameObject.SetActive(false);
+                    }
+                    break;
                 }
             }
         }
@@ -165,7 +174,7 @@ public class PlayerPlacementData : MonoBehaviour
 
     public int GetNumOfPawnsInBattle()
     {
-        return numPawnsInBattle;
+        return pawnsInBattle.Count;
     }
 
 }

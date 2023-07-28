@@ -50,11 +50,16 @@ public class Pawn : MonoBehaviour {
         //next: if hit/miss set their state like that too 
     }
     public void RemovePawnCoord(Vector2 coordToRemove) {
-        coordToRemove = new Vector2(coordToRemove.y, coordToRemove.x);
+        //coordToRemove = new Vector2(coordToRemove.y, coordToRemove.x);
 
         if (pawnCoords.Contains(coordToRemove)) {
-            Debug.Log("actual removal of pawn");
+            Debug.Log("removing a pawn coord");
             pawnCoords.Remove(coordToRemove);
+            if(pawnCoords.Count <= 0)
+            {
+                Debug.Log("Pawn: TIME TO DIE!!!!");
+                gameObject.SetActive(false);
+            }
         } else {
             Debug.Log("Pawn coord not found: " + coordToRemove);
         }

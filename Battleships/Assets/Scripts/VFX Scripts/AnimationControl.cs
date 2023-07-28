@@ -48,7 +48,7 @@ public abstract class AnimationControl : MonoBehaviour {
         yield return PeteHelper.GetWait(time);
        
         explosion.transform.position = explosionSpawnLoc.transform.position;
-        Debug.Log("RESTING EXPLOSION");
+       // Debug.Log("RESTING EXPLOSION");
     }
     public abstract void AnimControlStart();
     public abstract void AnimControlUpdate();

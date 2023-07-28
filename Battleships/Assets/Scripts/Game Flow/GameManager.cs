@@ -12,16 +12,26 @@ public class GameManager : MonoBehaviour
     [Header("Game Components")]
     [SerializeField] private BetterEnemyPlacement enemyPD;
     [SerializeField] private PlayerPlacementData playerPD;
+
     [SerializeField] private GameState initialState;
+    [SerializeField] private GameState gameOverState;
+    [SerializeField] private GameState player1AS;
+    [SerializeField] private GameState player2AS;
+
     [SerializeField] private GameplayUI gameplayUI;
     [SerializeField] int maximumRounds = 29;
- 
+
+    
+    [SerializeField] private ButtonFunctions buttonFunctions;
+    
     [Header("Debug")]
     [SerializeField] private GameState currentState;
     [SerializeField] int currentRound = 0;   
 
     private void Awake() {
         currentState = initialState;
+        buttonFunctions.OnPlayerConfirmPlacement.AddListener(GoToPlayer1State);
+        player1AS.onTurnCompletion.AddListener(GoToPlayer2State);
     }
    
     private void Start()
@@ -45,7 +55,7 @@ public class GameManager : MonoBehaviour
         gameplayUI.SetCurrentState(currentState);
         gameplayUI.UpdateTurnTxt();
         gameplayUI.UpdateRoundNum(currentRound, maximumRounds);
-        gameplayUI.UpdateShipsRemainTxt(enemyPD.pawnsInBattle.Count);
+        gameplayUI.UpdateShipsRemainTxt(enemyPD.GetNumOfPawnsInBattle());
     }
 
    
@@ -55,19 +65,48 @@ public class GameManager : MonoBehaviour
         if (currentRound > maximumRounds)
             return true;
 
+        Debug.Log("enemy pawns left " + enemyPD.GetNumOfPawnsInBattle());
+        Debug.Log("player pawns left " + playerPD.GetNumOfPawnsInBattle());
         //now we check if any of the teams have no ships
         if (playerPD.GetNumOfPawnsInBattle() <= 0)
+        {
             return true;
 
+        }
+
         if (enemyPD.GetNumOfPawnsInBattle() <= 0)
+        {
             return true;
+
+        }
 
 
         currentRound++;
         return false;
     }
 
+    public void GoToPlayer1State()
+    {
+        if (CheckRoundForGameOver())
+        {
+            //go to game over state 
+            ChangeState(gameOverState);
+            return;
+        }
 
+
+        ChangeState(player1AS);
+    }
+    public void GoToPlayer2State()
+    {
+        if (CheckRoundForGameOver())
+        {
+            //go to game over state 
+            ChangeState(gameOverState);
+            return;
+        }
+        ChangeState(player2AS);
+    }
     public GameState GetInitialState()
     {
         return initialState;

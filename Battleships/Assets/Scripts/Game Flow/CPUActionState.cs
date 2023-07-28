@@ -30,7 +30,7 @@ public class CPUActionState : GameState {
         EndTurnAfterTime(0.625f);
     }
     public override IEnumerator WaitForSec(float time) {
-        Debug.Log("Waiting...");
+        //Debug.Log("Waiting...");
         yield return PeteHelper.GetWait(time);
         gameManager.ChangeState(player1AS);
     }
@@ -54,11 +54,10 @@ public class CPUActionState : GameState {
         currentCube = playerGridMan.GetTileAtPosition(randomLocation).GetComponent<CubeVisual>();
     }
     public void CheckIfHit() {
-        hit = playerPlacementData.CheckIfHit(randomLocation);
+        hit = playerPlacementData.CheckIfHit(randomLocation); //will check AND remove if true
 
         if (hit) {
-            // Debug.Log("Enemy Hit! " + randomLocation);
-            Debug.Log("big hit bruv ");
+          
 
             currentCube.ChangeMaterialOnHitState(CubeHitState.HIT);
         }
@@ -83,7 +82,7 @@ public class CPUActionState : GameState {
         // after few seconds, anim of projectile going down from above, ON the cube that was selected
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
-        Debug.Log("*********** Current Cube: " + currentCube);
+       // Debug.Log("*********** Current Cube: " + currentCube);
         animControl.StartAttack(currentCube.gameObject);
     }
 

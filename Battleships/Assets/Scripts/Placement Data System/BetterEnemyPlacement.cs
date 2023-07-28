@@ -79,7 +79,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
                 pos = GetRandomVector2(0, 10, 0, (10 - pawnSize) + 1);
                // Debug.Log("Vert: " + pos + " / Size: " + pawnSize);
 
-                validPos = CheckIfOccupy(pos.y, pos.x, pawnSize);
+                validPos = CheckIfOccupy(pos.x, pos.y, pawnSize);
             }          
         } while (!validPos);
 
@@ -96,6 +96,32 @@ public class BetterEnemyPlacement : MonoBehaviour {
 
         tile = null;
 
+        if(pawnOrientation == PawnOrientation.VERTICAL)
+        {
+            for(int i = (int)o; i < o + pawnSize; i++)
+            {
+                tile = enemyGridManager.GetTileAtPosition(new Vector2(n, i));
+                if (tile.GetComponent<CubeVisual>().GetIsOccupied() == true)
+                {
+                    //  Debug.Log("------- No work: " + new Vector2(n, o) + " ----------");
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            for (int i = (int)n; i < n + pawnSize; i++)
+            {
+                tile = enemyGridManager.GetTileAtPosition(new Vector2(i, o));
+                if (tile.GetComponent<CubeVisual>().GetIsOccupied() == true)
+                {
+                    //  Debug.Log("------- No work: " + new Vector2(n, o) + " ----------");
+                    return false;
+                }
+            }
+        }
+
+        /*
         for (int i = (int)n; i < n + pawnSize; i++) {
             if (pawnOrientation == PawnOrientation.HORIZONTAL) {
                 tile = enemyGridManager.GetTileAtPosition(new Vector2(o, i));
@@ -109,17 +135,17 @@ public class BetterEnemyPlacement : MonoBehaviour {
               //  Debug.Log("------- No work: " + new Vector2(n, o) + " ----------");
                 return false;
             }
-        }
+        }*/
         return true;        
     }
     // method that calls OccupyCoords AND places the pawns in the correct spots:
     private void PlacePawn(Vector2 pos, GameObject pawn) {
         pawn.GetComponent<PawnVisual>().ChangePawnVisual(pawnOrientation);
-        
+        Debug.Log("pawn orientatoin is " + pawnOrientation + ". and pos is " + pos);
         if (pawnOrientation == PawnOrientation.HORIZONTAL) {
             SetOccupyCoords(pos.x, pos.y, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
         } else {
-            SetOccupyCoords(pos.y, pos.x, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
+            SetOccupyCoords(pos.x, pos.y, pawn.GetComponent<Pawn>().GetPawnSize(), pawn);
         }
 
         tile = enemyGridManager.GetTileAtPosition(pos);
@@ -128,19 +154,43 @@ public class BetterEnemyPlacement : MonoBehaviour {
     // sets occupy variable of tile = true AND assigns the pawns' coords to their list:
     private void SetOccupyCoords(float n, float o, int pawnSize, GameObject pawn) {
         List<Vector2> pCoords = new List<Vector2>();
-
-        for (int i = (int)n; i < n + pawnSize; i++) {
-            if (pawnOrientation == PawnOrientation.HORIZONTAL) {
-                tile = enemyGridManager.GetTileAtPosition(new Vector2(o, i));
+        if (pawnOrientation == PawnOrientation.VERTICAL)
+        {
+            
+            for (int i = (int)o; i < o + pawnSize; i++)
+            {
+                tile = enemyGridManager.GetTileAtPosition(new Vector2(n, i));
+                tile.GetComponent<CubeVisual>().SetIsOccupied(true);
+                pCoords.Add(enemyGridManager.GetPositionAtTile(tile));
+                Debug.Log(n + ", " + i + " is the vector 2 that will be set to occupied");
             }
-            else { // Vertical
+        }
+        else
+        {
+            for (int i = (int)n; i < n + pawnSize; i++)
+            {
                 tile = enemyGridManager.GetTileAtPosition(new Vector2(i, o));
+                tile.GetComponent<CubeVisual>().SetIsOccupied(true);
+                pCoords.Add(enemyGridManager.GetPositionAtTile(tile));
+                Debug.Log(i + ", " + o + " is the vector 2 that will be set to occupied");
             }
-
-            tile.GetComponent<CubeVisual>().SetIsOccupied(true);
-            pCoords.Add(enemyGridManager.GetPositionAtTile(tile));
         }
         pawn.GetComponent<Pawn>().SetPawnCoordinates(pCoords);
+        /*
+                for (int i = (int)n; i < n + pawnSize; i++) {
+                    if (pawnOrientation == PawnOrientation.HORIZONTAL) {
+                        tile = enemyGridManager.GetTileAtPosition(new Vector2(i, o));
+                    }
+                    else { // Vertical
+                        tile = enemyGridManager.GetTileAtPosition(new Vector2(i, o));
+                    }
+                    Debug.Log(i + ", " + o + " is the vector 2 that will be set to occupied");
+
+                    tile.GetComponent<CubeVisual>().SetIsOccupied(true);
+                    pCoords.Add(enemyGridManager.GetPositionAtTile(tile));
+                }
+                pawn.GetComponent<Pawn>().SetPawnCoordinates(pCoords);
+        */
     }
     // chooses random pawns to go to battle based on their size:
     private void ChooseRandomPawns(int numPawns) {
@@ -193,7 +243,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
         if (pawnHit == null) {
             return;
         } else {
-            
+            pawnsInBattle.Remove(pawnHit.gameObject);
             pawnHit.RemovePawnCoord(coordToRemove);
             if (pawnHit.pawnCoords.Count <= 0) {
 
@@ -208,7 +258,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
 
     public int GetNumOfPawnsInBattle()
     {
-        return numPawnsInBattle;
+        return pawnsInBattle.Count;
     }
     public int GetRandomNumber(int min, int maxExclusive) {
         return Random.Range(min, maxExclusive);
