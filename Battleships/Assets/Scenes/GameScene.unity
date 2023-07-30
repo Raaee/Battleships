@@ -4227,7 +4227,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonFunctions: {fileID: 1343984742}
-  playerGrid: {fileID: 350759526}
+  sizePalleteSO: {fileID: 11400000, guid: d644fc57749589f42a6518a34192681d, type: 2}
 --- !u!1 &1464291293
 GameObject:
   m_ObjectHideFlags: 0
