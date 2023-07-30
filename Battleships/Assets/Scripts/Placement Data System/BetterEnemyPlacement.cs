@@ -20,11 +20,24 @@ public class BetterEnemyPlacement : MonoBehaviour {
     public GameObject initialCoords;
     [SerializeField] private int numPawnsInBattle = 5;
 
+    [SerializeField] private SizePalleteSO sizePalleteSO;
+    
     public void StartPlacement() {
+
+
         CheckPawnList();
         PawnPlacement();
     }
     public void CheckPawnList() {
+
+        if (sizePalleteSO != null)
+        {
+
+            ChooseSpecificPawns();
+            Debug.Log("yo?");
+            return;
+        }
+
         if (pawnPrefabs.Count < 4) {
             Debug.Log("pawn prefab list (Enemy) must have 4 elements.");
             return;
@@ -33,7 +46,42 @@ public class BetterEnemyPlacement : MonoBehaviour {
             ChooseRandomPawns(numPawnsInBattle);
         }
     }
-   
+
+    private void ChooseSpecificPawns()
+    {
+        if (sizePalleteSO.sizeOfPawns.Count <= 3)
+        {
+            Debug.Log("the size pallete is supposed to have 4 elements bruh");
+            Debug.Break();
+
+        }
+        foreach (SizePawnEnum spe in sizePalleteSO.sizeOfPawns)
+        {
+            GameObject pawn;
+            switch (spe)
+            {
+                case SizePawnEnum.ONE:
+                    pawn = Instantiate(PawnPrefabOfSize(1), initialCoords.transform.position, Quaternion.identity);
+                    pawnsInBattle.Add(pawn);
+                    break;
+                case SizePawnEnum.TWO:
+                    pawn = Instantiate(PawnPrefabOfSize(2), initialCoords.transform.position, Quaternion.identity);
+                    pawnsInBattle.Add(pawn);
+                    break;
+                case SizePawnEnum.THREE:
+                    pawn = Instantiate(PawnPrefabOfSize(3), initialCoords.transform.position, Quaternion.identity);
+                    pawnsInBattle.Add(pawn);
+                    break;
+                case SizePawnEnum.FOUR:
+                    pawn = Instantiate(PawnPrefabOfSize(4), initialCoords.transform.position, Quaternion.identity);
+                    pawnsInBattle.Add(pawn);
+                    break;
+            }
+
+
+        }
+    }
+
     // assigns orientation and calls all other placement and checking methods:
     private void PawnPlacement() {
         Vector2 pos = new Vector2(-1,-1);
@@ -256,6 +304,11 @@ public class BetterEnemyPlacement : MonoBehaviour {
             }
            
         }
+    }
+
+    public GridManager GetEnemyGridManager()
+    {
+        return enemyGridManager;
     }
 
     public int GetNumOfPawnsInBattle()
