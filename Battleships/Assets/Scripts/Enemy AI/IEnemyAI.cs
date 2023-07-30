@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class IEnemyAI :MonoBehaviour
 {
-    [SerializeField] [Range(0.1f, 0.66f)] protected float percentageToHit = 0.40f;
+    [SerializeField] [Range(0.15f, 0.5f)] protected float percentageToHit = 0.33f;
     protected float allowedMisses; //this is the max amount of misses before we force AI to hit. This is to make it closer to the percentage! 
     [SerializeField] protected PlayerPlacementData playerPlacementData;
     protected int currentMisses = 0;

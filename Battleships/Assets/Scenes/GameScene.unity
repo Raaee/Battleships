@@ -4227,6 +4227,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonFunctions: {fileID: 1343984742}
+  playerGrid: {fileID: 350759526}
 --- !u!1 &1464291293
 GameObject:
   m_ObjectHideFlags: 0
@@ -4806,7 +4807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb25775813aa0534c91a0e30ddd6af80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentageToHit: 0.4
+  percentageToHit: 0.333
   playerPlacementData: {fileID: 1412156058}
   playerGridManager: {fileID: 350759526}
 --- !u!1 &1538425000

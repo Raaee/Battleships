@@ -219,6 +219,11 @@ public class PotentialShipPlacement : MonoBehaviour
     public List<GameObject> GetLastHighlightedCubes() {
         return lastHighlightedGameObjects;
     }
+
+    public GridManager GetGridManager()
+    {
+        return gridManager;
+    }
 }
 
 public enum PawnOrientation

@@ -22,6 +22,7 @@ public class PlayerPlacementData : MonoBehaviour
 
     public UnityEvent OnAllPawnsSpawned;
     [SerializeField] private ButtonFunctions buttonFunctions;
+   
 
     private InputData inputData; 
     private void Awake()
@@ -118,7 +119,9 @@ public class PlayerPlacementData : MonoBehaviour
     {
         return placementConfirmed;
     }
-    
+   
+
+
     //we are checking if the attack locattion matches up with a currently alive pawn coordinate, it will also remove the coordinate at the same time 
     public bool CheckIfHit(Vector2 attackLoc) {
         bool hit = false;

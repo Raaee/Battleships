@@ -258,6 +258,11 @@ public class BetterEnemyPlacement : MonoBehaviour {
         }
     }
 
+    public GridManager GetEnemyGridManager()
+    {
+        return enemyGridManager;
+    }
+
     public int GetNumOfPawnsInBattle()
     {
         return pawnsInBattle.Count;

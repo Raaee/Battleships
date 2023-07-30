@@ -100,6 +100,12 @@ public class CubeVisual : MonoBehaviour
         attackHighlightSystem.SetCurrentlyHighlighted(this);
     }
     private void OnMouseUp() {
+       if( potentialShipPlacement.GetGridManager().GetPositionAtTile(this.gameObject).x > 0)
+        {
+           
+            return;
+        }
+
         if (attackHighlightSystem.isEnabled)
             FindObjectOfType<PlayerActionState>().SetAttackLocation();
     }

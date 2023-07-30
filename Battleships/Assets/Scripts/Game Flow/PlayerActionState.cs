@@ -18,6 +18,7 @@ public class PlayerActionState : GameState {
     [SerializeField] private BetterEnemyPlacement enemyPlacementData;
     [SerializeField] PlayerPlacementData playerPlacementData;
     [SerializeField] private PlayerAnimationControl animControl;
+   
     private bool pawnHit = false;
     public override void Awake() {
         base.Awake();
