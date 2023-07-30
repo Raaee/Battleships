@@ -6078,6 +6078,7 @@ MonoBehaviour:
   enemyGridManager: {fileID: 2015051422}
   initialCoords: {fileID: 3795446210557248262}
   numPawnsInBattle: 4
+  sizePalleteSO: {fileID: 11400000, guid: d644fc57749589f42a6518a34192681d, type: 2}
 --- !u!1 &2000926588
 GameObject:
   m_ObjectHideFlags: 0

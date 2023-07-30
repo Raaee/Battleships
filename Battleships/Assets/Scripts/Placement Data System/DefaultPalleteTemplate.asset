@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad62d09845879f4388bdcd1e8150202, type: 3}
   m_Name: DefaultPalleteTemplate
   m_EditorClassIdentifier: 
-  sizeOfPawns: 01000000010000000100000001000000
+  sizeOfPawns: 01000000020000000300000004000000
