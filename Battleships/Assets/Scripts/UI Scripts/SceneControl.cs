@@ -34,6 +34,10 @@ public class SceneControl : MonoBehaviour   {
                 break;
         }
     }
+    public IEnumerator DelayedSceneChange(Scene scene, float timeInSec) {
+        yield return PeteHelper.GetWait(timeInSec);
+        ChangeScene(scene);
+    }
 }
 public enum Scene {
     MAIN_MENU,

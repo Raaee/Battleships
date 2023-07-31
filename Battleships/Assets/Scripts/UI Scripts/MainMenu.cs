@@ -10,11 +10,13 @@ public class MainMenu : MonoBehaviour   {
     [SerializeField] TMP_Text title;
     [SerializeField] TMP_Text pressPlayText;
     [SerializeField] CanvasGroup mainMenuGroup;
+    [SerializeField] CanvasGroup difficultySelectGroup;
     [SerializeField] GameObject buttonsPanel;
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject teamSelectPanel;
 
     private bool fading = false;
+    private bool gameStart = false;
 
     private void Start() {
         StartMainMenu();
@@ -26,6 +28,7 @@ public class MainMenu : MonoBehaviour   {
         buttonsPanel.SetActive(false);
         settingsPanel.SetActive(false);
         teamSelectPanel.SetActive(false);
+        difficultySelectGroup.gameObject.SetActive(false);
     }
     void Update()   {
         if (currentPanel == OnPanel.MAIN_MENU) {
@@ -36,15 +39,33 @@ public class MainMenu : MonoBehaviour   {
                 OpenButtonsMenu();
             }
         }
-        if (fading) {
-            if (mainMenuGroup.alpha > 0) {
-                mainMenuGroup.alpha -= Time.deltaTime;
-                if (mainMenuGroup.alpha == 0) {
-                    fading = false;
-                    sceneControl.ChangeScene(Scene.GAME);
-                }
+        if (fading)
+            FadeMainMenu();
+
+        if (gameStart)
+            FadeDifficultySelect();
+
+    }
+    public void FadeMainMenu() {
+        if (mainMenuGroup.alpha > 0) {
+            mainMenuGroup.alpha -= Time.deltaTime;
+            if (mainMenuGroup.alpha == 0) {
+                fading = false;
+                mainMenuGroup.gameObject.SetActive(false);
+                difficultySelectGroup.gameObject.SetActive(true);
             }
         }
+        
+    }
+    public void FadeDifficultySelect() {
+        if (difficultySelectGroup.alpha > 0) {
+            difficultySelectGroup.alpha -= Time.deltaTime;
+            if (difficultySelectGroup.alpha == 0) {
+                fading = false;
+                sceneControl.DelayedSceneChange(Scene.GAME, 1.25f);
+            }
+        }
+        
     }
     public void DisablePressPlay() {
         pressPlayText.enabled = false;
@@ -58,7 +79,6 @@ public class MainMenu : MonoBehaviour   {
     }
     public void StartGame() {
         fading = true;
-        // this starts the game. going to the team selection first
     }
     public void QuitGame() {
         Application.Quit();
@@ -73,6 +93,20 @@ public class MainMenu : MonoBehaviour   {
         settingsPanel.SetActive(false);
         OpenButtonsMenu();
     }
+    public void SelectDifficulty(int difficulty) { // 0 = easy, 1 = med, 2 = hard//
+        switch (difficulty) {
+            case 0:
+                Debug.Log("Easy Diffculty");
+                break;
+            case 1:
+                Debug.Log("Medium Diffculty");
+                break;
+            case 2:
+                Debug.Log("Hard Diffculty");
+                break;
+        }
+    }
+
 }
 public enum OnPanel {
     MAIN_MENU,
