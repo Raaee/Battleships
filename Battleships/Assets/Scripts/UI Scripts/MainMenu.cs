@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour   {
     }
     public void StartMainMenu() {
         currentPanel = OnPanel.MAIN_MENU;
-        title.gameObject.SetActive(true);
+        DisplayTitle(true);
         pressPlayText.gameObject.SetActive(true);
         buttonsPanel.SetActive(false);
         settingsPanel.SetActive(false);
@@ -71,6 +71,9 @@ public class MainMenu : MonoBehaviour   {
     public void DisablePressPlay() {
         pressPlayText.gameObject.SetActive(false);
     }
+    public void DisplayTitle(bool b) {
+        title.gameObject.SetActive(b);
+    }
 
     public void CloseButtonsMenu() {
         buttonsPanel.SetActive(false);
@@ -87,11 +90,12 @@ public class MainMenu : MonoBehaviour   {
     }
     public void OpenSettings() {
         CloseButtonsMenu();
+      //  DisplayTitle(false);
         settingsPanel.SetActive(true);
     }
     public void CloseSettings() {
-        title.enabled = true;
         settingsPanel.SetActive(false);
+      //  DisplayTitle(true);
         OpenButtonsMenu();
     }
     public void SelectDifficulty(int difficulty) { // 0 = easy, 1 = med, 2 = hard//
@@ -99,17 +103,17 @@ public class MainMenu : MonoBehaviour   {
             case 0:
                 Debug.Log("Easy Diffculty");
                 enemyAiStats.SetPercentageToHit(0.15f);
-                sceneControl.ChangeScene(Scene.GAME);
+                gameStart = true;
                 break;
             case 1:
                 Debug.Log("Medium Diffculty");
                 enemyAiStats.SetPercentageToHit(0.33f);
-                sceneControl.ChangeScene(Scene.GAME);
+                gameStart = true;
                 break;
             case 2:
                 Debug.Log("Hard Diffculty");
                 enemyAiStats.SetPercentageToHit(0.55f);
-                sceneControl.ChangeScene(Scene.GAME);
+                gameStart = true;
                 break;
         }
     }
