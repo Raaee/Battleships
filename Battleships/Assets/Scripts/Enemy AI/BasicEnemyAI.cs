@@ -7,7 +7,10 @@ public class BasicEnemyAI : IEnemyAI
 { 
     [SerializeField] private GridManager playerGridManager;
 
-     
+    void Start() {
+        percentageToHit = FindObjectOfType<EnemyAiStats>().GetPercentageToHit();
+    }
+
     public override Vector2 DetermineNextLocation()
     {
         //get the pawn we want to hit if it was a garanteed hit
