@@ -20,6 +20,7 @@ public class SceneControl : MonoBehaviour   {
 
     public void ChangeScene(int sceneIndex) {
         SceneManager.LoadScene(sceneBuildIndex: sceneIndex);
+        Debug.Log("Scene change.");
     }
     public void ChangeScene(string sceneName) {
         SceneManager.LoadScene(sceneName: sceneName);

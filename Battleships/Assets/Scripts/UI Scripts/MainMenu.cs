@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour   {
             FadeMainMenu();
 
         if (gameStart)
-            FadeDifficultySelect();
+            sceneControl.ChangeScene(Scene.GAME);
 
     }
     public void FadeMainMenu() {
@@ -61,9 +61,10 @@ public class MainMenu : MonoBehaviour   {
     public void FadeDifficultySelect() {
         if (difficultySelectGroup.alpha > 0) {
             difficultySelectGroup.alpha -= Time.deltaTime;
-            if (difficultySelectGroup.alpha == 0) {
-                fading = false;
-                sceneControl.DelayedSceneChange(Scene.GAME, 1.25f);
+            if (difficultySelectGroup.alpha == 0.5f) {
+                gameStart = false;
+                // sceneControl.DelayedSceneChange(Scene.GAME, 1.25f);
+                sceneControl.ChangeScene(Scene.GAME);
             }
         }
         
