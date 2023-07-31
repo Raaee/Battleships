@@ -19,6 +19,15 @@ public class MainMenu : MonoBehaviour   {
     private bool fading = false;
     private bool gameStart = false;
 
+   
+
+    private bool camShakeVal = false;
+    void Awake()
+    {
+        
+    }
+
+
     private void Start() {
         StartMainMenu();
     }
@@ -69,6 +78,11 @@ public class MainMenu : MonoBehaviour   {
         }
         
     }
+
+    public void OnCameraShakeValueChanged(bool isOn)
+    {
+        camShakeVal = isOn;
+    }
     public void DisablePressPlay() {
         pressPlayText.gameObject.SetActive(false);
     }
@@ -117,6 +131,10 @@ public class MainMenu : MonoBehaviour   {
                 gameStart = true;
                 break;
         }
+    }
+
+    public bool GetCamShakeValMaiMenu()
+    { return camShakeVal;
     }
 
 }

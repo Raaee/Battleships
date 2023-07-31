@@ -82,9 +82,15 @@ public class PlayerPlacementData : MonoBehaviour
                     pawn = Instantiate(PawnPrefabOfSize(4), initialCoords.transform.position, Quaternion.identity);
                     pawnsInBattle.Add(pawn);
                     break;
-            }
+                default:
+                    pawn = null;
+                    Debug.Log("Pawn is null here bruh");
+                    break;
 
-           
+            }
+            var cd = pawn.GetComponent<ClickAndDrag>();
+            inputData.AddSelfToClickDragList(cd);
+
         }
     }
 

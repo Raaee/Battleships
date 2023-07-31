@@ -17,12 +17,15 @@ public class CameraShake : MonoBehaviour
 
 	Vector3 originalPos;
 
+	public bool IsActive { get; set; } = true;
+
 	void Awake()
 	{
 		if (camTransform == null)
 		{
 			camTransform = GetComponent(typeof(Transform)) as Transform;
 		}
+		IsActive = MainMenuSettingsData.instance.MMSD_camShakeVal;
 	}
 
 	void OnEnable()
@@ -32,6 +35,8 @@ public class CameraShake : MonoBehaviour
 
 	void Update()
 	{
+		if (!IsActive) return;
+
 		if (shakeDuration > 0)
 		{
 			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
