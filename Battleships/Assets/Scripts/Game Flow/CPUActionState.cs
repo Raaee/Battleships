@@ -84,7 +84,7 @@ public class CPUActionState : GameState {
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
        // Debug.Log("*********** Current Cube: " + currentCube);
         animControl.StartAttack(currentCube.gameObject);
-        animControl.ShowHitMissText(currentCube.transform.position, hit);
+        animControl.ShowHitMissText(currentCube.gameObject, hit);
     }
 
 

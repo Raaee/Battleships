@@ -101,7 +101,7 @@ public class PlayerActionState : GameState {
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
         animControl.StartAttack(currentCubeCV.gameObject);
-        animControl.ShowHitMissText(currentCubeCV.transform.position, hit);
+        animControl.ShowHitMissText(currentCubeCV.gameObject, hit);
         StartCoroutine(WaitForSec(3.5f));
     }
    

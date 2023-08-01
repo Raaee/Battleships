@@ -27,8 +27,7 @@ public abstract class AnimationControl : MonoBehaviour {
     protected GameObject duskmareAttack;
     protected GameObject luminidAttack;
     protected GameObject explosion;
-    protected GameObject hitIndicator;
-    protected GameObject missIndicator;
+    protected GameObject vfxIndicator;
 
     [SerializeField] protected float attackSpeed = 20;
 
@@ -56,13 +55,29 @@ public abstract class AnimationControl : MonoBehaviour {
         explosion.transform.position = explosionSpawnLoc.transform.position;
        // Debug.Log("RESTING EXPLOSION");
     }
-    public void ShowHitMissText(Vector2 attackLoc, bool hit) {
-        Vector3 loc = new Vector3(attackLoc.x, (attackLoc.y + heightOfHitMissText), 0);
-
+    public void ShowHitMissText(GameObject attackCube, bool hit) {
+      
+        var attackLoc = attackCube.transform.localPosition;
+        Vector3 loc = new Vector3(attackLoc.x, (attackLoc.y + heightOfHitMissText), attackLoc.z);
+        Debug.Log("is we hitting? " + hit); 
         if (hit)
-            hitIndicator = Instantiate(hitText, loc, Quaternion.identity);
+            vfxIndicator = Instantiate(hitText, loc, Quaternion.identity);
         else
-            missIndicator = Instantiate(missText, loc, Quaternion.identity);
+            vfxIndicator = Instantiate(missText, loc, Quaternion.identity);
+
+        var c = FindObjectOfType<Canvas>();
+        //2 ref to dummy prefabs 
+        //choose a canvas serialize field \
+        //make spawnd object a child of canvas 
+        //move spawned obj to dummy prefabs 
+        //vfx corountine destryo, figure out the exact seconds of 1 loop 
+        //Destroy(vfx)
+        vfxIndicator.gameObject.transform.parent = c.gameObject.transform;
+        Debug.Log("this canvas", c.gameObject);
+
+        if (vfxIndicator == null)
+            Debug.Log("rae is fired");
+
     }
 
     public abstract void AnimControlStart();

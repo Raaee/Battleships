@@ -77,7 +77,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281340964
+    rgba: 2943430734
   m_fontColor: {r: 0.13928536, g: 0.07920967, b: 0.18867922, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -203,6 +203,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 388}
+  m_AnchoredPosition: {x: 10, y: 417.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}

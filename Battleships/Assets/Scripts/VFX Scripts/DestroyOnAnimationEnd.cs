@@ -6,7 +6,11 @@ public class DestroyOnAnimationEnd : MonoBehaviour  {
 
 
     public void DestroyParent() {
+        var c =FindObjectOfType<Canvas>();
         GameObject parent = gameObject.transform.parent.gameObject;
-        Destroy(parent);
+      
+        Debug.Log("right here doofus", gameObject);
+        //Debug.Break();
+        //Destroy(parent);
     }
 }
