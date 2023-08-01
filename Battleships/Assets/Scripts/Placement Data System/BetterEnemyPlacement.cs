@@ -76,8 +76,11 @@ public class BetterEnemyPlacement : MonoBehaviour {
                     pawn = Instantiate(PawnPrefabOfSize(4), initialCoords.transform.position, Quaternion.identity);
                     pawnsInBattle.Add(pawn);
                     break;
+                default:
+                    pawn = null;
+                    break;
             }
-
+            pawn.GetComponent<Pawn>().SetBadGuy();
 
         }
     }

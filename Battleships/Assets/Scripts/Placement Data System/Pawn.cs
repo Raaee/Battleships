@@ -17,12 +17,24 @@ public class Pawn : MonoBehaviour {
     private GridManager gridMan;
     private bool placed = false;
 
+    [Header("shake values!")]
+    private float shakeDuration = 1f;
+    private float maxShakeAmount = 0.1f;
+    private float shakeSpeed = 0.1f;
+
+    private Vector3 originalPosition;
+
+    private PlayerAnimationControl playerAnimationControl;
+    private bool canDoFeedback = true;
+    private bool isBadGuy = false; //dumb script
     private void Awake()
     {
         //cd = GetComponent<ClickAndDrag>();
        // cd.OnPawnPlaced.AddListener(SetPawnCoordinates);
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         gridMan = FindObjectOfType<GridManager>();
+        playerAnimationControl = FindObjectOfType<PlayerAnimationControl>();
+        playerAnimationControl.OnMissileDestroyed.AddListener(KillPawnFeedback);
     }
 
     public bool SetPawnCoordinates()
@@ -57,12 +69,52 @@ public class Pawn : MonoBehaviour {
             pawnCoords.Remove(coordToRemove);
             if(pawnCoords.Count <= 0)
             {
-                Debug.Log("Pawn: TIME TO DIE!!!!");
-                gameObject.SetActive(false);
+                Debug.Log("Pawn: TIME TO DIE!!!! Enemy");
+                gameObject.SetActive(false);//my guy its already set to false in game 
+                //KillPawnFeedback();
             }
         } else {
             Debug.Log("Pawn coord not found: " + coordToRemove);
         }
+    }
+
+    public void SetBadGuy()
+    {
+        isBadGuy = true;
+    }
+
+    private void KillPawnFeedback()
+    {
+        if (!canDoFeedback) return;
+        if (pawnCoords.Count > 0) return;
+        if (isBadGuy == false) return;
+        //save original pos
+        originalPosition = transform.position;
+        //we show it 
+        gameObject.SetActive(true);
+        //shake for impact for x seconds
+        StartCoroutine(ShakeCoroutine());
+        canDoFeedback = false;
+    }
+
+    IEnumerator ShakeCoroutine()
+    {
+        float timeElapsed = 0f;
+
+        while (timeElapsed < shakeDuration)
+        {
+            float xShake = UnityEngine.Random.Range(-maxShakeAmount, maxShakeAmount);
+            float yShake = UnityEngine.Random.Range(-maxShakeAmount, maxShakeAmount);
+
+            transform.position = originalPosition + new Vector3(xShake, yShake, 0f);
+
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Reset the position to the original after shaking is done
+        transform.position = originalPosition;
+        gameObject.SetActive(false);
     }
 
     public int GetPawnSize() {
@@ -75,3 +127,4 @@ public class Pawn : MonoBehaviour {
         return placed;
     }
 }
+//create kill feedback

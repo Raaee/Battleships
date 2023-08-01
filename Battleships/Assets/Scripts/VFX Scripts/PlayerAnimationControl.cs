@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerAnimationControl : AnimationControl   {
-    
+
+    public UnityEvent OnMissileDestroyed;
     public override void AnimControlStart() {
         teamSide = TeamSide.DUSKMARE; // DEFAULT
         DetermineSide();
@@ -19,6 +21,7 @@ public class PlayerAnimationControl : AnimationControl   {
                 attack.transform.position = attackSpawnLoc.transform.position;
                 explosion.transform.position = target.position;
                 FindObjectOfType<CameraShake>().shakeDuration = cameraShakeDuration;
+                OnMissileDestroyed?.Invoke();
                 //Debug.Log("EXPLOSION!!!!!");
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
