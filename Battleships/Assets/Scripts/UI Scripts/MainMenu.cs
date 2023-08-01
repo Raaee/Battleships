@@ -21,7 +21,6 @@ public class MainMenu : MonoBehaviour   {
 
    
 
-    private bool camShakeVal = false;
     void Awake()
     {
         
@@ -81,7 +80,14 @@ public class MainMenu : MonoBehaviour   {
 
     public void OnCameraShakeValueChanged(bool isOn)
     {
-        camShakeVal = isOn;
+        Debug.Log(MainMenuSettingsData.instance.MMSD_camShakeVal);
+        MainMenuSettingsData.instance.MMSD_camShakeVal = isOn;
+        Debug.Log(MainMenuSettingsData.instance.MMSD_camShakeVal);
+    }
+
+    public void ToggleFullscreen(bool toggleState)
+    {
+        Screen.fullScreen = !Screen.fullScreen;
     }
     public void DisablePressPlay() {
         pressPlayText.gameObject.SetActive(false);
@@ -133,10 +139,7 @@ public class MainMenu : MonoBehaviour   {
         }
     }
 
-    public bool GetCamShakeValMaiMenu()
-    { return camShakeVal;
-    }
-
+   
 }
 public enum OnPanel {
     MAIN_MENU,
