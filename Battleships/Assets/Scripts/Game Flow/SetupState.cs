@@ -40,7 +40,7 @@ public class SetupState : GameState
     public override void TurnComplete() {
     
     }
-    public override IEnumerator WaitForSec(float time) {
+    public override IEnumerator CompleteTurnDelay(float time) {
         yield return PeteHelper.GetWait(time);
     }
 

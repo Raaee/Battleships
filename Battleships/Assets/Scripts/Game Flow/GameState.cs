@@ -22,7 +22,11 @@ public abstract class GameState : MonoBehaviour {
     public abstract void OnStateUpdate();
     public abstract void OnStateExit();
     public abstract void TurnComplete();
-    public abstract IEnumerator WaitForSec(float time);
+    public abstract IEnumerator CompleteTurnDelay(float time);
+   
+    public IEnumerator WaitForSec(float time) {
+        yield return PeteHelper.GetWait(time);
+    }
 }
 public enum StateTeam {
     NONE,

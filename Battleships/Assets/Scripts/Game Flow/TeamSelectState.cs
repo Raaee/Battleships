@@ -66,7 +66,7 @@ public class TeamSelectState : GameState    {
         }
     }
 
-    public override IEnumerator WaitForSec(float time) {
+    public override IEnumerator CompleteTurnDelay(float time) {
         yield return null;
     }
 }

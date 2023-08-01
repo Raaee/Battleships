@@ -29,13 +29,13 @@ public class CPUActionState : GameState {
         CheckIfHit();
         EndTurnAfterTime(0.625f);
     }
-    public override IEnumerator WaitForSec(float time) {
+    public override IEnumerator CompleteTurnDelay(float time) {
         //Debug.Log("Waiting...");
         yield return PeteHelper.GetWait(time);
         gameManager.ChangeState(player1AS);
     }
     public void EndTurnAfterTime(float time) {
-        StartCoroutine(WaitForSec(time));
+        StartCoroutine(CompleteTurnDelay(time));
     }
 
     public override void OnStateUpdate() {
@@ -84,7 +84,7 @@ public class CPUActionState : GameState {
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
        // Debug.Log("*********** Current Cube: " + currentCube);
         animControl.StartAttack(currentCube.gameObject);
-        animControl.ShowHitMissText(currentCube.gameObject, hit);
+        animControl.ShowHitMissText(currentCube.gameObject, hit, TeamSide.LUMINID);
     }
 
 

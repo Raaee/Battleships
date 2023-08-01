@@ -36,7 +36,7 @@ public class GameOverState : GameState
     public override void TurnComplete() {
     
     }
-    public override IEnumerator WaitForSec(float time) {
+    public override IEnumerator CompleteTurnDelay(float time) {
         yield return PeteHelper.GetWait(time);
     }
     public void CheckWhoWon()

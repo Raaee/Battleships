@@ -4,21 +4,26 @@ using UnityEngine;
 
 public abstract class AnimationControl : MonoBehaviour {
 
-    [Header("Generals' Animation Stuff:")]
+    [Header("Generals' Animation")]
     [SerializeField] protected GameObject duskmareAttackPrefab;
     [SerializeField] protected GameObject luminidAttackPrefab;
-    [SerializeField] protected GameObject hitText;
-    [SerializeField] protected GameObject missText;
     [SerializeField] protected GameObject explosionPrefab;
     [SerializeField] protected GameObject DMattackSpawnLoc;
     [SerializeField] protected GameObject LMattackSpawnLoc;
     [SerializeField] protected GameObject explosionSpawnLoc;
     [SerializeField] protected float cameraShakeDuration = 0.25f;
 
+    [Header("Hit and Miss Animation")]
+    [SerializeField] protected Canvas gameCanvas;
+    [SerializeField] protected GameObject hitText;
+    [SerializeField] protected GameObject missText;
+    [SerializeField] protected GameObject DM_FBIndicatorLoc;
+    [SerializeField] protected GameObject LM_FBIndicatorLoc;
+
     [Header("Debug")]
     public GameObject attack;
     protected GameObject attackSpawnLoc;
-    public float heightOfHitMissText = 1.0f;
+    public float heightOfHitMissText = 5.0f;
 
     protected Transform target;
     [HideInInspector] public bool isAttacking = false;
@@ -55,25 +60,28 @@ public abstract class AnimationControl : MonoBehaviour {
         explosion.transform.position = explosionSpawnLoc.transform.position;
        // Debug.Log("RESTING EXPLOSION");
     }
-    public void ShowHitMissText(GameObject attackCube, bool hit) {
-      
+    public void ShowHitMissText(GameObject attackCube, bool hit, TeamSide teamSide) {
         var attackLoc = attackCube.transform.localPosition;
         Vector3 loc = new Vector3(attackLoc.x, (attackLoc.y + heightOfHitMissText), attackLoc.z);
-        Debug.Log("is we hitting? " + hit); 
-        if (hit)
-            vfxIndicator = Instantiate(hitText, loc, Quaternion.identity);
-        else
-            vfxIndicator = Instantiate(missText, loc, Quaternion.identity);
 
-        var c = FindObjectOfType<Canvas>();
+        if (hit)
+           vfxIndicator = Instantiate(hitText, gameCanvas.transform, worldPositionStays:false);
+
+        else
+           vfxIndicator = Instantiate(missText, gameCanvas.transform, worldPositionStays: false);
+
+        if (teamSide == TeamSide.DUSKMARE)
+            vfxIndicator.transform.position = DM_FBIndicatorLoc.transform.position;
+        else
+            vfxIndicator.transform.position = LM_FBIndicatorLoc.transform.position;
+
         //2 ref to dummy prefabs 
         //choose a canvas serialize field \
         //make spawnd object a child of canvas 
         //move spawned obj to dummy prefabs 
         //vfx corountine destryo, figure out the exact seconds of 1 loop 
         //Destroy(vfx)
-        vfxIndicator.gameObject.transform.parent = c.gameObject.transform;
-        Debug.Log("this canvas", c.gameObject);
+        // vfxIndicator.gameObject.transform.parent = gameCanvas.gameObject.transform;
 
         if (vfxIndicator == null)
             Debug.Log("rae is fired");
