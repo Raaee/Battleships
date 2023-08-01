@@ -20,7 +20,7 @@ public class Pawn : MonoBehaviour {
     [Header("shake values!")]
     private float shakeDuration = 1f;
     private float maxShakeAmount = 0.1f;
-    private float shakeSpeed = 0.1f;
+    
 
     private Vector3 originalPosition;
 
