@@ -7,14 +7,18 @@ public abstract class AnimationControl : MonoBehaviour {
     [Header("Generals' Animation Stuff:")]
     [SerializeField] protected GameObject duskmareAttackPrefab;
     [SerializeField] protected GameObject luminidAttackPrefab;
+    [SerializeField] protected GameObject hitText;
+    [SerializeField] protected GameObject missText;
     [SerializeField] protected GameObject explosionPrefab;
     [SerializeField] protected GameObject DMattackSpawnLoc;
     [SerializeField] protected GameObject LMattackSpawnLoc;
     [SerializeField] protected GameObject explosionSpawnLoc;
     [SerializeField] protected float cameraShakeDuration = 0.25f;
 
+    [Header("Debug")]
     public GameObject attack;
     protected GameObject attackSpawnLoc;
+    public float heightOfHitMissText = 1.0f;
 
     protected Transform target;
     [HideInInspector] public bool isAttacking = false;
@@ -23,6 +27,8 @@ public abstract class AnimationControl : MonoBehaviour {
     protected GameObject duskmareAttack;
     protected GameObject luminidAttack;
     protected GameObject explosion;
+    protected GameObject hitIndicator;
+    protected GameObject missIndicator;
 
     [SerializeField] protected float attackSpeed = 20;
 
@@ -50,6 +56,15 @@ public abstract class AnimationControl : MonoBehaviour {
         explosion.transform.position = explosionSpawnLoc.transform.position;
        // Debug.Log("RESTING EXPLOSION");
     }
+    public void ShowHitMissText(Vector2 attackLoc, bool hit) {
+        Vector3 loc = new Vector3(attackLoc.x, (attackLoc.y + heightOfHitMissText), 0);
+
+        if (hit)
+            hitIndicator = Instantiate(hitText, loc, Quaternion.identity);
+        else
+            missIndicator = Instantiate(missText, loc, Quaternion.identity);
+    }
+
     public abstract void AnimControlStart();
     public abstract void AnimControlUpdate();
     public abstract void StartAttack(GameObject attackLoc);
