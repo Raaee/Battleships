@@ -19,6 +19,14 @@ public class MainMenu : MonoBehaviour   {
     private bool fading = false;
     private bool gameStart = false;
 
+   
+
+    void Awake()
+    {
+        
+    }
+
+
     private void Start() {
         StartMainMenu();
     }
@@ -68,6 +76,18 @@ public class MainMenu : MonoBehaviour   {
             }
         }
         
+    }
+
+    public void OnCameraShakeValueChanged(bool isOn)
+    {
+        Debug.Log(MainMenuSettingsData.instance.MMSD_camShakeVal);
+        MainMenuSettingsData.instance.MMSD_camShakeVal = isOn;
+        Debug.Log(MainMenuSettingsData.instance.MMSD_camShakeVal);
+    }
+
+    public void ToggleFullscreen(bool toggleState)
+    {
+        Screen.fullScreen = !Screen.fullScreen;
     }
     public void DisablePressPlay() {
         pressPlayText.gameObject.SetActive(false);
@@ -119,6 +139,7 @@ public class MainMenu : MonoBehaviour   {
         }
     }
 
+   
 }
 public enum OnPanel {
     MAIN_MENU,
