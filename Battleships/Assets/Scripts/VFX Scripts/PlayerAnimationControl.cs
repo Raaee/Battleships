@@ -26,7 +26,7 @@ public class PlayerAnimationControl : AnimationControl   {
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
        }       
-    }    
+    }
 
     public override void StartAttack(GameObject attackLoc) {
        // Debug.Log("Player Start Attack");

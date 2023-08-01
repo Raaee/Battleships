@@ -74,7 +74,7 @@ public class GameOverState : GameState
         switch (winningTeam)
         {
             case WinningTeam.PLAYERWON:
-                gameoverText.text += "\n YEAAAA DUSKMARES BIG W";
+                gameoverText.text += "\n YEaaaa DUSKmARES BIG W";
                 headerText.text = "You Won!";
                 header.GetComponent<Image>().color = winColor;
                 break;

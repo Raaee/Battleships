@@ -181,9 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Menu Shit
-
-'
+  m_text: Pause
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
   m_sharedMaterial: {fileID: 9175482970496519690, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
@@ -1547,7 +1545,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4e46732c56f266646b8e0209938398c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2627,7 +2625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1044395081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3123,7 +3121,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d946a088aa9e7294b89bbceb45296e7b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3291,12 +3289,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duskmareAttackPrefab: {fileID: 6388404951595145290, guid: 44d515f3a8088284eaca188657ef5226, type: 3}
   luminidAttackPrefab: {fileID: 3640216759280618659, guid: 7ca889b46e3aed541b42e68d6a0e25ae, type: 3}
+  hitText: {fileID: 498956814599969408, guid: f923c6046f6b47c4c821491498b77d63, type: 3}
+  missText: {fileID: 593693770473668242, guid: 3483731226038514db1f53c00c9280c1, type: 3}
   explosionPrefab: {fileID: 8414494400594675645, guid: 525a8bae9551ca849af1136236b89d20, type: 3}
   DMattackSpawnLoc: {fileID: 187493070}
   LMattackSpawnLoc: {fileID: 1567178706}
   explosionSpawnLoc: {fileID: 1998250302}
   cameraShakeDuration: 0.18
   attack: {fileID: 0}
+  heightOfHitMissText: 1
   isAttacking: 0
   teamSide: 0
   attackSpeed: 20
@@ -5829,12 +5830,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duskmareAttackPrefab: {fileID: 6388404951595145290, guid: 44d515f3a8088284eaca188657ef5226, type: 3}
   luminidAttackPrefab: {fileID: 3640216759280618659, guid: 7ca889b46e3aed541b42e68d6a0e25ae, type: 3}
+  hitText: {fileID: 498956814599969408, guid: f923c6046f6b47c4c821491498b77d63, type: 3}
+  missText: {fileID: 593693770473668242, guid: 3483731226038514db1f53c00c9280c1, type: 3}
   explosionPrefab: {fileID: 8414494400594675645, guid: 525a8bae9551ca849af1136236b89d20, type: 3}
   DMattackSpawnLoc: {fileID: 187493070}
   LMattackSpawnLoc: {fileID: 1567178706}
   explosionSpawnLoc: {fileID: 1998250302}
   cameraShakeDuration: 0.25
   attack: {fileID: 0}
+  heightOfHitMissText: 1
   isAttacking: 0
   teamSide: 0
   attackSpeed: 20
