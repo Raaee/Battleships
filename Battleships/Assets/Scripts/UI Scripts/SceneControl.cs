@@ -25,22 +25,23 @@ public class SceneControl : MonoBehaviour   {
     public void ChangeScene(string sceneName) {
         SceneManager.LoadScene(sceneName: sceneName);
     }
-    public void ChangeScene(Scene scene) {
+    public void ChangeScene(SceneEnum scene) {
         switch(scene) {
-            case Scene.MAIN_MENU:
+            case SceneEnum.MAIN_MENU:
                 SceneManager.LoadScene(sceneName: "MainMenu");
                 break;
-            case Scene.GAME:
+            case SceneEnum.GAME:
                 SceneManager.LoadScene(sceneName: "GameScene");
                 break;
         }
+        Debug.Log("spam calls?");
     }
-    public IEnumerator DelayedSceneChange(Scene scene, float timeInSec) {
+    public IEnumerator DelayedSceneChange(SceneEnum scene, float timeInSec) {
         yield return PeteHelper.GetWait(timeInSec);
         ChangeScene(scene);
     }
 }
-public enum Scene {
+public enum SceneEnum {
     MAIN_MENU,
     GAME
 }

@@ -51,9 +51,6 @@ public class MainMenu : MonoBehaviour   {
         if (fading)
             FadeMainMenu();
 
-        if (gameStart)
-            sceneControl.ChangeScene(Scene.GAME);
-
     }
     public void FadeMainMenu() {
         if (mainMenuGroup.alpha > 0) {
@@ -70,9 +67,9 @@ public class MainMenu : MonoBehaviour   {
         if (difficultySelectGroup.alpha > 0) {
             difficultySelectGroup.alpha -= Time.deltaTime;
             if (difficultySelectGroup.alpha == 0.5f) {
-                gameStart = false;
+               // gameStart = false;
                 // sceneControl.DelayedSceneChange(Scene.GAME, 1.25f);
-                sceneControl.ChangeScene(Scene.GAME);
+                sceneControl.ChangeScene(SceneEnum.GAME);
             }
         }
         
@@ -120,26 +117,41 @@ public class MainMenu : MonoBehaviour   {
         OpenButtonsMenu();
     }
     public void SelectDifficulty(int difficulty) { // 0 = easy, 1 = med, 2 = hard//
+        float enemyAIPercentage = 0.01f;
+
         switch (difficulty) {
             case 0:
-                Debug.Log("Easy Diffculty");
-                enemyAiStats.SetPercentageToHit(0.15f);
+
+                enemyAIPercentage = 0.15f;
                 gameStart = true;
                 break;
             case 1:
-                Debug.Log("Medium Diffculty");
-                enemyAiStats.SetPercentageToHit(0.33f);
+
+                enemyAIPercentage = 0.30f;
                 gameStart = true;
                 break;
             case 2:
-                Debug.Log("Hard Diffculty");
-                enemyAiStats.SetPercentageToHit(0.55f);
+
+                enemyAIPercentage = 0.50f;
+
                 gameStart = true;
                 break;
+            default:
+                Debug.Log("buttons for enemy diff not properly set");
+                break;
         }
+
+        enemyAiStats.SetPercentageToHit(enemyAIPercentage);
+        StartGame_Pete();
     }
 
-   
+
+    private void StartGame_Pete()
+    {
+        sceneControl.ChangeScene(SceneEnum.GAME);
+
+    }
+
 }
 public enum OnPanel {
     MAIN_MENU,
