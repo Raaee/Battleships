@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//
+/// <summary>
+/// The simplest implementation of the enemy AI. It already knows where the players pawns are and will have a percentage to try to hit it 
+/// </summary>
 public class BasicEnemyAI : IEnemyAI
 { 
     [SerializeField] private GridManager playerGridManager;
