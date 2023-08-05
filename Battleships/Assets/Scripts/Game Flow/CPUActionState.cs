@@ -25,9 +25,10 @@ public class CPUActionState : GameState {
     }
 
     public override void OnStateEnter() {
+        animControl.IndicateWhoseTurn(teamSide, animControl.GetEnemyGeneralDimness());
         ChooseAttackLoc();
         CheckIfHit();
-        EndTurnAfterTime(0.625f);
+        EndTurnAfterTime(0.75f);
     }
     public override IEnumerator CompleteTurnDelay(float time) {
         //Debug.Log("Waiting...");
@@ -82,7 +83,7 @@ public class CPUActionState : GameState {
         // after few seconds, anim of projectile going down from above, ON the cube that was selected
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
-       // Debug.Log("*********** Current Cube: " + currentCube);
+        // Debug.Log("*********** Current Cube: " + currentCube);
         animControl.StartAttack(currentCube.gameObject);
         animControl.ShowHitMissText(currentCube.gameObject, hit, TeamSide.LUMINID);
     }

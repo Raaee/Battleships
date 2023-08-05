@@ -19,11 +19,18 @@ public abstract class AnimationControl : MonoBehaviour {
     [SerializeField] protected GameObject missText;
     [SerializeField] protected GameObject DM_FBIndicatorLoc;
     [SerializeField] protected GameObject LM_FBIndicatorLoc;
+    [SerializeField] protected float attackSpeed = 20;
+    public float heightOfHitMissText = 5.0f;
 
     [Header("Debug")]
     public GameObject attack;
     protected GameObject attackSpawnLoc;
-    public float heightOfHitMissText = 5.0f;
+
+    [Header("Turn Indicators")]
+    [SerializeField] protected CanvasGroup duskmareGeneral;
+    [SerializeField] protected CanvasGroup luminidGeneral;
+    [SerializeField] protected GameObject playerTurnPanel;
+    [SerializeField] protected GameObject enemyTurnPanel;
 
     protected Transform target;
     [HideInInspector] public bool isAttacking = false;
@@ -34,7 +41,6 @@ public abstract class AnimationControl : MonoBehaviour {
     protected GameObject explosion;
     protected GameObject vfxIndicator;
 
-    [SerializeField] protected float attackSpeed = 20;
 
     private void Update() {
         AnimControlUpdate();
@@ -86,6 +92,29 @@ public abstract class AnimationControl : MonoBehaviour {
         if (vfxIndicator == null)
             Debug.Log("rae is fired");
 
+    }
+    public void IndicateWhoseTurn(TeamSide whoseTurn, byte generalDimness) {
+        Color32 DM_normalAlpha = duskmareGeneral.GetComponent<SpriteRenderer>().color;
+        DM_normalAlpha = new Color32(DM_normalAlpha.r, DM_normalAlpha.g, DM_normalAlpha.b, 255);
+        Color32 DM_lowAlpha = new Color32(DM_normalAlpha.r, DM_normalAlpha.g, DM_normalAlpha.b, generalDimness);
+
+        Color32 LM_normalAlpha = luminidGeneral.GetComponent<SpriteRenderer>().color;
+        LM_normalAlpha = new Color32(LM_normalAlpha.r, LM_normalAlpha.g, LM_normalAlpha.b, 255);
+        Color32 LM_lowAlpha = new Color32(LM_normalAlpha.r, LM_normalAlpha.g, LM_normalAlpha.b, generalDimness);
+
+        Debug.Log("DM: " + DM_lowAlpha);
+        Debug.Log("LM: " + LM_lowAlpha);
+
+        switch (whoseTurn) {
+            case TeamSide.DUSKMARE:
+                duskmareGeneral.GetComponent<SpriteRenderer>().color = DM_normalAlpha;
+                luminidGeneral.GetComponent<SpriteRenderer>().color = LM_lowAlpha;
+                break;
+            case TeamSide.LUMINID:
+                luminidGeneral.GetComponent<SpriteRenderer>().color = LM_normalAlpha;
+                duskmareGeneral.GetComponent<SpriteRenderer>().color = DM_lowAlpha;
+                break;
+        }
     }
 
     public abstract void AnimControlStart();

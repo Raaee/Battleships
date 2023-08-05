@@ -36,6 +36,7 @@ public class PlayerActionState : GameState {
         attackSelected = false;
         attackConfirmed = false;
         pawnHit = false;
+        animControl.IndicateWhoseTurn(teamSide, animControl.GetEnemyGeneralDimness());
     }
     public override void OnStateUpdate() {
 

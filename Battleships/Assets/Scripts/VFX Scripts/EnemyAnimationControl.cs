@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimationControl : AnimationControl   {
+
+    [SerializeField] [Range(0, 255)] protected byte enemyGeneralDimness = 127;
+
     public override void AnimControlStart() {
         teamSide = TeamSide.LUMINID; // DEFUALT
         DetermineSide();
@@ -22,6 +25,9 @@ public class EnemyAnimationControl : AnimationControl   {
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
        }       
+    }
+    public byte GetEnemyGeneralDimness() {
+        return enemyGeneralDimness;
     }
     public override void StartAttack(GameObject attackLoc) {
         //Debug.Log("Enemy Start Attack");

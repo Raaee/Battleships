@@ -5,7 +5,12 @@ using UnityEngine.Events;
 
 public class PlayerAnimationControl : AnimationControl   {
 
+    
+    [SerializeField] [Range(0, 255)] protected byte enemyGeneralDimness = 127;
+    
+    [Header("Events")]
     public UnityEvent OnMissileDestroyed;
+
     public override void AnimControlStart() {
         teamSide = TeamSide.DUSKMARE; // DEFAULT
         DetermineSide();
@@ -26,6 +31,9 @@ public class PlayerAnimationControl : AnimationControl   {
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
        }       
+    }
+    public byte GetEnemyGeneralDimness() {
+        return enemyGeneralDimness;
     }
 
     public override void StartAttack(GameObject attackLoc) {
