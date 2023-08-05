@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class MainMenu : MonoBehaviour   {
 
@@ -16,21 +17,10 @@ public class MainMenu : MonoBehaviour   {
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject teamSelectPanel;
 
-    private bool fading = false;
-    private bool gameStart = false;
-
-   
-
-    void Awake()
-    {
-        
-    }
-
-
     private void Start() {
-        StartMainMenu();
+        Initialize();
     }
-    public void StartMainMenu() {
+    public void Initialize() {
         currentPanel = OnPanel.MAIN_MENU;
         DisplayTitle(true);
         pressPlayText.gameObject.SetActive(true);
@@ -48,38 +38,46 @@ public class MainMenu : MonoBehaviour   {
                 OpenButtonsMenu();
             }
         }
-        if (fading)
-            FadeMainMenu();
-
-        if (gameStart)
-            sceneControl.ChangeScene(Scene.GAME);
-
     }
-    public void FadeMainMenu() {
-        if (mainMenuGroup.alpha > 0) {
-            mainMenuGroup.alpha -= Time.deltaTime;
-            if (mainMenuGroup.alpha == 0) {
-                fading = false;
-                mainMenuGroup.gameObject.SetActive(false);
-                difficultySelectGroup.gameObject.SetActive(true);
-            }
+    private IEnumerator FadeOutCanvasGroup(CanvasGroup cg, float fadeDuration) {
+        float time = 0f;
+        float startAlpha = cg.alpha;
+
+        while (time < fadeDuration) {
+            float newAlpha = Mathf.Lerp(startAlpha, 0f, time / fadeDuration);
+            cg.alpha = newAlpha;
+            time += Time.deltaTime;
+            yield return null;
         }
-        
+        // Ensure the alpha is set to 0 at the end to avoid any floating-point inaccuracies.
+        cg.alpha = 0f;
     }
-    public void FadeDifficultySelect() {
-        if (difficultySelectGroup.alpha > 0) {
-            difficultySelectGroup.alpha -= Time.deltaTime;
-            if (difficultySelectGroup.alpha == 0.5f) {
-                gameStart = false;
-                // sceneControl.DelayedSceneChange(Scene.GAME, 1.25f);
-                sceneControl.ChangeScene(Scene.GAME);
-            }
-        }
-        
-    }
+    private IEnumerator FadeInCanvasGroup(CanvasGroup cg, float fadeDuration) {
+        float time = 0f;
+        float startAlpha = 0;
+        cg.alpha = 0f;
 
-    public void OnCameraShakeValueChanged(bool isOn)
-    {
+        while (time < fadeDuration) {
+            float newAlpha = Mathf.Lerp(startAlpha, 1.0f, time / fadeDuration);
+            cg.alpha = newAlpha;
+            time += Time.deltaTime;
+            yield return null;
+        }
+        // Ensure the alpha is set to 0 at the end to avoid any floating-point inaccuracies.
+        cg.alpha = 1.0f;
+    }
+    IEnumerator FadeOutMainMenu() {
+        yield return StartCoroutine(FadeOutCanvasGroup(mainMenuGroup, 1.5f));
+        mainMenuGroup.gameObject.SetActive(false);
+        difficultySelectGroup.gameObject.SetActive(true);
+        StartCoroutine(FadeInDifficultyMenu());
+    }
+    IEnumerator FadeInDifficultyMenu() {
+        yield return StartCoroutine(FadeInCanvasGroup(difficultySelectGroup, 1f));
+        // sceneControl.DelayedSceneChange(Scene.GAME, 1.25f);
+        // sceneControl.ChangeScene(SceneEnum.GAME);
+    }
+    public void OnCameraShakeValueChanged(bool isOn)    {
         Debug.Log(MainMenuSettingsData.instance.MMSD_camShakeVal);
         MainMenuSettingsData.instance.MMSD_camShakeVal = isOn;
         Debug.Log(MainMenuSettingsData.instance.MMSD_camShakeVal);
@@ -103,7 +101,8 @@ public class MainMenu : MonoBehaviour   {
         buttonsPanel.SetActive(true);
     }
     public void StartGame() {
-        fading = true;
+        //   fading = true;
+        StartCoroutine(FadeOutMainMenu());        
     }
     public void QuitGame() {
         Application.Quit();
@@ -120,26 +119,30 @@ public class MainMenu : MonoBehaviour   {
         OpenButtonsMenu();
     }
     public void SelectDifficulty(int difficulty) { // 0 = easy, 1 = med, 2 = hard//
+        float enemyAIPercentage = 0.01f;
+
         switch (difficulty) {
             case 0:
-                Debug.Log("Easy Diffculty");
-                enemyAiStats.SetPercentageToHit(0.15f);
-                gameStart = true;
+                enemyAIPercentage = 0.15f;
                 break;
             case 1:
-                Debug.Log("Medium Diffculty");
-                enemyAiStats.SetPercentageToHit(0.33f);
-                gameStart = true;
+                enemyAIPercentage = 0.30f;
                 break;
             case 2:
-                Debug.Log("Hard Diffculty");
-                enemyAiStats.SetPercentageToHit(0.55f);
-                gameStart = true;
+                enemyAIPercentage = 0.50f;
+                break;
+            default:
+                Debug.Log("buttons for enemy diff not properly set");
                 break;
         }
+
+        enemyAiStats.SetPercentageToHit(enemyAIPercentage);
+        StartGameOfficial();
     }
 
-   
+    private void StartGameOfficial()    {
+        sceneControl.ChangeScene(SceneEnum.GAME);
+    }
 }
 public enum OnPanel {
     MAIN_MENU,
