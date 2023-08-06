@@ -10,7 +10,14 @@ public class BasicEnemyAI : IEnemyAI
     [SerializeField] private GridManager playerGridManager;
 
     void Start() {
-        percentageToHit = FindObjectOfType<EnemyAiStats>().GetPercentageToHit();
+        var enemyAiStats = FindObjectOfType<EnemyAiStats>();
+        if(enemyAiStats)
+            percentageToHit = FindObjectOfType<EnemyAiStats>().GetPercentageToHit();
+        else
+        {
+            percentageToHit = 0.15f;
+        }
+           
     }
 
     public override Vector2 DetermineNextLocation()

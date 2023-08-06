@@ -52,6 +52,8 @@ public class Pawn : MonoBehaviour {
         for (int i = 0; i < lastHighlightedGameobjects.Count; i++) {
             pawnCoords.Add(gridMan.GetPositionAtTile(lastHighlightedGameobjects[i]));
         }
+        Debug.Log("we placing"); 
+
         return true;
     }
     public void SetPawnCoordinates(List<Vector2> newPawnCoords) {
@@ -122,9 +124,17 @@ public class Pawn : MonoBehaviour {
     }
     public void SetPlacedStatus(bool isPlaced) {
         placed = isPlaced;
+        if(placed == false)
+        {
+            ResetPawnCoords();
+        }
     }
     public bool GetPlacedStatus() {
         return placed;
+    }
+    public void ResetPawnCoords()
+    {
+        pawnCoords = new List<Vector2>();
     }
 }
 //create kill feedback

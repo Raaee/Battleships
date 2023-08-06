@@ -55,7 +55,11 @@ public class ClickAndDrag : MonoBehaviour
          //   potentialShipPlacement.AssignPawnOrientation();
             Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             transform.position = newPos;
-            if(inputData.GetCubeVisual() != null)  currentPawn.transform.position = inputData.GetCubeVisual().GetCubeMidPosition();
+            if (inputData.GetCubeVisual() != null)
+            {
+                
+                currentPawn.transform.position = inputData.GetCubeVisual().GetCubeMidPosition();
+            }
         }
     }
 
@@ -63,8 +67,9 @@ public class ClickAndDrag : MonoBehaviour
         if(!IsActive) return;
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dragging = true;
+        currentPawn.ResetPawnCoords();
         //changing the highlightedd size for the potential ship placement 
-     //   potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
+        //   potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
     }
     private void OnMouseUp() {   
         if(!IsActive) return;
@@ -85,8 +90,10 @@ public class ClickAndDrag : MonoBehaviour
          
 
 
-            if (potentialShipPlacement.GetIsPawnOverPawn())
+            if (potentialShipPlacement.GetIsPawnOverPawn()) //first we should check if we are over own pawn 
             {
+                
+
                 Debug.Log("theres already pawn here");
                 currentPawn.SetPlacedStatus(false);
                 ResetToOriginalSpawnPosition();
