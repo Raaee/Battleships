@@ -26,12 +26,14 @@ public class ClickAndDrag : MonoBehaviour
     private Vector3 lastChosenLoc;
     private InputData inputData;
 
+    private float lerpSpeed = 18f;
+
     private void Awake()
     {
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         currentPawn = GetComponent<Pawn>();
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
-        buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DisableSelf);
+        buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DeactivateDragging);
         playerPawnsUI = FindObjectOfType<AmountOfPlayerPawnsUI>();
         inputData = FindObjectOfType<InputData>();
 
@@ -41,7 +43,7 @@ public class ClickAndDrag : MonoBehaviour
         originalSpawnLocation = transform.position;
     }
 
-    public void DisableSelf()
+    public void DeactivateDragging()
     {
         IsActive = false;
         
@@ -52,12 +54,14 @@ public class ClickAndDrag : MonoBehaviour
         if(!IsActive) return;
         
         if (dragging) {
-         //   potentialShipPlacement.AssignPawnOrientation();
+        
             Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
-            transform.position = newPos;
+            //transform.position = newPos;
+
+            transform.position = Vector3.Lerp(transform.position, newPos, lerpSpeed * Time.deltaTime);
+
             if (inputData.GetCubeVisual() != null)
-            {
-                
+            {             
                 currentPawn.transform.position = inputData.GetCubeVisual().GetCubeMidPosition();
             }
         }
@@ -69,7 +73,7 @@ public class ClickAndDrag : MonoBehaviour
         dragging = true;
         currentPawn.ResetPawnCoords();
         //changing the highlightedd size for the potential ship placement 
-        //   potentialShipPlacement.SetPawnSize(currentPawn.GetPawnSize());
+       
     }
     private void OnMouseUp() {   
         if(!IsActive) return;
@@ -81,60 +85,58 @@ public class ClickAndDrag : MonoBehaviour
         {
             //check if the cube is part of the player cube
             if (inputData.GetPlayerGridManager().GetPositionAtTile(inputData.GetCubeVisual().gameObject).x < 0 )
-            {
-               
-                currentPawn.SetPlacedStatus(false);
+            {                       
                 ResetToOriginalSpawnPosition();
                 return;
             }
-         
+     
 
-
-            if (potentialShipPlacement.GetIsPawnOverPawn()) //first we should check if we are over own pawn 
+            if (potentialShipPlacement.GetIsPawnOverPawn()) 
             {
-                
-
-                Debug.Log("theres already pawn here");
-                currentPawn.SetPlacedStatus(false);
+                Debug.Log("theres already pawn here");            
                 ResetToOriginalSpawnPosition();
                 return;
             }
-            lastChosenLoc = currentPawn.transform.position;
-            currentPawn.transform.position =  inputData.GetCubeVisual().GetCubeMidPosition();
-            currentPawn.SetPlacedStatus(true);
-            OnPawnPlaced?.Invoke();
-            playerPawnsUI.UpdateUI(currentPawn.GetPawnSize());
+
+
+            MovePawn();
+
             if(!currentPawn.SetPawnCoordinates())
             {
                 ResetToOriginalSpawnPosition();
                 return;
             }
+
+
             // gotta fix this. doesnt remove occupy when changing pawn position. only changes when dropping out of grid
             OccupyCubes(true);
         }
         else
         {
             Debug.Log("you dropped the pawn but you werent over a cube. so bad.");
-            currentPawn.SetPlacedStatus(false);
+            
             ResetToOriginalSpawnPosition();
             OccupyCubes(false);
         }
         potentialShipPlacement.RemoveCurrentTileVisual();
     }
+
+    private void MovePawn()
+    {
+        lastChosenLoc = currentPawn.transform.position;
+        currentPawn.transform.position = Vector3.Lerp(currentPawn.transform.position, inputData.GetCubeVisual().GetCubeMidPosition(), lerpSpeed * Time.deltaTime);
+        currentPawn.SetPlacedStatus(true);
+        OnPawnPlaced?.Invoke();
+        playerPawnsUI.UpdateUI(currentPawn.GetPawnSize());
+    }
+
     private void OccupyCubes(bool occupied) {
         List<GameObject> lastHighlightedGameObjects = potentialShipPlacement.GetLastHighlightedCubes();
-/*
-        for (int i = 0; i < currentPawn.GetPawnSize(); i++) {
-            if (occupied)
-                lastHighlightedGameObjects[i].GetComponent<CubeVisual>().ChangeMaterialOnHitState(CubeHitState.OCCUPIED);
-            else
-                lastHighlightedGameObjects[i].GetComponent<CubeVisual>().ChangeMaterialOnHitState(CubeHitState.NONE);
-        }
-*/
     }
 
     private void ResetToOriginalSpawnPosition()
     {
+        currentPawn.SetPlacedStatus(false);
         transform.position = originalSpawnLocation;
     }
     public bool GetIsDragging()
