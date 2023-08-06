@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// A grid manager script that will be set in 3d to achieve a 2.5d effect
+/// The GridManager class is responsible for generating and managing a 2.5D grid system in a Unity project. 
+/// It creates a grid of tiles with specified dimensions and offsets, using different types of cubes based on their positions (corners, edges, and default). 
+/// The class provides methods for getting a tile at a specific position, getting the position of a tile, and accessing the entire grid.
 /// </summary>
 public class GridManager : MonoBehaviour
 {
    
    private const int WIDTH = 10, HEIGHT = 10;
-   private float widthOffset = 1.125f;//1.15
-   private float heightOffset = 1.275f;//1.3
+   private const float widthOffset = 1.125f;//1.15
+   private const float heightOffset = 1.275f;//1.3
 
    [SerializeField] private GameObject startingTilePoint;
 
@@ -21,13 +23,15 @@ public class GridManager : MonoBehaviour
    public void GenerateGrid()
    {
       tiles = new Dictionary<Vector2, GameObject>();
-      for (int x = 0; x < WIDTH; x++)
+        // this is here so we spawn the grid based on this gameobjects position
+        Vector3 startingTileLoc = startingTilePoint.transform.position;
+        for (int x = 0; x < WIDTH; x++)
       {
          for (int y = 0; y < HEIGHT; y++)
          {
             //if x is this and y is that, do a differnt logic to make spawn edges 
             
-            Vector3 startingTileLoc = startingTilePoint.transform.position; // this is here so we spawn the grid based on this gameobjects position
+            
             GameObject spawnedTile = Instantiate(GetCorrectCube(x, y), new Vector3(x * widthOffset  + startingTileLoc.x, 0  + startingTileLoc.y,y * heightOffset + startingTileLoc.z), Quaternion.identity); 
             spawnedTile.name = $"Tile {x} {y} - " + spawnedTile.name;
             spawnedTile.transform.parent = this.transform;
@@ -37,16 +41,12 @@ public class GridManager : MonoBehaviour
       }
    }
 
-   private void Update()
-   {
-      if(tiles == null)
-         Debug.Break();
-   }
+   
 
    public GameObject GetTileAtPosition(Vector2 pos)
    {
         if (tiles == null) {
-            ReGenerateGrid();
+            GenerateGrid();
         }
         if (tiles.TryGetValue(pos, out var tile)) {
             return tile;
@@ -54,10 +54,6 @@ public class GridManager : MonoBehaviour
         return null;
    }
 
-   private void ReGenerateGrid()
-   {
-      GenerateGrid();
-   }
 
    public Vector2 GetPositionAtTile(GameObject go)
    {
