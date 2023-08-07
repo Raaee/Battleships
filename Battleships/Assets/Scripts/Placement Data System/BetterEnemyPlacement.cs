@@ -107,7 +107,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
             PlacePawn(pos, pawnsInBattle[i]);
             
             //disable pawns 
-            pawnsInBattle[i].gameObject.GetComponent<ClickAndDrag>().DisableSelf();
+            pawnsInBattle[i].gameObject.GetComponent<ClickAndDrag>().DeactivateDragging();
             pawnsInBattle[i].gameObject.SetActive(false);
         }
         

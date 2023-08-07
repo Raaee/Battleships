@@ -25,7 +25,10 @@ public class CameraShake : MonoBehaviour
 		{
 			camTransform = GetComponent(typeof(Transform)) as Transform;
 		}
-		IsActive = MainMenuSettingsData.instance.MMSD_camShakeVal;
+		if (MainMenuSettingsData.instance)
+			IsActive = MainMenuSettingsData.instance.MMSD_camShakeVal;
+		else
+			IsActive = true;
 	}
 
 	void OnEnable()
