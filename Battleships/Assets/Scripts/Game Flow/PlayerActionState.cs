@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
@@ -8,6 +9,7 @@ public class PlayerActionState : GameState {
    
     private AttackHighlightSystem attackHighlightSystem;
     private CubeVisual currentCubeCV;
+    private List<CubeVisual> alreadyHitCubes;
     private Vector2 attackLocation;
 
     private ButtonFunctions buttonsFunctions;
@@ -28,6 +30,7 @@ public class PlayerActionState : GameState {
         buttonsFunctions = FindObjectOfType<ButtonFunctions>(); 
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(ConfirmAttack);
         buttonsFunctions.OnPlayerConfirmAttack.AddListener(EndAttackConfirm);
+        alreadyHitCubes = new List<CubeVisual>();
     }
     public override void OnStateEnter() {
        // playerActions.DetermineLocation();
@@ -53,6 +56,14 @@ public class PlayerActionState : GameState {
     public void SetAttackLocation() {
         currentCubeCV = attackHighlightSystem.GetCurrentlyHighlighted();
         if (currentCubeCV == null) return; //this should happen if it tries to attack wrong gruid
+        if(!alreadyHitCubes.Contains(currentCubeCV))
+        {
+            alreadyHitCubes.Add(currentCubeCV);
+        }
+        else
+        {
+            return;
+        }
         currentCubeCV.ShowHitMarkerIcon();
         attackLocation = attackHighlightSystem.GetCurrentAttackLocation();
         attackSelected = true;

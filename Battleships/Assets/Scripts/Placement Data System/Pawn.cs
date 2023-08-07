@@ -3,34 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// The base pawn script, for data purposes and visually when seeting their spawn positions 
+///  The Pawn script is a class that represents a game object in a grid 
+///  The script manages pawn properties such as size, position, and coordinates, as well as its placed status on the grid. 
+///  Additionally, the script includes a shake animation for visual feedback when a pawn is destroyed.
 /// </summary>
 public class Pawn : MonoBehaviour {
-    //size 
+
+    #region Variables
+  
     [SerializeField] [Range(1, 5)] private int pawnSize = 1;
-
-    //position - list of PawnCoordinates 
+    
     public List<Vector2> pawnCoords;
-
-   // private ClickAndDrag cd;
-    private PotentialShipPlacement potentialShipPlacement;
-    private GridManager gridMan;
     private bool placed = false;
 
-    [Header("shake values!")]
+    //pawn object shake values
     private float shakeDuration = 1f;
     private float maxShakeAmount = 0.1f;
-    
-
     private Vector3 originalPosition;
 
+    private PotentialShipPlacement potentialShipPlacement;
+    private GridManager gridMan;
     private PlayerAnimationControl playerAnimationControl;
+
     private bool canDoFeedback = true;
-    private bool isBadGuy = false; //dumb script
+    private bool isBadGuy = false;
+    #endregion
+
     private void Awake()
     {
-        //cd = GetComponent<ClickAndDrag>();
-       // cd.OnPawnPlaced.AddListener(SetPawnCoordinates);
+       
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
         gridMan = FindObjectOfType<GridManager>();
         playerAnimationControl = FindObjectOfType<PlayerAnimationControl>();
@@ -52,7 +53,8 @@ public class Pawn : MonoBehaviour {
         for (int i = 0; i < lastHighlightedGameobjects.Count; i++) {
             pawnCoords.Add(gridMan.GetPositionAtTile(lastHighlightedGameobjects[i]));
         }
-        Debug.Log("we placing"); 
+        Debug.Log("we placing");
+       
 
         return true;
     }
@@ -60,11 +62,9 @@ public class Pawn : MonoBehaviour {
         pawnCoords.Clear();
         pawnCoords = newPawnCoords;
         
-        //TODO: Go through all the cubes with these pawn coords, and set them to occupied 
-        //next: if hit/miss set their state like that too 
+        
     }
     public void RemovePawnCoord(Vector2 coordToRemove) {
-        //coordToRemove = new Vector2(coordToRemove.y, coordToRemove.x);
 
         if (pawnCoords.Contains(coordToRemove)) {
             Debug.Log("removing a pawn coord");
@@ -73,7 +73,7 @@ public class Pawn : MonoBehaviour {
             {
                 Debug.Log("Pawn: TIME TO DIE!!!! Enemy");
                 gameObject.SetActive(false);//my guy its already set to false in game 
-                //KillPawnFeedback();
+               
             }
         } else {
             Debug.Log("Pawn coord not found: " + coordToRemove);

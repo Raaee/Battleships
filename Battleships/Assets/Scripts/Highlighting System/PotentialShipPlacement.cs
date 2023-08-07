@@ -16,7 +16,7 @@ public class PotentialShipPlacement : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnMouseScrolled;
 
-    private List<GameObject> lastHighlightedGameObjects; //making a temp list, if pawn is placed then this is what is sent to the pawn data 
+    [SerializeField] private List<GameObject> lastHighlightedGameObjects; //making a temp list, if pawn is placed then this is what is sent to the pawn data 
 
     [SerializeField] private bool pawnIsOverPawn = false;
 
@@ -173,7 +173,7 @@ public class PotentialShipPlacement : MonoBehaviour
     public void AssignCurrentTileVisual(CubeVisual cubeVisual)
     {
         currentHighlightedCubeVisual = cubeVisual;
-        //ShowPotentialShipPlacement();
+        
     }
 
     public void RemoveCurrentTileVisual()
@@ -203,6 +203,7 @@ public class PotentialShipPlacement : MonoBehaviour
                 tileColor.HideHighlight();
             }
         }
+        ResetLastHighlightedGameObjects();
     }
     public CubeVisual GetCurrentHighlightedCubeVisual() {
         return currentHighlightedCubeVisual;
