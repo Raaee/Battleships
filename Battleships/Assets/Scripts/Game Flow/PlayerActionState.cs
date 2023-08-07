@@ -33,7 +33,7 @@ public class PlayerActionState : GameState {
         alreadyHitCubes = new List<CubeVisual>();
     }
     public override void OnStateEnter() {
-       // playerActions.DetermineLocation();
+       
        //Open Highlight System
         attackHighlightSystem.EnableSystem();
         attackSelected = false;
@@ -50,9 +50,7 @@ public class PlayerActionState : GameState {
     public override void OnStateExit() {
 
     }
-    public void SelectPowerUp() {
-        Debug.Log("You selected a power-up.");
-    }
+
     public void SetAttackLocation() {
         currentCubeCV = attackHighlightSystem.GetCurrentlyHighlighted();
         if (currentCubeCV == null) return; //this should happen if it tries to attack wrong gruid
@@ -125,16 +123,4 @@ public class PlayerActionState : GameState {
         TurnComplete();
     }
 
-    /* player 1
-     * - if PU available && player choose -> use powerup , else -> nothing
-     *    - show PU available (UI)
-     * - use highlight system (DONE)
-     * - save location clicked (DONE)
-     * - show button for hit location once chosen (DONE)
-     * if button pressed:
-     *    - checks if pawn hit -> remove pawn coord that was hit, else -> missed: USE DEBUG (DONE)
-     *       -> button triggers visual feedback **** <<<<<<
-     * - close highlight system (DONE)
-     * - go to player 2 turn or other branch
-     */
 }
