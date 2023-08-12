@@ -8,6 +8,7 @@ public class GameplayUI : MonoBehaviour {
     [SerializeField] TMP_Text currentRoundTxt;
     [SerializeField] TMP_Text whosTurnTxt;
     [SerializeField] TMP_Text shipsRemainingTxt;
+    [SerializeField] AnimationControl uiAnimationControl;
 
     //private int currentTurn = 0;
     private GameState currentState;
@@ -17,7 +18,9 @@ public class GameplayUI : MonoBehaviour {
     }
 
     public void UpdateTurnTxt() {
-       // Debug.Log(currentState);
+        uiAnimationControl.ShowTurnIndicator(currentState.stateTeam);
+
+        // Debug.Log(currentState);
         if (currentState.stateTeam == StateTeam.PLAYER) {
             whosTurnTxt.text = "Player's Turn";
         } else {

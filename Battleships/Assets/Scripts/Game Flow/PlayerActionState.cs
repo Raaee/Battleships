@@ -39,7 +39,7 @@ public class PlayerActionState : GameState {
         attackSelected = false;
         attackConfirmed = false;
         pawnHit = false;
-        animControl.IndicateWhoseTurn(teamSide, animControl.GetEnemyGeneralDimness());
+      //  animControl.IndicateWhoseTurn(teamSide, animControl.GetEnemyGeneralDimness());
     }
     public override void OnStateUpdate() {
 
@@ -111,8 +111,8 @@ public class PlayerActionState : GameState {
         // (CHANGE CUBE COLOR TO SHOW ALREADY SELECTED)
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
         animControl.StartAttack(currentCubeCV.gameObject);
-        animControl.ShowHitMissText(currentCubeCV.gameObject, hit, TeamSide.DUSKMARE);
-        StartCoroutine(CompleteTurnDelay(3.5f));
+       // animControl.ShowHitMissText(currentCubeCV.gameObject, hit, TeamSide.DUSKMARE);
+        StartCoroutine(CompleteTurnDelay(2.5f));
     }
    
     public override void TurnComplete() {

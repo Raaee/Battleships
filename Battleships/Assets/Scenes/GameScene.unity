@@ -459,7 +459,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 231487186}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &231487185
 GameObject:
@@ -489,6 +489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1174449924}
   - {fileID: 1254787854}
   - {fileID: 1841981603}
   - {fileID: 718991133}
@@ -836,8 +837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe08a67840b9c74e8cc3a45be1f268a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthOffset: 1.15
-  heightOffset: 1.3
   startingTilePoint: {fileID: 1075988219}
   cubePalette: {fileID: 11400000, guid: 8067679ef1d37aa4cbe0c0cf9266e77c, type: 2}
 --- !u!1 &412528283
@@ -1593,7 +1592,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 231487186}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 29.911, y: -1.455, z: -0.899}
 --- !u!225 &718991134
 CanvasGroup:
@@ -2568,6 +2567,37 @@ Transform:
   m_Father: {fileID: 1343984741}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1031266612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031266613}
+  m_Layer: 0
+  m_Name: TurnIndicatorSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1031266613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031266612}
+  m_LocalRotation: {x: -0.2588191, y: -0, z: -0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 132, z: 267}
+  m_LocalScale: {x: 74.18369, y: 74.18369, z: 74.18369}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1343984741}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041694486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,6 +2654,7 @@ MonoBehaviour:
   currentRoundTxt: {fileID: 323021780}
   whosTurnTxt: {fileID: 1520760640}
   shipsRemainingTxt: {fileID: 1138822234}
+  uiAnimationControl: {fileID: 1174449925}
 --- !u!1 &1044395080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3299,72 @@ Transform:
   m_Father: {fileID: 1382943595}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1174449923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174449924}
+  - component: {fileID: 1174449925}
+  m_Layer: 0
+  m_Name: ui_Anim Control
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1174449924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174449923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 231487186}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174449925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174449923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3f516931509f24f9114f3573ea95cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duskmareAttackPrefab: {fileID: 0}
+  luminidAttackPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 0}
+  DMattackSpawnLoc: {fileID: 0}
+  LMattackSpawnLoc: {fileID: 0}
+  explosionSpawnLoc: {fileID: 0}
+  cameraShakeDuration: 0.25
+  attackSpeed: 20
+  attack: {fileID: 0}
+  isAttacking: 0
+  teamSide: 0
+  gameCanvas: {fileID: 1343984740}
+  hitText: {fileID: 0}
+  missText: {fileID: 0}
+  DM_FBIndicatorLoc: {fileID: 0}
+  LM_FBIndicatorLoc: {fileID: 0}
+  heightOfHitMissText: 5
+  turnPanelPrefab: {fileID: 8660086167519004143, guid: d4e53281605ce5c4da45c4137810842d, type: 3}
+  turnPanelSpawnLoc: {fileID: 1031266612}
+  turnIndicatorText: {fileID: 0}
+  duskmareGeneral: {fileID: 0}
+  luminidGeneral: {fileID: 0}
 --- !u!1 &1175475268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,7 +3448,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 231487186}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 18.712, y: 14.151, z: 2.192}
 --- !u!225 &1175475271
 CanvasGroup:
@@ -3491,18 +3588,8 @@ MonoBehaviour:
   LMattackSpawnLoc: {fileID: 1567178706}
   explosionSpawnLoc: {fileID: 1998250302}
   cameraShakeDuration: 0.18
-  gameCanvas: {fileID: 1343984740}
-  hitText: {fileID: 498956814599969408, guid: f923c6046f6b47c4c821491498b77d63, type: 3}
-  missText: {fileID: 593693770473668242, guid: 3483731226038514db1f53c00c9280c1, type: 3}
-  DM_FBIndicatorLoc: {fileID: 1122519853}
-  LM_FBIndicatorLoc: {fileID: 1053635622}
   attackSpeed: 20
-  heightOfHitMissText: 1
   attack: {fileID: 0}
-  duskmareGeneral: {fileID: 718991134}
-  luminidGeneral: {fileID: 1175475271}
-  playerTurnPanel: {fileID: 0}
-  enemyTurnPanel: {fileID: 0}
   isAttacking: 0
   teamSide: 0
   enemyGeneralDimness: 115
@@ -3522,7 +3609,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 231487186}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264662319
 GameObject:
@@ -4130,6 +4217,7 @@ RectTransform:
   - {fileID: 2042632221}
   - {fileID: 1122519854}
   - {fileID: 1053635623}
+  - {fileID: 1031266613}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4391,6 +4479,7 @@ MonoBehaviour:
   OnMouseScrolled:
     m_PersistentCalls:
       m_Calls: []
+  lastHighlightedGameObjects: []
   pawnIsOverPawn: 0
 --- !u!4 &1412156057
 Transform:
@@ -5033,7 +5122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 231487186}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582055528
 GameObject:
@@ -6097,7 +6186,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 231487186}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1841981604
 MonoBehaviour:
@@ -6118,18 +6207,8 @@ MonoBehaviour:
   LMattackSpawnLoc: {fileID: 1567178706}
   explosionSpawnLoc: {fileID: 1998250302}
   cameraShakeDuration: 0.25
-  gameCanvas: {fileID: 1343984740}
-  hitText: {fileID: 498956814599969408, guid: f923c6046f6b47c4c821491498b77d63, type: 3}
-  missText: {fileID: 593693770473668242, guid: 3483731226038514db1f53c00c9280c1, type: 3}
-  DM_FBIndicatorLoc: {fileID: 1122519853}
-  LM_FBIndicatorLoc: {fileID: 1053635622}
   attackSpeed: 20
-  heightOfHitMissText: 1
   attack: {fileID: 0}
-  duskmareGeneral: {fileID: 718991134}
-  luminidGeneral: {fileID: 1175475271}
-  playerTurnPanel: {fileID: 0}
-  enemyTurnPanel: {fileID: 0}
   isAttacking: 0
   teamSide: 0
   enemyGeneralDimness: 65
@@ -6195,7 +6274,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 231487186}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998845029
 GameObject:
@@ -6361,8 +6440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe08a67840b9c74e8cc3a45be1f268a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthOffset: 1.15
-  heightOffset: 1.3
   startingTilePoint: {fileID: 650412505}
   cubePalette: {fileID: 11400000, guid: 051a8158c0197cc4b9ca9a7acb2c9450, type: 2}
 --- !u!1 &2028048472
