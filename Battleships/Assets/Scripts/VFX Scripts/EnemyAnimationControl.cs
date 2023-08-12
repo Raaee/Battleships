@@ -34,4 +34,7 @@ public class EnemyAnimationControl : AnimationControl   {
         target = attackLoc.transform;
         isAttacking = true;
     }
+    public override void ShowTurnIndicator(StateTeam whoseTurn) {
+
+    }
 }

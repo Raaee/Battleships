@@ -25,15 +25,19 @@ public class CPUActionState : GameState {
     }
 
     public override void OnStateEnter() {
-        animControl.IndicateWhoseTurn(teamSide, animControl.GetEnemyGeneralDimness());
-        ChooseAttackLoc();
-        CheckIfHit();
-        EndTurnAfterTime(0.75f);
+        //  animControl.IndicateWhoseTurn(teamSide, animControl.GetEnemyGeneralDimness());
+        StartCoroutine(DelayedStart(1.2f, 2.5f));
     }
     public override IEnumerator CompleteTurnDelay(float time) {
         //Debug.Log("Waiting...");
         yield return PeteHelper.GetWait(time);
         gameManager.ChangeState(player1AS);
+    }
+    public IEnumerator DelayedStart(float startDelay, float endDelay) {
+        yield return PeteHelper.GetWait(startDelay);
+        ChooseAttackLoc();
+        CheckIfHit();
+        EndTurnAfterTime(endDelay);
     }
     public void EndTurnAfterTime(float time) {
         StartCoroutine(CompleteTurnDelay(time));
@@ -85,7 +89,7 @@ public class CPUActionState : GameState {
         // call hit/miss popup text on cubevisual (this should be at the same time as the projectile hits the cube)
         // Debug.Log("*********** Current Cube: " + currentCube);
         animControl.StartAttack(currentCube.gameObject);
-        animControl.ShowHitMissText(currentCube.gameObject, hit, TeamSide.LUMINID);
+       // animControl.ShowHitMissText(currentCube.gameObject, hit, TeamSide.LUMINID);
     }
 
 
