@@ -92,6 +92,7 @@ public class HS_DemoShooting : MonoBehaviour
         GUI.Label(new Rect(10 * windowDpi, 45 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Fire rate:");
         hSliderValue = GUI.HorizontalSlider(new Rect(70 * windowDpi, 50 * windowDpi, 100 * windowDpi, 20 * windowDpi), hSliderValue, 0.0f, 1.0f);
         GUI.Label(new Rect(10 * windowDpi, 65 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Use the keyboard buttons A/<- and D/-> to change projectiles!");
+        GUI.Label(new Rect(10 * windowDpi, 85 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Current projectile: " + Prefab);
     }
 
     // To change prefabs (count - prefab number)
