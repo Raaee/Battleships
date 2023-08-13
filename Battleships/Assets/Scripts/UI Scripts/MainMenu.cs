@@ -120,16 +120,20 @@ public class MainMenu : MonoBehaviour   {
     }
     public void SelectDifficulty(int difficulty) { // 0 = easy, 1 = med, 2 = hard//
         float enemyAIPercentage = 0.01f;
+        int amtRounds = 0;
 
         switch (difficulty) {
             case 0:
                 enemyAIPercentage = 0.15f;
+                amtRounds = 49;
                 break;
             case 1:
                 enemyAIPercentage = 0.30f;
+                amtRounds = 39;
                 break;
             case 2:
                 enemyAIPercentage = 0.50f;
+                amtRounds = 29;
                 break;
             default:
                 Debug.Log("buttons for enemy diff not properly set");
@@ -137,6 +141,7 @@ public class MainMenu : MonoBehaviour   {
         }
 
         enemyAiStats.SetPercentageToHit(enemyAIPercentage);
+        enemyAiStats.SetAmountOfRounds(amtRounds);
         StartGameOfficial();
     }
 

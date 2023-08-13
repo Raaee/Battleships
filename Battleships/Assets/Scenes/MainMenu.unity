@@ -8185,6 +8185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2823014060291044846, guid: 417c4f013ddf9a6449b57cbe6220e106, type: 3}
+      propertyPath: amountOfRounds
+      value: 29
+      objectReference: {fileID: 0}
     - target: {fileID: 7730419979286030351, guid: 417c4f013ddf9a6449b57cbe6220e106, type: 3}
       propertyPath: m_Name
       value: EnemyAiStats
