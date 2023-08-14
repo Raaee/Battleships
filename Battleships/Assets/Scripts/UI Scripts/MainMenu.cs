@@ -12,10 +12,15 @@ public class MainMenu : MonoBehaviour   {
     [SerializeField] TMP_Text title;
     [SerializeField] CanvasGroup pressPlayText;
     [SerializeField] CanvasGroup mainMenuGroup;
-    [SerializeField] CanvasGroup difficultySelectGroup;
-    [SerializeField] GameObject buttonsPanel;
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject teamSelectPanel;
+
+    [Header("Difficulty Menu")]
+    [SerializeField] CanvasGroup difficultySelectGroup;
+    [SerializeField] GameObject buttonsPanel;
+    [SerializeField] GameObject easyFire;
+    [SerializeField] GameObject medFire;
+    [SerializeField] GameObject hardFire;
 
     private void Start() {
         Initialize();
@@ -28,6 +33,9 @@ public class MainMenu : MonoBehaviour   {
         settingsPanel.SetActive(false);
         teamSelectPanel.SetActive(false);
         difficultySelectGroup.gameObject.SetActive(false);
+        UnshowFire(0);
+        UnshowFire(1);
+        UnshowFire(2);
     }
     void Update()   {
         if (currentPanel == OnPanel.MAIN_MENU) {
@@ -147,6 +155,32 @@ public class MainMenu : MonoBehaviour   {
 
     private void StartGameOfficial()    {
         sceneControl.ChangeScene(SceneEnum.GAME);
+    }
+    public void ShowFire(int difficulty) {
+        switch(difficulty) {
+            case 0:
+                easyFire.SetActive(true);
+                break;
+            case 1:
+                medFire.SetActive(true);
+                break;
+            case 2:
+                hardFire.SetActive(true);
+                break;
+        }
+    }
+    public void UnshowFire(int difficulty) {
+        switch (difficulty) {
+            case 0:
+                easyFire.SetActive(false);
+                break;
+            case 1:
+                medFire.SetActive(false);
+                break;
+            case 2:
+                hardFire.SetActive(false);
+                break;
+        }
     }
 }
 public enum OnPanel {
