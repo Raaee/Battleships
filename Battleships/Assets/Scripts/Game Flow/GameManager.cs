@@ -116,4 +116,16 @@ public class GameManager : MonoBehaviour
     {
         return currentState;
     }
+    
+    /*
+     * Changing/switching visuals would be too much effort
+     *
+     *
+     * When player choose the team, the basic idea is that we are switching what gridmanagers do and where.
+     *
+     * problem: All around the code base, different scripts need reference to a grid manager, and i have to make sure which 2 are "opposites"
+     * solution, try to make all the refs of the gridmanager come from a single place (reduce coupling)
+     */
+    
+    
 }

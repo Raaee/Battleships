@@ -34,7 +34,6 @@ public class BetterEnemyPlacement : MonoBehaviour {
         {
 
             ChooseSpecificPawns();
-            Debug.Log("yo?");
             return;
         }
 

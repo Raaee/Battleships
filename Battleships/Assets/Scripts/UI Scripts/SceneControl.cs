@@ -34,7 +34,7 @@ public class SceneControl : MonoBehaviour   {
                 SceneManager.LoadScene(sceneName: "GameScene");
                 break;
         }
-        Debug.Log("spam calls?");
+       
     }
     public IEnumerator DelayedSceneChange(SceneEnum scene, float timeInSec) {
         yield return PeteHelper.GetWait(timeInSec);
