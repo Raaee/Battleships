@@ -14,7 +14,7 @@ public class GameOverState : GameState
     [SerializeField] private PlayerPlacementData playerPD;
 
     [Header("Diplay")]
-    [SerializeField] private GameObject gameoverDisplay;
+    [SerializeField] private CanvasGroup gameoverDisplay;
     [SerializeField] private GameObject header;
     [SerializeField] private Color32 winColor;
     [SerializeField] private Color32 loseColor;
@@ -70,7 +70,7 @@ public class GameOverState : GameState
     }
     public void ShowGameOverDisplay()
     {
-        gameoverDisplay.SetActive(true);
+        gameoverDisplay.enabled = true;
         switch (winningTeam)
         {
             case WinningTeam.PLAYERWON:
@@ -85,6 +85,15 @@ public class GameOverState : GameState
                 break;
         }
 
+    }
+    public void ShowEnemyLocation() {
+        gameoverDisplay.alpha = 0;
+        // show enemy loc
+    }
+    
+    public void UnShowEnemyLoc() {
+        gameoverDisplay.alpha = 1;
+        // unshow enemy loc
     }
 }
 

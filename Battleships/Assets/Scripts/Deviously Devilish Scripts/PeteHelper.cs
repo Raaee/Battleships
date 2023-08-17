@@ -20,10 +20,7 @@ public static class PeteHelper
         WaitDictionary[time] = new WaitForSeconds(time);
         return WaitDictionary[time];
     }
-
-
-
-
+       
     private static PointerEventData _eventDataCurrentPosition;
     private static List<RaycastResult> _results;
     /// <summary>
