@@ -10,6 +10,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
     //an array of pawns
     public List<GameObject> pawnPrefabs; // this is the default pawn prefabs used to assign the player's army
     public List<GameObject> pawnsInBattle; // this will be the enemy's pawns
+    public List<GameObject> enemiesToShow;
 
     [SerializeField] private GridManager enemyGridManager;
    
@@ -23,8 +24,6 @@ public class BetterEnemyPlacement : MonoBehaviour {
     [SerializeField] private SizePalleteSO sizePalleteSO;
     
     public void StartPlacement() {
-
-
         CheckPawnList();
         PawnPlacement();
     }
@@ -80,7 +79,7 @@ public class BetterEnemyPlacement : MonoBehaviour {
                     break;
             }
             pawn.GetComponent<Pawn>().SetBadGuy();
-
+            enemiesToShow.Add(pawn);
         }
     }
 
@@ -322,5 +321,8 @@ public class BetterEnemyPlacement : MonoBehaviour {
     }
     public Vector2 GetRandomVector2(int minX, int maxExclusiveX, int minY, int maxExclusiveY) {
         return new Vector2(Random.Range(minX, maxExclusiveX), Random.Range(minY, maxExclusiveY));
+    }
+    public List<GameObject> GetEnemiesToShow() {
+        return enemiesToShow;
     }
 }

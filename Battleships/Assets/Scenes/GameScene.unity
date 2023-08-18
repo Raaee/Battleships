@@ -1807,7 +1807,8 @@ MonoBehaviour:
   gameManager: {fileID: 1382943594}
   enemyPD: {fileID: 1998845031}
   playerPD: {fileID: 1412156058}
-  gameoverDisplay: {fileID: 1585764213}
+  gameoverCanvas: {fileID: 1616501163}
+  gameoverPanel: {fileID: 1585764213}
   header: {fileID: 1264662319}
   winColor:
     serializedVersion: 2
@@ -4589,7 +4590,7 @@ MonoBehaviour:
   maximumRounds: 29
   buttonFunctions: {fileID: 1343984742}
   currentState: {fileID: 0}
-  currentRound: 28
+  currentRound: 29
 --- !u!4 &1382943595
 Transform:
   m_ObjectHideFlags: 0
@@ -5410,7 +5411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1585764209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5503,7 +5504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1616501164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6508,6 +6509,7 @@ MonoBehaviour:
   - {fileID: 7706689248681686271, guid: 1b3900140bd497440b7e7313cd24ef98, type: 3}
   - {fileID: 8625315985585692286, guid: 1a264b65d90e12045a737af3629eea3e, type: 3}
   pawnsInBattle: []
+  enemiesToShow: []
   enemyGridManager: {fileID: 2015051422}
   initialCoords: {fileID: 3795446210557248262}
   numPawnsInBattle: 4
