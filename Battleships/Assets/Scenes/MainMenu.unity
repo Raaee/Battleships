@@ -25183,6 +25183,7 @@ GameObject:
   - component: {fileID: 1779479472}
   - component: {fileID: 1779479471}
   - component: {fileID: 1779479473}
+  - component: {fileID: 1779479474}
   m_Layer: 5
   m_Name: Press Play
   m_TagString: Untagged
@@ -25239,8 +25240,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2835349503
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.65882355}
+    rgba: 2902458367
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.6745098}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -25319,6 +25320,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1779479474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779479469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463e115b9c6665e4bb62d0277903d108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1787620278
 GameObject:
   m_ObjectHideFlags: 0

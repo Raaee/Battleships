@@ -153,8 +153,18 @@ public class MainMenu : MonoBehaviour   {
         StartGameOfficial();
     }
 
-    private void StartGameOfficial()    {
+    private void StartGameOfficial()
+    {
+        float fadeTime = 0.85f;
+        StartCoroutine(FadeOutCanvasGroup(difficultySelectGroup, fadeTime));
+        StartCoroutine(StartGameAfterDelay(fadeTime));
+    }
+
+    private IEnumerator StartGameAfterDelay(float delayTime)
+    {
+        yield return PeteHelper.GetWait(delayTime);
         sceneControl.ChangeScene(SceneEnum.GAME);
+
     }
     public void ShowFire(int difficulty) {
         switch(difficulty) {
