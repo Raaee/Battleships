@@ -7,44 +7,69 @@ using UnityEngine;
 /// </summary>
 public class NormalEnemyAI : IEnemyAI
 {
+    
+    //issues
+    //killing a pawn should remove next possible locations?
+    
+    //it should not repeat attacking places 
     private List<Vector2> nextPossibleLocations;
 
     private List<Vector2> hitHistory;
-      // Start is called before the first frame update
+    [SerializeField] private GridManager playerGridManager;
+
+    private CPUActionState cpuActionState;
     void Start()
     {
         nextPossibleLocations = new List<Vector2>();
         hitHistory = new List<Vector2>();
+        cpuActionState = FindObjectOfType<CPUActionState>();
+        cpuActionState.OnSuccessfulEnemyHit.AddListener(Add4Corners);
     }
 
    
 
     public override Vector2 DetermineNextLocation()
     {
-       //
-       if (nextPossibleLocations.Count <= 0)
-       {
-           //Vector2 randVec2 = RandomVector2();
-          // hitHistory.Add(randVec2);
-           //return randVec2; 
-
-       }
-       else
-       {
-           Vector2 possibleLocation = nextPossibleLocations[0];
-           nextPossibleLocations.RemoveAt(0);
-           hitHistory.Add(possibleLocation);
-           return possibleLocation;
+        Debug.Log("determining the next location");
+        if (nextPossibleLocations.Count <= 0)
+        {
+            Vector2 randVec2 = PeteHelper.BasicRandomVector2(0,10, 0,10);
+            hitHistory.Add(randVec2);
+            return randVec2;
+        }
+        else
+        {
+            Vector2 possibleLocation = nextPossibleLocations[0];
+            nextPossibleLocations.RemoveAt(0);
+            hitHistory.Add(possibleLocation);
+            return possibleLocation;
           
-       }
-       return Vector2.zero;
+        }
+       
     }
 
 
     private void Add4Corners(Vector2 hitVector2) //event listener based on if there was a succesful hit 
     {
+        Debug.Log("Adding the 4 corners");
         //make a size 4 array with all the hitVector2 directions 
-        
+        List<Vector2> cornersVectors = new List<Vector2>()
+        {
+            new Vector2(hitVector2.x, hitVector2.y + 1),//up
+            new Vector2(hitVector2.x, hitVector2.y - 1),//down
+            new Vector2(hitVector2.x + 1, hitVector2.y),//right
+            new Vector2(hitVector2.x - 1, hitVector2.y)//left
+        };
+
         //iterate through this array, if its a valid place in the gridmanager and it wasnt already hit , then add it to next possible locations
+        foreach (Vector2 vec2 in cornersVectors)
+        {
+            if (playerGridManager.GetTileAtPosition(vec2) != null && (!hitHistory.Contains(vec2)))
+            {
+                nextPossibleLocations.Add(vec2);
+            }
+        }
+
+        
     }
 }

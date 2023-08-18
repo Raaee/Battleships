@@ -53,7 +53,7 @@ public class Pawn : MonoBehaviour {
         for (int i = 0; i < lastHighlightedGameobjects.Count; i++) {
             pawnCoords.Add(gridMan.GetPositionAtTile(lastHighlightedGameobjects[i]));
         }
-        Debug.Log("we placing");
+       //Debug.Log("we placing");
        
 
         return true;

@@ -91,7 +91,7 @@ public class UIAnimationControl : AnimationControl  {
         }
         turnIndicator = Instantiate(turnPanelPrefab, gameCanvas.transform, worldPositionStays: false);
         turnIndicator.transform.position = turnPanelSpawnLoc.transform.position;
-        Debug.Log("turn indicator");
+        //Debug.Log("turn indicator");
     }
 
     public override void StartAttack(GameObject attackLoc) {

@@ -59,5 +59,12 @@ public static class PeteHelper
         return list[Random.Range(0, list.Count)];
     }
 
+    /// <summary>
+    /// Basic randome Vector 2 helper
+    /// </summary>
+    public static Vector2 BasicRandomVector2(int lowEndx, int highEndx, int lowEndy, int highEndy )
+    {
+        return new Vector2(Random.Range(lowEndx, highEndx),Random.Range(lowEndy, highEndy));
+    }
 
 }
