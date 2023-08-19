@@ -17,16 +17,24 @@ public class NormalEnemyAI : IEnemyAI
     private List<Vector2> hitHistory;
     [SerializeField] private GridManager playerGridManager;
 
+    private bool isPawnDestroyed = false;
     private CPUActionState cpuActionState;
+    private PlayerPlacementData playerPlacementData;
     void Start()
     {
         nextPossibleLocations = new List<Vector2>();
         hitHistory = new List<Vector2>();
         cpuActionState = FindObjectOfType<CPUActionState>();
         cpuActionState.OnSuccessfulEnemyHit.AddListener(Add4Corners);
+        playerPlacementData = FindObjectOfType<PlayerPlacementData>();
+        playerPlacementData.OnPawnFullDestroyed.AddListener(PawnDestroyed);
     }
 
-   
+    private void PawnDestroyed()
+    {
+        isPawnDestroyed = true;
+    }
+
 
     public override Vector2 DetermineNextLocation()
     {
@@ -51,6 +59,12 @@ public class NormalEnemyAI : IEnemyAI
 
     private void Add4Corners(Vector2 hitVector2) //event listener based on if there was a succesful hit 
     {
+        if (isPawnDestroyed)
+        {
+            isPawnDestroyed = false;
+            return;
+        }
+        
         Debug.Log("Adding the 4 corners");
         //make a size 4 array with all the hitVector2 directions 
         List<Vector2> cornersVectors = new List<Vector2>()
