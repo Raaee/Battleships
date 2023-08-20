@@ -19,7 +19,10 @@ public class NormalEnemyAI : IEnemyAI
 
     private bool isPawnDestroyed = false;
     private CPUActionState cpuActionState;
-    private PlayerPlacementData playerPlacementData;
+   
+
+    private int currentMissStreak = 0;
+    private const int maxMiss = 4;
     void Start()
     {
         nextPossibleLocations = new List<Vector2>();
@@ -41,6 +44,19 @@ public class NormalEnemyAI : IEnemyAI
         Debug.Log("determining the next location");
         if (nextPossibleLocations.Count <= 0)
         {
+            if (currentMissStreak >= maxMiss)
+            {
+               Vector2 garanteedPawn = GetAFreePawn();
+                currentMissStreak = 0;
+                return garanteedPawn;
+              
+            }
+            else
+            {
+                currentMissStreak++;
+            }
+            
+            
             Vector2 randVec2 = PeteHelper.BasicRandomVector2(0,10, 0,10);
             hitHistory.Add(randVec2);
             return randVec2;
@@ -54,6 +70,27 @@ public class NormalEnemyAI : IEnemyAI
           
         }
        
+    }
+
+    private Vector2 GetAFreePawn()
+    {
+        List<Vector2> allPotentialCoordsToHit = new List<Vector2>();
+        foreach (GameObject go in playerPlacementData.pawnsInBattle)
+        {
+            Pawn pawn = go.GetComponent<Pawn>();
+            if (pawn == null) Debug.Log("pawn is null");
+
+            foreach (Vector2 pawnCoord in pawn.pawnCoords)
+            {
+                allPotentialCoordsToHit.Add(pawnCoord);
+            }
+        }
+        
+        //safety check
+        if(allPotentialCoordsToHit.Count == 0) return Vector2.zero;
+        
+
+        return allPotentialCoordsToHit[Random.Range(0, allPotentialCoordsToHit.Count)];
     }
 
 
