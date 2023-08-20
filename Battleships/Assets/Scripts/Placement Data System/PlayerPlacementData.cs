@@ -21,6 +21,7 @@ public class PlayerPlacementData : MonoBehaviour
     private int numPawnsInBattle = 4;
 
     public UnityEvent OnAllPawnsSpawned;
+    public UnityEvent OnPawnFullDestroyed;
     [SerializeField] private ButtonFunctions buttonFunctions;
 
     public SizePalleteSO sizePalleteSO;
@@ -188,7 +189,7 @@ public class PlayerPlacementData : MonoBehaviour
                         if (pawn.pawnCoords.Count <= 0)
                         {
                             Debug.Log("other pawn: YOLO");
-
+                            OnPawnFullDestroyed?.Invoke();                          
                             pawnsInBattle.Remove(pawn.gameObject);
                             pawn.gameObject.SetActive(false);
                         }

@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         initialState.OnStateEnter();
-        maximumRounds = FindObjectOfType<EnemyAiStats>().GetAmountOfRounds();
+        EnemyAiStats enemyAi = FindObjectOfType<EnemyAiStats>();
+        if(enemyAi)
+            maximumRounds = enemyAi.GetAmountOfRounds();
     }
 
     private void Update() {

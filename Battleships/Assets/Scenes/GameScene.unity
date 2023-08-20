@@ -4441,6 +4441,7 @@ Transform:
   - {fileID: 763297408}
   - {fileID: 1530528461}
   - {fileID: 1731552307}
+  - {fileID: 2008296534}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6396,6 +6397,53 @@ Transform:
   m_Father: {fileID: 165109648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2008296533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008296534}
+  - component: {fileID: 2008296535}
+  m_Layer: 0
+  m_Name: Normal AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2008296534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008296533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382943595}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2008296535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008296533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9986f5efd99624a8c0c05e57f03341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageToHit: 0.33
+  playerPlacementData: {fileID: 1412156058}
+  playerGridManager: {fileID: 350759526}
 --- !u!1 &2015051420
 GameObject:
   m_ObjectHideFlags: 0
@@ -6580,7 +6628,10 @@ MonoBehaviour:
   playerGridMan: {fileID: 350759526}
   player1AS: {fileID: 1328846346}
   animControl: {fileID: 1841981604}
-  enemyAI: {fileID: 1530528462}
+  enemyAI: {fileID: 2008296535}
+  OnSuccessfulEnemyHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2130279750
 GameObject:
   m_ObjectHideFlags: 0
