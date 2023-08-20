@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 /// <summary>
 /// The computer's turn and decision state.  
 /// </summary>
@@ -17,6 +19,8 @@ public class CPUActionState : GameState {
     [SerializeField] private EnemyAnimationControl animControl;
 
     [SerializeField] private IEnemyAI enemyAI;
+
+    public UnityEvent<Vector2> OnSuccessfulEnemyHit;
 
     public override void Awake() {
         base.Awake();
@@ -63,7 +67,7 @@ public class CPUActionState : GameState {
 
         if (hit) {
           
-
+            OnSuccessfulEnemyHit?.Invoke(randomLocation);
             currentCube.ChangeMaterialOnHitState(CubeHitState.HIT);
         }
         else
