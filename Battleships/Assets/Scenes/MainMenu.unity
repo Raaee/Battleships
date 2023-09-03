@@ -23378,6 +23378,8 @@ MonoBehaviour:
       Data3: 397255048
       Data4: -1598381352
     Path: event:/UI Events/PlayUIEvent1
+  musicSlider: {fileID: 716302131}
+  sfxSlider: {fileID: 904167899}
 --- !u!1 &1173420576
 GameObject:
   m_ObjectHideFlags: 0
@@ -24414,7 +24416,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: '100
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
   m_sharedMaterial: {fileID: 9175482970496519690, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
@@ -25191,7 +25195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-'
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
   m_sharedMaterial: {fileID: 9175482970496519690, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
