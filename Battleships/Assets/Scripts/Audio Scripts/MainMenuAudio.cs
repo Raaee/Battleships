@@ -8,13 +8,16 @@ public class MainMenuAudio : MonoBehaviour
 {
     public FMODUnity.EventReference uiClickEvent;
     public FMODUnity.EventReference uiActionEvent;
-
+    public FMODUnity.EventReference fireSnuffEvent;
+    public FMODUnity.EventReference fireLoopEvent;
 
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
     private FMOD.Studio.VCA musicVca;
     private FMOD.Studio.VCA sfxVCA;
+
+    private FMOD.Studio.EventInstance fireLoopInstance;
 
     private const string musicVCAID = "MusicVCA";
     private const string sfxVCAID = "SFXVCA";
@@ -24,8 +27,27 @@ public class MainMenuAudio : MonoBehaviour
     {
         musicVca = FMODUnity.RuntimeManager.GetVCA(vcaPrefix +musicVCAID);
         sfxVCA = FMODUnity.RuntimeManager.GetVCA(vcaPrefix + sfxVCAID);
+
+        fireLoopInstance = FMODUnity.RuntimeManager.CreateInstance(fireLoopEvent);
+
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+
+        StartFireLoopEvent();
+    }
+    public void PlayFireSnuffEvent()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(fireSnuffEvent, transform.position);
+    }
+
+    private void StartFireLoopEvent()
+    {
+        fireLoopInstance.start();
+    }
+
+    public void StopFireLoopEvent()
+    {
+        fireLoopInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void SetSFXVolume(float newSfxVolume)

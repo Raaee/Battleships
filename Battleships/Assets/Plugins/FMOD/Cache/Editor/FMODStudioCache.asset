@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638293445374223479
+  lastModified: 638293525520780927
   FileSizes:
   - Name: 
-    Value: 1368
+    Value: 1470
   Exists: 1
 --- !u!114 &-7307295950439931081
 MonoBehaviour:
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638293445374223479
+  lastModified: 638293525520780927
   FileSizes: []
   Exists: 1
 --- !u!114 &-3913295727866594139
@@ -166,13 +166,42 @@ MonoBehaviour:
   - {fileID: -3884093966450215797}
   - {fileID: -1690011125770860292}
   - {fileID: -1697689865413031248}
+  - {fileID: 199070378488394818}
+  - {fileID: 5371150473622498926}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638293445374223479
+  cacheTime: 638293525520780927
   cacheVersion: 131605
+--- !u!114 &199070378488394818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/PlayFireLoop
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/PlayFireLoop
+  Guid:
+    Data1: -334180347
+    Data2: 1329672790
+    Data3: 1879688330
+    Data4: -82989833
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9000
 --- !u!114 &3976289331897229490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +256,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5371150473622498926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/PlayFireSnuffed
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/PlayFireSnuffed
+  Guid:
+    Data1: -1550950391
+    Data2: 1297237869
+    Data3: 142498989
+    Data4: 204265499
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2105
 --- !u!114 &7471087620730085263
 MonoBehaviour:
   m_ObjectHideFlags: 0

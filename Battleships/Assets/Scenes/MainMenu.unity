@@ -3176,6 +3176,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1173097645}
+        m_TargetAssemblyTypeName: MainMenuAudio, Assembly-CSharp
+        m_MethodName: PlayFireSnuffEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1173097645}
+        m_TargetAssemblyTypeName: MainMenuAudio, Assembly-CSharp
+        m_MethodName: StopFireLoopEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &766305379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23378,6 +23402,20 @@ MonoBehaviour:
       Data3: 397255048
       Data4: -1598381352
     Path: event:/UI Events/PlayUIEvent1
+  fireSnuffEvent:
+    Guid:
+      Data1: -1550950391
+      Data2: 1297237869
+      Data3: 142498989
+      Data4: 204265499
+    Path: event:/UI Events/PlayFireSnuffed
+  fireLoopEvent:
+    Guid:
+      Data1: -334180347
+      Data2: 1329672790
+      Data3: 1879688330
+      Data4: -82989833
+    Path: event:/UI Events/PlayFireLoop
   musicSlider: {fileID: 716302131}
   sfxSlider: {fileID: 904167899}
 --- !u!1 &1173420576
