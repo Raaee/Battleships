@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638290990677709075
+  lastModified: 638292907284807240
   FileSizes:
   - Name: 
-    Value: 866
+    Value: 1098
   Exists: 1
 --- !u!114 &-7307295950439931081
 MonoBehaviour:
@@ -35,9 +35,115 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638290990677697934
+  lastModified: 638292907284807240
   FileSizes: []
   Exists: 1
+--- !u!114 &-3913295727866594139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MainMenuMusicPlay/MainMenuEQParam
+  m_EditorClassIdentifier: 
+  Name: MainMenuEQParam
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 141075573
+    data2: 1257557551
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3884093966450215797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/PlayUIEvent1
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/PlayUIEvent1
+  Guid:
+    Data1: 1336737292
+    Data2: 1193780859
+    Data3: 397255048
+    Data4: -1598381352
+  Banks:
+  - {fileID: 7471087620730085263}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &-1697689865413031248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/PlayUIEventClick1
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/PlayUIEventClick1
+  Guid:
+    Data1: 508277955
+    Data2: 1166635589
+    Data3: -1373846893
+    Data4: -1118220735
+  Banks:
+  - {fileID: 7471087620730085263}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1690011125770860292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music Events/MainMenuMusicPlay
+  m_EditorClassIdentifier: 
+  Path: event:/Music Events/MainMenuMusicPlay
+  Guid:
+    Data1: 215860816
+    Data2: 1339896627
+    Data3: -1734425431
+    Data4: -2058503323
+  Banks:
+  - {fileID: 7471087620730085263}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3913295727866594139}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 123426
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,12 +163,15 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 3976289331897229490}
   - {fileID: 5296271681837363180}
+  - {fileID: -3884093966450215797}
+  - {fileID: -1690011125770860292}
+  - {fileID: -1697689865413031248}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638290990677709075
+  cacheTime: 638292922200393939
   cacheVersion: 131605
 --- !u!114 &3976289331897229490
 MonoBehaviour:
@@ -133,6 +242,6 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Main Bank.bank
   Name: Desktop/Main Bank
   StudioPath: bank:/Main Bank
-  lastModified: 638290990677662336
+  lastModified: 638292922200393939
   FileSizes: []
   Exists: 1

@@ -22,7 +22,10 @@ public class MainMenu : MonoBehaviour   {
     [SerializeField] GameObject medFire;
     [SerializeField] GameObject hardFire;
 
+    private MainMenuAudio mainMenuAudio; 
+
     private void Start() {
+        mainMenuAudio = FindObjectOfType<MainMenuAudio>();
         Initialize();
     }
     public void Initialize() {
@@ -44,6 +47,7 @@ public class MainMenu : MonoBehaviour   {
                 currentPanel = OnPanel.BUTTONS;
                 DisablePressPlay();
                 OpenButtonsMenu();
+                mainMenuAudio.PlayUIActionEvent();
             }
         }
     }
