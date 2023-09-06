@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638293525520780927
+  lastModified: 638295519096228032
   FileSizes:
   - Name: 
-    Value: 1470
+    Value: 1572
   Exists: 1
 --- !u!114 &-7307295950439931081
 MonoBehaviour:
@@ -35,9 +35,63 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638293525520780927
+  lastModified: 638295519096218031
   FileSizes: []
   Exists: 1
+--- !u!114 &-6001173560933868924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/PlayLoadingScreenStinger
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/PlayLoadingScreenStinger
+  Guid:
+    Data1: 1388546715
+    Data2: 1135200323
+    Data3: -298553957
+    Data4: -86531845
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4500
+--- !u!114 &-5714638924104642732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music Events/DroneLoop
+  m_EditorClassIdentifier: 
+  Path: event:/Music Events/DroneLoop
+  Guid:
+    Data1: 1910246298
+    Data2: 1165680845
+    Data3: -775461750
+    Data4: 1914561975
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 52500
 --- !u!114 &-3913295727866594139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,12 +222,14 @@ MonoBehaviour:
   - {fileID: -1697689865413031248}
   - {fileID: 199070378488394818}
   - {fileID: 5371150473622498926}
+  - {fileID: -5714638924104642732}
+  - {fileID: -6001173560933868924}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638293525520780927
+  cacheTime: 638295519096228032
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:
@@ -298,6 +354,6 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Main Bank.bank
   Name: Desktop/Main Bank
   StudioPath: bank:/Main Bank
-  lastModified: 638293445374163476
+  lastModified: 638295519096038030
   FileSizes: []
   Exists: 1

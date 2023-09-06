@@ -23416,6 +23416,13 @@ MonoBehaviour:
       Data3: 1879688330
       Data4: -82989833
     Path: event:/UI Events/PlayFireLoop
+  loadingScreenStingEvent:
+    Guid:
+      Data1: 1388546715
+      Data2: 1135200323
+      Data3: -298553957
+      Data4: -86531845
+    Path: event:/UI Events/PlayLoadingScreenStinger
   musicSlider: {fileID: 716302131}
   sfxSlider: {fileID: 904167899}
 --- !u!1 &1173420576
@@ -25951,6 +25958,13 @@ MonoBehaviour:
       Data3: -1734425431
       Data4: -2058503323
     Path: event:/Music Events/MainMenuMusicPlay
+  droneLoopEvent:
+    Guid:
+      Data1: 1910246298
+      Data2: 1165680845
+      Data3: -775461750
+      Data4: 1914561975
+    Path: event:/Music Events/DroneLoop
 --- !u!1 &1832214831
 GameObject:
   m_ObjectHideFlags: 0

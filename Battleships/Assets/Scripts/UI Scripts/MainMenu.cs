@@ -47,7 +47,8 @@ public class MainMenu : MonoBehaviour   {
                 currentPanel = OnPanel.BUTTONS;
                 DisablePressPlay();
                 OpenButtonsMenu();
-                mainMenuAudio.PlayUIActionEvent();
+                mainMenuAudio.PlayLoadingScreenStinger();
+                FindObjectOfType<MainMenuMusic>().TransitionToMainMenuMusic();
             }
         }
     }
@@ -160,6 +161,7 @@ public class MainMenu : MonoBehaviour   {
     private void StartGameOfficial()
     {
         float fadeTime = 0.85f;
+        FindObjectOfType<MainMenuMusic>().TransitionToDrone();
         StartCoroutine(FadeOutCanvasGroup(difficultySelectGroup, fadeTime));
         StartCoroutine(StartGameAfterDelay(fadeTime));
     }

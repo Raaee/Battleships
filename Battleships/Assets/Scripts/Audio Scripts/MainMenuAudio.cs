@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ public class MainMenuAudio : MonoBehaviour
     public FMODUnity.EventReference uiActionEvent;
     public FMODUnity.EventReference fireSnuffEvent;
     public FMODUnity.EventReference fireLoopEvent;
+    public FMODUnity.EventReference loadingScreenStingEvent;
+
 
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
@@ -18,7 +21,7 @@ public class MainMenuAudio : MonoBehaviour
     private FMOD.Studio.VCA sfxVCA;
 
     private FMOD.Studio.EventInstance fireLoopInstance;
-
+   
     private const string musicVCAID = "MusicVCA";
     private const string sfxVCAID = "SFXVCA";
     private const string vcaPrefix = "vca:/";
@@ -29,6 +32,7 @@ public class MainMenuAudio : MonoBehaviour
         sfxVCA = FMODUnity.RuntimeManager.GetVCA(vcaPrefix + sfxVCAID);
 
         fireLoopInstance = FMODUnity.RuntimeManager.CreateInstance(fireLoopEvent);
+       
 
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
@@ -68,6 +72,12 @@ public class MainMenuAudio : MonoBehaviour
     public void PlayUIActionEvent()
     {
         FMODUnity.RuntimeManager.PlayOneShot(uiActionEvent, transform.position);
+    }
+
+    public void PlayLoadingScreenStinger()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(loadingScreenStingEvent, transform.position);
+      
     }
 
 }
