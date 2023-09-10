@@ -23,12 +23,13 @@ public class MainMenuMusic : MonoBehaviour
         //starting the event (playing the music)
         //instance.start();
         droneLoopInstance.start();
+        DontDestroyOnLoad(this);
     }
 
 
     public void TransitionToMainMenuMusic()
     {
-        droneLoopInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        StopDroneLoop();
         instance.start();
     }
 
@@ -36,6 +37,11 @@ public class MainMenuMusic : MonoBehaviour
     {
         droneLoopInstance.start();
         instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void StopDroneLoop()
+    {
+        droneLoopInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
 

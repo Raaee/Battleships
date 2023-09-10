@@ -27,7 +27,7 @@ public class ButtonFunctions : MonoBehaviour {
     }
 
     public void PlacementConfirmation() {
-            Debug.Log("All Pawns Placed. Your decision is now locked, prepare to face dire consequences.");
+            //Debug.Log("All Pawns Placed. Your decision is now locked, prepare to face dire consequences.");
         
             OnPlayerConfirmPlacement?.Invoke(); //use to disable the click and drags, PLaced method in Playerplacementdata, remove the UI numbers, moving to thet player state
             placementConfirmedButton.SetActive(false);

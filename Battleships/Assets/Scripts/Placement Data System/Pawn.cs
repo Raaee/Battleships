@@ -94,6 +94,8 @@ public class Pawn : MonoBehaviour {
         originalPosition = transform.position;
         //we show it 
         gameObject.SetActive(true);
+        FindObjectOfType<GameplayMusicScript>().IncreaseStageInBattle();
+
         //shake for impact for x seconds
         StartCoroutine(ShakeCoroutine());
         canDoFeedback = false;

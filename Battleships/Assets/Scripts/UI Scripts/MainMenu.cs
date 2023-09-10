@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour   {
     void Update()   {
         if (currentPanel == OnPanel.MAIN_MENU) {
             if (Input.anyKeyDown) {
-                Debug.Log("Key Pressed");
+               
                 currentPanel = OnPanel.BUTTONS;
                 DisablePressPlay();
                 OpenButtonsMenu();

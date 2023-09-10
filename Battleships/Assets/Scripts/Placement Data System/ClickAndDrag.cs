@@ -28,6 +28,8 @@ public class ClickAndDrag : MonoBehaviour
 
     private float lerpSpeed = 18f;
 
+
+    GameplayUIAudio gameplayUIAudio;
     private void Awake()
     {
         potentialShipPlacement = FindObjectOfType<PotentialShipPlacement>();
@@ -36,6 +38,8 @@ public class ClickAndDrag : MonoBehaviour
         buttonsFunctions.OnPlayerConfirmPlacement.AddListener(DeactivateDragging);
         playerPawnsUI = FindObjectOfType<AmountOfPlayerPawnsUI>();
         inputData = FindObjectOfType<InputData>();
+        gameplayUIAudio = FindObjectOfType<GameplayUIAudio>();
+        
 
     }
     private void Start()
@@ -73,7 +77,8 @@ public class ClickAndDrag : MonoBehaviour
         dragging = true;
         currentPawn.ResetPawnCoords();
         //changing the highlightedd size for the potential ship placement 
-       
+        gameplayUIAudio.PickUpPawn();
+
     }
     private void OnMouseUp() {   
         if(!IsActive) return;
@@ -128,6 +133,7 @@ public class ClickAndDrag : MonoBehaviour
         currentPawn.SetPlacedStatus(true);
         OnPawnPlaced?.Invoke();
         playerPawnsUI.UpdateUI(currentPawn.GetPawnSize());
+        gameplayUIAudio.PlacedPawned();
     }
 
     private void OccupyCubes(bool occupied) {

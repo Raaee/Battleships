@@ -22,7 +22,7 @@ public class NormalEnemyAI : IEnemyAI
    
 
     private int currentMissStreak = 0;
-    private const int maxMiss = 4;
+    private const int maxMiss = 6;
     void Start()
     {
         nextPossibleLocations = new List<Vector2>();

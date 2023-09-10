@@ -192,8 +192,9 @@ public class PlayerPlacementData : MonoBehaviour
                             OnPawnFullDestroyed?.Invoke();                          
                             pawnsInBattle.Remove(pawn.gameObject);
                             pawn.gameObject.SetActive(false);
-                        }
-                        break;
+                        FindObjectOfType<GameplayMusicScript>().IncreaseStageInBattle();
+                    }
+                    break;
                     }
                 }
             }

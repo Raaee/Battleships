@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638295519096228032
+  lastModified: 638299646629510307
   FileSizes:
   - Name: 
-    Value: 1572
+    Value: 1740
   Exists: 1
 --- !u!114 &-7307295950439931081
 MonoBehaviour:
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638295519096218031
+  lastModified: 638299646629500307
   FileSizes: []
   Exists: 1
 --- !u!114 &-6001173560933868924
@@ -143,6 +143,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
+--- !u!114 &-3738797596005236398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/UI Gameplay/BattleHorn1
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/UI Gameplay/BattleHorn1
+  Guid:
+    Data1: 582406640
+    Data2: 1221693354
+    Data3: 1796299418
+    Data4: 1707819680
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9772
 --- !u!114 &-1697689865413031248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,12 +251,14 @@ MonoBehaviour:
   - {fileID: 5371150473622498926}
   - {fileID: -5714638924104642732}
   - {fileID: -6001173560933868924}
+  - {fileID: 9075149970885896503}
+  - {fileID: -3738797596005236398}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638295519096228032
+  cacheTime: 638299646629510307
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:
@@ -258,6 +287,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 9000
+--- !u!114 &206134751598370481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/GameplayMusicTest/StageInBattle
+  m_EditorClassIdentifier: 
+  Name: StageInBattle
+  StudioPath: 
+  Min: 1
+  Max: 4
+  Default: 1
+  ID:
+    data1: 2317118666
+    data2: 3925251257
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &3976289331897229490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +407,35 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Main Bank.bank
   Name: Desktop/Main Bank
   StudioPath: bank:/Main Bank
-  lastModified: 638295519096038030
+  lastModified: 638299644627116443
   FileSizes: []
   Exists: 1
+--- !u!114 &9075149970885896503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music Events/GameplayMusicTest
+  m_EditorClassIdentifier: 
+  Path: event:/Music Events/GameplayMusicTest
+  Guid:
+    Data1: -2105293124
+    Data2: 1165145225
+    Data3: -118527101
+    Data4: 1358963675
+  Banks:
+  - {fileID: 7471087620730085263}
+  - {fileID: -7307295950439931081}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 206134751598370481}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13333

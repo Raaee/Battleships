@@ -118,6 +118,11 @@ public class GameManager : MonoBehaviour
     {
         return currentState;
     }
+
+    public float GetStagePercentage()
+    {
+        return (float)currentRound / maximumRounds;
+    }
     
     /*
      * Changing/switching visuals would be too much effort
