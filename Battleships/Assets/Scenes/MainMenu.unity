@@ -23422,6 +23422,13 @@ MonoBehaviour:
       Data3: -298553957
       Data4: -86531845
     Path: event:/UI Events/PlayLoadingScreenStinger
+  diffFireLoopEvent:
+    Guid:
+      Data1: -1785926131
+      Data2: 1297740925
+      Data3: 1585809549
+      Data4: -1575052184
+    Path: event:/UI Events/PlayDifficultyFire
   musicSlider: {fileID: 716302131}
   sfxSlider: {fileID: 904167899}
 --- !u!1 &1173420576

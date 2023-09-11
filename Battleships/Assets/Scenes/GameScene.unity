@@ -4647,6 +4647,20 @@ MonoBehaviour:
       Data3: 1796299418
       Data4: 1707819680
     Path: event:/Gameplay/UI Gameplay/BattleHorn1
+  pickUpPawnEvent:
+    Guid:
+      Data1: 1700415148
+      Data2: 1140412742
+      Data3: 35319982
+      Data4: -1163349961
+    Path: event:/Gameplay/Action Gameplay/PickUpPawn
+  placePawnEvent:
+    Guid:
+      Data1: 370151140
+      Data2: 1108074650
+      Data3: 1057531025
+      Data4: -585401714
+    Path: event:/Gameplay/Action Gameplay/DropPawn
 --- !u!1 &1495265155
 GameObject:
   m_ObjectHideFlags: 0

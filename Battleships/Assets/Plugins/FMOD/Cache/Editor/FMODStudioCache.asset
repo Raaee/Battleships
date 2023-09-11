@@ -15,11 +15,38 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638299646629510307
+  lastModified: 638299829345337789
   FileSizes:
   - Name: 
-    Value: 1740
+    Value: 1950
   Exists: 1
+--- !u!114 &-7718053918243260237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Action Gameplay/DropPawn
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Action Gameplay/DropPawn
+  Guid:
+    Data1: 370151140
+    Data2: 1108074650
+    Data3: 1057531025
+    Data4: -585401714
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &-7307295950439931081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,9 +62,37 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638299646629500307
+  lastModified: 638299829345317783
   FileSizes: []
   Exists: 1
+--- !u!114 &-6420308943581884885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/PlayDifficultyFire
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/PlayDifficultyFire
+  Guid:
+    Data1: -1785926131
+    Data2: 1297740925
+    Data3: 1585809549
+    Data4: -1575052184
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7661265743848062963}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8999
 --- !u!114 &-6001173560933868924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,12 +308,15 @@ MonoBehaviour:
   - {fileID: -6001173560933868924}
   - {fileID: 9075149970885896503}
   - {fileID: -3738797596005236398}
+  - {fileID: -6420308943581884885}
+  - {fileID: 4665060504092087101}
+  - {fileID: -7718053918243260237}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638299646629510307
+  cacheTime: 638299829345337789
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:
@@ -338,6 +396,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4400
+--- !u!114 &4665060504092087101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Action Gameplay/PickUpPawn
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Action Gameplay/PickUpPawn
+  Guid:
+    Data1: 1700415148
+    Data2: 1140412742
+    Data3: 35319982
+    Data4: -1163349961
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 499
 --- !u!114 &5296271681837363180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +494,30 @@ MonoBehaviour:
   StudioPath: bank:/Main Bank
   lastModified: 638299644627116443
   FileSizes: []
+  Exists: 1
+--- !u!114 &7661265743848062963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlayDifficultyFire/DiffFireEQParam
+  m_EditorClassIdentifier: 
+  Name: DiffFireEQParam
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2458553906
+    data2: 3126883975
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &9075149970885896503
 MonoBehaviour:

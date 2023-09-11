@@ -160,6 +160,7 @@ public class MainMenu : MonoBehaviour   {
 
     private void StartGameOfficial()
     {
+        mainMenuAudio.StopDiffFire();
         float fadeTime = 0.85f;
         FindObjectOfType<MainMenuMusic>().TransitionToDrone();
         StartCoroutine(FadeOutCanvasGroup(difficultySelectGroup, fadeTime));
@@ -184,6 +185,7 @@ public class MainMenu : MonoBehaviour   {
                 hardFire.SetActive(true);
                 break;
         }
+        mainMenuAudio.PlayDiffFire((float)difficulty);
     }
     public void UnshowFire(int difficulty) {
         switch (difficulty) {
@@ -197,6 +199,7 @@ public class MainMenu : MonoBehaviour   {
                 hardFire.SetActive(false);
                 break;
         }
+        mainMenuAudio.StopDiffFire();
     }
 }
 public enum OnPanel {
