@@ -12,4 +12,12 @@ public class OnAnimationEnd : MonoBehaviour  {
     public void StartENDAnimation() {
        // ENDAnimation.Play();
     }
+
+    private void Start()
+    {
+        if(isTurnPrefab)
+        {
+
+        }
+    }
 }

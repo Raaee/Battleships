@@ -15,6 +15,6 @@ public class GeneralAudio : MonoBehaviour
 
     public void PlaySetupConfirmed()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(groundShakeEvent, transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot(playSetupConfirmedEvent, transform.position);
     }
 }

@@ -39,6 +39,7 @@ public class SetupState : GameState
         // Debug.Log("Exiting Setup State");
         gameplayMusicScript.StartGameplayMusic();
         gameplayUIAudio.PlayBattleHorn1();
+        generalAudio.PlaySetupConfirmed();
     }
     public override void TurnComplete() {
     
