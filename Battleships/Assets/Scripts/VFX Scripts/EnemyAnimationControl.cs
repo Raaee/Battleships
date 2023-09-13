@@ -6,6 +6,13 @@ public class EnemyAnimationControl : AnimationControl   {
 
     [SerializeField] [Range(0, 255)] protected byte enemyGeneralDimness = 127;
 
+    private GeneralAudio generalAudio;
+
+    private void Awake()
+    {
+        generalAudio = FindObjectOfType<GeneralAudio>();
+    }
+
     public override void AnimControlStart() {
         teamSide = TeamSide.LUMINID; // DEFUALT
         DetermineSide();
@@ -22,6 +29,7 @@ public class EnemyAnimationControl : AnimationControl   {
                 explosion.transform.position = target.position;
                // Debug.Log("EXPLOSION!!!!!");
                 FindObjectOfType<CameraShake>().shakeDuration = cameraShakeDuration;
+                generalAudio.PlayGroundShake();
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
        }       

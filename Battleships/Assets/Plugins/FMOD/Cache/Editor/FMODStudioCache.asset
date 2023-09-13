@@ -15,11 +15,38 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638299829345337789
+  lastModified: 638301432305206877
   FileSizes:
   - Name: 
-    Value: 1950
+    Value: 2138
   Exists: 1
+--- !u!114 &-8693609083399141258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Action Gameplay/SpellImpactA
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Action Gameplay/SpellImpactA
+  Guid:
+    Data1: -747831261
+    Data2: 1286757305
+    Data3: -1677352536
+    Data4: -711037432
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2968
 --- !u!114 &-7718053918243260237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +89,7 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638299829345317783
+  lastModified: 638301432305186869
   FileSizes: []
   Exists: 1
 --- !u!114 &-6420308943581884885
@@ -311,12 +338,16 @@ MonoBehaviour:
   - {fileID: -6420308943581884885}
   - {fileID: 4665060504092087101}
   - {fileID: -7718053918243260237}
+  - {fileID: -8693609083399141258}
+  - {fileID: 1334799699279260266}
+  - {fileID: 5673838051401020839}
+  - {fileID: 8809903262973280940}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638299837369192578
+  cacheTime: 638301432305206877
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:
@@ -369,6 +400,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &1334799699279260266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Action Gameplay/SpellImpactB
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Action Gameplay/SpellImpactB
+  Guid:
+    Data1: -1020730582
+    Data2: 1202930779
+    Data3: -2069736020
+    Data4: 1845039195
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1750
 --- !u!114 &3976289331897229490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +535,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2105
+--- !u!114 &5673838051401020839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Action Gameplay/GroundImpact
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Action Gameplay/GroundImpact
+  Guid:
+    Data1: 2095599160
+    Data2: 1264849236
+    Data3: -932644473
+    Data4: -1016049688
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &7471087620730085263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +604,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &8809903262973280940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/UI Gameplay/PlayerTurnRound
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/UI Gameplay/PlayerTurnRound
+  Guid:
+    Data1: 293735405
+    Data2: 1145721601
+    Data3: 834404486
+    Data4: 1333807562
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &9075149970885896503
 MonoBehaviour:
   m_ObjectHideFlags: 0

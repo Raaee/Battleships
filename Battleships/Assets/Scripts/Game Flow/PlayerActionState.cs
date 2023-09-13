@@ -20,10 +20,13 @@ public class PlayerActionState : GameState {
     [SerializeField] private BetterEnemyPlacement enemyPlacementData;
     [SerializeField] PlayerPlacementData playerPlacementData;
     [SerializeField] private PlayerAnimationControl animControl;
+    private GameplayUIAudio gameplayUIAudio;
+
    
     private bool pawnHit = false;
     public override void Awake() {
         base.Awake();
+       gameplayUIAudio = FindObjectOfType<GameplayUIAudio>();
         stateTeam = StateTeam.PLAYER;
         teamSide = TeamSide.DUSKMARE; // DEFAULT: (change this value depending on what the player chooses in main menu)
         attackHighlightSystem = FindObjectOfType<AttackHighlightSystem>();
@@ -33,8 +36,9 @@ public class PlayerActionState : GameState {
         alreadyHitCubes = new List<CubeVisual>();
     }
     public override void OnStateEnter() {
-       
-       //Open Highlight System
+
+        //Open Highlight System
+        gameplayUIAudio.PlayPlayerTurn();
         attackHighlightSystem.EnableSystem();
         attackSelected = false;
         attackConfirmed = false;

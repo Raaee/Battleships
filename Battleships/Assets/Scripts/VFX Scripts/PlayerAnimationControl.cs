@@ -10,7 +10,12 @@ public class PlayerAnimationControl : AnimationControl   {
     
     [Header("Events")]
     public UnityEvent OnMissileDestroyed;
+    private GeneralAudio generalAudio;
 
+    private void Awake()
+    {
+        generalAudio = FindObjectOfType<GeneralAudio>();
+    }
     public override void AnimControlStart() {
         teamSide = TeamSide.DUSKMARE; // DEFAULT
         DetermineSide();
@@ -26,6 +31,7 @@ public class PlayerAnimationControl : AnimationControl   {
                 attack.transform.position = attackSpawnLoc.transform.position;
                 explosion.transform.position = target.position;
                 FindObjectOfType<CameraShake>().shakeDuration = cameraShakeDuration;
+                generalAudio.PlayGroundShake();
                 OnMissileDestroyed?.Invoke();
                 //Debug.Log("EXPLOSION!!!!!");
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));

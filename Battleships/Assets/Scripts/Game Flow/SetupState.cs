@@ -15,7 +15,7 @@ public class SetupState : GameState
 
     private GameplayMusicScript gameplayMusicScript;
     private GameplayUIAudio gameplayUIAudio;
-
+    private GeneralAudio generalAudio;
    
 
 
@@ -24,6 +24,7 @@ public class SetupState : GameState
         base.Awake();
         gameplayMusicScript = FindObjectOfType<GameplayMusicScript>();
         gameplayUIAudio = FindObjectOfType<GameplayUIAudio>();
+        generalAudio = FindObjectOfType<GeneralAudio>();
        // buttonFunctions.OnPlayerConfirmAttack.AddListener(GoToPlayer2State);
     }
     public override void OnStateEnter() {

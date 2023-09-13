@@ -5,6 +5,7 @@ using UnityEngine;
 public class OnAnimationEnd : MonoBehaviour  {
 
     [SerializeField] private Animation ENDAnimation;
+    public bool isTurnPrefab = false;
     public void DestroyParent() {
         Destroy(this.gameObject);
     }

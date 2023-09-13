@@ -4605,6 +4605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1473895502}
   - component: {fileID: 1473895503}
+  - component: {fileID: 1473895504}
   m_Layer: 0
   m_Name: Gameplay Audio
   m_TagString: Untagged
@@ -4661,6 +4662,39 @@ MonoBehaviour:
       Data3: 1057531025
       Data4: -585401714
     Path: event:/Gameplay/Action Gameplay/DropPawn
+  playerTurnEvent:
+    Guid:
+      Data1: 293735405
+      Data2: 1145721601
+      Data3: 834404486
+      Data4: 1333807562
+    Path: event:/Gameplay/UI Gameplay/PlayerTurnRound
+--- !u!114 &1473895504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473895501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2813813443cc8348a6394f5ec4922f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundShakeEvent:
+    Guid:
+      Data1: 2095599160
+      Data2: 1264849236
+      Data3: -932644473
+      Data4: -1016049688
+    Path: event:/Gameplay/Action Gameplay/GroundImpact
+  playSetupConfirmedEvent:
+    Guid:
+      Data1: -1020730582
+      Data2: 1202930779
+      Data3: -2069736020
+      Data4: 1845039195
+    Path: event:/Gameplay/Action Gameplay/SpellImpactB
 --- !u!1 &1495265155
 GameObject:
   m_ObjectHideFlags: 0

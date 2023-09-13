@@ -8,7 +8,7 @@ public class GameplayUIAudio : MonoBehaviour
     public FMODUnity.EventReference battleHorn1Event;
     public FMODUnity.EventReference pickUpPawnEvent;
     public FMODUnity.EventReference placePawnEvent;
-
+    public FMODUnity.EventReference playerTurnEvent;
     public void PlayBattleHorn1()
     {
         FMODUnity.RuntimeManager.PlayOneShot(battleHorn1Event, transform.position);
@@ -21,5 +21,10 @@ public class GameplayUIAudio : MonoBehaviour
     public void PlacedPawned()
     {
         FMODUnity.RuntimeManager.PlayOneShot(placePawnEvent, transform.position);
+    }
+
+    public void PlayPlayerTurn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(playerTurnEvent, transform.position);
     }
 }
