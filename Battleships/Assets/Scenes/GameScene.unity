@@ -1831,6 +1831,15 @@ MonoBehaviour:
     rgba: 4283058873
   gameoverText: {fileID: 1774227850}
   headerText: {fileID: 1269650855}
+  OnGameOver:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameWin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameLoss:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &790255549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4648,6 +4657,20 @@ MonoBehaviour:
       Data3: 1796299418
       Data4: 1707819680
     Path: event:/Gameplay/UI Gameplay/BattleHorn1
+  battleHornLossEvent:
+    Guid:
+      Data1: -298112148
+      Data2: 1304207020
+      Data3: -40088925
+      Data4: -336822778
+    Path: event:/Gameplay/UI Gameplay/BattleHornLoss
+  battleHornWinEvent:
+    Guid:
+      Data1: -1475329801
+      Data2: 1129365470
+      Data3: 26250423
+      Data4: 1734901872
+    Path: event:/Gameplay/UI Gameplay/BattleHornWin
   pickUpPawnEvent:
     Guid:
       Data1: 1700415148

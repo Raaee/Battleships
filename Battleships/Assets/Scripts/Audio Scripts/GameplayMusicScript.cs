@@ -20,6 +20,7 @@ public class GameplayMusicScript : MonoBehaviour
 
     //gameplay Data 
     GameManager gameManager;
+    GameOverState gameOverState;
     private float percentage = 0.25f;
 
 
@@ -27,6 +28,8 @@ public class GameplayMusicScript : MonoBehaviour
     {
         gameplayMusicInst = FMODUnity.RuntimeManager.CreateInstance(gameplayMusicEvent);
         gameManager = FindObjectOfType<GameManager>();
+        gameOverState = FindObjectOfType<GameOverState>();
+        gameOverState.OnGameOver.AddListener(StopGameplayMusic);
         
     }
 
@@ -75,6 +78,11 @@ public class GameplayMusicScript : MonoBehaviour
 
         if(mainMenuMusic)
             FindObjectOfType<MainMenuMusic>().StopDroneLoop();
+    }
+
+    public void StopGameplayMusic()
+    {
+        gameplayMusicInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
 }

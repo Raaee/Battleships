@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -20,11 +21,15 @@ public class GameOverState : GameState
     [SerializeField] private Color32 loseColor;
     [SerializeField] private TextMeshProUGUI gameoverText;
     [SerializeField] private TextMeshProUGUI headerText;
+    public UnityEvent OnGameOver;
+    public UnityEvent OnGameWin;
+    public UnityEvent OnGameLoss;
 
     private WinningTeam winningTeam = WinningTeam.NONE;
     public override void OnStateEnter() {
         CheckWhoWon();
         ShowGameOverDisplay();
+        OnGameOver.Invoke();
     }
 
     public override void OnStateExit()  {
@@ -74,14 +79,16 @@ public class GameOverState : GameState
         switch (winningTeam)
         {
             case WinningTeam.PLAYERWON:
-                gameoverText.text += "\n YEaaaa DUSKmARES BIG W";
+                gameoverText.text += "\n Duskmares Win";
                 headerText.text = "You Won!";
                 header.GetComponent<Image>().color = winColor;
+                OnGameWin?.Invoke();
                 break;
             case WinningTeam.ENEMYWON:
-                gameoverText.text += "\n  go luminids";
+                gameoverText.text += "\n  Luminids Win";
                 headerText.text = "You Lost.";
                 header.GetComponent<Image>().color = loseColor;
+                OnGameLoss?.Invoke();
                 break;
         }
 

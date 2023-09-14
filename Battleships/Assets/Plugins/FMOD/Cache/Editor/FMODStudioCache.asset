@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638301432305206877
+  lastModified: 638302333503668570
   FileSizes:
   - Name: 
-    Value: 2138
+    Value: 2220
   Exists: 1
 --- !u!114 &-8693609083399141258
 MonoBehaviour:
@@ -89,7 +89,7 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638301432305186869
+  lastModified: 638302333503658570
   FileSizes: []
   Exists: 1
 --- !u!114 &-6420308943581884885
@@ -251,7 +251,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 9772
+  Length: 7250
 --- !u!114 &-1697689865413031248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +307,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 123426
+--- !u!114 &-809406457151302393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/UI Gameplay/BattleHornLoss
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/UI Gameplay/BattleHornLoss
+  Guid:
+    Data1: -298112148
+    Data2: 1304207020
+    Data3: -40088925
+    Data4: -336822778
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4625
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,12 +369,14 @@ MonoBehaviour:
   - {fileID: 1334799699279260266}
   - {fileID: 5673838051401020839}
   - {fileID: 8809903262973280940}
+  - {fileID: -809406457151302393}
+  - {fileID: 3329630771483649236}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638301432305206877
+  cacheTime: 638302333503668570
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:
@@ -427,6 +456,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1750
+--- !u!114 &3329630771483649236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/UI Gameplay/BattleHornWin
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/UI Gameplay/BattleHornWin
+  Guid:
+    Data1: -1475329801
+    Data2: 1129365470
+    Data3: 26250423
+    Data4: 1734901872
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5053
 --- !u!114 &3976289331897229490
 MonoBehaviour:
   m_ObjectHideFlags: 0
