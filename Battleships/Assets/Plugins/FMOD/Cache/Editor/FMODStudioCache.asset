@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638302333503668570
+  lastModified: 638303292432489439
   FileSizes:
   - Name: 
-    Value: 2220
+    Value: 2368
   Exists: 1
 --- !u!114 &-8693609083399141258
 MonoBehaviour:
@@ -47,6 +47,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2968
+--- !u!114 &-7917275247724983482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Action Gameplay/ClickSquareEvent
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Action Gameplay/ClickSquareEvent
+  Guid:
+    Data1: 1130090394
+    Data2: 1096129773
+    Data3: 1881977482
+    Data4: 285238469
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5496895919652504194}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 374
 --- !u!114 &-7718053918243260237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,9 +117,36 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638302333503658570
+  lastModified: 638303292432479438
   FileSizes: []
   Exists: 1
+--- !u!114 &-6790568330441681934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/UI Gameplay/AttackConfirmedSound
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/UI Gameplay/AttackConfirmedSound
+  Guid:
+    Data1: -1395009924
+    Data2: 1135998590
+    Data3: 56831107
+    Data4: -649237975
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1864
 --- !u!114 &-6420308943581884885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +229,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 52500
+--- !u!114 &-5496895919652504194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ClickSquareEvent/ClickSquarePanParam
+  m_EditorClassIdentifier: 
+  Name: ClickSquarePanParam
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2932030436
+    data2: 65943613
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-3913295727866594139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,12 +450,14 @@ MonoBehaviour:
   - {fileID: 8809903262973280940}
   - {fileID: -809406457151302393}
   - {fileID: 3329630771483649236}
+  - {fileID: -6790568330441681934}
+  - {fileID: -7917275247724983482}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638302333503668570
+  cacheTime: 638303292432489439
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:

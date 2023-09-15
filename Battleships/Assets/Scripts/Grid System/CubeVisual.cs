@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 /// <summary>
 /// The visual functions of the cube.
 /// </summary>
@@ -22,7 +23,7 @@ public class CubeVisual : MonoBehaviour
     [SerializeField] private Transform cubeMidpoint;
     [SerializeField] private GameObject hitmarkerIcon;
 
-    
+    public UnityEvent<float> OnHitMarkerAwake;
     private bool isOccupied;
 
     private PotentialShipPlacement potentialShipPlacement;
@@ -70,7 +71,13 @@ public class CubeVisual : MonoBehaviour
         {
             cv.Value.gameObject.GetComponent<CubeVisual>().HideHitMarkerIcon();
         }
+
+        Debug.Log("hit markier");
+
+        Vector2 v2 = inputData.GetPlayerGridManager().GetPositionAtTile(this.gameObject);
+        FindObjectOfType<GameplayUIAudio>().PlayClickSquare(v2.x);
         hitmarkerIcon.gameObject.SetActive(true);
+
     }
     public void HideHitMarkerIcon()
     {

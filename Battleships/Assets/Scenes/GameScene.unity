@@ -4692,6 +4692,13 @@ MonoBehaviour:
       Data3: 834404486
       Data4: 1333807562
     Path: event:/Gameplay/UI Gameplay/PlayerTurnRound
+  clickSquareEvent:
+    Guid:
+      Data1: 1130090394
+      Data2: 1096129773
+      Data3: 1881977482
+      Data4: 285238469
+    Path: event:/Gameplay/Action Gameplay/ClickSquareEvent
 --- !u!114 &1473895504
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class AttackHighlightSystem : MonoBehaviour
     {
         if(isEnabled == false) return;
         if (!IsCubeInGridManager(cv)) return;
-        
+
         cv.ShowHighlight(hoverAttackMat);
     }
     
