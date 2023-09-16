@@ -29,6 +29,7 @@ public class CubeVisual : MonoBehaviour
     private PotentialShipPlacement potentialShipPlacement;
     private AttackHighlightSystem attackHighlightSystem;
     private InputData inputData;
+    private BetterEnemyPlacement betterEnemy;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class CubeVisual : MonoBehaviour
         currentMat = originalMaterial;
         inputData = FindObjectOfType<InputData>();
         HideHitMarkerIcon();
+        betterEnemy = FindObjectOfType<BetterEnemyPlacement>();
     }   
 
     private void OnMouseEnter()
@@ -72,9 +74,11 @@ public class CubeVisual : MonoBehaviour
             cv.Value.gameObject.GetComponent<CubeVisual>().HideHitMarkerIcon();
         }
 
-        Debug.Log("hit markier");
+       
 
-        Vector2 v2 = inputData.GetPlayerGridManager().GetPositionAtTile(this.gameObject);
+        Vector2 v2 = betterEnemy.GetEnemyGridManager().GetPositionAtTile(this.gameObject);
+        if (v2.x < 0) Debug.Log("vector not ready bruh");
+
         FindObjectOfType<GameplayUIAudio>().PlayClickSquare(v2.x);
         hitmarkerIcon.gameObject.SetActive(true);
 

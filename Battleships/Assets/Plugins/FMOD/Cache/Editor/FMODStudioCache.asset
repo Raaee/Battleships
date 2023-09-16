@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638303292432489439
+  lastModified: 638304158875938220
   FileSizes:
   - Name: 
-    Value: 2368
+    Value: 2418
   Exists: 1
 --- !u!114 &-8693609083399141258
 MonoBehaviour:
@@ -117,7 +117,7 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638303292432479438
+  lastModified: 638304158875928255
   FileSizes: []
   Exists: 1
 --- !u!114 &-6790568330441681934
@@ -457,7 +457,7 @@ MonoBehaviour:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638303292432489439
+  cacheTime: 638304158875938220
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:
@@ -695,7 +695,8 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 8969420152154055435}
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
@@ -768,6 +769,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &8969420152154055435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/GroundImpact/GroundShakePanParam
+  m_EditorClassIdentifier: 
+  Name: GroundShakePanParam
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 390513972
+    data2: 1889772399
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &9075149970885896503
 MonoBehaviour:
   m_ObjectHideFlags: 0

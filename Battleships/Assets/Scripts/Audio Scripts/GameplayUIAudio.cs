@@ -30,14 +30,13 @@ public class GameplayUIAudio : MonoBehaviour
 
     public void PlayClickSquare(float xPos)
     {
-        //0 -> -1
-        //4.5 -> 0
-        //9 -> 1
 
-        float panPos = (2 * xPos) / (9 - 1);
-        Debug.Log(panPos + " is the pan postiion");
+
+        float panPos = ((xPos / 9) * 1);
+      
         clickSquareInstance.setParameterByName(CLICK_SQUARE_PAN_PARAM, panPos);
-        FMODUnity.RuntimeManager.PlayOneShot(clickSquareEvent, transform.position);
+
+        clickSquareInstance.start();
     }
     public void PlayBattleHorn1()
     {

@@ -41,7 +41,6 @@ public class NormalEnemyAI : IEnemyAI
 
     public override Vector2 DetermineNextLocation()
     {
-        Debug.Log("determining the next location");
         if (nextPossibleLocations.Count <= 0)
         {
             if (currentMissStreak >= maxMiss)

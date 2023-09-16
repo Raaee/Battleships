@@ -7,6 +7,7 @@ public class EnemyAnimationControl : AnimationControl   {
     [SerializeField] [Range(0, 255)] protected byte enemyGeneralDimness = 127;
 
     private GeneralAudio generalAudio;
+    private GameObject cubeObj;
 
     private void Awake()
     {
@@ -29,7 +30,12 @@ public class EnemyAnimationControl : AnimationControl   {
                 explosion.transform.position = target.position;
                // Debug.Log("EXPLOSION!!!!!");
                 FindObjectOfType<CameraShake>().shakeDuration = cameraShakeDuration;
-                generalAudio.PlayGroundShake();
+                var enemyGridManager = FindObjectOfType<PotentialShipPlacement>().GetGridManager();
+                Vector2 cubeV2 = enemyGridManager.GetPositionAtTile(cubeObj);
+
+                if (cubeV2.x < 0) Debug.Log("null baby");
+               
+                generalAudio.PlayGroundShake(cubeV2.x,false);
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
             }
        }       
@@ -41,6 +47,7 @@ public class EnemyAnimationControl : AnimationControl   {
         //Debug.Log("Enemy Start Attack");
         target = attackLoc.transform;
         isAttacking = true;
+        cubeObj = attackLoc;
     }
     public override void ShowTurnIndicator(StateTeam whoseTurn) {
 

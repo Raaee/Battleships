@@ -11,7 +11,7 @@ public class PlayerAnimationControl : AnimationControl   {
     [Header("Events")]
     public UnityEvent OnMissileDestroyed;
     private GeneralAudio generalAudio;
-
+    private GameObject cubeObj;
     private void Awake()
     {
         generalAudio = FindObjectOfType<GeneralAudio>();
@@ -31,7 +31,12 @@ public class PlayerAnimationControl : AnimationControl   {
                 attack.transform.position = attackSpawnLoc.transform.position;
                 explosion.transform.position = target.position;
                 FindObjectOfType<CameraShake>().shakeDuration = cameraShakeDuration;
-                generalAudio.PlayGroundShake();
+                var enemyGridManager = FindObjectOfType<BetterEnemyPlacement>().GetEnemyGridManager();
+                Vector2 cubeV2 = enemyGridManager.GetPositionAtTile(cubeObj);
+
+
+
+                generalAudio.PlayGroundShake(cubeV2.x, true);
                 OnMissileDestroyed?.Invoke();
                 //Debug.Log("EXPLOSION!!!!!");
                 StartCoroutine(RemoveExplosionAfterTime(1.5f));
@@ -46,6 +51,7 @@ public class PlayerAnimationControl : AnimationControl   {
        // Debug.Log("Player Start Attack");
         target = attackLoc.transform;
         isAttacking = true;
+        cubeObj = attackLoc;
     }
     public override void ShowTurnIndicator(StateTeam whoseTurn) {
     
