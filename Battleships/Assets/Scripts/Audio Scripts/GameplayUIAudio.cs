@@ -31,7 +31,6 @@ public class GameplayUIAudio : MonoBehaviour
     public void PlayClickSquare(float xPos)
     {
 
-
         float panPos = ((xPos / 9) * 1);
       
         clickSquareInstance.setParameterByName(CLICK_SQUARE_PAN_PARAM, panPos);

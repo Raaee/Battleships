@@ -8,6 +8,9 @@ public class GeneralAudio : MonoBehaviour
     public FMODUnity.EventReference groundShakeEvent;
     public FMODUnity.EventReference playSetupConfirmedEvent;
 
+    public FMODUnity.EventReference duskmareAttkEvent;
+    public FMODUnity.EventReference luminidAttkEvent;
+
     private FMOD.Studio.EventInstance groundShakeInstance;
     private const String GROUND_SHAKE_PAN_PARAM = "GroundShakePanParam";
 
@@ -18,20 +21,35 @@ public class GeneralAudio : MonoBehaviour
     }
     public void PlayGroundShake(float xPos, bool isPlayerSide)
     {
-        float panPos;
+        float panPos = ((xPos / 9) * 1);
+
+
         if (isPlayerSide)
         {
-             panPos = ((xPos / 9) * 1) - 1;
+            
+            //do nothing
+          
         }
         else
         {
-            panPos = ((xPos / 9) * 1);
+            panPos -= 1;
+            panPos *= -1;
         }
 
 
-        Debug.Log("Pan pos is " + -panPos);
-        groundShakeInstance.setParameterByName(GROUND_SHAKE_PAN_PARAM, -panPos);
+      
+        groundShakeInstance.setParameterByName(GROUND_SHAKE_PAN_PARAM, panPos);
         groundShakeInstance.start();
+    }
+
+    public void PlayDuskmareAttack()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(duskmareAttkEvent, transform.position);
+    }
+
+    public void PlayLuminidAttack()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(luminidAttkEvent, transform.position);
     }
 
     public void PlaySetupConfirmed()

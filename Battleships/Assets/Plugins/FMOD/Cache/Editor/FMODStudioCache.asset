@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638304158875938220
+  lastModified: 638304739437738620
   FileSizes:
   - Name: 
-    Value: 2418
+    Value: 2556
   Exists: 1
 --- !u!114 &-8693609083399141258
 MonoBehaviour:
@@ -117,9 +117,36 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638304158875928255
+  lastModified: 638304739437718679
   FileSizes: []
   Exists: 1
+--- !u!114 &-6873343263410145034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/LuminidAttack
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/LuminidAttack
+  Guid:
+    Data1: -216710331
+    Data2: 1193364197
+    Data3: -730542428
+    Data4: 2113095915
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2499
 --- !u!114 &-6790568330441681934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,12 +479,14 @@ MonoBehaviour:
   - {fileID: 3329630771483649236}
   - {fileID: -6790568330441681934}
   - {fileID: -7917275247724983482}
+  - {fileID: 4607532976320047016}
+  - {fileID: -6873343263410145034}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638304158875938220
+  cacheTime: 638304739437738620
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:
@@ -591,6 +620,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4400
+--- !u!114 &4607532976320047016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/DuskmareAttack
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/DuskmareAttack
+  Guid:
+    Data1: 2075823132
+    Data2: 1259151299
+    Data3: -1042051150
+    Data4: -697360296
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
 --- !u!114 &4665060504092087101
 MonoBehaviour:
   m_ObjectHideFlags: 0

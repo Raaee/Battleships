@@ -52,6 +52,8 @@ public class PlayerAnimationControl : AnimationControl   {
         target = attackLoc.transform;
         isAttacking = true;
         cubeObj = attackLoc;
+        generalAudio.PlayDuskmareAttack();
+
     }
     public override void ShowTurnIndicator(StateTeam whoseTurn) {
     

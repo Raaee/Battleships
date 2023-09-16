@@ -48,6 +48,8 @@ public class EnemyAnimationControl : AnimationControl   {
         target = attackLoc.transform;
         isAttacking = true;
         cubeObj = attackLoc;
+        generalAudio.PlayLuminidAttack();
+
     }
     public override void ShowTurnIndicator(StateTeam whoseTurn) {
 

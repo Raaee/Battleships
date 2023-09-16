@@ -4725,6 +4725,20 @@ MonoBehaviour:
       Data3: -2069736020
       Data4: 1845039195
     Path: event:/Gameplay/Action Gameplay/SpellImpactB
+  duskmareAttkEvent:
+    Guid:
+      Data1: 2075823132
+      Data2: 1259151299
+      Data3: -1042051150
+      Data4: -697360296
+    Path: event:/Gameplay/DuskmareAttack
+  luminidAttkEvent:
+    Guid:
+      Data1: -216710331
+      Data2: 1193364197
+      Data3: -730542428
+      Data4: 2113095915
+    Path: event:/Gameplay/LuminidAttack
 --- !u!1 &1495265155
 GameObject:
   m_ObjectHideFlags: 0
