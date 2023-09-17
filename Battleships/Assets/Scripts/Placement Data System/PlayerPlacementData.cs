@@ -188,7 +188,8 @@ public class PlayerPlacementData : MonoBehaviour
                         pawn.pawnCoords.Remove(pawnCoord);
                         if (pawn.pawnCoords.Count <= 0)
                         {
-                            Debug.Log("other pawn: YOLO");
+                        // Debug.Log("other pawn: YOLO");
+                        FindObjectOfType<GameplayUIAudio>().PlayPawnDeath();
                             OnPawnFullDestroyed?.Invoke();                          
                             pawnsInBattle.Remove(pawn.gameObject);
                             pawn.gameObject.SetActive(false);

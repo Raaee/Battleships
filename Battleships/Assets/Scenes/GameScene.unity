@@ -4692,6 +4692,13 @@ MonoBehaviour:
       Data3: 834404486
       Data4: 1333807562
     Path: event:/Gameplay/UI Gameplay/PlayerTurnRound
+  pawnDeathEvent:
+    Guid:
+      Data1: 1075853304
+      Data2: 1219101121
+      Data3: 1758521527
+      Data4: -325174857
+    Path: event:/Gameplay/Action Gameplay/EnemyDeath
   clickSquareEvent:
     Guid:
       Data1: 1130090394

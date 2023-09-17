@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638304739437738620
+  lastModified: 638304913532968728
   FileSizes:
   - Name: 
-    Value: 2556
+    Value: 2654
   Exists: 1
 --- !u!114 &-8693609083399141258
 MonoBehaviour:
@@ -117,7 +117,7 @@ MonoBehaviour:
   Path: Assets/FMOD Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638304739437718679
+  lastModified: 638304913532958761
   FileSizes: []
   Exists: 1
 --- !u!114 &-6873343263410145034
@@ -280,6 +280,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-4042952158051143649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Action Gameplay/EnemyDeath
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Action Gameplay/EnemyDeath
+  Guid:
+    Data1: 1075853304
+    Data2: 1219101121
+    Data3: 1758521527
+    Data4: -325174857
+  Banks:
+  - {fileID: -7307295950439931081}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-3913295727866594139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,12 +508,13 @@ MonoBehaviour:
   - {fileID: -7917275247724983482}
   - {fileID: 4607532976320047016}
   - {fileID: -6873343263410145034}
+  - {fileID: -4042952158051143649}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7307295950439931081}
   StringsBanks:
   - {fileID: -9029337029367857825}
-  cacheTime: 638304739437738620
+  cacheTime: 638304913532968728
   cacheVersion: 131605
 --- !u!114 &199070378488394818
 MonoBehaviour:

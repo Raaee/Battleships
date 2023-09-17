@@ -14,6 +14,8 @@ public class GameplayUIAudio : MonoBehaviour
     public FMODUnity.EventReference placePawnEvent;
     public FMODUnity.EventReference playerTurnEvent;
 
+    public FMODUnity.EventReference pawnDeathEvent;
+
     public FMODUnity.EventReference clickSquareEvent;
     private FMOD.Studio.EventInstance clickSquareInstance;
     private const string CLICK_SQUARE_PAN_PARAM = "ClickSquarePanParam";
@@ -51,7 +53,10 @@ public class GameplayUIAudio : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot(battleHornWinEvent, transform.position);
     }
-
+    public void PlayPawnDeath()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(pawnDeathEvent, transform.position);
+    }
 
     public void PickUpPawn()
     {

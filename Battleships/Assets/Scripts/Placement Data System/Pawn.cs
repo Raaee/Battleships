@@ -95,7 +95,7 @@ public class Pawn : MonoBehaviour {
         //we show it 
         gameObject.SetActive(true);
         FindObjectOfType<GameplayMusicScript>().IncreaseStageInBattle();
-
+        FindObjectOfType<GameplayUIAudio>().PlayPawnDeath();
         //shake for impact for x seconds
         StartCoroutine(ShakeCoroutine());
         canDoFeedback = false;
