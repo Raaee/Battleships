@@ -22,7 +22,8 @@ public class MainMenu : MonoBehaviour   {
     [SerializeField] GameObject medFire;
     [SerializeField] GameObject hardFire;
 
-    private MainMenuAudio mainMenuAudio; 
+    private MainMenuAudio mainMenuAudio;
+    private bool doubleInteract = false;
 
     private void Start() {
         mainMenuAudio = FindObjectOfType<MainMenuAudio>();
@@ -43,6 +44,11 @@ public class MainMenu : MonoBehaviour   {
     void Update()   {
         if (currentPanel == OnPanel.MAIN_MENU) {
             if (Input.anyKeyDown) {
+                if(doubleInteract == false)
+                {
+                    doubleInteract = true;
+                    return;
+                }
                
                 currentPanel = OnPanel.BUTTONS;
                 DisablePressPlay();
