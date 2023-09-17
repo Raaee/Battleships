@@ -2140,7 +2140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: or itchio comment.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
   m_sharedMaterial: {fileID: 9175482970496519690, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
@@ -4804,8 +4804,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "If you can, please give your thoughts on the game using the feedback form,
-    \n"
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}
   m_sharedMaterial: {fileID: 9175482970496519690, guid: 2be115beffc659b49bf8fbe86523717f, type: 2}

@@ -82,6 +82,7 @@ public class GameplayMusicScript : MonoBehaviour
 
     public void StopGameplayMusic()
     {
+        gameplayMusicInst.setParameterByName(GAMEPLAY_AUDIO_PARAM, 0);
         gameplayMusicInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
